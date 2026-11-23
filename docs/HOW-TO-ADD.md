@@ -6,7 +6,7 @@ Use this every time something new is designed in Figma. Reuse first, build new o
 
 For each new section of a page, in this order:
 
-1. **Understand the content and copy** first. What is the section trying to say?
+1. **Understand the content and copy** first. What is the section trying to say? If the page has no content file, plan the copy from [BRAND-GUIDE.md](BRAND-GUIDE.md) and get it signed off.
 2. **Find an existing section** that fits it (see the library page and [COMPONENTS.md](COMPONENTS.md)). If one fits, use it as is.
 3. **Adapt an existing section** with a modifier class if it is close.
 4. **Build a new one** only if neither works: first the composition of elements, then the section design, using existing tokens and components.

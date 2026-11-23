@@ -133,6 +133,7 @@ Font sizes and the page margin change automatically through the tokens. Section 
 
 | File | Read it when |
 |---|---|
+| [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) | You write or plan copy for a page, especially one with no content file (positioning, audience, offer, voice, page rules, claims) |
 | [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a component, section or page (step by step checklist) |
 | [docs/DESIGN-RULES.md](docs/DESIGN-RULES.md) | You design or build anything new (the Guideline rules in code terms) |
 | [docs/COMPONENTS.md](docs/COMPONENTS.md) | You need a partial's parameters or a class name |

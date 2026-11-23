@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.1.0 · 23 Nov 2026
+
+- Added `docs/BRAND-GUIDE.md`, a text version of the Positioning and Brand Guide for Page Designers (Chintan, 28 Oct 2026), with a short guide for planning pages that have no content file.
+
 ## 1.0.0 · 23 Nov 2026
 
 First release of the coded design system.
