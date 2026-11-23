@@ -1,0 +1,9 @@
+/* SL-41 Filter chips row. Chip styles live in components/chip. */
+.ux-filter-bar {
+  margin-bottom: 40px;
+}
+.ux-filter-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--ux-steel);
+}

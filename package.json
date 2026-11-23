@@ -1,0 +1,15 @@
+{
+  "name": "uxteam-website-ds",
+  "version": "1.0.0",
+  "description": "UXTeam Website 2026 design system: tokens, components, sections and coded pages in plain HTML, CSS and JS.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

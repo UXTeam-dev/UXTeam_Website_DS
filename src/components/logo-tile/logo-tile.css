@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Logo tile
+   White tile 187x80, radius 6, padding 30/44, logo centered (hero strip).
+   Grid variant: hairline cells 120 high, used on the About page.
+   ========================================================================== */
+
+.ux-logo-tile {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 186.67px;
+  height: 80px;
+  padding: 16px 24px;
+  border-radius: var(--ux-radius-tile);
+  background: var(--ux-white);
+}
+
+.ux-logo-tile img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .ux-logo-tile {
+    width: 128px;
+    height: 56px;
+    padding: 10px 16px;
+  }
+}
+
+/* ---- Logo grid (hairline cells) ---- */
+.ux-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: var(--ux-border-hairline);
+}
+
+.ux-logo-grid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  padding: 30px 32px;
+  border-bottom: var(--ux-border-hairline);
+}
+
+.ux-logo-grid__cell:not(:nth-child(6n + 1)) {
+  border-left: var(--ux-border-hairline);
+}
+
+.ux-logo-grid__cell img {
+  max-height: 52px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1199px) {
+  .ux-logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ux-logo-grid__cell:not(:nth-child(6n + 1)) { border-left: 0; }
+  .ux-logo-grid__cell:not(:nth-child(4n + 1)) { border-left: var(--ux-border-hairline); }
+}
+
+@media (max-width: 767px) {
+  .ux-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux-logo-grid__cell { height: 96px; padding: 20px; }
+  .ux-logo-grid__cell:not(:nth-child(4n + 1)) { border-left: 0; }
+  .ux-logo-grid__cell:nth-child(2n) { border-left: var(--ux-border-hairline); }
+}

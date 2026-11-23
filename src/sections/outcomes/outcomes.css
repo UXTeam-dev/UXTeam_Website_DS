@@ -1,0 +1,9 @@
+/* SL-04 + SL-20 Outcomes: section header + 2 up outcome cards (gap 30). */
+.ux-outcomes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ux-gutter);
+}
+@media (max-width: 1199px) {
+  .ux-outcomes__grid { grid-template-columns: 1fr; gap: 24px; }
+}

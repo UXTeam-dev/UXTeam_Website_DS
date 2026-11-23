@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+  Homepage (BP-1). Figma: Final Design Pages, frame 1968:7235
+  Tablet 2599:652, Mobile 2603:652.
+  Built only from components in src/components and sections in src/sections.
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="UXTeam | A UX strategy and design studio for B2B teams" description="Product, web, and app design that starts with finding what's holding growth back." -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" bordered="" -->
+
+  <main>
+    <!-- SL-10 Homepage hero + logo marquee -->
+    <section class="ux-hero-home" aria-labelledby="home-title">
+      <div class="ux-container ux-hero-home__inner">
+        <span class="ux-eyebrow ux-eyebrow--on-dark">A UX strategy and design studio for B2B teams</span>
+        <h1 class="ux-h1-display ux-hero-home__title" id="home-title">We design decisions, not just screens</h1>
+        <p class="ux-hero-home__sub">Product, web, and app design that starts with finding what's holding growth back.</p>
+        <div class="ux-hero-home__cta">
+          <!-- @include components/button/_button.html class="ux-btn--primary ux-btn--on-dark" -->
+        </div>
+        <p class="ux-hero-home__trusted">Trusted by B2B companies worldwide</p>
+      </div>
+      <!-- @include sections/logo-marquee/logo-marquee.html -->
+    </section>
+
+    <!-- SL-04 + SL-20 Outcomes -->
+    <section class="ux-section ux-section--pt-0 ux-section--pb-120" aria-labelledby="outcomes-title" style="margin-top:42px">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head">
+          <span class="ux-eyebrow">Measured results</span>
+          <h2 class="ux-h2 ux-section-header__title" id="outcomes-title">Outcomes we've delivered</h2>
+        </header>
+        <!-- @include sections/outcomes/outcomes.html -->
+      </div>
+    </section>
+
+    <!-- SL-04 + SL-21 + SL-22 Partnerships -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="partners-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head">
+          <span class="ux-eyebrow">Agency owners voices</span>
+          <h2 class="ux-h2 ux-section-header__title" id="partners-title">The partnerships behind the results</h2>
+        </header>
+        <div class="ux-stack" style="--ux-stack-gap: 30px">
+          <!-- @include sections/featured-story/featured-story.html -->
+          <div class="ux-grid ux-grid--3">
+            <!-- @include components/story-card/_story-card.html logo="squaircle.png" logo-w="64" logo-h="64" logo-alt="The Squaircle" title="Premium UX Strategy Partnership for a Digital Product Studio" meta="AI Transformation Studio" place="USA · India" href="success-story-squaircle.html" -->
+            <!-- @include components/story-card/_story-card.html logo="section.svg" logo-w="131" logo-h="44" logo-alt="Section" title="Helping a Digital Transformation Company Scale Design Delivery" meta="Digital Experience Agency" place="Singapore" -->
+            <!-- @include components/story-card/_story-card.html logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi" title="Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership" meta="Digital Experience Agency" place="Dubai" -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SL-30 + SL-31 Our approach + stats, on Warm Glow -->
+    <section class="ux-section ux-approach ux-bg-warm-glow ux-section--pt-100 ux-section--pb-120" aria-labelledby="approach-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">Why choose uxteam</span>
+          <h2 class="ux-h2 ux-section-header__title" id="approach-title">Our approach in the AI era</h2>
+        </header>
+        <div class="ux-principles ux-principles--home">
+          <div class="ux-principle">
+            <p class="ux-principle__label">Use of AI</p>
+            <h3 class="ux-principle__title">AI speeds the work.<br>People make the call.</h3>
+            <p class="ux-principle__body">AI handles first-pass analysis, drafts, and audits at volume. Our people frame the problem, set priorities, and own the recommendation.</p>
+          </div>
+          <div class="ux-principle">
+            <p class="ux-principle__label">Strategy first</p>
+            <h3 class="ux-principle__title">We start with the outcome, not the screen.</h3>
+            <p class="ux-principle__body">We agree the business metric first, diagnose what's blocking it, then design toward it and report against it.</p>
+          </div>
+          <div class="ux-principle">
+            <p class="ux-principle__label">Experienced team</p>
+            <h3 class="ux-principle__title">Senior experts,<br>20+ years deep.</h3>
+            <p class="ux-principle__body">Experienced B2B designers and strategists lead every project, so you get judgment from day one, not a learning curve.</p>
+          </div>
+        </div>
+        <!-- @include components/stat/stat.html -->
+      </div>
+    </section>
+
+    <!-- SL-32 Services (dark band) -->
+    <!-- @include sections/services/services.html -->
+
+    <!-- SL-33 Process -->
+    <section class="ux-section ux-section--pt-160 ux-section--pb-120" aria-labelledby="process-title">
+      <div class="ux-container">
+        <header class="ux-section-header">
+          <span class="ux-eyebrow">How we work</span>
+          <h2 class="ux-h2 ux-section-header__title" id="process-title">From first audit to final result</h2>
+        </header>
+        <!-- @include sections/process/process.html -->
+      </div>
+    </section>
+
+    <!-- SL-34 Industries -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="industries-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--40">
+          <span class="ux-eyebrow">industries we specialise</span>
+          <h2 class="ux-h2 ux-section-header__title" id="industries-title">Industries we design for</h2>
+        </header>
+        <!-- @include components/industry-card/industry-card.html -->
+      </div>
+    </section>
+
+    <!-- SL-35 Engagement models -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="engage-title">
+      <div class="ux-container">
+        <header class="ux-section-header">
+          <span class="ux-eyebrow">ways to work with us</span>
+          <h2 class="ux-h2 ux-section-header__title" id="engage-title">Hire our judgment, not just our hands</h2>
+        </header>
+        <!-- @include sections/engagement/engagement.html -->
+      </div>
+    </section>
+
+    <!-- SL-40 Insights -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="insights-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head">
+          <span class="ux-eyebrow">Insights &amp; Ideas</span>
+          <h2 class="ux-h2 ux-section-header__title" id="insights-title">Start where it makes sense</h2>
+        </header>
+        <div class="ux-grid ux-grid--3">
+          <!-- @include components/blog-card/_blog-card.html category="AI and UX" date="18 Sep 26" title="Where AI fits in a real UX workflow, and where it does not useful for you" image="ai-ux-workflow" href="insight-content-strategy.html" -->
+          <!-- @include components/blog-card/_blog-card.html category="Agency Growth" date="18 Sep 26" title="Why white label design works best for your business growth" image="white-label-growth" -->
+          <!-- @include components/blog-card/_blog-card.html category="Design Systems" date="18 Sep 26" title="Building a design system your client can actually maintain" image="design-system-maintain" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SL-42 FAQ -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-100" aria-labelledby="faq-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">FAQs</span>
+          <h2 class="ux-h2 ux-section-header__title" id="faq-title">What we observe, think, and learn</h2>
+        </header>
+        <!-- @include components/faq/faq.html -->
+      </div>
+    </section>
+
+    <!-- @include sections/booking-cta/booking-cta-home.html -->
+  </main>
+
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

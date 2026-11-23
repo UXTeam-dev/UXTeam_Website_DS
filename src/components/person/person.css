@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Person card (case study hero, client quote, author box)
+   Photo 107 (100 in author box), radius 4.75, on #C1CCDE.
+   Name Aeonik Medium 20/140 | divider | LinkedIn + arrow, role lines Body/18.
+   ========================================================================== */
+
+.ux-person {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.ux-person__photo {
+  position: relative;
+  flex: none;
+  width: 107px;
+  height: 107px;
+  border-radius: 4.75px;
+  overflow: hidden;
+  background: var(--ux-photo-bg);
+}
+
+.ux-person__photo img {
+  position: absolute;
+  inset: auto 0 -4.76px 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ux-person__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ux-person__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.ux-person__name {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.ux-person__divider {
+  width: 1px;
+  height: 16px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.ux-person__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+.ux-person__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ux-person__link svg {
+  width: 12px;
+  height: 12px;
+}
+
+.ux-person__role {
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+}
+
+.ux-person--on-dark {
+  color: var(--ux-white);
+}
+
+@media (max-width: 767px) {
+  .ux-person {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .ux-person__photo {
+    width: 100px;
+    height: 100px;
+  }
+  .ux-person__link {
+    font-size: 14px;
+  }
+}

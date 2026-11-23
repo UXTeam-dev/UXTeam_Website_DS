@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Story card (SL-22)
+   White, 1px Steel, radius 8, padding 40 40 32 40. Logo box 64 high,
+   title Heading/H3 (Ink) clamped to 4 lines, meta 2 lines in Besley,
+   "Read Story" secondary link pinned to the bottom.
+   --compact: the D2C variant with a 25px title (Heading/H3 Small).
+   ========================================================================== */
+
+.ux-story-card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  padding: 40px 40px 32px;
+  border: var(--ux-border-hairline);
+  border-radius: var(--ux-radius-card);
+  background: var(--ux-white);
+  overflow: hidden;
+}
+
+.ux-story-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ux-story-card__logo {
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+
+.ux-story-card__logo img {
+  max-height: 64px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+}
+
+.ux-story-card__title {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ux-ink);
+  min-height: calc(4 * 1.2em);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ux-story-card__meta {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: var(--ux-lh-accent-18);
+  letter-spacing: var(--ux-ls-accent-18);
+  color: var(--ux-charcoal);
+  opacity: 0.8;
+  min-height: 3em;
+}
+
+.ux-story-card .ux-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.ux-story-card--compact .ux-story-card__title {
+  font-size: 25px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  min-height: calc(4 * 1.4em);
+}
+
+@media (max-width: 1199px) {
+  .ux-story-card {
+    padding: 30px 30px 28px;
+    gap: 32px;
+  }
+  .ux-story-card__title,
+  .ux-story-card--compact .ux-story-card__title {
+    font-size: 23px;
+    line-height: 1.2;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-story-card {
+    padding: 26px 26px 24px;
+  }
+  .ux-story-card__logo {
+    height: 48px;
+  }
+  .ux-story-card__logo img {
+    max-height: 48px;
+  }
+}

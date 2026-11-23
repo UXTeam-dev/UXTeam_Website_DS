@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Social link ("Social Media Animation 1 to 3", Figma 1390:223/279/282)
+   40px Ink circle, 20px white glyph. Hover: circle turns white, glyph Ink.
+   Dissolve 300ms ease out.
+   ========================================================================== */
+
+.ux-social {
+  display: flex;
+  gap: 20px;
+}
+
+.ux-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: var(--ux-ink);
+  color: var(--ux-white);
+  transition: background-color var(--ux-motion-card), color var(--ux-motion-card);
+}
+
+.ux-social__link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ux-social__link:hover,
+.ux-social__link:focus-visible {
+  background: var(--ux-white);
+  color: var(--ux-ink);
+}

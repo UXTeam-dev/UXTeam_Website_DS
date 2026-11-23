@@ -1,0 +1,72 @@
+/* ==========================================================================
+   SL-10 Homepage hero (display)
+   On G1 Hero Dusk (homepage stops), 1064 high. Centered stack from y191:
+   eyebrow (white) | H1 Aeonik Regular 90, 840 wide | sub Manrope 26 white,
+   755 wide | Primary on dark | "Trusted by B2B companies worldwide" |
+   logo marquee (white tiles). The next section overlaps the white fade.
+   ========================================================================== */
+
+.ux-hero-home {
+  position: relative;
+  min-height: 1064px;
+  padding-top: 191px;
+  background: var(--ux-gradient-g1-hero-dusk-home);
+  color: var(--ux-white);
+  text-align: center;
+}
+
+.ux-hero-home__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ux-hero-home__title {
+  margin-top: 20px;
+  max-width: 840px;
+  color: var(--ux-white);
+}
+
+.ux-hero-home__sub {
+  margin-top: 20px;
+  max-width: 755px;
+  font-size: var(--ux-fs-body-26);
+  line-height: var(--ux-lh-body-26);
+}
+
+.ux-hero-home__cta {
+  margin-top: 42px;
+}
+
+.ux-hero-home__trusted {
+  margin-top: 102px;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.ux-hero-home .ux-marquee {
+  margin-top: 21px;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-home {
+    min-height: 920px;
+    padding-top: 169px;
+  }
+  .ux-hero-home__title { max-width: 620px; }
+  .ux-hero-home__sub { max-width: 690px; }
+  .ux-hero-home__cta { margin-top: 32px; }
+  .ux-hero-home__trusted { margin-top: 90px; font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-home {
+    min-height: 890px;
+    padding-top: 149px;
+  }
+  .ux-hero-home__title { margin-top: 30px; }
+  .ux-hero-home__sub { margin-top: 18px; }
+  .ux-hero-home__trusted { margin-top: 60px; font-size: 17px; }
+}

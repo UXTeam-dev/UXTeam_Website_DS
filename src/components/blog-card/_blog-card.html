@@ -1,0 +1,14 @@
+<!--
+  Blog card partial (SL-40, component "Blog Card" 1347:24555).
+  Params: category, date, title, image (file name in assets/images/insights without extension), href
+-->
+<a class="ux-blog-card" href="{{href|#}}" data-category="{{category}}">
+  <div class="ux-blog-card__top">
+    <div class="ux-blog-card__meta">
+      <p class="ux-blog-card__meta-text"><span>{{category}}</span><span class="ux-blog-card__dot" aria-hidden="true">•</span><time>{{date}}</time></p>
+      <span class="ux-blog-card__icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+    <h3 class="ux-blog-card__title">{{title}}</h3>
+  </div>
+  <div class="ux-blog-card__cover"><img src="../assets/images/insights/{{image}}.webp" width="336" height="216" alt="" loading="lazy"></div>
+</a>

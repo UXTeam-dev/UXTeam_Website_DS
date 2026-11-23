@@ -1,0 +1,26 @@
+<!--
+  SL-02 Booking card, inner page version (Figma 2099:842, 2099:1319)
+  "Let's talk about what you're building." with a short paragraph.
+  Use booking-cta-home.html on the homepage (heading + 3 proof stats).
+  Insights listing and detail end with the footer only (no booking card).
+-->
+<section class="ux-booking {{mod}}" id="book" aria-labelledby="book-title">
+  <div class="ux-booking__wrap">
+    <div class="ux-booking__card">
+      <!-- @include sections/booking-cta/_founder-photo.html -->
+      <div class="ux-booking__head">
+        <span class="ux-eyebrow">Book a discovery call</span>
+        <h2 class="ux-h2" id="book-title">Let's talk about what you're building.</h2>
+      </div>
+      <div class="ux-booking__body">
+        <div class="ux-booking__founder">
+          <p class="ux-booking__name">Chintan Bhatt <span>Founder, UXTeam</span></p>
+          <span class="ux-booking__rule" aria-hidden="true"></span>
+          <p class="ux-booking__text">Tell us about your product, your website, or the experience you want to improve, and we'll recommend the right place to start.</p>
+        </div>
+        <span class="ux-booking__divider" aria-hidden="true"></span>
+        <!-- @include sections/booking-cta/_form.html id="{{id|inner}}" -->
+      </div>
+    </div>
+  </div>
+</section>

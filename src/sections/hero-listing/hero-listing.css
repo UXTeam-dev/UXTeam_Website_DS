@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SL-11 Listing hero
+   Optional eyebrow, H1 Aeonik Medium 64 (G4 highlight on a word only when
+   it needs attention), sub Manrope 20 #E4F0FF 601 wide, optional Primary on
+   dark. 732 wide, centered at y188. G1 Hero Dusk 810 to 895 high so the
+   next block (featured story or filter chips) overlaps the fade.
+   ========================================================================== */
+
+.ux-hero-listing {
+  position: relative;
+  padding-top: 188px;
+  color: var(--ux-white);
+  text-align: center;
+  background: var(--ux-gradient-g1-hero-dusk) top / 100% var(--ux-hero-bg-height, 895px) no-repeat;
+}
+
+.ux-hero-listing__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.ux-hero-listing__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 732px;
+}
+
+.ux-hero-listing__title {
+  color: var(--ux-white);
+}
+
+.ux-hero-listing__sub {
+  max-width: 601px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-hero-sub);
+}
+
+/* The block that overlaps the fade (featured story, chips) */
+.ux-hero-listing__overlap {
+  margin-top: 112px;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-listing { padding-top: 139px; }
+  .ux-hero-listing { background-size: 100% var(--ux-hero-bg-height-tablet, 509px); }
+  .ux-hero-listing__overlap { margin-top: 64px; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-listing { padding-top: 129px; }
+  .ux-hero-listing__text { gap: 20px; }
+  .ux-hero-listing { background-size: 100% var(--ux-hero-bg-height-mobile, 509px); }
+  .ux-hero-listing__overlap { margin-top: 48px; }
+}

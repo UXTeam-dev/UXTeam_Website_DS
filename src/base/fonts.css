@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Fonts
+   Aeonik   headings, buttons, card titles      (commercial, add licensed files)
+   Manrope  body, nav, labels, inputs           (SIL OFL, self hosted)
+   Besley   eyebrows, meta, numerals, quotes    (SIL OFL, self hosted)
+
+   Paths are relative to dist/css/uxteam.css.
+   ========================================================================== */
+
+/* Aeonik. Drop the licensed web files into assets/fonts/aeonik/ with these names. */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../assets/fonts/aeonik/Aeonik-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../assets/fonts/aeonik/Aeonik-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/manrope/manrope-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/manrope/manrope-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/manrope/manrope-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Besley';
+  src: url('../assets/fonts/besley/besley-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Besley';
+  src: url('../assets/fonts/besley/besley-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Besley';
+  src: url('../assets/fonts/besley/besley-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Besley';
+  src: url('../assets/fonts/besley/besley-latin-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}

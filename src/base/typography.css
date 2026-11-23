@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Typography
+   One class per Figma text style. Sizes switch per breakpoint through the
+   tokens, so the same class works on desktop, tablet and mobile.
+
+   Rule of thumb (DS 03, DS 04):
+   Aeonik  -> headings, titles, button labels
+   Manrope -> body, nav, labels, inputs
+   Besley  -> eyebrows, meta, labels, numerals, quotes. Never headings or body.
+   ========================================================================== */
+
+.ux-h1-display,
+.ux-h1,
+.ux-h2,
+.ux-h2-related,
+.ux-h3,
+.ux-h3-small {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  color: var(--ux-navy);
+  text-wrap: balance;
+}
+
+/* Heading/H1/Regular. Homepage display H1 and the About hero. */
+.ux-h1-display {
+  font-weight: var(--ux-weight-regular);
+  font-size: var(--ux-fs-h1-display);
+  line-height: var(--ux-lh-h1-display);
+  letter-spacing: var(--ux-ls-h1-display);
+}
+
+/* Inner page H1, Aeonik Medium 64 (decided 18 Nov 2026). */
+.ux-h1 {
+  font-size: var(--ux-fs-h1);
+  line-height: var(--ux-lh-h1);
+  letter-spacing: var(--ux-ls-h1);
+}
+
+/* Heading/H2/Medium */
+.ux-h2 {
+  font-size: var(--ux-fs-h2);
+  line-height: var(--ux-lh-h2);
+  letter-spacing: var(--ux-ls-h2);
+}
+
+/* "Other success stories", "Other insights" */
+.ux-h2-related {
+  font-size: var(--ux-fs-h2-related);
+  line-height: var(--ux-lh-h2-related);
+  color: var(--ux-ink);
+}
+
+/* Heading/H3/Medium */
+.ux-h3 {
+  font-size: var(--ux-fs-h3);
+  line-height: var(--ux-lh-h3);
+  letter-spacing: var(--ux-ls-h3);
+}
+
+/* Heading/H3 Small/Medium */
+.ux-h3-small {
+  font-size: var(--ux-fs-h3-small);
+  line-height: var(--ux-lh-h3-small);
+}
+
+/* G4 highlight. Use on a word or short phrase only, never by default. */
+.ux-highlight {
+  background: var(--ux-gradient-g4-aqua-peach);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Body */
+.ux-body-26 { font-size: var(--ux-fs-body-26); line-height: var(--ux-lh-body-26); }
+.ux-body-20 { font-size: var(--ux-fs-body-20); line-height: var(--ux-lh-body-20); }
+.ux-body-18 { font-size: var(--ux-fs-body-18); line-height: var(--ux-lh-body-18); }
+.ux-body-16 { font-size: var(--ux-fs-body-16); line-height: var(--ux-lh-body-16); }
+
+.ux-body-26,
+.ux-body-20,
+.ux-body-18,
+.ux-body-16 {
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-regular);
+}
+
+/* Label/16/SemiBold */
+.ux-label {
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-semibold);
+  font-size: var(--ux-fs-label-16);
+  line-height: var(--ux-lh-label-16);
+}
+
+/* Accent/18/Medium. Meta lines, step labels, group labels, Q. and A. */
+.ux-accent {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: var(--ux-lh-accent-18);
+  letter-spacing: var(--ux-ls-accent-18);
+}
+
+/* Meta text sits at 80% on the approved pages */
+.ux-accent--muted {
+  opacity: 0.8;
+}
+
+/* Rich text block (articles, case study copy). Paragraph gap 16. */
+.ux-prose > * + * {
+  margin-top: var(--ux-space-16);
+}
+.ux-prose p {
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+/* Color helpers */
+.ux-text-navy { color: var(--ux-navy); }
+.ux-text-ink { color: var(--ux-ink); }
+.ux-text-charcoal { color: var(--ux-charcoal); }
+.ux-text-steel { color: var(--ux-steel); }
+.ux-text-white { color: var(--ux-white); }
+.ux-text-center { text-align: center; }
+
+.ux-sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

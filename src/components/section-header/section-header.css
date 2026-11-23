@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Section header (SL-04)
+   Eyebrow, H2, optional intro. Centered. Eyebrow to title 10, title to
+   intro 16. Starts every homepage and listing section.
+   ========================================================================== */
+
+.ux-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-inline: auto;
+  max-width: 1000px;
+}
+
+.ux-section-header__title {
+  /* uses .ux-h2 */
+  margin: 0;
+}
+
+.ux-section-header__intro {
+  margin-top: 6px; /* 10 + 6 = 16 between title and intro */
+  max-width: 777px;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+}
+
+.ux-section-header--on-dark .ux-section-header__title {
+  color: var(--ux-white);
+}
+.ux-section-header--on-dark .ux-section-header__intro {
+  color: var(--ux-mist);
+}
+
+/* Left aligned variant for detail pages */
+.ux-section-header--start {
+  align-items: flex-start;
+  text-align: left;
+  margin-inline: 0;
+}

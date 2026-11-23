@@ -1,0 +1,70 @@
+/* ==========================================================================
+   SL-13 Article hero
+   Meta "Category • Date" (Manrope 20) | 16 | H1 64 centered (1056) |
+   32 | optional outline tags | 64 | cover 1200 x 550, radius 8.
+   The cover sits across the G1 fade (1000 high).
+   ========================================================================== */
+
+.ux-hero-article {
+  padding: 192px 0 0;
+  color: var(--ux-white);
+  text-align: center;
+  background: var(--ux-gradient-g1-hero-dusk) top / 100% 1000px no-repeat;
+}
+
+.ux-hero-article__meta {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+.ux-hero-article__title {
+  max-width: 1056px;
+  margin: 16px auto 0;
+  color: var(--ux-white);
+  font-weight: var(--ux-weight-medium);
+}
+
+.ux-hero-article__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.ux-hero-article__cover {
+  margin-top: 64px;
+  border-radius: var(--ux-radius-card);
+  overflow: hidden;
+  aspect-ratio: 1200 / 550;
+  background: #1c2a35;
+}
+
+.ux-hero-article__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-article { padding-top: 129px; background-size: 100% 760px; }
+  .ux-hero-article__cover { margin-top: 48px; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-article { padding-top: 120px; background-size: 100% 560px; }
+  .ux-hero-article__cover { margin-top: 32px; aspect-ratio: 4 / 3; }
+}
+
+/* No tablet or mobile frames yet for the article hero. Title sizes follow
+   the Success Story detail frames (40 tablet, 32 mobile) for consistency. */
+@media (max-width: 1199px) {
+  .ux-hero-article__title { font-size: 40px; line-height: 1.2; }
+  .ux-hero-article__title br { display: none; }
+}
+@media (max-width: 767px) {
+  .ux-hero-article__title { font-size: 32px; }
+}

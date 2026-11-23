@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Chips and tags
+   Filter chip (SL-41): pill, padding 10/20, Label/16/SemiBold.
+     Active: white fill, Charcoal text.
+     Inactive: white 20% fill, 1px #ACB5C2, white text. Sits on a dark fade.
+   Tag (article hero): outline #516076, padding 8/20, white text.
+   Industry tag (case study): 24px outline icon + Body/20.
+   ========================================================================== */
+
+.ux-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ux-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--ux-stroke-soft);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--ux-white);
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-semibold);
+  font-size: var(--ux-fs-label-16);
+  line-height: var(--ux-lh-label-16);
+  white-space: nowrap;
+  transition: background-color var(--ux-motion-card), color var(--ux-motion-card);
+}
+
+.ux-chip:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.ux-chip.is-active,
+.ux-chip[aria-pressed='true'] {
+  background: var(--ux-white);
+  border-color: var(--ux-white);
+  color: var(--ux-charcoal);
+}
+
+/* Chips on a light surface (tablet, mobile listing) */
+.ux-chip--on-light {
+  background: var(--ux-white);
+  color: var(--ux-charcoal);
+}
+.ux-chip--on-light.is-active,
+.ux-chip--on-light[aria-pressed='true'] {
+  background: var(--ux-navy);
+  border-color: var(--ux-navy);
+  color: var(--ux-white);
+}
+
+@media (max-width: 767px) {
+  .ux-chip-row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-inline: var(--ux-page-margin);
+    margin-inline: calc(-1 * var(--ux-page-margin));
+  }
+  .ux-chip-row::-webkit-scrollbar { display: none; }
+}
+
+/* Tag (outline) */
+.ux-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--ux-stroke-tag);
+  color: var(--ux-white);
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-semibold);
+  font-size: var(--ux-fs-label-16);
+  line-height: var(--ux-lh-label-16);
+}
+
+/* Industry tag with icon */
+.ux-icon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-charcoal);
+}
+.ux-icon-tag img {
+  width: 24px;
+  height: 24px;
+}
+.ux-icon-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 30px;
+}

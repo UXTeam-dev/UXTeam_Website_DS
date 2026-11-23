@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Service card (dark, "Service Cards" 1231:46)
+   On G2 Deep Navy. No fill, 1px gradient stroke (Aqua to Peach), radius 8,
+   padding 34 43 32 43. Title Aeonik Medium 30 white, body Manrope 20 white,
+   optional secondary link (on dark).
+   Hover: soft slate wash fades in (Dissolve 300ms ease out).
+   Cards in a stack overlap by 1px so the borders merge.
+   ========================================================================== */
+
+.ux-service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  padding: 34px 43px 32px;
+  border-radius: var(--ux-radius-card);
+  color: var(--ux-white);
+  isolation: isolate;
+}
+
+/* Gradient stroke */
+.ux-service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #FEDFBA 0%, #6F7680 45%, #A9FBFF 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+/* Hover wash */
+.ux-service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background: var(--ux-gradient-service-card-hover);
+  opacity: 0;
+  transition: opacity var(--ux-motion-card);
+}
+
+.ux-service-card:hover::after,
+.ux-service-card:focus-within::after {
+  opacity: 1;
+}
+
+.ux-service-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.ux-service-card__title {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ux-service-card__body {
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+.ux-service-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.ux-service-stack > .ux-service-card + .ux-service-card {
+  margin-top: -1px;
+}
+
+@media (max-width: 1199px) {
+  .ux-service-card {
+    padding: 30px 30px 28px;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-service-card {
+    padding: 20px 18px;
+    gap: 14px;
+  }
+  .ux-service-card__title {
+    font-size: 22px;
+  }
+  .ux-service-card__body {
+    font-size: 16px;
+  }
+}

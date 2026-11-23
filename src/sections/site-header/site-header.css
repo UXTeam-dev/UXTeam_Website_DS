@@ -1,0 +1,197 @@
+/* ==========================================================================
+   SL-01 Site header
+   1440 x 92 bar over the hero. Logo 156 x 38 at x120. Nav centered:
+   Manrope 16, gap 28, caret 18 (gap 6). CTA at the right edge.
+   Dark: white text, Glass CTA. Light: Navy text, Primary CTA.
+   Inner pages add a 1px white 12% bottom line (.ux-header--bordered).
+   Tablet and mobile: 70 high, logo 123 x 30, hamburger. Mobile shows the
+   compact "Book a Call" glass button next to the menu.
+   ========================================================================== */
+
+.ux-header {
+  position: absolute;
+  z-index: 40;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: var(--ux-white);
+}
+
+.ux-header__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--ux-header-height);
+}
+
+.ux-header--bordered::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--ux-header-height);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ux-header__logo {
+  display: block;
+  flex: none;
+}
+
+.ux-header__logo img {
+  width: 156px;
+  height: 38px;
+}
+
+.ux-header__logo-dark {
+  display: none;
+}
+
+/* Nav */
+.ux-nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ux-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.ux-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ux-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: inherit;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity var(--ux-motion-fade);
+}
+
+.ux-nav__link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--ux-motion-fade);
+}
+
+.ux-nav__link:hover {
+  opacity: 0.75;
+}
+
+.ux-nav__link[aria-expanded='true'] svg {
+  transform: rotate(180deg);
+}
+
+.ux-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ux-header__cta-short {
+  display: none;
+}
+
+.ux-header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 30px;
+  padding: 0 4px;
+}
+
+.ux-header__toggle span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--ux-motion-fade), opacity var(--ux-motion-fade);
+}
+
+.ux-header__toggle[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ux-header__toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.ux-header__toggle[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Light theme (About page) */
+.ux-header--light {
+  color: var(--ux-navy);
+}
+.ux-header--light .ux-header__logo-light { display: none; }
+.ux-header--light .ux-header__logo-dark { display: block; }
+.ux-header--light.ux-header--bordered::after { background: rgba(111, 118, 128, 0.25); }
+
+/* Mobile panel */
+.ux-mobile-nav {
+  padding: 8px var(--ux-page-margin) 32px;
+  background: var(--ux-ink);
+  color: var(--ux-white);
+}
+
+.ux-mobile-nav[hidden] {
+  display: none;
+}
+
+.ux-mobile-nav__list {
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.ux-mobile-nav__list a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+@media (max-width: 1199px) {
+  .ux-nav,
+  .ux-header__cta {
+    display: none;
+  }
+  .ux-header__toggle {
+    display: flex;
+  }
+  .ux-header__logo img {
+    width: 123px;
+    height: 30px;
+  }
+  .ux-header__bar {
+    padding-inline: 40px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-header__bar {
+    padding-inline: 15px;
+  }
+  .ux-header__cta {
+    display: inline-flex;
+    min-height: 48px;
+    padding-block: 10px;
+  }
+  .ux-header__cta-full { display: none; }
+  .ux-header__cta-short { display: inline; }
+}
+
+/* Menu open on small screens: solid bar so the panel reads as one surface */
+.ux-header.is-menu-open {
+  background: var(--ux-ink);
+  color: var(--ux-white);
+}
+.ux-header.is-menu-open .ux-header__logo-light { display: block; }
+.ux-header.is-menu-open .ux-header__logo-dark { display: none; }

@@ -1,0 +1,18 @@
+<!-- Booking form. Three fields, then the Calendly booking page (set data-calendly on the form). -->
+<form class="ux-booking__form ux-form" action="#" method="post" novalidate data-ux-booking data-calendly="">
+  <div class="ux-field">
+    <label class="ux-field__label" for="book-name-{{id|a}}">Full name</label>
+    <input class="ux-field__input" id="book-name-{{id|a}}" name="name" type="text" autocomplete="name" placeholder="John Anderson">
+  </div>
+  <div class="ux-field">
+    <label class="ux-field__label" for="book-email-{{id|a}}">Work email*</label>
+    <input class="ux-field__input" id="book-email-{{id|a}}" name="email" type="email" autocomplete="email" placeholder="johna@agencywebsite.com" required>
+    <p class="ux-field__error">Please enter a valid work email.</p>
+  </div>
+  <div class="ux-field ux-field--full">
+    <label class="ux-field__label" for="book-site-{{id|a}}">Company website</label>
+    <input class="ux-field__input" id="book-site-{{id|a}}" name="website" type="url" autocomplete="url" placeholder="www.agencywebsite.com">
+  </div>
+  <button class="ux-btn ux-btn--primary ux-form__submit" type="submit"><span class="ux-btn__label">Book a Discovery Call</span><!-- @include components/button/_icon.html --></button>
+  <p class="ux-form__status" role="status" aria-live="polite"></p>
+</form>

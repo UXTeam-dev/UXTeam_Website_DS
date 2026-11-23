@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Table of contents (SL-50) and floating section menu
+   Desktop: 210 wide rail at x120, sticky while its detail section is on
+   screen, then it scrolls away with the content.
+   Title Manrope 16 Steel. Tabs Manrope 16 Charcoal, gap 12, 0.5px Steel
+   30% separators. Active tab: SemiBold, "→", 1px #111 separator.
+   Tablet and mobile: the rail is replaced by a floating pill menu at the
+   bottom of the screen that opens a list of the sections.
+   ========================================================================== */
+
+.ux-toc {
+  position: sticky;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 60px;
+}
+
+.ux-toc__title {
+  font-size: var(--ux-fs-body-16);
+  line-height: var(--ux-lh-body-16);
+  color: var(--ux-steel);
+}
+
+.ux-toc__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-toc__item + .ux-toc__item {
+  padding-top: 12px;
+  border-top: 0.5px solid rgba(111, 118, 128, 0.3);
+}
+
+.ux-toc__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--ux-fs-body-16);
+  line-height: var(--ux-lh-body-16);
+  color: var(--ux-charcoal);
+  transition: color var(--ux-motion-fade);
+}
+
+.ux-toc__link::after {
+  content: '→';
+  margin-left: auto;
+  font-family: var(--ux-font-heading);
+  font-size: 17px;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity var(--ux-motion-fade), transform var(--ux-motion-fade);
+}
+
+.ux-toc__link:hover {
+  color: var(--ux-navy);
+}
+
+.ux-toc__link.is-active {
+  font-weight: var(--ux-weight-semibold);
+}
+
+.ux-toc__link.is-active::after {
+  opacity: 1;
+  transform: none;
+}
+
+/* The separator under the active tab turns dark */
+.ux-toc__item.is-active + .ux-toc__item {
+  border-top: 1px solid var(--ux-toc-active);
+}
+
+/* ---- Floating section menu (tablet, mobile) ---- */
+.ux-section-menu {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .ux-toc {
+    display: none;
+  }
+
+  .ux-section-menu {
+    position: fixed;
+    z-index: 50;
+    left: 50%;
+    bottom: 20px;
+    display: block;
+    width: min(528px, calc(100% - 2 * var(--ux-page-margin) - 30px));
+    transform: translate(-50%, 140%);
+    transition: transform 400ms var(--ux-motion-accordion);
+  }
+
+  .ux-section-menu.is-visible {
+    transform: translate(-50%, 0);
+  }
+
+  .ux-section-menu__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px 0 18px;
+    border: 1px solid var(--ux-stroke-menu);
+    border-radius: 28px;
+    background: var(--ux-white);
+    box-shadow: var(--ux-shadow-floating-menu);
+    font-family: var(--ux-font-body);
+    font-weight: var(--ux-weight-medium);
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--ux-charcoal);
+  }
+
+  .ux-section-menu__toggle svg {
+    width: 14px;
+    height: 8px;
+    transition: transform 300ms ease;
+  }
+
+  .ux-section-menu.is-open .ux-section-menu__toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .ux-section-menu__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(100% + 8px);
+    max-height: 60vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 8px;
+    list-style: none;
+    border: 1px solid var(--ux-stroke-menu);
+    border-radius: 16px;
+    background: var(--ux-white);
+    box-shadow: var(--ux-shadow-floating-menu);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 250ms ease, transform 250ms ease, visibility 250ms;
+  }
+
+  .ux-section-menu.is-open .ux-section-menu__list {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .ux-section-menu__list a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--ux-charcoal);
+  }
+
+  .ux-section-menu__list a.is-active,
+  .ux-section-menu__list a:hover {
+    background: var(--ux-mist);
+    font-weight: var(--ux-weight-semibold);
+  }
+}

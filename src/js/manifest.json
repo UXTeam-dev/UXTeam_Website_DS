@@ -1,0 +1,11 @@
+[
+  "js/core.js",
+  "sections/site-header/site-header.js",
+  "components/faq/faq.js",
+  "components/industry-card/industry-card.js",
+  "components/toc/toc.js",
+  "components/video-card/video-card.js",
+  "sections/logo-marquee/logo-marquee.js",
+  "sections/filter-bar/filter-bar.js",
+  "sections/booking-cta/booking-cta.js"
+]

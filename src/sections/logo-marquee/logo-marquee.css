@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Logo marquee (part of SL-10)
+   White logo tiles, gap 16, running past the right edge. Scrolls slowly
+   and pauses on hover. Respects reduced motion (stays still).
+   ========================================================================== */
+
+.ux-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-left: max(var(--ux-page-margin), calc((100% - 1200px) / 2));
+}
+
+.ux-marquee__track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: ux-marquee var(--ux-marquee-duration, 45s) linear infinite;
+}
+
+.ux-marquee:hover .ux-marquee__track {
+  animation-play-state: paused;
+}
+
+.ux-marquee__group {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@keyframes ux-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 8px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-marquee__track { animation: none; }
+}

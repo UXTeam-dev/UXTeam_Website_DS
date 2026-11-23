@@ -1,0 +1,15 @@
+<!--
+  Person card partial (case study hero, client quote). Default person: Saravanan Vijayakumar.
+  Params: mod ("ux-person--on-dark" on dark heroes), name, photo, linkedin, role1, role2, role3
+-->
+<div class="ux-person {{mod}}">
+  <div class="ux-person__photo"><img src="../assets/images/people/{{photo|saravanan-vijayakumar}}.webp" width="107" height="107" alt="" loading="lazy"></div>
+  <div class="ux-person__body">
+    <div class="ux-person__head">
+      <p class="ux-person__name">{{name|Saravanan Vijayakumar}}</p>
+      <span class="ux-person__divider" aria-hidden="true"></span>
+      <a class="ux-person__link" href="{{linkedin|#}}" target="_blank" rel="noopener">LinkedIn<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1 11L10 2M10 9.3125V2H2.6875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <p class="ux-person__role">{{role1|Founder and CEO,}}<br>{{role2|Squaircle · AI Transformation Studio}}<br>{{role3|USA · India}}</p>
+  </div>
+</div>

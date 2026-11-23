@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Eyebrow  (Eyebrow/14/Medium + 2px Accent/Sky line)
+   Besley Medium 14, uppercase, +8% tracking. The line always matches the
+   text width and sits 5px below it (DS 04, decided 19 Nov 2026).
+   ========================================================================== */
+
+.ux-eyebrow {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  width: max-content;
+  max-width: 100%;
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-eyebrow-14);
+  line-height: var(--ux-lh-eyebrow-14);
+  letter-spacing: var(--ux-ls-eyebrow-14);
+  text-transform: uppercase;
+  color: var(--ux-charcoal);
+  text-align: center;
+}
+
+.ux-eyebrow::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--ux-sky);
+}
+
+.ux-eyebrow--on-dark {
+  color: var(--ux-white);
+}

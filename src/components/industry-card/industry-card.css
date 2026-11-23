@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Industry cards (SL-34, components "Industry Card 1 to 4")
+   A row of 4 image tiles (377 high, radius 8). One tile is open (437 wide),
+   the others are closed (224). Hovering or focusing a closed tile opens it
+   and closes the open one. Smart animate 450ms ease in and out.
+   Under each tile: title Aeonik Medium 30 + arrow circle, a hairline, and
+   (open tile only) a short description + project count.
+
+   Tablet: 2 x 2 grid, every description shown. Mobile: one column.
+   Per tile set --focus (object-position of the image when closed).
+   ========================================================================== */
+
+.ux-industries {
+  display: flex;
+  gap: var(--ux-gutter);
+  width: 100%;
+}
+
+.ux-industry {
+  --focus: 25% 50%;
+  flex: 224 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: var(--ux-navy);
+  transition: flex-grow var(--ux-motion-industry);
+}
+
+.ux-industry.is-open {
+  flex-grow: 437;
+}
+
+.ux-industry__image {
+  position: relative;
+  height: 377px;
+  border-radius: var(--ux-radius-card);
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.ux-industry__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focus);
+  transition: object-position var(--ux-motion-industry), transform 700ms ease;
+}
+
+.ux-industry.is-open .ux-industry__image img {
+  object-position: 50% 50%;
+}
+
+.ux-industry__content {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.ux-industry__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ux-industry__title {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.ux-industry .ux-btn__icon {
+  opacity: 0.3;
+  transition: opacity var(--ux-motion-industry);
+}
+
+.ux-industry.is-open .ux-btn__icon {
+  opacity: 1;
+}
+
+.ux-industry__rule {
+  height: 1px;
+  background: var(--ux-steel);
+}
+
+.ux-industry__desc {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  width: 437px;
+  max-width: 100%;
+  color: var(--ux-navy);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--ux-motion-industry), visibility var(--ux-motion-industry);
+}
+
+.ux-industry.is-open .ux-industry__desc {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ux-industry__desc p {
+  flex: 1;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+}
+
+.ux-industry__count {
+  flex: none;
+  text-align: right;
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ux-industry__count strong {
+  display: block;
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+}
+
+.ux-industry__count span {
+  font-size: 18px;
+}
+
+/* Whole tile is a link */
+.ux-industry__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+@media (max-width: 1199px) {
+  .ux-industries {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 50px 24px;
+  }
+  .ux-industry__image {
+    height: 300px;
+  }
+  .ux-industry__image img,
+  .ux-industry.is-open .ux-industry__image img {
+    object-position: 50% 50%;
+  }
+  .ux-industry .ux-btn__icon {
+    opacity: 1;
+  }
+  .ux-industry__desc {
+    width: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-industries {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ux-industry__title {
+    font-size: 22px;
+  }
+}

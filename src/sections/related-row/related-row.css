@@ -1,0 +1,5 @@
+/* SL-60 Related items row: heading 48 to 50 Ink, 40 gap, 3 cards, 120 padding. */
+.ux-related__title {
+  text-align: center;
+  margin-bottom: 40px;
+}

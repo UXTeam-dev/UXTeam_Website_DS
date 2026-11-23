@@ -1,0 +1,145 @@
+/* ==========================================================================
+   FAQ (components "FAQ Item" 2615:775 and "FAQ List" 2616:1602)
+   One open at a time per list. Clicking a closed row opens it and closes
+   the open row. Clicking the open row closes it.
+   Panel height eases 420ms cubic-bezier(.25,.8,.25,1); answer fades 300ms;
+   plus turns into minus in 300ms.
+
+   List: group label (Besley 18, 80%), 18 gap, 4px G4 rule, rows.
+   Row: question Aeonik Medium 25/140 Ink + 24px icon, padding 22 0.
+   Answer: Manrope 18/160 Charcoal, padding-right 32, bottom 22.
+   Divider 1px Steel between rows (none after the last row).
+   ========================================================================== */
+
+.ux-faq-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 553px));
+  justify-content: space-between;
+  gap: 50px 94px;
+}
+
+.ux-faq {
+  display: flex;
+  flex-direction: column;
+}
+
+.ux-faq__label {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: 27px;
+  letter-spacing: var(--ux-ls-accent-18);
+  color: var(--ux-ink);
+  opacity: 0.8;
+}
+
+.ux-faq__rule {
+  height: 4px;
+  margin-top: 18px;
+  background: var(--ux-gradient-g4-rule);
+}
+
+.ux-faq__item {
+  border-bottom: 1px solid var(--ux-steel);
+}
+
+.ux-faq__item:last-child {
+  border-bottom: 0;
+}
+
+.ux-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 22px 0;
+  text-align: left;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-h3-small);
+  line-height: var(--ux-lh-h3-small);
+  color: var(--ux-ink);
+}
+
+.ux-faq__icon {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.ux-faq__icon::before,
+.ux-faq__icon::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ux-ink);
+  transition: transform 300ms ease;
+}
+
+.ux-faq__icon::after {
+  transform: rotate(90deg);
+}
+
+.ux-faq__item.is-open .ux-faq__icon::after {
+  transform: rotate(0deg);
+}
+
+.ux-faq__panel {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--ux-motion-accordion);
+}
+
+.ux-faq__item.is-open .ux-faq__panel {
+  height: auto; /* JS animates the exact height; this is the no-JS fallback */
+}
+
+.ux-faq__answer {
+  padding: 0 32px 22px 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.ux-faq__item.is-open .ux-faq__answer {
+  opacity: 1;
+}
+
+/* Single column variant (About page, 850 wide) */
+.ux-faq--single {
+  max-width: 850px;
+  margin-inline: auto;
+}
+.ux-faq--single .ux-faq__question {
+  padding: 18px 0;
+  color: var(--ux-navy);
+}
+.ux-faq--single .ux-faq__item:first-child .ux-faq__question {
+  padding-top: 0;
+}
+
+@media (max-width: 1199px) {
+  .ux-faq-groups {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-faq__question {
+    font-size: 20px;
+    padding: 18px 0;
+  }
+  .ux-faq__answer {
+    padding-right: 0;
+    font-size: 16px;
+  }
+}

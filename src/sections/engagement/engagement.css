@@ -1,0 +1,68 @@
+/* ==========================================================================
+   SL-35 Engagement models (3 columns of 350, gap 74)
+   Label Besley 18 (80%) | 18 | title 30 | 18 | hairline | 18 |
+   description 20 | 26 | secondary link.
+   ========================================================================== */
+
+.ux-engage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 350px));
+  justify-content: space-between;
+  gap: 40px 74px;
+  margin-top: 70px;
+}
+
+.ux-engage__item {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ux-engage__label {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: var(--ux-lh-accent-18);
+  letter-spacing: var(--ux-ls-accent-18);
+  opacity: 0.8;
+}
+
+.ux-engage__title {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ux-navy);
+}
+
+.ux-engage__rule {
+  height: 1px;
+  background: var(--ux-steel);
+}
+
+.ux-engage__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+}
+
+.ux-engage__body {
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+@media (max-width: 1199px) {
+  .ux-engage {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .ux-engage__body { font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  .ux-engage { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+  .ux-engage__title { font-size: 22px; }
+}

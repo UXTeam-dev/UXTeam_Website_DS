@@ -1,0 +1,136 @@
+/* ==========================================================================
+   The team (About, Figma 2516:15041)
+   Group photo (826 high) with dark washes, white section header on top.
+   Below on Ink to Navy: "Leadership team" (Aeonik Medium 40) and three
+   leader cut outs with name (Aeonik Regular 30) and role (Manrope 20).
+   ========================================================================== */
+
+.ux-team {
+  position: relative;
+  background: linear-gradient(180deg, #0D1315 0%, #0D1315 60%, rgba(10, 27, 51, 0.9) 100%);
+  color: var(--ux-white);
+  overflow: hidden;
+}
+
+.ux-team__photo {
+  position: relative;
+  height: 826px;
+}
+
+.ux-team__photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.ux-team__photo::before,
+.ux-team__photo::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+
+/* Overall wash + top wash for the header text */
+.ux-team__photo::before {
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 20, 22, 0.3) 0%, rgba(14, 20, 22, 0.3) 20%, rgba(14, 20, 22, 0) 51%),
+    linear-gradient(180deg, rgba(13, 19, 21, 0.72) 0%, rgba(13, 19, 21, 0.18) 55%, rgba(13, 19, 21, 0.9) 100%);
+}
+
+/* Fade into the leadership band */
+.ux-team__photo::after {
+  bottom: 0;
+  height: 234px;
+  background: linear-gradient(180deg, rgba(13, 21, 26, 0) 0%, rgba(13, 19, 21, 0.95) 57.7%, #0D1315 87.5%);
+}
+
+.ux-team__head {
+  position: absolute;
+  z-index: 2;
+  top: 106px;
+  left: 0;
+  right: 0;
+}
+
+.ux-team__leaders {
+  position: relative;
+  z-index: 2;
+  margin-top: -14px;
+  padding-bottom: 0;
+}
+
+.ux-team__leaders-title {
+  text-align: center;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ux-leaders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin: 50px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-leader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ux-leader__name {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-regular);
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ux-leader__role {
+  margin-top: 2px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+.ux-leader__photo {
+  margin-top: 22px;
+  width: 380px;
+  max-width: 100%;
+  height: 392px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+@media (max-width: 1199px) {
+  .ux-team__photo { height: 640px; }
+  .ux-team__head { top: 100px; }
+  .ux-leader__photo { height: 280px; }
+  .ux-leader__name { font-size: 24px; }
+  .ux-leader__role { font-size: 16px; }
+}
+
+@media (max-width: 767px) {
+  /* No mobile frame yet: the header sits above the photo on Ink so it
+     stays readable, and the photo keeps the group in view. */
+  .ux-team__photo { height: auto; display: flex; flex-direction: column; }
+  .ux-team__head { position: relative; top: auto; order: -1; padding: 60px 0 32px; }
+  .ux-team__photo > img { position: relative; height: 300px; }
+  .ux-team__photo::before { display: none; }
+  .ux-team__photo::after { height: 90px; }
+  .ux-team__photo > img { object-position: center 70%; }
+  .ux-team__leaders-title { font-size: 30px; }
+  .ux-leaders { grid-template-columns: 1fr; gap: 40px; }
+  .ux-leader__photo { height: 320px; }
+}

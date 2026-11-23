@@ -1,0 +1,105 @@
+/* ==========================================================================
+   SL-33 Process steps (5 step horizontal)
+   5 columns of 211 (gap 36). Line icon (G4 accent) with a connector
+   hairline to the next step, numbered label (Besley 18, 70%), title 30,
+   body 20. Tablet: 2 columns. Mobile: vertical list with small icons.
+   ========================================================================== */
+
+.ux-process {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 36px;
+  margin: 79px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ux-step__icon {
+  width: 72px;
+  height: 68px;
+  margin-top: -8px;
+}
+
+.ux-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 81px;
+  right: -34px;
+  height: 1px;
+  background: var(--ux-steel);
+}
+
+.ux-step:nth-child(2)::before { left: 96px; right: -36px; }
+.ux-step:nth-child(3)::before { left: 91px; }
+.ux-step:nth-child(4)::before { left: 89px; }
+
+.ux-step__label {
+  margin-top: 37px;
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: var(--ux-lh-accent-18);
+  letter-spacing: var(--ux-ls-accent-18);
+  opacity: 0.7;
+}
+
+.ux-step__title {
+  margin-top: 22px;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ux-navy);
+}
+
+.ux-step__body {
+  margin-top: 24px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+@media (max-width: 1199px) {
+  .ux-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px 30px;
+    margin-top: 50px;
+  }
+  .ux-step::before { display: none; }
+  .ux-step__icon { width: 56px; height: 53px; margin-top: 0; }
+  .ux-step__label { margin-top: 24px; }
+  .ux-step__title { margin-top: 12px; }
+  .ux-step__body { margin-top: 12px; }
+}
+
+@media (max-width: 767px) {
+  .ux-process {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ux-step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    column-gap: 16px;
+  }
+  .ux-step__icon { grid-row: 1 / span 3; width: 34px; height: 32px; }
+  .ux-step:not(:last-child)::before {
+    display: block;
+    top: 40px;
+    bottom: -32px;
+    left: 16px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .ux-step__label { margin-top: 0; font-size: 16px; }
+  .ux-step__title { margin-top: 8px; font-size: 22px; }
+  .ux-step__body { margin-top: 8px; font-size: 17px; }
+}

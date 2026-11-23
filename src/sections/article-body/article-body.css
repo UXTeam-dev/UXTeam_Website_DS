@@ -1,0 +1,95 @@
+/* ==========================================================================
+   SL-58 Article body kit
+   Intro paragraphs Body/20 (gap 16). Sections 120 apart, sub sections 64.
+   H2 50 (Setting The Content), H3 30 (Competitor Analysis), H3 Small 25
+   (Questions like:). Bullet lists 20 (gap 16). Images 810 wide, radius 8.
+   Framed screenshots: 1px Steel panel with a centered 16px caption below.
+   ========================================================================== */
+
+.ux-article {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-top: 38px;
+}
+
+.ux-article__section {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  scroll-margin-top: 40px;
+}
+
+.ux-article__block {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  scroll-margin-top: 40px;
+}
+
+.ux-article__block > .ux-h2,
+.ux-article__block > .ux-h3 {
+  margin: 0;
+}
+
+.ux-article p,
+.ux-article li {
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-charcoal);
+}
+
+.ux-article__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ux-article__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding-left: 30px;
+}
+
+.ux-article__list li::marker {
+  font-size: 0.8em;
+}
+
+.ux-article__figure {
+  margin: 0;
+}
+
+.ux-article__figure img {
+  width: 100%;
+  border-radius: var(--ux-radius-card);
+}
+
+.ux-article__figure--framed img {
+  border: 1px solid #000;
+  border-radius: 0;
+}
+
+.ux-article__figure figcaption {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--ux-steel);
+}
+
+.ux-article__divider {
+  height: 1px;
+  background: #ccc;
+}
+
+@media (max-width: 1199px) {
+  .ux-article { gap: 80px; padding-top: 0; }
+}
+
+@media (max-width: 767px) {
+  .ux-article { gap: 60px; }
+  .ux-article__section { gap: 48px; }
+  .ux-article__list { padding-left: 20px; }
+}

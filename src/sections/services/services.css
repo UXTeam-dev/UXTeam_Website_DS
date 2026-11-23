@@ -1,0 +1,52 @@
+/* ==========================================================================
+   SL-32 Grouped service list (dark), on G2 Deep Navy
+   White section header | 70 | 3 groups 70 apart. Each group: buyer
+   question (Aeonik Regular 30 white, right aligned, ends at x516) on the
+   left, a stack of service cards (585 wide, starts x648) on the right.
+   ========================================================================== */
+
+.ux-services {
+  color: var(--ux-white);
+}
+
+.ux-services__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  max-width: 1026px;
+  margin: 70px auto 0;
+}
+
+.ux-services__group {
+  display: grid;
+  grid-template-columns: 309px 585px;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+}
+
+.ux-services__question {
+  padding-top: 35px;
+  text-align: right;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-regular);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1199px) {
+  .ux-services__groups { margin-top: 50px; gap: 50px; max-width: none; }
+  .ux-services__group {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ux-services__question {
+    padding-top: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .ux-services__question { font-size: 20px; }
+}

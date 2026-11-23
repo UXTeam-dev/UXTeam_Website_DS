@@ -1,0 +1,13 @@
+<!--
+  Story card partial (SL-22).
+  Params: logo (file in assets/logos/clients), logo-w, logo-h, logo-alt, title, meta, place, href, mod
+  mod="ux-story-card--compact" for the D2C variant (25px title).
+-->
+<article class="ux-story-card {{mod}}">
+  <div class="ux-story-card__top">
+    <div class="ux-story-card__logo"><img src="../assets/logos/clients/{{logo}}" width="{{logo-w}}" height="{{logo-h}}" alt="{{logo-alt}}" loading="lazy"></div>
+    <h3 class="ux-story-card__title">{{title}}</h3>
+    <p class="ux-story-card__meta">{{meta}}<br>{{place}}</p>
+  </div>
+  <a class="ux-btn ux-btn--secondary" href="{{href|#}}"><span class="ux-btn__label">Read Story</span><!-- @include components/button/_icon.html --></a>
+</article>

@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Stat and stats row (SL-31)
+   Number: Besley Bold 60 + Besley Regular "+". Label: Aeonik Regular 30.
+   Gap 20 inside a stat. Key numbers may go bigger in Besley (DS 04).
+   ========================================================================== */
+
+.ux-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.ux-stat {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.ux-stat__number {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-regular);
+  font-size: var(--ux-fs-stat);
+  line-height: var(--ux-lh-stat);
+  letter-spacing: var(--ux-ls-stat);
+  color: var(--ux-navy);
+}
+
+.ux-stat__number strong {
+  font-weight: var(--ux-weight-bold);
+}
+
+.ux-stat__label {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-regular);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ux-charcoal);
+}
+
+@media (max-width: 1199px) {
+  .ux-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ux-stat { justify-content: center; }
+}
+
+@media (max-width: 767px) {
+  .ux-stats {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ux-stat {
+    gap: 12px;
+  }
+  .ux-stat__number {
+    min-width: 72px;
+    font-size: 26px;
+  }
+  .ux-stat__label {
+    font-size: 17px;
+  }
+}

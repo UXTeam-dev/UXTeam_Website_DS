@@ -1,0 +1,103 @@
+/* ==========================================================================
+   SL-30 Three principles with rules + SL-31 stats, on G7 Warm Glow
+   Header | 70 | hairline | 3 columns (label Besley 18, title 30, body 20)
+   split by vertical hairlines | hairline | stats row.
+   .ux-principles--home matches the homepage offsets (columns 2 and 3 start
+   64 after the rule). The About beliefs grid uses the even 32 padding.
+   ========================================================================== */
+
+.ux-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: var(--ux-border-hairline);
+  border-bottom: var(--ux-border-hairline);
+}
+
+.ux-principle {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 32px 40px;
+}
+
+.ux-principle:nth-child(3n + 1) {
+  padding-left: 0;
+}
+
+.ux-principle:not(:nth-child(3n + 1)) {
+  border-left: var(--ux-border-hairline);
+}
+
+/* Second row of a 6 item grid */
+.ux-principles > .ux-principle:nth-child(n + 4) {
+  border-top: var(--ux-border-hairline);
+}
+
+.ux-principle__label {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-accent-18);
+  line-height: var(--ux-lh-accent-18);
+  letter-spacing: var(--ux-ls-accent-18);
+  color: var(--ux-charcoal);
+}
+
+.ux-principle__title {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ux-navy);
+}
+
+.ux-principle__body {
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+/* Homepage version */
+.ux-principles--home .ux-principle {
+  gap: 0;
+  padding: 38px 0 40px 64px;
+  min-height: 377px;
+}
+.ux-principles--home .ux-principle:first-child {
+  padding-left: 2px;
+}
+.ux-principles--home .ux-principle__label { opacity: 0.8; }
+.ux-principles--home .ux-principle__title { margin-top: 18px; max-width: 377px; }
+.ux-principles--home .ux-principle__body { margin-top: 22px; max-width: 300px; }
+
+.ux-approach .ux-stats {
+  margin-top: 106px;
+  padding-inline: 2px;
+  justify-content: flex-start;
+  gap: 62px;
+}
+
+@media (max-width: 1199px) {
+  .ux-principles {
+    grid-template-columns: 1fr;
+    border-bottom: 0;
+  }
+  .ux-principle,
+  .ux-principles--home .ux-principle,
+  .ux-principles--home .ux-principle:first-child {
+    padding: 34px 0;
+    min-height: 0;
+    border-left: 0 !important;
+    border-bottom: var(--ux-border-hairline);
+  }
+  .ux-principles > .ux-principle:nth-child(n + 4) { border-top: 0; }
+  .ux-principles--home .ux-principle__body { max-width: 560px; }
+  .ux-principles--home .ux-principle__title { max-width: none; }
+  .ux-approach .ux-stats { margin-top: 60px; justify-content: center; }
+}
+
+@media (max-width: 767px) {
+  .ux-principle__title,
+  .ux-principles--home .ux-principle__title { font-size: 22px; }
+  .ux-principle__body { font-size: 17px; }
+  .ux-approach .ux-stats { margin-top: 40px; align-items: flex-start; }
+}

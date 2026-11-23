@@ -1,0 +1,171 @@
+/* ==========================================================================
+   SL-03 Footer
+   G3 background, 593 high. Content starts 160 from the top (the booking
+   card overlaps the top by about 40). Brand column left, three office
+   columns from x586 (gap 51). Bottom row: socials, hairline, links.
+   Wordmark at 20% opacity, cropped by the bottom edge.
+   ========================================================================== */
+
+.ux-footer {
+  position: relative;
+  overflow: hidden;
+  min-height: 593px;
+  padding: 160px 0 0;
+  background: var(--ux-gradient-g3-footer);
+  color: var(--ux-white);
+}
+
+/* When the booking card sits above, the footer tucks under it */
+.ux-booking + .ux-footer {
+  margin-top: -40px;
+}
+
+.ux-footer__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ux-footer__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.ux-footer__brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 142px;
+}
+
+.ux-footer__brand img {
+  width: 156px;
+  height: 38px;
+  margin-left: 5px;
+}
+
+.ux-footer__tagline {
+  max-width: 294px;
+  font-family: var(--ux-font-accent);
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.ux-footer__offices {
+  display: flex;
+  gap: 51px;
+}
+
+.ux-footer__office {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-style: normal;
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-medium);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.ux-footer__office:nth-child(1) { width: 213px; }
+.ux-footer__office:nth-child(2) { width: 222px; }
+.ux-footer__office:nth-child(3) { width: 197px; }
+
+.ux-footer__office-name {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  opacity: 0.8;
+}
+
+.ux-footer__bottom {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  margin-top: 87px;
+}
+
+.ux-footer__line {
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 19, 21, 0.9);
+}
+
+.ux-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.ux-footer__links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ux-footer__wordmark {
+  position: absolute;
+  left: 50%;
+  top: 419px;
+  width: min(1204px, calc(100% - 2 * var(--ux-page-margin)));
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 1199px) {
+  .ux-footer {
+    min-height: 624px;
+    padding-top: 110px;
+  }
+  .ux-footer__top {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .ux-footer__brand {
+    min-height: 0;
+    gap: 50px;
+  }
+  .ux-footer__brand img { margin-left: 5px; }
+  .ux-footer__tagline { max-width: none; }
+  .ux-footer__offices { gap: 30px; }
+  .ux-footer__office { width: auto !important; flex: 1; }
+  .ux-footer__bottom { margin-top: 60px; gap: 30px; }
+  .ux-footer__line { background: rgba(255, 255, 255, 0.3); max-width: 40px; }
+  .ux-footer__wordmark { top: auto; bottom: -80px; }
+}
+
+@media (max-width: 767px) {
+  .ux-footer {
+    min-height: 0;
+    padding: 110px 0 140px;
+  }
+  .ux-footer__offices {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ux-footer__tagline { font-size: 15px; }
+  .ux-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .ux-footer__line { display: none; }
+  .ux-footer__links {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    white-space: normal;
+  }
+  .ux-footer__links li:last-child { flex-basis: 100%; }
+  .ux-footer__wordmark { bottom: -40px; }
+}

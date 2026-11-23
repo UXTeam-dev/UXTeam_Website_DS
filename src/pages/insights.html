@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  Insights listing (BP-2). Figma: 2102:3047.
+  Ends with the footer only (no booking card), decided 18 Nov 2026.
+  No tablet or mobile frames yet: responsive behaviour follows the
+  Success Stories listing.
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="Design Insights | UXTeam" description="Our latest thinking on UX, product design, digital experiences and strategy." -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" -->
+
+  <main>
+    <!-- SL-11 Listing hero (no eyebrow, no CTA) + filter chips + grid -->
+    <section class="ux-hero-listing ux-section--pb-120" style="--ux-hero-bg-height: 810px; --ux-hero-bg-height-tablet: 560px; --ux-hero-bg-height-mobile: 560px; padding-bottom: var(--ux-section-120)" aria-labelledby="insights-title">
+      <div class="ux-container">
+        <div class="ux-hero-listing__inner">
+          <div class="ux-hero-listing__text">
+            <h1 class="ux-h1 ux-hero-listing__title" id="insights-title">Design <span class="ux-highlight">Insights</span></h1>
+            <p class="ux-hero-listing__sub">Explore our latest thinking on UX, product design, digital experiences, strategy, and everything in between.</p>
+          </div>
+        </div>
+
+        <div class="ux-hero-listing__overlap" style="margin-top:120px">
+          <div class="ux-chip-row ux-filter-bar" role="group" aria-label="Filter insights by topic" data-ux-filter="#insights-grid">
+            <button class="ux-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="ux-chip" type="button" data-filter="UX Strategy" aria-pressed="false">UX Strategy</button>
+            <button class="ux-chip" type="button" data-filter="CRO" aria-pressed="false">CRO</button>
+            <button class="ux-chip" type="button" data-filter="Design Systems" aria-pressed="false">Design Systems</button>
+            <button class="ux-chip" type="button" data-filter="AI and UX" aria-pressed="false">AI and UX</button>
+            <button class="ux-chip" type="button" data-filter="Agency Growth" aria-pressed="false">Agency Growth</button>
+            <button class="ux-chip" type="button" data-filter="White Label" aria-pressed="false">White Label</button>
+          </div>
+
+          <div class="ux-grid ux-grid--3 ux-grid--gap-24" id="insights-grid" style="text-align:left">
+            <!-- @include components/blog-card/_blog-card.html category="AI and UX" date="18 Sep 26" title="Where AI fits in a real UX workflow, and where it does not useful for you" image="ai-ux-workflow" href="insight-content-strategy.html" -->
+            <!-- @include components/blog-card/_blog-card.html category="Agency Growth" date="18 Sep 26" title="Why white label design works best for your business growth" image="white-label-growth" -->
+            <!-- @include components/blog-card/_blog-card.html category="Design Systems" date="18 Sep 26" title="Building a design system your client can actually maintain" image="design-system-maintain" -->
+            <!-- @include components/blog-card/_blog-card.html category="CRO" date="18 Sep 26" title="7 UX audit findings we see on almost every ecommerce site" image="ux-audit-findings" -->
+            <!-- @include components/blog-card/_blog-card.html category="Design Systems" date="18 Sep 26" title="The handoff checklist that saves developers a week" image="handoff-checklist" -->
+            <!-- @include components/blog-card/_blog-card.html category="CRO" date="18 Sep 26" title="Turning a landing page audit into a conversion roadmap" image="landing-page-roadmap" -->
+          </div>
+          <p class="ux-filter-empty" hidden>No insights in this topic yet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

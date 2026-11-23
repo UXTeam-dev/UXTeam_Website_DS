@@ -1,0 +1,59 @@
+/* ==========================================================================
+   UXTeam Design System. Stylesheet manifest.
+   The build (npm run build) inlines every @import below into
+   dist/css/uxteam.css. Add new files here, in this order:
+   tokens -> base -> components -> sections.
+   ========================================================================== */
+
+/* 1. Tokens (generated from tokens.json) */
+@import "tokens/tokens.css";
+
+/* 2. Base */
+@import "base/fonts.css";
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/layout.css";
+
+/* 3. Components (atoms and molecules) */
+@import "components/button/button.css";
+@import "components/eyebrow/eyebrow.css";
+@import "components/section-header/section-header.css";
+@import "components/logo-tile/logo-tile.css";
+@import "components/chip/chip.css";
+@import "components/form-field/form-field.css";
+@import "components/stat/stat.css";
+@import "components/social-link/social-link.css";
+@import "components/person/person.css";
+@import "components/story-card/story-card.css";
+@import "components/blog-card/blog-card.css";
+@import "components/outcome-card/outcome-card.css";
+@import "components/video-card/video-card.css";
+@import "components/service-card/service-card.css";
+@import "components/industry-card/industry-card.css";
+@import "components/faq/faq.css";
+@import "components/toc/toc.css";
+@import "components/detail-blocks/detail-blocks.css";
+
+/* 4. Sections (organisms) */
+@import "sections/site-header/site-header.css";
+@import "sections/site-footer/site-footer.css";
+@import "sections/booking-cta/booking-cta.css";
+@import "sections/hero-home/hero-home.css";
+@import "sections/logo-marquee/logo-marquee.css";
+@import "sections/hero-listing/hero-listing.css";
+@import "sections/hero-case-study/hero-case-study.css";
+@import "sections/hero-article/hero-article.css";
+@import "sections/hero-light/hero-light.css";
+@import "sections/filter-bar/filter-bar.css";
+@import "sections/outcomes/outcomes.css";
+@import "sections/approach/approach.css";
+@import "sections/services/services.css";
+@import "sections/process/process.css";
+@import "sections/engagement/engagement.css";
+@import "sections/detail-layout/detail-layout.css";
+@import "sections/related-row/related-row.css";
+@import "sections/logo-grid/logo-grid.css";
+@import "sections/story-split/story-split.css";
+@import "sections/team/team.css";
+@import "sections/beliefs/beliefs.css";
+@import "sections/article-body/article-body.css";

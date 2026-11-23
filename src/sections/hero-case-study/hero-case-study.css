@@ -1,0 +1,97 @@
+/* ==========================================================================
+   SL-12 Case study hero (partnership lockup)
+   H1 centered (64, up to 1200) | 80 | lockup between two Steel rules:
+   uxteam x client mark (gap 70) | 72 | intro paragraph + person card.
+   On G1 Hero Dusk, 1040 high; the content column starts below the fade.
+   ========================================================================== */
+
+.ux-hero-case {
+  padding: 192px 0 0;
+  color: var(--ux-white);
+  background: var(--ux-gradient-g1-hero-dusk) top / 100% 1040px no-repeat;
+}
+
+.ux-hero-case__title {
+  color: var(--ux-white);
+  text-align: center;
+  font-weight: var(--ux-weight-medium);
+}
+
+.ux-hero-case__lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 80px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.ux-hero-case__lockup .ux-hero-case__ux {
+  width: 190px;
+  height: auto;
+}
+
+.ux-hero-case__lockup .ux-hero-case__x {
+  width: 28px;
+  height: 28px;
+}
+
+.ux-hero-case__lockup .ux-hero-case__client {
+  width: 88px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.ux-hero-case__intro {
+  display: flex;
+  align-items: center;
+  gap: 132px;
+  margin-top: 72px;
+}
+
+.ux-hero-case__intro > p {
+  flex: 1;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+}
+
+.ux-hero-case__intro .ux-person__body {
+  width: 341px;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-case {
+    padding-top: 129px;
+    padding-bottom: 150px;
+    /* Shorter frames: the dusk gradient is stretched to the section so the
+       intro and person card stay on Slate (keeps white text readable). */
+    background: linear-gradient(180deg, #0D1315 0%, rgba(10, 27, 51, 0.9) 30%, #5C6D85 75%, #FFFFFF 100%) top / 100% 100% no-repeat;
+  }
+  /* Tablet frame: 40px title, one flowing line break */
+  .ux-hero-case__title { font-size: 40px; line-height: 1.2; }
+  .ux-hero-case__title br { display: none; }
+  .ux-hero-case__lockup { margin-top: 60px; gap: 50px; }
+  .ux-hero-case__intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .ux-hero-case__intro .ux-person { gap: 20px; }
+  .ux-hero-case__intro .ux-person__body { width: auto; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-case {
+    padding-top: 120px;
+    padding-bottom: 125px;
+  }
+  /* Mobile frame: 32px title, left aligned; person card stacks */
+  .ux-hero-case__title { font-size: 32px; text-align: left; }
+  .ux-hero-case__intro .ux-person { flex-direction: column; align-items: flex-start; }
+  .ux-hero-case__lockup { gap: 26px; margin-top: 56px; padding: 16px 0; }
+  .ux-hero-case__lockup .ux-hero-case__ux { width: 130px; }
+  .ux-hero-case__lockup .ux-hero-case__client { width: 56px; height: 50px; }
+}

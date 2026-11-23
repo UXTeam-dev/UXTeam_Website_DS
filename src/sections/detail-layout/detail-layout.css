@@ -1,0 +1,37 @@
+/* ==========================================================================
+   SL-50 + SL-51 Detail layout (case studies, articles)
+   TOC rail 210 at x120, content column 810 at x508 (gap 178).
+   ========================================================================== */
+
+.ux-detail {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 810px);
+  justify-content: space-between;
+  align-items: start;
+}
+
+.ux-detail__rail {
+  align-self: stretch;
+}
+
+@media (max-width: 1199px) {
+  .ux-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ux-detail__rail {
+    display: contents;
+  }
+}
+
+/* Space between the detail hero and the two column body */
+.ux-detail-section {
+  padding: 187px 0 40px;
+}
+
+@media (max-width: 1199px) {
+  .ux-detail-section { padding: 60px 0 40px; }
+}
+
+@media (max-width: 767px) {
+  .ux-detail-section { padding: 40px 0 24px; }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+  About Us, light version. Figma: Final Design Pages, frame 2516:14841.
+  Light header (decided 19 Nov 2026). No tablet or mobile frames yet.
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="About UXTeam | A UX-led design studio for B2B teams" description="We find what's holding growth back, then fix it." -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- @include sections/site-header/site-header.html theme="light" cta="ux-btn--primary" bordered="" -->
+
+  <main>
+    <!-- 01 Light hero + stats -->
+    <section class="ux-hero-light" aria-labelledby="about-title">
+      <div class="ux-container">
+        <div class="ux-hero-light__inner">
+          <div class="ux-hero-light__text">
+            <span class="ux-eyebrow">About UXTeam</span>
+            <h1 class="ux-h1-display ux-hero-light__title" id="about-title">A UX-led design studio<br>for B2B teams</h1>
+            <p class="ux-hero-light__sub">We find what's holding growth back, then fix it.</p>
+          </div>
+          <!-- @include components/button/_button.html class="ux-btn--primary" -->
+        </div>
+        <!-- @include components/stat/stat.html -->
+      </div>
+    </section>
+
+    <!-- 02 Our presence: hairline logo grid -->
+    <section class="ux-section ux-section--pt-80 ux-section--pb-120" aria-labelledby="clients-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head--60" style="gap:10px">
+          <span class="ux-eyebrow">Our clients</span>
+          <h2 class="ux-h2 ux-section-header__title" id="clients-title">Trusted by B2B teams worldwide</h2>
+          <p class="ux-section-header__intro" style="max-width:760px">We work with product, growth and marketing teams in the USA, Canada, the UAE and wider Middle East, Southeast Asia, and Australia.</p>
+        </header>
+        <ul class="ux-logo-grid" role="list" style="margin-top:60px">
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/slaps.svg" width="103" height="20" alt="SLAPS"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/rbbi.png" width="48" height="48" alt="RBBi"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/section.svg" width="107" height="36" alt="Section"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/dxlive.svg" width="41" height="35" alt="DX Live"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/fwd.svg" width="69" height="24" alt="FWD"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/trescon.svg" width="110" height="24" alt="Trescon"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/squaircle.png" width="52" height="52" alt="The Squaircle"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/terrapinn.png" width="148" height="24" alt="Terrapinn"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/e2m-mark.svg" width="44" height="44" alt="E2M"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/altadx.png" width="113" height="27" alt="Alta DX"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/atomicnorth.png" width="148" height="22" alt="Atomic North"></li>
+          <li class="ux-logo-grid__cell"><img src="../assets/logos/clients/voro-wordmark.svg" width="104" height="25" alt="VORO"></li>
+        </ul>
+        <div class="ux-presence">
+          <p class="ux-presence__label">Our global presence</p>
+          <ul class="ux-presence__list" role="list"><li>India</li><li>UAE</li><li>USA</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Our story -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="story-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head--60">
+          <span class="ux-eyebrow">Our story</span>
+          <h2 class="ux-h2 ux-section-header__title" id="story-title">Built by someone who came from agencies</h2>
+        </header>
+        <div class="ux-story-split">
+          <div class="ux-story-split__text">
+            <p class="ux-story-split__lead">The screen is rarely the real problem. The real problem is a decision nobody has made yet. So we start there.</p>
+            <p>We started UXTeam in January 2018. Our founder, Chintan Bhatt, came from years inside agencies and believed a specialist UXTeam could help agencies deliver better UI and UX, so they could focus on their own niche.</p>
+            <p>Today we work directly with B2B teams as well as <br>alongside agencies.</p>
+          </div>
+          <figure class="ux-founder-card">
+            <img src="../assets/images/about/founder-quote.webp" width="603" height="560" alt="Chintan Bhatt in a working session with his team" loading="lazy">
+            <figcaption class="ux-founder-card__caption">
+              <blockquote class="ux-founder-card__quote">“How much you care and love your customers is expressed by the customer experience you deliver.”</blockquote>
+              <div>
+                <p class="ux-founder-card__name">Chintan Bhatt</p>
+                <p class="ux-founder-card__role">Founder, 20+ years in design</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 The team -->
+    <section class="ux-team" aria-labelledby="team-title">
+      <div class="ux-team__photo">
+        <img src="../assets/images/about/team-photo.webp" width="2400" height="1600" alt="The UXTeam team in the Ahmedabad studio" loading="lazy">
+        <div class="ux-team__head">
+          <div class="ux-container">
+            <header class="ux-section-header ux-section-header--on-dark">
+              <span class="ux-eyebrow ux-eyebrow--on-dark">The team</span>
+              <h2 class="ux-h2 ux-section-header__title" id="team-title">The people you’ll work with</h2>
+              <p class="ux-section-header__intro">Senior designers and strategists lead every project, supported by designers and developers.</p>
+            </header>
+          </div>
+        </div>
+      </div>
+      <div class="ux-team__leaders ux-container">
+        <h3 class="ux-team__leaders-title">Leadership team</h3>
+        <ul class="ux-leaders" role="list">
+          <li class="ux-leader">
+            <p class="ux-leader__name">Chintan Bhatt</p>
+            <p class="ux-leader__role">Founder</p>
+            <img class="ux-leader__photo" src="../assets/images/people/chintan-bhatt.webp" width="402" height="411" alt="Chintan Bhatt" loading="lazy" style="object-fit:cover;object-position:center top">
+          </li>
+          <li class="ux-leader">
+            <p class="ux-leader__name">Vishal Kumar</p>
+            <p class="ux-leader__role">UX Lead</p>
+            <img class="ux-leader__photo" src="../assets/images/people/vishal-kumar.webp" width="380" height="392" alt="Vishal Kumar" loading="lazy">
+          </li>
+          <li class="ux-leader">
+            <p class="ux-leader__name">Harshita Singh</p>
+            <p class="ux-leader__role">HR &amp; Account Manager</p>
+            <img class="ux-leader__photo" src="../assets/images/people/harshita-singh.webp" width="362" height="392" alt="Harshita Singh" loading="lazy">
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 What we believe (SL-30 grid on Warm Glow) -->
+    <section class="ux-section ux-beliefs ux-bg-warm-glow" aria-labelledby="believe-title">
+      <div class="ux-container">
+        <header class="ux-section-header">
+          <span class="ux-eyebrow">What we believe</span>
+          <h2 class="ux-h2 ux-section-header__title" id="believe-title">Production is getting cheaper. Judgment isn’t.</h2>
+          <p class="ux-section-header__intro">That’s the idea behind how we work.</p>
+        </header>
+        <div class="ux-principles">
+          <div class="ux-principle"><p class="ux-principle__label">Outcome first</p><h3 class="ux-principle__title">Start with the outcome, not the screen.</h3><p class="ux-principle__body">We agree what success looks like before anyone opens a design file.</p></div>
+          <div class="ux-principle"><p class="ux-principle__label">Diagnose first</p><h3 class="ux-principle__title">Diagnose before you design.</h3><p class="ux-principle__body">A UX audit comes first, so decisions rest on evidence, not taste.</p></div>
+          <div class="ux-principle"><p class="ux-principle__label">One team</p><h3 class="ux-principle__title">Design and build together.</h3><p class="ux-principle__body">Nothing gets lost between a design and the code.</p></div>
+          <div class="ux-principle"><p class="ux-principle__label">Proof</p><h3 class="ux-principle__title">Test what ships.</h3><p class="ux-principle__body">We measure every change against the agreed metric and tell you honestly what moved.</p></div>
+          <div class="ux-principle"><p class="ux-principle__label">Senior-led</p><h3 class="ux-principle__title">Senior people lead.</h3><p class="ux-principle__body">Experienced judgment from day one, not a learning curve.</p></div>
+          <div class="ux-principle"><p class="ux-principle__label">Use of AI</p><h3 class="ux-principle__title">AI speeds the work. People make the call.</h3><p class="ux-principle__body">AI handles first-pass analysis, drafts, and audits. We don’t outsource the decision.</p></div>
+        </div>
+        <div class="ux-center">
+          <!-- @include components/button/_button.html class="ux-btn--primary" label="See How We Work" href="#" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Success stories -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-100" aria-labelledby="about-stories-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head--60">
+          <span class="ux-eyebrow">Success stories</span>
+          <h2 class="ux-h2 ux-section-header__title" id="about-stories-title">The partnerships behind the results</h2>
+        </header>
+        <div class="ux-grid ux-grid--3 ux-grid--gap-24">
+          <!-- @include components/story-card/_story-card.html logo="dxfactor.svg" logo-w="142" logo-h="44" logo-alt="DX Factor" title="Helping an Enterprise Technology Company Turn Complex Data into Intuitive UX" meta="AI Transformation Studio" place="USA · India" -->
+          <!-- @include components/story-card/_story-card.html logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi" title="Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership" meta="Digital Experience Agency" place="Dubai" -->
+          <!-- @include components/story-card/_story-card.html logo="e2m.svg" logo-w="56" logo-h="64" logo-alt="E2M" title="Transforming Brand Identity into High-Performance Website Experience" meta="AI Transformation Studio" place="USA · India" -->
+        </div>
+        <div class="ux-center" style="margin-top:48px">
+          <!-- @include components/button/_button.html class="ux-btn--primary" label="Read All Success Stories" href="success-stories.html" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 FAQ, single column -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-0" aria-labelledby="about-faq-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head--60">
+          <span class="ux-eyebrow">FAQs</span>
+          <h2 class="ux-h2 ux-section-header__title" id="about-faq-title">Questions about UXTeam</h2>
+        </header>
+        <div class="ux-faq ux-faq--single" data-ux-faq>
+          <!-- @include components/faq/_item.html q="What is UXTeam?" open="is-open" a="A UX-led design studio for B2B teams. We find what’s holding growth back, then design, build, test, and measure the fix." -->
+          <!-- @include components/faq/_item.html q="Who founded UXTeam?" -->
+          <!-- @include components/faq/_item.html q="Where is UXTeam based?" -->
+          <!-- @include components/faq/_item.html q="How long has UXTeam been in business?" -->
+          <!-- @include components/faq/_item.html q="Who does UXTeam work with?" -->
+          <!-- @include components/faq/_item.html q="Who is on the UXTeam team?" -->
+          <!-- @include components/faq/_item.html q="Does UXTeam use AI?" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- @include sections/booking-cta/booking-cta.html -->
+  </main>
+
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

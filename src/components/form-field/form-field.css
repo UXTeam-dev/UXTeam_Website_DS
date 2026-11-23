@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Form field (booking card)
+   Label: Label/16/SemiBold, Ink, 6px above the input.
+   Input: 50 high, white, 1px Steel 60%, radius 4, padding 0 16, Body/16.
+   States: focus (Navy border + Sky ring), error (message below), disabled.
+   ========================================================================== */
+
+.ux-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ux-field__label {
+  font-family: var(--ux-font-body);
+  font-weight: var(--ux-weight-semibold);
+  font-size: var(--ux-fs-label-16);
+  line-height: var(--ux-lh-label-16);
+  color: var(--ux-ink);
+}
+
+.ux-field__input {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid rgba(111, 118, 128, 0.6);
+  border-radius: var(--ux-radius-input);
+  background: var(--ux-white);
+  color: var(--ux-ink);
+  font-family: var(--ux-font-body);
+  font-size: var(--ux-fs-body-16);
+  line-height: var(--ux-lh-body-16);
+  transition: border-color var(--ux-motion-fade), box-shadow var(--ux-motion-fade);
+}
+
+.ux-field__input::placeholder {
+  color: var(--ux-ink);
+  opacity: 0.7;
+}
+
+.ux-field__input:hover {
+  border-color: var(--ux-steel);
+}
+
+.ux-field__input:focus {
+  outline: none;
+  border-color: var(--ux-navy);
+  box-shadow: 0 0 0 3px rgba(165, 236, 255, 0.8);
+}
+
+.ux-field__error {
+  display: none;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #B42318;
+}
+
+.ux-field.is-invalid .ux-field__input {
+  border-color: #B42318;
+}
+.ux-field.is-invalid .ux-field__error {
+  display: block;
+}
+
+.ux-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ux-form__submit {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.ux-form__status {
+  font-size: var(--ux-fs-body-16);
+  color: var(--ux-navy);
+}

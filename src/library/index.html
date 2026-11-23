@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  Component library. A living catalogue of every token, component and
+  section, built from the same partials the pages use. When you add a
+  component or section, add a demo block here too.
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="UXTeam Design System, Component library" description="Tokens, components and sections of the UXTeam website." -->
+  <style>
+    /* Library only styles. Not part of the design system. */
+    .lib { padding: 60px 0 120px; }
+    .lib-nav { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--ux-stroke-menu); }
+    .lib-nav ul { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 16px 0; margin: 0; list-style: none; font-size: 15px; }
+    .lib-nav a { text-decoration: underline; text-underline-offset: 3px; }
+    .lib-block { padding: 64px 0; border-bottom: 1px solid var(--ux-stroke-menu); }
+    .lib-block > h2 { font-family: var(--ux-font-heading); font-size: 32px; font-weight: 500; margin-bottom: 8px; }
+    .lib-block > p.lib-meta { color: var(--ux-steel); font-size: 15px; margin-bottom: 32px; }
+    .lib-block > p.lib-meta code { background: var(--ux-mist); padding: 1px 6px; border-radius: 4px; }
+    .lib-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    .lib-swatch { border: 1px solid var(--ux-stroke-menu); border-radius: 8px; overflow: hidden; font-size: 13px; }
+    .lib-swatch i { display: block; height: 72px; }
+    .lib-swatch span { display: block; padding: 8px 10px; line-height: 1.4; }
+    .lib-swatch b { display: block; font-weight: 600; }
+    .lib-type > * + * { margin-top: 24px; }
+    .lib-type small { display: block; font: 13px/1.4 var(--ux-font-body); color: var(--ux-steel); margin-bottom: 4px; }
+    .ux-demo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+    .ux-demo-row + .ux-demo-row { margin-top: 24px; }
+    .ux-demo-row--dark { background: var(--ux-ink); padding: 32px; border-radius: 8px; }
+    .lib-dark { background: var(--ux-ink); padding: 32px; border-radius: 8px; }
+    .lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .lib-sections { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 0; list-style: none; }
+    .lib-sections li { border: 1px solid var(--ux-stroke-menu); border-radius: 8px; padding: 14px 16px; font-size: 15px; }
+    .lib-sections code { display: block; color: var(--ux-steel); font-size: 13px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+<nav class="lib-nav" aria-label="Library sections">
+  <div class="ux-container">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#gradients">Gradients</a></li>
+      <li><a href="#type">Typography</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#eyebrow">Eyebrow and header</a></li>
+      <li><a href="#chips">Chips and tags</a></li>
+      <li><a href="#form">Form field</a></li>
+      <li><a href="#stats">Stats</a></li>
+      <li><a href="#person">Person</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#industry">Industry cards</a></li>
+      <li><a href="#sections">Sections</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="lib ux-container">
+  <span class="ux-eyebrow">UXTeam Website 2026</span>
+  <h1 class="ux-h1" style="margin-top:16px">Component library</h1>
+  <p class="ux-body-18" style="margin-top:12px;max-width:760px">Every block below is rendered from the real partials in <code>src/</code>. Copy the markup from the matching file, not from this page.</p>
+
+  <section class="lib-block" id="colors">
+    <h2>Colors</h2>
+    <p class="lib-meta">Source: <code>src/tokens/tokens.json</code>. Use as <code>var(--ux-navy)</code>.</p>
+    <div class="lib-swatches" data-swatches="navy ink slate charcoal steel mist white sky aqua peach hero-sub stroke-soft stroke-tag stroke-menu photo-bg author-bg toc-active logo-underline"></div>
+  </section>
+
+  <section class="lib-block" id="gradients">
+    <h2>Gradients</h2>
+    <p class="lib-meta">Use as <code>background: var(--ux-gradient-g4-aqua-peach)</code>.</p>
+    <div class="lib-swatches" data-gradients="g1-hero-dusk g1-hero-dusk-home g2-deep-navy g3-footer g4-aqua-peach g4-rule g5-cta-card g6-detail-card g7-warm-glow g8-hero-light service-card-hover"></div>
+  </section>
+
+  <section class="lib-block lib-type" id="type">
+    <h2>Typography</h2>
+    <p class="lib-meta">Aeonik for headings, Manrope for body, Besley for eyebrows and accents. Sizes step down automatically on tablet and mobile. See <code>src/base/typography.css</code>.</p>
+    <div><small>.ux-h1-display (90 / 64 / 44)</small><p class="ux-h1-display">We design decisions</p></div>
+    <div><small>.ux-h1 (64)</small><p class="ux-h1">Design Insights</p></div>
+    <div><small>.ux-h2 (50 / 40 / 32)</small><p class="ux-h2">Outcomes we've delivered</p></div>
+    <div><small>.ux-h2 with .ux-highlight</small><p class="ux-h2">Design <span class="ux-highlight">Insights</span></p></div>
+    <div><small>.ux-h3 (30 / 26 / 22)</small><p class="ux-h3">UX strategy workshop</p></div>
+    <div><small>.ux-h3-small (25)</small><p class="ux-h3-small">Meet the Author</p></div>
+    <div><small>.ux-body-20 (20 / 18 / 17)</small><p class="ux-body-20">Product, web, and app design that starts with finding what's holding growth back.</p></div>
+    <div><small>.ux-body-18</small><p class="ux-body-18">Find what's costing you pipeline and activation before you redesign.</p></div>
+    <div><small>.ux-accent (Besley)</small><p class="ux-accent">Digital Experience Agency · Dubai</p></div>
+  </section>
+
+  <section class="lib-block" id="buttons">
+    <h2>Buttons</h2>
+    <p class="lib-meta">Partial: <code>components/button/_button.html</code> (params class, label, href). All variants: <code>components/button/button.html</code>.</p>
+    <!-- @include components/button/button.html -->
+  </section>
+
+  <section class="lib-block" id="eyebrow">
+    <h2>Eyebrow and section header</h2>
+    <p class="lib-meta">Eyebrows are always Besley uppercase. <code>components/eyebrow</code>, <code>components/section-header</code>.</p>
+    <header class="ux-section-header">
+      <span class="ux-eyebrow">Measured results</span>
+      <h2 class="ux-h2 ux-section-header__title">Outcomes we've delivered</h2>
+      <p class="ux-section-header__intro">Optional intro line under the title.</p>
+    </header>
+    <div class="lib-dark" style="margin-top:32px">
+      <header class="ux-section-header ux-section-header--on-dark">
+        <span class="ux-eyebrow ux-eyebrow--on-dark">What we do</span>
+        <h2 class="ux-h2 ux-section-header__title">Services built for B2B growth</h2>
+      </header>
+    </div>
+  </section>
+
+  <section class="lib-block" id="chips">
+    <h2>Chips and tags</h2>
+    <p class="lib-meta"><code>components/chip/chip.css</code>. Chips filter lists through <code>data-filter</code>.</p>
+    <div class="lib-dark">
+      <div class="ux-chip-row">
+        <button class="ux-chip is-active" type="button" aria-pressed="true">All</button>
+        <button class="ux-chip" type="button" aria-pressed="false">UX Strategy</button>
+        <button class="ux-chip" type="button" aria-pressed="false">CRO</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="lib-block" id="form">
+    <h2>Form field</h2>
+    <p class="lib-meta"><code>components/form-field/form-field.css</code></p>
+    <div style="max-width:380px" class="ux-field">
+      <label class="ux-field__label" for="lib-email">Work email*</label>
+      <input class="ux-field__input" id="lib-email" type="email" placeholder="johna@agencywebsite.com">
+    </div>
+  </section>
+
+  <section class="lib-block" id="stats">
+    <h2>Stats</h2>
+    <p class="lib-meta"><code>components/stat/stat.html</code></p>
+    <!-- @include components/stat/stat.html -->
+  </section>
+
+  <section class="lib-block" id="person">
+    <h2>Person</h2>
+    <p class="lib-meta">Partial: <code>components/person/_person.html</code> (params name, photo, linkedin, role1 to role3, mod).</p>
+    <!-- @include components/person/_person.html name="Saravanan Vijayakumar" role1="Founder and CEO," role2="Squaircle · AI Transformation Studio" role3="USA · India" -->
+  </section>
+
+  <section class="lib-block" id="cards">
+    <h2>Cards</h2>
+    <p class="lib-meta">Story card: <code>components/story-card/_story-card.html</code>. Blog card: <code>components/blog-card/_blog-card.html</code>.</p>
+    <div class="lib-cards">
+      <!-- @include components/story-card/_story-card.html logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi" title="Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership" meta="Digital Experience Agency" place="Dubai" -->
+      <!-- @include components/story-card/_story-card.html mod="ux-story-card--compact" logo="squaircle.png" logo-w="52" logo-h="52" logo-alt="The Squaircle" title="Compact variant with a 25px title" meta="AI Transformation Studio" place="USA · India" -->
+      <!-- @include components/blog-card/_blog-card.html category="CRO" date="18 Sep 26" title="7 UX audit findings we see on almost every ecommerce site" image="ux-audit-findings" -->
+    </div>
+  </section>
+
+  <section class="lib-block" id="faq">
+    <h2>FAQ</h2>
+    <p class="lib-meta">Item partial: <code>components/faq/_item.html</code> (params q, a, open). One item open at a time per list.</p>
+    <div class="ux-faq ux-faq--single" data-ux-faq>
+      <!-- @include components/faq/_item.html q="What is UXTeam?" open="is-open" a="A UX-led design studio for B2B teams." -->
+      <!-- @include components/faq/_item.html q="How do we get started?" -->
+    </div>
+  </section>
+
+  <section class="lib-block" id="industry">
+    <h2>Industry cards</h2>
+    <p class="lib-meta"><code>components/industry-card/industry-card.html</code>. Hover or focus a card to open it.</p>
+    <!-- @include components/industry-card/industry-card.html -->
+  </section>
+
+  <section class="lib-block" id="sections">
+    <h2>Sections</h2>
+    <p class="lib-meta">Full width blocks in <code>src/sections/</code>. See them in context on the pages.</p>
+    <ul class="lib-sections">
+      <li>Site header<code>sections/site-header</code></li>
+      <li>Site footer<code>sections/site-footer</code></li>
+      <li>Home hero + logo marquee<code>sections/hero-home, logo-marquee</code></li>
+      <li>Listing hero<code>sections/hero-listing</code></li>
+      <li>Case study hero<code>sections/hero-case-study</code></li>
+      <li>Article hero<code>sections/hero-article</code></li>
+      <li>Light hero<code>sections/hero-light</code></li>
+      <li>Outcomes<code>sections/outcomes</code></li>
+      <li>Featured story (video)<code>sections/featured-story</code></li>
+      <li>Approach / principles<code>sections/approach</code></li>
+      <li>Services<code>sections/services</code></li>
+      <li>Process<code>sections/process</code></li>
+      <li>Engagement models<code>sections/engagement</code></li>
+      <li>Filter bar<code>sections/filter-bar</code></li>
+      <li>Detail layout + TOC<code>sections/detail-layout, components/toc</code></li>
+      <li>Article body<code>sections/article-body</code></li>
+      <li>Related row<code>sections/related-row</code></li>
+      <li>Logo grid + presence<code>sections/logo-grid</code></li>
+      <li>Story split<code>sections/story-split</code></li>
+      <li>Team + leaders<code>sections/team</code></li>
+      <li>Beliefs grid<code>sections/beliefs</code></li>
+      <li>Booking CTA (two versions)<code>sections/booking-cta</code></li>
+    </ul>
+  </section>
+</main>
+
+<!-- @include templates/_scripts.html -->
+<script>
+  /* Library only: draw swatches straight from the live CSS variables. */
+  (function () {
+    var css = getComputedStyle(document.documentElement);
+    function draw(el, prefix) {
+      el.getAttribute(prefix ? 'data-gradients' : 'data-swatches').split(' ').forEach(function (n) {
+        var name = '--ux-' + (prefix || '') + n;
+        var val = css.getPropertyValue(name).trim();
+        var d = document.createElement('div');
+        d.className = 'lib-swatch';
+        d.innerHTML = '<i style="background:' + val + '"></i><span><b>' + n + '</b>' + (prefix ? name : val) + '</span>';
+        el.appendChild(d);
+      });
+    }
+    document.querySelectorAll('[data-swatches]').forEach(function (el) { draw(el, ''); });
+    document.querySelectorAll('[data-gradients]').forEach(function (el) { draw(el, 'gradient-'); });
+  })();
+</script>
+</body>
+</html>

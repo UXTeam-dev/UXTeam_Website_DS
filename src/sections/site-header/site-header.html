@@ -1,0 +1,44 @@
+<!--
+  SL-01 Site header (Figma: inner pages 2099:476, light version on About 2516:14843)
+  Params: theme="dark|light"  cta="ux-btn--glass|ux-btn--primary"  bordered="ux-header--bordered|"
+  Same on every page. Dropdown menus are not designed yet (the nav will change),
+  so the items with a caret are buttons that can later open a menu.
+-->
+<header class="ux-header ux-header--{{theme|dark}} {{bordered|ux-header--bordered}}" data-ux-header>
+  <div class="ux-header__bar ux-container">
+    <a class="ux-header__logo" href="index.html" aria-label="UXTeam home">
+      <img class="ux-header__logo-light" src="../assets/logos/uxteam-logo-white.svg" width="156" height="38" alt="UXTeam">
+      <img class="ux-header__logo-dark" src="../assets/logos/uxteam-logo-navy.svg" width="156" height="38" alt="UXTeam">
+    </a>
+
+    <nav class="ux-nav" aria-label="Main">
+      <ul class="ux-nav__list" role="list">
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">What We Do<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><a class="ux-nav__link" href="#">UXAudit</a></li>
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">Work<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">About<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><a class="ux-nav__link" href="insights.html">Insights</a></li>
+        <li><a class="ux-nav__link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="ux-header__actions">
+      <a class="ux-btn {{cta|ux-btn--glass}} ux-header__cta" href="#book"><span class="ux-btn__label"><span class="ux-header__cta-full">Book a Discovery Call</span><span class="ux-header__cta-short">Book a Call</span></span><!-- @include components/button/_icon.html --></a>
+      <button class="ux-header__toggle" type="button" aria-expanded="false" aria-controls="ux-mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="ux-mobile-nav" id="ux-mobile-nav" hidden>
+    <ul class="ux-mobile-nav__list" role="list">
+      <li><a href="#">What We Do</a></li>
+      <li><a href="#">UXAudit</a></li>
+      <li><a href="success-stories.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <!-- @include components/button/_button.html class="ux-btn--primary ux-btn--on-dark" -->
+  </div>
+</header>

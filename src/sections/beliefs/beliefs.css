@@ -1,0 +1,8 @@
+/* What we believe (About, Figma 2516:15072): SL-30 principles as a 3 x 2
+   grid on G7 Warm Glow, then a Primary "See How We Work". Uses .ux-principles. */
+.ux-beliefs .ux-principles {
+  margin-top: 60px;
+}
+.ux-beliefs .ux-center {
+  margin-top: 48px;
+}

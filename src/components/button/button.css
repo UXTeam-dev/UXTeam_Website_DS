@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Button: "CTA / 01 Arrow Glide"  (Figma 1271:70, Assets & Components)
+
+   Types     primary | secondary | glass | subtle | icon
+   Surface   on-light | on-dark   (the surface the button sits on)
+   Hover     arrow A glides out right, arrow B glides in from the left.
+             Primary: the arrow circle fills. Secondary: underline slides in.
+   Timing    Smart animate 350ms ease out (Figma prototype).
+
+   Placement rules (DS 08): Primary only in the hero and the booking form.
+   Glass only in the header. Secondary is the action inside a card/column.
+   ========================================================================== */
+
+.ux-btn {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--btn-bg);
+  --btn-fg: var(--ux-navy);
+  --icon-bg: var(--ux-navy);
+  --icon-bg-hover: var(--icon-bg);
+  --arrow: var(--ux-white);
+  --arrow-hover: var(--arrow);
+  --underline: currentColor;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  max-width: 100%;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: var(--ux-fs-button-17);
+  line-height: var(--ux-lh-button-17);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--ux-motion-cta);
+}
+
+.ux-btn:hover,
+.ux-btn:focus-visible {
+  background: var(--btn-bg-hover);
+}
+
+/* ---- Label (secondary types carry the sliding underline) ---- */
+.ux-btn__label {
+  position: relative;
+  display: block;
+}
+
+/* ---- Arrow circle ---- */
+.ux-btn__icon {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--icon-bg);
+  transition: background-color var(--ux-motion-cta);
+}
+
+.ux-btn__arrow {
+  position: absolute;
+  top: 50%;
+  left: 22.73%;
+  width: 54.55%;
+  height: 54.55%;
+  color: var(--arrow);
+  transform: translate(0, -50%);
+  transition: transform var(--ux-motion-cta), color var(--ux-motion-cta);
+}
+
+.ux-btn__arrow--b {
+  left: -79.17%;
+  color: var(--arrow-hover);
+}
+
+.ux-btn:hover .ux-btn__icon,
+.ux-btn:focus-visible .ux-btn__icon {
+  background: var(--icon-bg-hover);
+}
+
+.ux-btn:hover .ux-btn__arrow,
+.ux-btn:focus-visible .ux-btn__arrow {
+  transform: translate(24px, -50%);
+}
+
+/* ==========================================================================
+   Pill types (Primary, Glass): 50 high, radius 200, padding 12 12 12 20
+   ========================================================================== */
+
+.ux-btn--primary,
+.ux-btn--glass {
+  min-height: 50px;
+  padding: 12px 12px 12px 20px;
+  border-radius: var(--ux-radius-pill);
+}
+
+/* Primary on a light surface: Navy pill */
+.ux-btn--primary {
+  --btn-bg: var(--ux-navy);
+  --btn-fg: var(--ux-white);
+  --icon-bg: rgba(255, 255, 255, 0.3);
+  --icon-bg-hover: var(--ux-white);
+  --arrow: var(--ux-white);
+  --arrow-hover: var(--ux-navy);
+}
+
+/* Primary on a dark surface: White pill */
+.ux-btn--primary.ux-btn--on-dark {
+  --btn-bg: var(--ux-white);
+  --btn-fg: var(--ux-navy);
+  --icon-bg: rgba(10, 27, 51, 0.12);
+  --icon-bg-hover: var(--ux-navy);
+  --arrow: var(--ux-navy);
+  --arrow-hover: var(--ux-white);
+}
+
+/* Glass on dark (header only) */
+.ux-btn--glass {
+  --btn-bg: rgba(255, 255, 255, 0.1);
+  --btn-bg-hover: rgba(255, 255, 255, 0.2);
+  --btn-fg: var(--ux-white);
+  --icon-bg: var(--ux-white);
+  --arrow: var(--ux-navy);
+  --arrow-hover: var(--ux-navy);
+}
+
+/* ==========================================================================
+   Text link types (Secondary, Secondary Subtle): label + 24px circle, gap 11
+   ========================================================================== */
+
+.ux-btn--secondary,
+.ux-btn--subtle {
+  gap: 11px;
+}
+
+.ux-btn--secondary .ux-btn__label,
+.ux-btn--subtle .ux-btn__label {
+  overflow: hidden;
+  padding-bottom: 2px;
+}
+
+.ux-btn--secondary .ux-btn__label::after,
+.ux-btn--subtle .ux-btn__label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--underline);
+  transform: translateX(-102.35%);
+  transition: transform var(--ux-motion-cta);
+}
+
+.ux-btn--secondary:hover .ux-btn__label::after,
+.ux-btn--secondary:focus-visible .ux-btn__label::after,
+.ux-btn--subtle:hover .ux-btn__label::after,
+.ux-btn--subtle:focus-visible .ux-btn__label::after {
+  transform: translateX(0);
+}
+
+/* Secondary on light: Navy text, Navy circle */
+.ux-btn--secondary {
+  --btn-fg: var(--ux-navy);
+  --icon-bg: var(--ux-navy);
+  --arrow: var(--ux-white);
+}
+
+/* Secondary on dark: White text, White circle */
+.ux-btn--secondary.ux-btn--on-dark {
+  --btn-fg: var(--ux-white);
+  --icon-bg: var(--ux-white);
+  --arrow: var(--ux-navy);
+}
+
+/* Secondary Subtle on dark: quieter circle */
+.ux-btn--subtle {
+  --btn-fg: var(--ux-white);
+  --icon-bg: rgba(255, 255, 255, 0.3);
+  --icon-bg-hover: var(--ux-white);
+  --arrow: var(--ux-white);
+  --arrow-hover: var(--ux-navy);
+}
+
+/* ==========================================================================
+   Icon only: the 24px circle
+   ========================================================================== */
+
+.ux-btn--icon {
+  gap: 0;
+  --icon-bg: var(--ux-navy);
+  --arrow: var(--ux-white);
+}
+
+.ux-btn--icon.ux-btn--on-dark {
+  --icon-bg: var(--ux-white);
+  --arrow: var(--ux-navy);
+}
+
+/* Muted icon (collapsed industry tiles) */
+.ux-btn--icon.ux-btn--muted .ux-btn__icon {
+  opacity: 0.3;
+  transition: opacity var(--ux-motion-industry);
+}
+
+/* Small screens: header uses the compact "Book a Call" glass button */
+.ux-btn--compact {
+  min-height: 48px;
+}
