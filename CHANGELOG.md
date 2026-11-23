@@ -2,6 +2,11 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.2.0 · 23 Nov 2026
+
+- Added `knowledge/`, a knowledge base of everything the live site (ux.team) says: company facts and contact, positioning, the four capability pages, all 16 success stories and portfolio projects, testimonials, FAQs, numbers with their approval status, content issues found on the live site, and a guide for writing pages that have no content. `knowledge/source/` holds the verbatim text of every page.
+- Added `CLAUDE.md` pointing to the brand guide and the knowledge base for page copy.
+
 ## 1.1.0 · 23 Nov 2026
 
 - Added `docs/BRAND-GUIDE.md`, a text version of the Positioning and Brand Guide for Page Designers (Chintan, 28 Oct 2026), with a short guide for planning pages that have no content file.
