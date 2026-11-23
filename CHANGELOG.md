@@ -4,8 +4,8 @@ Newest first. One entry per change that reaches GitHub. Name the Figma node when
 
 ## 1.2.0 · 23 Nov 2026
 
-- Added `knowledge/`, a knowledge base of everything the live site (ux.team) says: company facts and contact, positioning, the four capability pages, all 16 success stories and portfolio projects, testimonials, FAQs, numbers with their approval status, content issues found on the live site, and a guide for writing pages that have no content. `knowledge/source/` holds the verbatim text of every page.
-- Added `CLAUDE.md` pointing to the brand guide and the knowledge base for page copy.
+- Added `knowledge/uxteam-website-knowledge.txt`, one text file with everything the live site (ux.team) says, organized by topic: company facts and contact, site structure, positioning, process, the four capability pages, all 16 success stories, portfolio projects, testimonials, numbers with their approval status, FAQs, and issues found on the live site.
+- Added `CLAUDE.md` pointing to the brand guide and the knowledge file for page copy.
 
 ## 1.1.0 · 23 Nov 2026
 

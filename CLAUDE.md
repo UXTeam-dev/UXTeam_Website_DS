@@ -7,8 +7,8 @@ This repo is the coded design system and pages for the UXTeam website (see READM
 When a page has no content file, or you need any fact about UXTeam:
 
 1. Read `docs/BRAND-GUIDE.md` for positioning, voice, page rules and claims rules. It wins on tone and framing.
-2. Read `knowledge/README.md`, then the file it points to, for facts taken from the live site (ux.team): company and contact details, services, clients, success stories, testimonials, FAQs and numbers.
-3. Follow `knowledge/09-writing-new-pages.md`. Only use numbers marked safe in `knowledge/07-numbers-and-claims.md`, never copy anything listed in `knowledge/08-content-issues.md`, and leave visible `[confirm …]` placeholders instead of inventing facts.
+2. Read `knowledge/uxteam-website-knowledge.txt` for facts taken from the live site (ux.team): company and contact details, services, clients, success stories, testimonials, FAQs and numbers.
+3. Only use numbers listed as safe in its section 10, never copy anything from its section 12, and leave visible `[confirm …]` placeholders instead of inventing facts.
 
 House style for copy: sentence case, American spelling, no em dashes, main CTA "Book a Discovery Call".
 
