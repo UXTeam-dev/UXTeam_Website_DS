@@ -10,7 +10,7 @@ Where each coded piece comes from in the Figma file **UXTeam Website 2026** (fil
 |---|---|---|
 | Final Design Pages | 1231:508 | All pages |
 | Assets & Components | 1231:897 | Components and interactions |
-| Design System Guideline | 2351:577 | Rules (see DESIGN-RULES.md) |
+| Design System Guideline | 2351:577 | Rules (see LLM.md, sections 8 to 13) |
 
 ## Pages
 

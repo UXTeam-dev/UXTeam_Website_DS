@@ -2,6 +2,13 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.4.0 · 24 Nov 2026
+
+- Added two skills in `.claude/skills/`: `uxteam-page-strategy` (business framing, story, section weights, content brief) and `uxteam-creative-review` (creative direction for High weight sections, scored review with ranked fixes). LLM.md, AGENTS.md and CLAUDE.md point to them.
+- Added web quality standards to LLM.md (13.12): accessibility, tap targets, readability, performance, motion, forms, navigation. Outside design skills may only be used for these checks, never for style choices.
+- Added a "Skip to content" link to the header; every page's `<main>` now has `id="main"`, and `npm run check` checks it.
+- Removed `docs/DESIGN-RULES.md`. LLM.md is now the only rulebook; links point to its sections 8 to 13.
+
 ## 1.3.0 · 24 Nov 2026
 
 - Added `LLM.md`, the full brief for AI tools: business, voice, claims, process (approach, read the repo, plan, review), business value weighting, design rules, fixed spacing, craft rules, section library, page blueprints, quality bar and failures seen before.

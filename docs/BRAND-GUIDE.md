@@ -2,7 +2,7 @@
 
 > Text version of the PDF "UX.team Positioning and Brand Guide for Page Designers" by Chintan, 28 Oct 2026 (12 pages). The wording below is the guide's own. Only the section "Using this guide for a page with no content" and the notes marked **Note (repo)** were added here.
 >
-> Visual rules (colors, type, spacing, components) now live in the Figma Design System Guideline and in [DESIGN-RULES.md](DESIGN-RULES.md).
+> Visual rules (colors, type, spacing, components) now live in the Figma Design System Guideline and in [LLM.md](../LLM.md) (sections 8 to 13).
 
 ---
 
@@ -237,7 +237,7 @@ Every page has one job and one main action, and the homepage sets the pattern th
 
 The look is restrained and refined: it should feel senior, calm, and exact. Colors, type sizes, and spacing are not defined yet (see Pending decisions). Until they are, follow the live homepage and ask Chintan before introducing any new style.
 
-**Note (repo):** colors, type and spacing are now defined in the Figma Design System Guideline (2351:577) and coded in this repo. See [DESIGN-RULES.md](DESIGN-RULES.md).
+**Note (repo):** colors, type and spacing are now defined in the Figma Design System Guideline (2351:577) and coded in this repo. See [LLM.md](../LLM.md), sections 8 to 13.
 
 **Principles decided so far:**
 

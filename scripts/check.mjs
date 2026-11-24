@@ -89,6 +89,9 @@ function checkSource(name, src, report) {
 function checkBuilt(name, html, report) {
   const text = visibleText(html);
 
+  // 6b. Skip link target
+  if (!/<main\b[^>]*\bid="main"/i.test(html)) report.error('<main> needs id="main" so the header\'s skip link works.');
+
   // 7. One H1
   const h1 = (html.match(/<h1\b/gi) || []).length;
   if (h1 !== 1) report.error(`${h1} <h1> elements. A page has exactly one.`);

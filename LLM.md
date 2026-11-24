@@ -63,7 +63,7 @@ Also check, depending on the task:
 
 ### Step 3. Share your plan, then start
 
-Before any design or build, share a short plan in the conversation:
+Before any design or build, share a short plan in the conversation. For new pages and copy, follow the `uxteam-page-strategy` skill (`.claude/skills/uxteam-page-strategy/SKILL.md`):
 
 1. The page's job, its reader and its single main action
 2. The section list with business value weights and treatments (section 6.5)
@@ -79,7 +79,8 @@ Before saying the work is done:
 1. Run `npm run build`, then `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix.
 2. Screenshot the page at 1440, 768 and 375 and put it beside the closest approved page (`reference/pages/` holds screenshots of every approved page). Look for anything that does not appear on an approved page: a new color, a new card style, a different header or footer, a plain button, a flat hero. Remove it or justify it.
 3. Go through section 19.3 (failures seen before) and confirm none of them is present.
-4. Report what you checked and anything you could not check.
+4. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
+5. Report what you checked and anything you could not check.
 
 ---
 
@@ -121,7 +122,20 @@ General rules for every tool:
 - **Be honest about checks.** If you could not build, preview or compare with Figma, say so instead of saying the page is done.
 - **Large files.** Built pages and the CSS bundle are long. Read the section files you need, not the whole bundle.
 
-### 0A.4 Quick map of this file
+### 0A.4 Skills and outside guidance
+
+This repo ships two skills in `.claude/skills/`. Claude Code loads them automatically; other tools can read them as playbooks.
+
+| Skill | Use it when | What it produces |
+|---|---|---|
+| `uxteam-page-strategy` | Planning any new page or rewriting a page's copy, especially when there is no content document | The page's job, reader and action, the story, section weights, a content brief per section, and the claims check |
+| `uxteam-creative-review` | Designing a High weight section, or reviewing any page or section before handing it over | Design direction for the section, then a scored review with the fixes ranked |
+
+Use them in this order on a new page: page strategy (Step 3 plan), then build, then creative review (Step 4).
+
+**General design skills and guides** (for example UI/UX Pro Max or any style or palette generator) may be used **only** for usability, accessibility and performance checks. They must never choose styles, colors, fonts, layouts or tone for UXTeam. The brand is already decided: this file and the repo win every time.
+
+### 0A.5 Quick map of this file
 
 | # | Section | Use it for |
 |---|---|---|
@@ -138,7 +152,7 @@ General rules for every tool:
 | 10 | Color composition and backgrounds | Bands, gradients, light and dark |
 | 11 | Buttons and calls to action | Which CTA goes where |
 | 12 | Creative direction | Designing high value and new sections |
-| 13 | Craft rules | Hero, line breaks, hierarchy, icons, tables, CTA bands |
+| 13 | Craft rules | Hero, line breaks, hierarchy, icons, tables, CTA bands, web quality standards |
 | 14 | Section library | Every existing section and when to use it |
 | 15 | Page blueprints | Templates for each page type |
 | 16 | Building in the repo | Code structure and rules |
@@ -156,8 +170,9 @@ Plain HTML, CSS and JavaScript. No framework, no dependencies. Pages will later 
 ```
 LLM.md                 This file (CLAUDE.md and AGENTS.md point here)
 README.md              Human readable overview and quick start
-docs/                  BRAND-GUIDE, DESIGN-RULES, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
+docs/                  BRAND-GUIDE, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
 knowledge/             uxteam-website-knowledge.txt: facts from the live ux.team site
+.claude/skills/        uxteam-page-strategy and uxteam-creative-review (section 0A.4)
 reference/pages/       Screenshots of the approved Figma pages, for visual comparison
 scripts/check.mjs      Automatic page check (npm run check)
 assets/                fonts, icons, images (WebP), logos (PNG or SVG)
@@ -795,6 +810,52 @@ A High weight section is ready only when all of these are true:
 
 Besley is the voice of labels. Column headers, row labels, step numbers, group labels, meta lines and small descriptors use Besley (Medium 18, or the 14 uppercase eyebrow style). Titles and body stay in Aeonik and Manrope. Use judgment where a label also works as a title (13.3).
 
+### 13.12 Web quality standards
+
+Accessibility, performance and interaction basics every page meets. Most are built into the components already; keep them intact when you build something new.
+
+**Accessibility**
+- Text contrast at least 4.5 to 1 (3 to 1 for text 24px and up or bold 19px and up), including grey text, captions, and text on gradients and images.
+- Visible focus state on everything interactive. Never remove the focus outline.
+- The header's "Skip to content" link targets `<main id="main">`. Every page keeps that id.
+- One H1, then H2 and H3 in order, never skipping a level for styling. Use the type classes to change size, not the heading level.
+- Icon-only controls (play button, social links, menu toggle) have an `aria-label`. Decorative images use `alt=""`; meaningful images get a real description.
+- Never carry meaning by color alone. Pair it with text or an icon.
+- Toggles (FAQ items, menus, the section menu) expose their state with `aria-expanded`. Anything that opens on hover (industry cards) also opens on keyboard focus.
+- Respect `prefers-reduced-motion`.
+
+**Touch and interaction**
+- Tap targets at least 44 by 44 px, with at least 8 px between them on tablet and mobile.
+- Anything that opens on hover also opens on tap and on keyboard focus.
+- Clickable elements show a pointer cursor and a visible hover and focus state.
+
+**Readability**
+- Body text never below 16 px on mobile.
+- Long text lines stay around 60 to 75 characters on desktop (the 810 article column and the 760 intro width do this).
+- Numbers in tables and stats line up (`font-variant-numeric: tabular-nums` where numbers are compared).
+
+**Performance**
+- Every image has `width` and `height` (or an aspect ratio) so the page does not jump while loading.
+- Photos are WebP, at 2x their display size at most. Images below the first screen use `loading="lazy"`.
+- Fonts use `font-display: swap`. Only the fonts used above the fold are preloaded.
+- Scripts load with `defer`. No third party scripts without the person's approval.
+
+**Motion**
+- Animate only `transform` and `opacity`, never width, height or position properties (the FAQ height animation is the one deliberate exception).
+- Use the motion tokens (`--ux-motion-*`). Micro interactions 150 to 350 ms; nothing longer than 450 ms.
+- Motion explains a change (open, close, move). No decorative animation, at most one or two moving things per screen.
+- Animations never block clicks or scrolling.
+
+**Forms**
+- Visible labels on every field, never a placeholder alone. Mark required fields.
+- The right input types and `autocomplete` values (`email`, `url`, `name`).
+- Validate when the visitor leaves a field or submits, not on every key. Show the error under the field, say how to fix it, and move focus to the first invalid field.
+- Announce the result of a submit with `role="status"` or `aria-live`.
+
+**Navigation**
+- Navigation stays the same on every page. When a nav link points to the current page, mark it with `aria-current="page"`.
+- Every key page and every section a visitor might share has a URL or an anchor.
+
 ---
 
 ## 14. Section library
@@ -1000,6 +1061,7 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] No decorative element looks like a CTA
 - [ ] High sections pass the checklist in 13.10
 - [ ] Claims pass section 4
+- [ ] Web quality standards in 13.12 are met (focus, contrast, tap targets, image sizes, motion, forms)
 - [ ] Every section maps to a repo partial, or is a documented new section
 - [ ] Header, booking card and footer are the standard includes, unchanged
 - [ ] The page file contains no `<style>`, inline styles or hex colors

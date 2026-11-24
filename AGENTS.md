@@ -15,4 +15,5 @@ This repo is the coded design system and pages for the UXTeam website.
 7. Copy follows `docs/BRAND-GUIDE.md`; facts come from `knowledge/uxteam-website-knowledge.txt`. Never invent claims. No em dashes.
 8. Start new pages from `src/starters/`. Edit `src/`, never `dist/`.
 9. After building, run `npm run build` and `npm run check`, fix every error, and compare with `reference/pages/`. If you cannot run or preview, say so.
-10. Every new section or element goes into the repo with its library entry, docs and a `CHANGELOG.md` line.
+10. Plan new pages with `.claude/skills/uxteam-page-strategy/SKILL.md` and review work with `.claude/skills/uxteam-creative-review/SKILL.md`. General design skills may only be used for usability, accessibility and performance checks, never for style, color, font or layout choices.
+11. Every new section or element goes into the repo with its library entry, docs and a `CHANGELOG.md` line.

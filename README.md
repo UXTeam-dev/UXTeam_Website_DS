@@ -57,6 +57,7 @@ UXTeam_Website_DS/
 ├── CHANGELOG.md            What changed and when
 ├── package.json            npm run build / check / serve / dev
 ├── docs/                   How to work with the system (start with HOW-TO-ADD.md)
+├── .claude/skills/         Two skills for AI tools: page strategy and creative review
 ├── knowledge/              uxteam-website-knowledge.txt: everything the live ux.team site says
 ├── reference/              Screenshots of the approved Figma pages, for comparison
 ├── scripts/
@@ -148,7 +149,6 @@ Font sizes and the page margin change automatically through the tokens. Section 
 | [knowledge/uxteam-website-knowledge.txt](knowledge/uxteam-website-knowledge.txt) | You need facts for a page: company details, services, clients, success stories, testimonials, FAQs, numbers (collected from the live ux.team site) |
 | [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) | You write or plan copy for a page, especially one with no content file (positioning, audience, offer, voice, page rules, claims) |
 | [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a component, section or page (step by step checklist) |
-| [docs/DESIGN-RULES.md](docs/DESIGN-RULES.md) | You design or build anything new (the Guideline rules in code terms) |
 | [docs/COMPONENTS.md](docs/COMPONENTS.md) | You need a partial's parameters or a class name |
 | [docs/FIGMA-MAP.md](docs/FIGMA-MAP.md) | You want to find the Figma node behind a file, or the file behind a node |
 | [docs/WORDPRESS.md](docs/WORDPRESS.md) | You move pages into WordPress |

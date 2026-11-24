@@ -16,4 +16,4 @@ House style for copy: sentence case, American spelling, no em dashes, main CTA "
 
 ## Building
 
-Start new pages from `src/starters/`, follow LLM.md sections 15 and 16, run `npm run build` and `npm run check`, and add a line to `CHANGELOG.md` for every change.
+Plan new pages with the `uxteam-page-strategy` skill and review them with `uxteam-creative-review` (both in `.claude/skills/`). Start new pages from `src/starters/`, follow LLM.md sections 15 and 16, run `npm run build` and `npm run check`, and add a line to `CHANGELOG.md` for every change.

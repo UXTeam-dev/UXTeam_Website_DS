@@ -3344,6 +3344,22 @@ button {
 .ux-header.is-menu-open .ux-header__logo-light { display: block; }
 .ux-header.is-menu-open .ux-header__logo-dark { display: none; }
 
+/* Skip link: hidden until a keyboard user tabs to it */
+.ux-skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: var(--ux-radius-input);
+  background: var(--ux-white);
+  color: var(--ux-navy);
+  font: 500 16px/1.5 var(--ux-font-body);
+  transform: translateY(-200%);
+  transition: transform var(--ux-motion-fade);
+}
+.ux-skip-link:focus { transform: none; }
+
 
 /* ===== sections/site-footer/site-footer.css ===== */
 /* ==========================================================================
