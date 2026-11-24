@@ -15,13 +15,15 @@ Breaking any of these means the page is wrong, however good it looks.
 3. **Header navigation is the site navigation** (What We Do, UXAudit, Work, About, Insights, Contact), never anchor links to the current page's sections.
 4. **Every button is the Arrow Glide component** (`components/button/_button.html`): a pill or text link with an arrow circle. No plain pills, no underlined links as CTAs, no buttons without the arrow.
 5. **A hero uses one of the existing hero sections, is centered, has one CTA, and a dark hero fades to white** (Hero Dusk). No flat dark blocks, no glow blobs, no left aligned hero unless the design says so.
-6. **Reuse the matching section first.** Process or steps use the process section with icons. Ways to work use the engagement section. FAQ uses the FAQ component. Stories use story cards. Only content with no matching section gets a new design.
+6. **Reuse the matching section first, whole.** Process or steps use the process section with icons. Ways to work use the engagement section. FAQ uses the FAQ component. Stories use story cards. Reuse approved sections with their approved copy, labels and layout, and never merge two of them (12.5). Only content with no matching section gets a new design.
 7. **Radius 8 on cards and boxes, 1px Steel borders, no square corners, no shadows.**
 8. **At most one Warm Glow band and one Deep Navy band per page.** Every other section is white.
 9. **Fixed spacing only** (section 9). Sections touch; padding does the spacing.
 10. **High weight sections get a visual anchor** (graphic, mockup, icons, numbers, proof). A page made only of text rows is not finished.
 11. **Facts, offers and copy follow the business rules:** exactly three ways to work (Audit, Project, Partnership); the strategy workshop is a service, not a way to work; no invented claims.
-12. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
+12. **Equal items get equal treatment.** In a set of parallel items (the seven services, the industries), every item gets the same layout and weight; none is featured, none is split off (12.6).
+13. **The page type decides the hero and the booking card** (15.5). Declare it at the top of the page file and the check verifies it.
+14. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
 
 
 ## 0. Start here
@@ -53,6 +55,7 @@ Read before you plan. At minimum:
 | `docs/COMPONENTS.md` | Every component and section with its fields |
 | The approved pages in `src/pages/` that are closest to your task | Tone, sentence length, spacing and composition already approved |
 | The section folders you might reuse, in `src/sections/` and `src/components/`, including any `reference/` folder | How each one looks, works and what content fits |
+| `reference/pages/` and `reference/README.md` | Screenshots of every approved page, and approved live references |
 | `docs/OPEN-ITEMS.md` | What is still a placeholder or not approved |
 | `CHANGELOG.md` | What changed recently |
 
@@ -95,7 +98,7 @@ When two sources disagree, the higher one wins:
 3. This file
 4. `docs/BRAND-GUIDE.md` (full positioning and brand guide). It wins on tone, framing and claims
 5. `knowledge/uxteam-website-knowledge.txt` (facts from the live site). It is the fact source, but the brand guide wins where they disagree
-6. Approved Figma frames on **Final Design Pages**
+6. Approved Figma frames on **Final Design Pages**, and live pages the person has confirmed as approved (listed in `reference/README.md`, for example new.ux.team/what-we-do)
 7. The coded pages and sections in this repo
 8. Your own judgment
 
@@ -169,11 +172,13 @@ Plain HTML, CSS and JavaScript. No framework, no dependencies. Pages will later 
 
 ```
 LLM.md                 This file (CLAUDE.md and AGENTS.md point here)
+AGENTS.md, CLAUDE.md   Short pointers and the non-negotiables, read automatically by AI tools
 README.md              Human readable overview and quick start
+CHANGELOG.md           Every change, newest first
 docs/                  BRAND-GUIDE, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
 knowledge/             uxteam-website-knowledge.txt: facts from the live ux.team site
 skills/                uxteam-page-strategy and uxteam-creative-review, for any AI tool (section 0A.4)
-reference/pages/       Screenshots of the approved Figma pages, for visual comparison
+reference/              Screenshots of the approved pages (pages/) and the list of approved live references (README.md)
 scripts/check.mjs      Automatic page check (npm run check)
 assets/                fonts, icons, images (WebP), logos (PNG or SVG)
 src/tokens/tokens.json Single source of truth for colors, type, spacing. tokens.css is generated
@@ -181,7 +186,7 @@ src/base/              reset, fonts, typography classes, layout, grid, section s
 src/components/        small parts: button, cards, FAQ, chips, form field, person, TOC
 src/sections/          full width blocks: header, footer, heroes, services, process, booking card
 src/templates/         shared <head> and scripts
-src/starters/          starter files for each page type. Copy one to start a new page
+src/starters/          starter files for each page type (hub, dark hero, light hero, detail). Copy one to start a new page
 src/pages/             the pages, assembled from includes
 src/library/           component library page (shows everything)
 dist/                  build output, do not edit
@@ -406,7 +411,7 @@ Generate the content yourself, in this order:
 | FAQ question | One line where possible, max 2 |
 | FAQ answer | Answer first, 1 to 3 sentences |
 | Hero H1 | About 4 to 10 words |
-| Hero sub | 1 sentence |
+| Hero sub | 1 or 2 sentences, about 30 words, 3 lines at most |
 
 ---
 
@@ -441,7 +446,7 @@ The hero is always treated as High in importance, but uses one of the existing h
 
 | Section type | Typical weight | Existing section |
 |---|---|---|
-| Services offered | High | SL-32 grouped service list (dark) |
+| Services offered | High | SL-32 grouped service list (dark) on the homepage; the capability stack on a page dedicated to services (15.4) |
 | Industry capabilities | High | SL-34 expanding industry cards |
 | Outcomes and measured results | High | SL-20 outcome cards |
 | Featured client story or video | High | SL-21 featured story |
@@ -452,7 +457,8 @@ The hero is always treated as High in importance, but uses one of the existing h
 | Team and leadership | Medium | Team section (About) |
 | Client logos and presence | Medium | Logo grid or marquee |
 | Ways to work with us | Low | SL-35 engagement models |
-| Our approach, beliefs, principles | Low | SL-30 principles |
+| Our approach, beliefs, principles | Low (Medium when paired with stats as proof, as on the homepage) | SL-30 principles |
+| Why choose us (short reasons) | Medium | Why grid with icons (15.4) |
 | FAQ | Low | SL-42 FAQ |
 | Related items | Low | SL-60 related row |
 | Author, share, legal, meta | Low | Existing blocks |
@@ -546,7 +552,7 @@ Three fonts only:
 
 | Role | Spec |
 |---|---|
-| Homepage display H1 | Aeonik Regular 90 (64 tablet, 44 mobile). Homepage only |
+| Display H1 | Aeonik Regular 90 (64 tablet, 44 mobile). Homepage, hub pages (What we do) and the About hero only (15.5) |
 | Inner page H1 | Aeonik Medium 64 |
 | Section H2 | Aeonik Medium 50 (40, 32), Navy, centered for section intros |
 | Card, step, column title | Aeonik Medium 30 (26, 22) |
@@ -644,7 +650,7 @@ Only use: 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 100, 120.
 - **Page background is white.** Most sections are white.
 - **One Warm Glow band and one Deep Navy band at most** on a long page. Never two dark bands in a row.
 - Gradients are **transitions**, not decoration: their job is to lead into and out of dark sections. A full gradient background is reserved for sections with real business weight (High). A Low section never gets a band; a stroke or hairline at most.
-- Give the strongest band to the page's highest weight section (for example services on Deep Navy).
+- Give the strongest band to the page's highest weight section (for example services on Deep Navy). A band is one way to add weight, not the only one: on What we do the capability stack stays on white and gets its weight from scale, visuals and interaction.
 - **Header and hero:** dark (Hero Dusk, glass CTA) or light (light hero, primary CTA). Vary between pages so every page does not look the same.
 - **A dark hero always fades fully to white before it ends.** No visible edge where the next section starts. See 13.1.
 - On dark backgrounds, foreground elements must **blend in**: navy or glass cards, gradient strokes. A bright white strip on a dark fade looks wrong.
@@ -712,6 +718,24 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 - Keep them quiet: white background, hairlines, standard spacing.
 - Their job is to support the High sections, not compete with them.
 
+### 12.4 Creative references
+
+Every creative (High weight) section in the repo keeps its reference next to its code:
+
+```
+src/sections/<name>/
+  <name>.css, <name>.html, <name>.js
+  reference/
+    desktop.webp    Export of the approved design
+    tablet.webp     (if designed)
+    mobile.webp     (if designed)
+    NOTES.md        business point, why it looks this way, what can vary, what must not
+```
+
+Creative sections with references today: `src/sections/outcomes`, `src/sections/featured-story`, `src/sections/services`, `src/components/industry-card`. Full page screenshots of every approved page are in `reference/pages/` (see `reference/README.md`).
+
+Study these before designing a new creative section. They show the level and the kind of creativity expected. When you add a new creative section, add its reference folder too.
+
 ### 12.5 Reuse approved sections exactly
 
 When a page needs content that already exists as an approved section (the process, the partnerships stories, the outcomes, the logo strip, the FAQ), use that section **as it is, with its approved copy and labels**:
@@ -729,25 +753,6 @@ When a section presents a set of parallel items (the seven services, the industr
 - Never pull one item out of the set into its own band (for example AI design on a separate dark band while the other services sit on white). A set stays together.
 - If one item is the natural starting point (the audit), mark it with a label such as "Start here", not with a different layout.
 - An index of the items (anchor links) is a compact sticky tab bar, never a grid of tiles that fills a screen before the content starts.
-
-
-### 12.4 Creative references
-
-Every creative (High weight) section in the repo keeps its reference next to its code:
-
-```
-src/sections/<name>/
-  <name>.css, <name>.html, <name>.js
-  reference/
-    desktop.png     Figma export of the approved design
-    tablet.png      (if designed)
-    mobile.png      (if designed)
-    NOTES.md        business point, why it looks this way, what can vary, what must not
-```
-
-Creative sections with references today: `src/sections/outcomes`, `src/sections/featured-story`, `src/sections/services`, `src/components/industry-card`. Full page screenshots of every approved page are in `reference/pages/` (see `reference/README.md`).
-
-Study these before designing a new creative section. They show the level and the kind of creativity expected. When you add a new creative section, add its reference folder too.
 
 ---
 
@@ -813,7 +818,7 @@ These rules fix the details that make a page feel finished. They apply to every 
 ### 13.9 CTA bands inside a page
 
 - When content ends a section with a question and an action (for example "Need something outside these three?"), give it a CTA band instead of loose text and a button.
-- A CTA band sits inside the 1200 container: radius 8, a G5 or G6 tint on light pages (a navy card with a gradient stroke on dark), a heading in the 30 style, one line of body, one Primary button on the right (stacked under the text on mobile).
+- A CTA band sits inside the 1200 container: radius 8, a soft tint on light pages (Mist, as on the live What we do page, or G5 or G6), a navy card with a gradient stroke on dark, a heading in the 30 style, one line of body, one Primary button on the right (stacked under the text on mobile).
 - At most 2 per page. Never directly above the booking card. It counts as that screen's one main CTA.
 
 ### 13.10 High section checklist
@@ -823,7 +828,7 @@ A High weight section is ready only when all of these are true:
 - [ ] It makes its business point within a few seconds of looking at it.
 - [ ] It has a visual anchor (13.6), not just text.
 - [ ] Its composition differs from the sections around it.
-- [ ] It gets more space and a stronger surface than Low sections (a band, gradient stroke cards or a tinted surface), within the band limits in section 10.
+- [ ] It gets more space and more emphasis than Low sections: a band, gradient stroke cards, a tinted surface, or larger scale with visuals and interaction (the capability stack), within the band limits in section 10.
 - [ ] It has clear hierarchy (13.3) and one main action at most.
 - [ ] It is still fully on brand: tokens, type roles, radius, the CTA component.
 
@@ -896,7 +901,7 @@ Code: `src/sections/<name>/` or `src/components/<name>/`. Figma refs are node ID
 
 | Code | Section | Use | Path |
 |---|---|---|---|
-| SL-10 | Homepage display hero + logo marquee | Homepage only | `sections/hero-home`, `logo-marquee` |
+| SL-10 | Display hero + logo marquee | Homepage and hub pages (What we do). Starter: `src/starters/hub-page.html` | `sections/hero-home`, `logo-marquee` |
 | SL-11 | Listing hero | Index pages (work, insights, services overview) | `sections/hero-listing` |
 | SL-12 | Case study hero (partnership lockup, intro, person) | Success story and partner details | `sections/hero-case-study` |
 | SL-13 | Article hero (meta, title, cover) | Insights, guides, long reads | `sections/hero-article` |
@@ -1018,21 +1023,23 @@ Notes: the capability stack is not in the repo yet (see section 20). The live pa
 
 ### 15.5 Which hero and booking card a page uses
 
-| Page type | Hero | Booking card |
-|---|---|---|
-| Homepage | Display hero with logo marquee | Homepage version |
-| Hub pages that present the whole offer (What we do) | Display hero, dark, with logo strip | Homepage version |
-| Company page (About) | Light hero, display H1 | Inner version |
-| Listing pages (Success Stories, Insights) | Listing hero, 64 H1 | Inner version (Insights: footer only) |
-| Detail pages (case study, article) | Case study or article hero | Inner version, flush (Insights articles: footer only) |
-| Other inner pages (UXAudit, How we work, White label, Contact) | Listing hero, 64 H1 | Inner version |
+Every page declares its type in a comment at the top of its file, for example `<!-- ux-page-type: hub -->`. `npm run check` then checks the hero and booking card against this table.
+
+| Type key | Page type | Hero | Booking card |
+|---|---|---|---|
+| `home` | Homepage | Display hero with logo marquee (`ux-hero-home`) | Homepage version (`booking-cta-home.html`) |
+| `hub` | Hub pages that present the whole offer (What we do) | Display hero, dark, with logo strip (`ux-hero-home`) | Homepage version |
+| `company` | Company page (About) | Light hero, display H1 (`ux-hero-light`) | Inner version (`booking-cta.html`) |
+| `listing` | Listing pages (Success Stories, Insights) | Listing hero, 64 H1 (`ux-hero-listing`) | Inner version (Insights: footer only) |
+| `detail` | Detail pages (case study, article) | Case study or article hero (`ux-hero-case`, `ux-hero-article`) | Inner version, flush (Insights articles: footer only) |
+| `inner` | Other inner pages (UXAudit, How we work, White label, Contact) | Listing or light hero (`ux-hero-listing`, `ux-hero-light`) | Inner version |
 
 ### 15.6 Page rules for pages still to come
 
 | Page | Its job | Must include | Main action |
 |---|---|---|---|
 | UXAudit | Make the audit tangible and low-risk | What is inside the report, a sample report preview, turnaround, what we need, "quoted after one call" | Start with an audit |
-| What we do | Explain each service plainly | One section per service with an anchor, a short FAQ each, project or partnership | Book a Discovery Call |
+| What we do | Explain each service plainly | Follow BP-4 (15.4): capability stack with one card per service, process, why us, proof, FAQ | Book a Discovery Call |
 | Conversion optimization | Show the testing method and approved results | Method, illustrative funnel analysis, VORO and AgentSelect results, request for CRO case studies under NDA | Book a Discovery Call |
 | AI agent experience | Define the offer and prove it | Plain definition, from-to table limited to rows we can back, AI interface case study (when approved), FAQ | Book a Discovery Call |
 | How we work | Show the process and terms | Story timeline, length, what we need, minimum term, reporting, pricing notes, NDA and IP | Book a Discovery Call |
@@ -1072,10 +1079,11 @@ Notes: the capability stack is not in the repo yet (see section 20). The live pa
 ### 16.3 Starting a new page
 
 1. Copy the closest starter from `src/starters/` into `src/pages/<page-name>.html`:
+   - `hub-page.html`: page that presents the whole offer (What we do): display hero, homepage booking card
    - `dark-hero-page.html`: inner page with the dark Hero Dusk header and hero (most pages)
    - `light-hero-page.html`: inner page with the light header and hero (About style)
    - `detail-page.html`: two column detail page with table of contents (case study or article)
-2. Keep the header, booking card and footer includes exactly as they are.
+2. Keep the header, booking card and footer includes exactly as they are, and keep the `ux-page-type` comment correct (15.5).
 3. Replace the placeholder sections with includes of existing sections, following your plan (Step 3).
 4. Add the page to `src/index.html`.
 5. `npm run build`, `npm run check`, then compare with `reference/pages/`.
@@ -1121,6 +1129,7 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] Header, booking card and footer are the standard includes, unchanged
 - [ ] The page file contains no `<style>`, inline styles or hex colors
 - [ ] Nothing on the page appears that does not exist on an approved page, unless it is a planned new section
+- [ ] Treatment matches the approved direction: the right sections are emphasized, approved sections are reused whole, equal items are treated equally
 - [ ] Repo updated (library, docs, changelog) and pushed
 
 Check by screenshotting the built page at the three widths and comparing side by side with the Figma frames. List any accepted difference with a reason.
@@ -1129,10 +1138,11 @@ Check by screenshotting the built page at the three widths and comparing side by
 
 ## 19. Do's and don'ts
 
-### Do
+### 19.1 Do
 
 - Plan from business value first, then sections (section 6).
-- Reuse existing sections for Low and Medium weight content.
+- Reuse existing sections for Low and Medium weight content, and approved sections whole.
+- Treat every item of a set (services, industries) the same way.
 - Give High weight content a distinctive, proof-led section with a visual anchor.
 - Use icons and graphics where they carry meaning, in a few sections per page.
 - Turn mid-page prompts with an action into a CTA band.
@@ -1145,7 +1155,7 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Share links or screenshots for approval in the conversation.
 - Keep the repo updated with every new section.
 
-### Don't
+### 19.2 Don't
 
 - Don't design Low weight sections creatively, and don't put them on bands.
 - Don't put two CTAs in a hero.
@@ -1162,7 +1172,8 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Don't stack two dark bands or repeat the same layout back to back.
 - Don't use spacer elements or pick padding by eye.
 - Don't put the founder photo anywhere except the booking section.
-- Don't change the booking card or footer per page.
+- Don't change the booking card or footer per page. Pick the booking version by page type (15.5).
+- Don't merge approved sections, rewrite their labels, or feature one item of a set over the others.
 - Don't write "Contact us", "Get a quote", "in UX" (for the 20+ years), or "450+ B2B projects".
 - Don't publish anything listed in section 20.
 - Don't edit `dist/` or `tokens.css` by hand.

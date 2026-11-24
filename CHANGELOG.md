@@ -2,6 +2,14 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.6.0 · 24 Nov 2026
+
+Repo review and refinement:
+- Every page and starter declares its type (`<!-- ux-page-type: ... -->`). `npm run check` now checks that the hero and booking card match the type (LLM.md 15.5).
+- New starter `src/starters/hub-page.html` for pages that present the whole offer (display hero, logo strip, homepage booking card).
+- LLM.md: non-negotiables now include reusing approved sections whole, equal treatment for equal items, and page type; display H1 rule, hero sub length, typical weights, band guidance, CTA band tint and the High section checklist aligned with the What we do blueprint; section 12 reordered; reference file names corrected to WebP; Do and Don't numbered 19.1 and 19.2; live What we do page added to the order of truth.
+- `reference/README.md` and `docs/FIGMA-MAP.md` list approved live references. README, HOW-TO-ADD, COMPONENTS, AGENTS and the page strategy skill updated to match.
+
 ## 1.5.0 · 24 Nov 2026
 
 From comparing an AI built What we do page with the live approved one (new.ux.team/what-we-do):

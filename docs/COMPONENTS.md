@@ -104,7 +104,7 @@ Wrap items in `<div class="ux-faq" data-ux-faq>`. One item open at a time. Two c
 | Site header | `sections/site-header/site-header.html` | `theme` dark or light, `cta` ux-btn--glass or ux-btn--primary, `bordered` (pass empty on the homepage) |
 | Site footer | `sections/site-footer/site-footer.html` | none |
 | Booking card, inner pages | `sections/booking-cta/booking-cta.html` | `mod` (ux-booking--flush removes the top padding) |
-| Booking card, homepage | `sections/booking-cta/booking-cta-home.html` | `mod` |
+| Booking card, homepage and hub pages | `sections/booking-cta/booking-cta-home.html` | `mod`. Which version a page uses: LLM.md 15.5 |
 | Featured story (video) | `sections/featured-story/featured-story.html` | none |
 | Outcomes | `sections/outcomes/outcomes.html` | none |
 | Services | `sections/services/services.html` | none |

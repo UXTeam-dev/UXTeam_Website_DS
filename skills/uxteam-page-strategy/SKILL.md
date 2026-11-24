@@ -30,7 +30,7 @@ Answer each in one or two lines:
 3. **Beliefs.** What must they believe before they act? List 3 to 5 beliefs, for example "they understand my kind of product" or "the result is measured, not promised".
 4. **Objections.** What would stop them? List 2 to 4.
 5. **Job and action.** The page's one job and one main action (LLM.md 15.6 for known pages).
-6. **Page type.** Hub, company, listing, detail or other inner page. This decides the hero and booking card (LLM.md 15.5). If an approved or live version of the page exists (for example What we do, LLM.md 15.4), it is the blueprint.
+6. **Page type.** Hub, company, listing, detail or other inner page. This decides the hero, the booking card and the starter file (LLM.md 15.5, 16.3). If an approved or live version of the page exists (for example What we do, LLM.md 15.4), it is the blueprint.
 7. **Pillars.** Which one or two pillars carry the page (AI and people, Outcomes, Experience)?
 8. **Proof.** Which approved proof supports it (results, clients, quotes, facts)? Proof that is not approved stays out or becomes a marked placeholder.
 9. **Journey.** Where do visitors arrive from, and where should they go next?

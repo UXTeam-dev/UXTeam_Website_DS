@@ -17,6 +17,14 @@ Exports of the approved Figma frames (Final Design Pages), for comparing built p
 | `pages/insights-detail-desktop.webp` | Insights detail | 2102:3181 |
 | `pages/about-desktop.webp` | About Us | 2516:14841 |
 
+## Approved live references
+
+Pages the person has confirmed as the approved direction, beyond the Figma frames. Compare against these the same way.
+
+| Page | Where | Blueprint |
+|---|---|---|
+| What we do | https://new.ux.team/what-we-do/ | LLM.md 15.4 |
+
 Creative (High weight) sections keep their own reference next to their code, in a `reference/` folder with a `NOTES.md`:
 `src/sections/outcomes`, `src/sections/featured-story`, `src/sections/services`, `src/components/industry-card`.
 

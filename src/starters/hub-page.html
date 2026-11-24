@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- ux-page-type: hub -->
+<!--
+  STARTER · Hub page that presents the whole offer (What we do). Blueprint: LLM.md 15.4.
+  Display hero with the logo strip, homepage booking card.
+  Copy to src/pages/<page-name>.html, then:
+  1. Replace every [PLACEHOLDER] and follow your plan (LLM.md section 0, Step 3).
+  2. Keep the header, booking card and footer includes exactly as they are.
+  3. Reuse approved sections whole (LLM.md 12.5); treat every capability the same way (12.6).
+  4. npm run build, npm run check, compare with reference/pages/ and the live What we do page.
+  Write the Figma frame IDs or live reference here: [ID or URL].
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="[Page title] | UXTeam" description="[One sentence description]" -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" bordered="" -->
+
+  <main id="main">
+    <!-- HERO (SL-10 display hero). One CTA only. Sub: about 30 words, 3 lines at most. -->
+    <section class="ux-hero-home" aria-labelledby="page-title">
+      <div class="ux-container ux-hero-home__inner">
+        <h1 class="ux-h1-display ux-hero-home__title" id="page-title">[Short display headline]</h1>
+        <p class="ux-hero-home__sub">[One or two sentences]</p>
+        <div class="ux-hero-home__cta">
+          <!-- @include components/button/_button.html class="ux-btn--primary ux-btn--on-dark" -->
+        </div>
+        <p class="ux-hero-home__trusted">Trusted by B2B companies worldwide</p>
+      </div>
+      <!-- @include sections/logo-marquee/logo-marquee.html -->
+    </section>
+
+    <!-- HIGH: the capability stack (LLM.md 15.4). Not in the repo yet: build it as a section first,
+         add it to the library, then include it here. -->
+
+    <!-- Approved sections to reuse whole, in the blueprint order:
+         sections/process/process.html                         How we work
+         (why grid with icons, to build)                      Why B2B teams choose UXTeam
+         sections/featured-story/featured-story.html + 3 story cards   The partnerships behind the results
+         sections/outcomes/outcomes.html                      Outcomes we've delivered
+         3 blog cards + one Primary link                      Insights
+         components/faq/faq.html                              FAQ, "What we observe, think, and learn"
+         See src/pages/index.html for how each is wrapped. -->
+
+    <!-- FIXED: homepage booking card version for hub pages (LLM.md 15.5). Do not edit. -->
+    <!-- @include sections/booking-cta/booking-cta-home.html -->
+  </main>
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

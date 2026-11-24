@@ -70,3 +70,9 @@ SL numbers are the Section Library ids on Guideline board 10 (2354:659).
 | `sections/story-split` | About, 2516:15022 |
 | `sections/team` | About, 2516:15041 |
 | `sections/beliefs` | About, SL-30 grid on Warm Glow |
+
+## Approved live references (not in Figma)
+
+| Page | Live URL | Blueprint |
+|---|---|---|
+| What we do | https://new.ux.team/what-we-do/ | LLM.md 15.4 |

@@ -64,6 +64,27 @@ function checkSource(name, src, report) {
   if (!noBooking && !/@include\s+sections\/booking-cta\/booking-cta(-home)?\.html/.test(src)) {
     report.error('missing the booking card include (sections/booking-cta). Add it, or mark the page with <!-- ux-check: no-booking --> if it intentionally ends with the footer only.');
   }
+  // 3b. Page type decides the hero and the booking card (LLM.md 15.5)
+  const TYPES = {
+    home: { hero: ['ux-hero-home'], booking: 'home' },
+    hub: { hero: ['ux-hero-home'], booking: 'home' },
+    company: { hero: ['ux-hero-light'], booking: 'inner' },
+    listing: { hero: ['ux-hero-listing'], booking: 'inner' },
+    detail: { hero: ['ux-hero-case', 'ux-hero-article'], booking: 'inner' },
+    inner: { hero: ['ux-hero-listing', 'ux-hero-light'], booking: 'inner' },
+  };
+  const typeMatch = src.match(/ux-page-type:\s*([a-z]+)/);
+  if (!typeMatch) report.warn('no page type declared. Add <!-- ux-page-type: home|hub|company|listing|detail|inner --> at the top (LLM.md 15.5).');
+  else if (!TYPES[typeMatch[1]]) report.error(`unknown page type "${typeMatch[1]}". Use home, hub, company, listing, detail or inner.`);
+  else {
+    const t = TYPES[typeMatch[1]];
+    if (!t.hero.some((h) => new RegExp(`class="[^"]*\\b${h}\\b`).test(noComments))) report.error(`a ${typeMatch[1]} page uses the ${t.hero.join(' or ')} hero (LLM.md 15.5).`);
+    const usesHome = /@include\s+sections\/booking-cta\/booking-cta-home\.html/.test(src);
+    const usesInner = /@include\s+sections\/booking-cta\/booking-cta\.html/.test(src);
+    if (t.booking === 'home' && usesInner) report.error(`a ${typeMatch[1]} page uses the homepage booking card (booking-cta-home.html), not the inner one (LLM.md 15.5).`);
+    if (t.booking === 'inner' && usesHome) report.error(`a ${typeMatch[1]} page uses the inner booking card (booking-cta.html). The homepage version is for home and hub pages (LLM.md 15.5).`);
+  }
+
   if (!/@include\s+templates\/_head\.html/.test(src)) report.error('missing templates/_head.html include.');
   if (!/@include\s+templates\/_scripts\.html/.test(src)) report.error('missing templates/_scripts.html include.');
 

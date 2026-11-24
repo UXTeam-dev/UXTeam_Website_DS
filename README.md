@@ -77,7 +77,7 @@ UXTeam_Website_DS/
 │   ├── components/         One folder per component (CSS, JS, HTML partials)
 │   ├── sections/           One folder per section (CSS, JS, HTML partials)
 │   ├── templates/          <head> and <script> partials shared by all pages
-│   ├── starters/           Starter files for new pages (dark hero, light hero, detail)
+│   ├── starters/           Starter files for new pages (hub, dark hero, light hero, detail)
 │   ├── pages/              The pages, built from includes
 │   ├── library/            The component library page
 │   ├── js/
