@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Stacked cards">
+<g transform="translate(-89 -24)">
+<path d="M137 70H217C221.418 70 225 73.5817 225 78V132C225 136.418 221.418 140 217 140H137C132.582 140 129 136.418 129 132V78C129 73.5817 132.582 70 137 70Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M233 58H153C148.582 58 145 61.5817 145 66V120C145 124.418 148.582 128 153 128H233C237.418 128 241 124.418 241 120V66C241 61.5817 237.418 58 233 58Z" fill="white" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M249 46H169C164.582 46 161 49.5817 161 54V108C161 112.418 164.582 116 169 116H249C253.418 116 257 112.418 257 108V54C257 49.5817 253.418 46 249 46Z" fill="url(#ux-spot-agency-growth-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M175 68H229M175 82H213" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="ux-spot-agency-growth-accent" x1="161" y1="46" x2="227.648" y2="137.403" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

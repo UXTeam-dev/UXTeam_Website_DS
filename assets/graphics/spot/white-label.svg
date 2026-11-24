@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Two overlapping circles">
+<g transform="translate(-89 -24)">
+<path d="M169 140C194.405 140 215 119.405 215 94C215 68.5949 194.405 48 169 48C143.595 48 123 68.5949 123 94C123 119.405 143.595 140 169 140Z" fill="url(#ux-spot-white-label-accent)"/>
+<path d="M255 94C255 119.405 234.405 140 209 140C183.595 140 163 119.405 163 94C163 68.5949 183.595 48 209 48C234.405 48 255 68.5949 255 94Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M215 94C215 119.405 194.405 140 169 140C143.595 140 123 119.405 123 94C123 68.5949 143.595 48 169 48C194.405 48 215 68.5949 215 94Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="ux-spot-white-label-accent" x1="123" y1="48" x2="215" y2="140" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

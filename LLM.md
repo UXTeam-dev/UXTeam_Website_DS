@@ -26,7 +26,7 @@ Breaking any of these means the page is wrong, however good it looks.
 14. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
 15. **No gradient fills on content cards, and never a gradient on a gradient** (8.5). Content cards are white with a 1px Steel border (a gradient stroke on Deep Navy). Nothing with a gradient surface sits on a gradient band or hero.
 16. **Every section header has an eyebrow,** whether or not the content document gives one. Write one if it is missing (8.4).
-17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic (8.6).
+17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **Pick and draw every graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; they get an image box until the real file arrives (8.6).
 18. **The trusted-by logo strip is always the logo marquee include, as it is** (`sections/logo-marquee`, auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip (12.5).
 19. **A content heavy section is brainstormed before it is built** (12.7). Never stack every point the content gives into columns plus another section's content.
 
@@ -70,6 +70,7 @@ Read before you plan. At minimum:
 | `docs/BRAND-GUIDE.md` | Full positioning, offer, page rules and claims |
 | `knowledge/uxteam-website-knowledge.txt` | Facts from the live ux.team site: company and contact details, services, clients, all success stories, testimonials, FAQs, numbers with their approval status |
 | `docs/COMPONENTS.md` | Every component and section with its fields |
+| `docs/GRAPHICS.md` and `reference/graphics/` | Which icon, illustration, scene or image box goes where, and how to draw a new one |
 | The approved pages in `src/pages/` that are closest to your task | Tone, sentence length, spacing and composition already approved |
 | The section folders you might reuse, in `src/sections/` and `src/components/`, including any `reference/` folder | How each one looks, works and what content fits |
 | `reference/pages/` and `reference/README.md` | Screenshots of every approved page, and approved live references |
@@ -193,12 +194,12 @@ LLM.md                 This file (CLAUDE.md and AGENTS.md point here)
 AGENTS.md, CLAUDE.md   Short pointers and the non-negotiables, read automatically by AI tools
 README.md              Human readable overview and quick start
 CHANGELOG.md           Every change, newest first
-docs/                  BRAND-GUIDE, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
+docs/                  BRAND-GUIDE, COMPONENTS, GRAPHICS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
 knowledge/             uxteam-website-knowledge.txt: facts from the live ux.team site
 skills/                uxteam-page-strategy and uxteam-creative-review, for any AI tool (section 0A.4)
-reference/              Screenshots of the approved pages (pages/) and the list of approved live references (README.md)
+reference/             Screenshots of the approved pages (pages/), every graphic on the Figma Graphics board (graphics/), and approved live references (README.md)
 scripts/check.mjs      Automatic page check (npm run check)
-assets/                fonts, icons, images (WebP), logos (PNG or SVG)
+assets/                fonts, icons (SVG), graphics (SVG spot illustrations), images (WebP), logos (PNG or SVG)
 src/tokens/tokens.json Single source of truth for colors, type, spacing. tokens.css is generated
 src/base/              reset, fonts, typography classes, layout, grid, section spacing
 src/components/        small parts: button, cards, FAQ, chips, form field, person, TOC
@@ -216,6 +217,7 @@ Figma file: **UXTeam Website 2026**, key `9JQFLWC1KBelhUEaEZ6I1C`.
 - Final Design Pages `1231:508` (approved pages, the only design source of truth)
 - Assets & Components `1231:897` (components and interactions)
 - Design System Guideline `2351:577` (rules)
+- Graphics `2638:6786` (every icon, illustration and scene, with where each is used; see `docs/GRAPHICS.md`)
 
 ---
 
@@ -599,6 +601,17 @@ Three fonts only:
 
 ### 8.6 Icons and imagery
 
+**`docs/GRAPHICS.md` is the full guide.** In short, six families, chosen by the section's job:
+
+| Family | Where | Look |
+|---|---|---|
+| 1 Process icons, 64px | The process section | Navy 1.5 outline, one G4 filled shape |
+| 2 Line icons, 32px on a tile; 24px meta icons | Trust points, expectations, benefits (tint tile); audiences (Navy tile); client facts (24px Steel, no tile) | Navy 1.5 outline, no fill |
+| 3 Spot illustrations, 200 x 140 | Topic or path tiles, on a Mist panel | 3 to 9 shapes, Navy 1.5, exactly one G4 shape |
+| 4 Product scenes, 518 x 518 | Service rows and other High sections that show what the client gets | Navy panel, two soft glows, simplified UI, one flagged problem, white floating cards |
+| 5 Mini scenes, 257 x 200 | A row of four parts of one capability | Dark base, two glows in one hue, one white card |
+| 6 Image boxes | Anything that needs a real image: client work, outcomes, industries, blog covers, people | Mist box, dashed Steel border, a label that names the image |
+
 - Icons: outline style, 24px grid, 1.5px stroke, current text color (Phosphor style). Process icons are provided in `assets/icons/process/` as SVG.
 - **Icons, graphics, diagrams and illustrations are always SVG:** inline `<svg>` or an `.svg` file in `assets/`. Never a PNG, JPG, WebP or base64 data image of an icon or graphic, and never a screenshot of one. Raster files are only for photos, client logos supplied as raster, and real product screenshots. A missing icon is drawn as SVG in the house style or taken from Figma as SVG.
 - Imagery: real, client-approved work over stock. One crop, one radius, one overlay per image set.
@@ -839,6 +852,7 @@ These rules fix the details that make a page feel finished. They apply to every 
 - Not every section. On a typical page, 2 to 4 sections use icons or graphics, mostly the Medium and High ones.
 - One icon style per page: outline, 24 grid, 1.5 stroke, current color. For steps, the 64px line icons with a G4 accent from `assets/icons/process`. Same size and treatment inside a section.
 - Step by step content (how it works, how the partnership works) starts from the existing process section with icons (SL-33) before anything new is designed.
+- Choose the graphic family with the table in `docs/GRAPHICS.md` section 1. One family and one size per section.
 - **A section about a process, an approach, a method or principles shows how the work happens, never what it produces.** Use icons, step numbers, simple white cards, a flow or a diagram drawn in SVG. Never a product mockup, a phone or browser frame, a screenshot or an "illustrative interface". Mockups belong to outcomes, stories and industries, where they show a result.
 - Every High section has a visual anchor: an illustration, a product mockup, a preview of a deliverable, a diagram, a large number or an icon set. Graphics that show data are labeled "Illustrative".
 
@@ -967,7 +981,11 @@ Code: `src/sections/<name>/` or `src/components/<name>/`. Figma refs are node ID
 | SL-35 | Engagement models (3 columns) | Low | 3 offers: label, title, description, link | `sections/engagement` |
 | Beliefs grid | 6 principles on Warm Glow | Low | 6 short beliefs (About) | `sections/beliefs` |
 | Capability stack | Sticky tabs + stacked capability cards with deliverable visuals + closing CTA band | High | 5 to 8 capabilities, each with intro, included list, where it fits, one action, one visual | Not in the repo yet. Reference: new.ux.team/what-we-do (15.4) |
-| Why grid with icons | 4 columns with hairlines, outline icon, title, one sentence | Medium | 4 reasons | Live What we do page; build from `sections/approach` styles |
+| Why grid with icons | 4 columns with hairlines, outline icon, title, one sentence | Medium | 4 reasons | Live What we do page; build from `sections/approach` styles with `.ux-icon-tile` (docs/GRAPHICS.md family 2) |
+| Expectations row | 4 columns, Steel hairline on top, 56px tint icon tile, title, two lines | Low to Medium | 4 promises or trust points | Figma `2638:22316`; icons and tile in `components/graphic`, section not built yet |
+| Topic tiles | 3 or 6 tiles, Mist spot illustration, title with arrow circle, one line | Medium | Topics, service areas or paths to choose from | `components/graphic/_topic-tile.html` with `.ux-topic-grid` (Figma `2638:22054`) |
+| Service row with scene | 1200 card: text column with checklist and two actions, 518 product scene | High | One service: intro, 5 included items, where it fits, actions, one scene | Figma `2638:17149` to `2638:19804`; scene kit in `components/graphic`, row not built yet |
+| Capability with mini scenes | Title, intro, one action, four mini scenes with titles and two lines | High | One capability with four parts | Figma `2638:20489`; mini scene kit in `components/graphic`, section not built yet |
 
 ### Content and listing
 

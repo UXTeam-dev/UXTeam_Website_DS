@@ -225,7 +225,7 @@ function checkBuilt(name, html, report) {
     if (!head) continue;
     const headText = visibleText(head).toLowerCase();
     if (!/\b(process|approach|how we|how it works|method|principles|framework|steps|our way|designing)\b/.test(headText)) continue;
-    const media = /<figure\b|class="[^"]*(mockup|device|phone|browser-frame|screen)[^"]*"|illustrative (product )?interface/i.test(m[1]);
+    const media = /<figure\b|class="[^"]*(mockup|device|phone|browser-frame|screen|ux-scene)[^"]*"|illustrative (product )?interface/i.test(m[1]);
     const rasterImg = [...m[1].matchAll(/<img\b[^>]*>/gi)].some((i) => !/\.svg|data:image\/svg/i.test(i[0]) && !/ux-btn|logo|founder|person/i.test(i[0]));
     if (media || rasterImg) report.warn(`"${headText.trim().slice(0, 50)}" reads as a process or approach section but holds a mockup or image. Show the process (icons, numbers, steps, cards, an SVG diagram), never a result (LLM.md 13.6).`);
   }
@@ -242,6 +242,13 @@ function checkBuilt(name, html, report) {
     if (blocks.length >= 2 && blocks.includes('ux-step')) report.warn(`"${title}" combines the process steps with other content. One idea per section; give the process its own section (LLM.md 12.7).`);
     else if (words > 150 && !/ux-services|ux-approach|ux-beliefs/.test(cls)) report.warn(`"${title}" holds ${words} words. Brainstorm the composition and cut to one idea (LLM.md 12.7).`);
   }
+
+  // 9m. Scenes are images: white sections only (docs/GRAPHICS.md 9)
+  for (const m of html.matchAll(/<section\b[^>]*class="[^"]*\bux-bg-(warm-glow|deep-navy)\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gi)) {
+    if (/class="[^"]*\bux-scene\b/.test(m[2])) report.error(`a product scene inside the ${m[1].replace('-', ' ')} band. Scenes sit on white sections only (docs/GRAPHICS.md section 9).`);
+  }
+  // 9n. Image boxes are placeholders, never live
+  if (/class="[^"]*\bux-image-box\b/.test(html)) report.warn('image box placeholder on the page. Replace it with the real image before publishing (docs/GRAPHICS.md section 8).');
 
   // 10. Band limits
   const warm = (html.match(/class="[^"]*\bux-bg-warm-glow\b/g) || []).length;
@@ -267,7 +274,7 @@ function checkBuilt(name, html, report) {
 
 // Repo level: icon files are SVG; no new gradient filled cards in CSS (LLM.md 8.5, 8.6)
 const GRADIENT_CSS_ALLOWED = [
-  'components/outcome-card', 'components/video-card', 'components/faq', 'components/detail-blocks', 'components/service-card',
+  'components/graphic', 'components/outcome-card', 'components/video-card', 'components/faq', 'components/detail-blocks', 'components/service-card',
   'sections/team', 'sections/story-split', 'sections/hero-', 'sections/site-footer', 'sections/booking-cta', 'base/', 'tokens/',
 ];
 async function walk(dir) {
@@ -280,9 +287,9 @@ async function walk(dir) {
   return out;
 }
 async function checkRepo(report) {
-  const icons = join(ROOT, 'assets', 'icons');
-  if (existsSync(icons)) {
-    for (const p of await walk(icons)) if (!/\.svg$/i.test(p)) report.error(`${p.slice(ROOT.length + 1)} is not SVG. Icons and graphics are SVG (LLM.md 8.6).`);
+  for (const dir of [join(ROOT, 'assets', 'icons'), join(ROOT, 'assets', 'graphics')]) {
+    if (!existsSync(dir)) continue;
+    for (const p of await walk(dir)) if (!/\.svg$/i.test(p)) report.error(`${p.slice(ROOT.length + 1)} is not SVG. Icons and graphics are SVG (LLM.md 8.6, docs/GRAPHICS.md).`);
   }
   for (const p of (await walk(join(ROOT, 'src'))).filter((x) => x.endsWith('.css'))) {
     const rel = p.slice(join(ROOT, 'src').length + 1);

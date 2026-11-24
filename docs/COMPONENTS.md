@@ -94,6 +94,7 @@ Wrap items in `<div class="ux-faq" data-ux-faq>`. One item open at a time. Two c
 | `service-card/` | `.ux-service-card`, `.ux-service-stack` | Dark service rows |
 | `industry-card/` | `.ux-industry` | `industry-card/industry-card.html`, opens on hover or focus |
 | `toc/` | `.ux-toc`, `.ux-section-menu` | Sticky rail on desktop, floating bottom menu on tablet and mobile |
+| `graphic/` | `.ux-icon-tile` (`--navy`), `.ux-meta-list`, `.ux-meta-icon`, `.ux-spot`, `.ux-topic-tile`, `.ux-topic-grid`, `.ux-scene` (`--mini`), `.ux-image-box` (`--scene`, `--blog`, `--industry`, `--industry-narrow`, `--outcome`, `--portrait`, `--wide`) | Partials `_topic-tile.html` (params art, title, text, href), `_scene-cro.html`, `_scene-mini-trust.html`. Which to use where: `docs/GRAPHICS.md` |
 
 ---
 

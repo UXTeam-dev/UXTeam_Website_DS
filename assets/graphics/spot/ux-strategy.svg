@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Target with an arrow">
+<g transform="translate(-89 -24)">
+<path d="M249 94C249 127.137 222.137 154 189 154C155.863 154 129 127.137 129 94C129 60.8629 155.863 34 189 34C222.137 34 249 60.8629 249 94Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M229 94C229 116.091 211.091 134 189 134C166.909 134 149 116.091 149 94C149 71.9086 166.909 54 189 54C211.091 54 229 71.9086 229 94Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M189 114C200.046 114 209 105.046 209 94C209 82.9543 200.046 74 189 74C177.954 74 169 82.9543 169 94C169 105.046 177.954 114 189 114Z" fill="url(#ux-spot-ux-strategy-accent)"/>
+<path d="M189 99C191.761 99 194 96.7614 194 94C194 91.2386 191.761 89 189 89C186.239 89 184 91.2386 184 94C184 96.7614 186.239 99 189 99Z" fill="#0A1B33"/>
+<path d="M249 44L193 90" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241 44H249V52" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="ux-spot-ux-strategy-accent" x1="169" y1="74" x2="209" y2="114" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

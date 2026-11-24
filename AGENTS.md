@@ -21,7 +21,7 @@ This repo is the coded design system and pages for the UXTeam website.
 11. Stay inside the task: a page task does not edit shared files (header, footer, booking card, scripts, other pages), add new mechanisms, fill open items, or publish anything outside the repo (LLM.md 16.4). No AI generated imagery.
 12. Every new section or element goes into the repo with its library entry, docs and a `CHANGELOG.md` line.
 13. Every section header has an eyebrow. If the content document has none, write one.
-14. Icons and graphics are SVG (inline or `.svg` files), never PNG, JPG, WebP or data images.
+14. Icons and graphics are SVG (inline or `.svg` files), never PNG, JPG, WebP or data images. Choose and draw them with `docs/GRAPHICS.md` (the section's job picks the family). Real images (client work, people, blog covers) are never generated: leave a labeled `.ux-image-box` until the file arrives.
 15. The trusted-by logo strip is always `sections/logo-marquee` as it is (auto scrolling). Never a static logo row.
 16. Process and approach sections show the process (icons, numbers, steps, simple cards, an SVG diagram), never a mockup or screenshot.
 17. Brainstorm content heavy sections before building (LLM.md 12.7): one idea per section, two or three composition options, cut what repeats. Never dump every point into columns.

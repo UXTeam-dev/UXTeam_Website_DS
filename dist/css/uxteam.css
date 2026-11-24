@@ -32,6 +32,19 @@
   --ux-author-bg: #F6DBA0;
   --ux-toc-active: #111111;
   --ux-logo-underline: #919C9F;
+  --ux-g-scene-glow: #00BFF2;
+  --ux-g-scene-deep: #0F1F3D;
+  --ux-g-scene-deepest: #070D1C;
+  --ux-g-tint-aqua: #B9F9FC;
+  --ux-g-tint-peach: #FFEED9;
+  --ux-g-ui-line: #E6EAEE;
+  --ux-g-ui-line-strong: #C9D3DC;
+  --ux-g-alert: #E5484D;
+  --ux-g-alert-strong: #C62F35;
+  --ux-g-success: #40B924;
+  --ux-g-success-soft: #E4F5D4;
+  --ux-g-success-text: #22661A;
+  --ux-g-product: #5B4BDB;
   /* Gradients */
   --ux-gradient-g1-hero-dusk: linear-gradient(180deg, #0D1315 0%, rgba(10,27,51,0.9) 34%, #5C6D85 65%, #FFFFFF 92%, #FFFFFF 99%);
   --ux-gradient-g1-hero-dusk-home: linear-gradient(180deg, #0D1315 0%, rgba(10,27,51,0.9) 30%, #5C6D85 57%, #FFFDF7 92%, #FFFFFF 99%);
@@ -44,6 +57,8 @@
   --ux-gradient-g7-warm-glow: radial-gradient(137.6% 105.5% at 50% 100%, #FFECBC 0%, #EDFDFF 42.8%, #FFFFFF 100%);
   --ux-gradient-g8-hero-light: radial-gradient(137.6% 95.5% at 50% 0%, rgba(255,236,188,0.5) 0%, #EDFDFF 58.4%, #FFFFFF 100%);
   --ux-gradient-service-card-hover: linear-gradient(113.5deg, rgba(77,100,129,0.3) 1%, rgba(14,21,24,0) 98%);
+  --ux-gradient-g6-icon-tile: linear-gradient(93deg, #B9F9FC 0%, #FFEED9 100%);
+  --ux-gradient-scene-mini: linear-gradient(115deg, #0F1F3D 0%, #070D1C 100%);
   /* Font families and weights */
   --ux-font-heading: 'Aeonik', 'Helvetica Neue', Arial, sans-serif;
   --ux-font-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
@@ -134,6 +149,8 @@
   --ux-shadow-glass-button: 0 4.4px 39.6px rgba(0,0,0,0.85);
   --ux-shadow-mockup: 0 2px 30px rgba(0,0,0,0.6);
   --ux-shadow-floating-menu: 0 5px 15px rgba(0,0,0,0.06);
+  --ux-shadow-scene-frame: 0 12px 32px rgba(0,0,0,0.32);
+  --ux-shadow-scene-card: 0 12px 16px rgba(0,0,0,0.16);
   --ux-motion-cta: 350ms cubic-bezier(0, 0, 0.58, 1);
   --ux-motion-card: 300ms cubic-bezier(0, 0, 0.58, 1);
   --ux-motion-industry: 450ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -3141,6 +3158,278 @@ button {
     align-items: flex-start;
   }
 }
+
+
+/* ===== components/graphic/graphic.css ===== */
+/* ==========================================================================
+   Graphics kit
+   Source: Figma "Graphics" board 2638:6786. Rules, and which family goes
+   where: docs/GRAPHICS.md. Read that before drawing anything new.
+
+   Families with code here:
+     2  Icon tiles        .ux-icon-tile, .ux-icon-tile--navy
+     2  Meta icons        .ux-meta-list, .ux-meta-icon
+     3  Spot panel        .ux-spot  (+ .ux-topic-tile that holds it)
+     4  Product scene     .ux-scene (518 x 518 inline SVG)
+     5  Mini scene        .ux-scene--mini (257 x 200 inline SVG)
+     6  Image box         .ux-image-box (an empty, labeled box for a real image)
+   Process icons (family 1) live in sections/process.
+   ========================================================================== */
+
+/* ---- 2. Icon tiles ------------------------------------------------------ */
+
+/* Soft tint tile: 56 x 56, radius 8, G6 tint, 32px Navy line icon.
+   Used for trust points, expectations, benefits on light sections. */
+.ux-icon-tile {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--ux-radius-card);
+  background: var(--ux-gradient-g6-icon-tile);
+}
+
+.ux-icon-tile > img,
+.ux-icon-tile > svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Navy tile: 60 x 60, radius 7, white 32px icon. Audience lists. */
+.ux-icon-tile--navy {
+  width: 60px;
+  height: 60px;
+  border-radius: 7px;
+  background: var(--ux-navy);
+}
+
+/* Meta icons: 24px Steel line icons beside a short label (a client's
+   industries, a location). Never inside a tile. */
+.ux-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-meta-list > li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ux-font-body);
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-charcoal);
+}
+
+.ux-meta-icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+/* ---- 3. Spot illustration panel ----------------------------------------- */
+
+/* Mist panel, 378 x 188 at desktop, 200 x 140 drawing centered. */
+.ux-spot {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 378 / 188;
+  background: var(--ux-mist);
+  overflow: hidden;
+}
+
+.ux-spot > img,
+.ux-spot > svg {
+  width: 53%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 200 / 140;
+  transition: transform 600ms var(--ux-motion-card);
+}
+
+/* Topic tile: the card that carries a spot illustration (Figma 2638:22054).
+   380 x 350, white, 1px Steel, radius 8. Three across, gap 30. */
+.ux-topic-tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: var(--ux-border-hairline);
+  border-radius: var(--ux-radius-card);
+  background: var(--ux-white);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ux-topic-tile > .ux-spot {
+  border-bottom: var(--ux-border-hairline);
+}
+
+.ux-topic-tile__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 28px 28px;
+}
+
+.ux-topic-tile__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ux-topic-tile__title {
+  margin: 0;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 25px;
+  line-height: 1.4;
+  color: var(--ux-navy);
+}
+
+.ux-topic-tile__arrow {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ux-radius-round);
+  background: var(--ux-ink);
+  color: var(--ux-white);
+  transition: transform var(--ux-motion-card);
+}
+
+.ux-topic-tile__arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ux-topic-tile__text {
+  margin: 0;
+  font-family: var(--ux-font-body);
+  font-size: var(--ux-fs-body-18);
+  line-height: 1.6;
+  color: var(--ux-charcoal);
+}
+
+.ux-topic-tile:hover .ux-spot > img,
+.ux-topic-tile:hover .ux-spot > svg,
+.ux-topic-tile:focus-visible .ux-spot > img,
+.ux-topic-tile:focus-visible .ux-spot > svg {
+  transform: scale(1.04);
+}
+
+.ux-topic-tile:hover .ux-topic-tile__arrow,
+.ux-topic-tile:focus-visible .ux-topic-tile__arrow {
+  transform: translateX(3px);
+}
+
+.ux-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 1199px) {
+  .ux-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+
+@media (max-width: 767px) {
+  .ux-topic-grid { grid-template-columns: 1fr; }
+  .ux-topic-tile__title { font-size: 22px; }
+}
+
+/* ---- 4 and 5. Scenes ----------------------------------------------------- */
+
+/* A scene is one inline <svg> (viewBox 0 0 518 518, or 0 0 257 200 for a
+   mini scene) inside this frame. The SVG scales with the box, so text and
+   cards stay in proportion at every width. Decorative: the wrapper has
+   role="img" and an aria-label that says what the scene shows. */
+.ux-scene {
+  position: relative;
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: var(--ux-radius-card);
+  overflow: hidden;
+  background: var(--ux-navy);
+}
+
+.ux-scene--mini {
+  aspect-ratio: 257 / 200;
+  background: var(--ux-gradient-scene-mini);
+}
+
+.ux-scene > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Text roles inside scene SVGs (class names start with ux-scene__) */
+.ux-scene__h { font-family: var(--ux-font-heading); font-weight: var(--ux-weight-medium); }
+.ux-scene__b { font-family: var(--ux-font-body); font-weight: var(--ux-weight-regular); }
+.ux-scene__bb { font-family: var(--ux-font-body); font-weight: var(--ux-weight-semibold); }
+.ux-scene__a { font-family: var(--ux-font-accent); font-weight: var(--ux-weight-medium); letter-spacing: 0.08em; }
+
+/* Friction marker pulse (the one moving part of a scene) */
+.ux-scene__pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ux-scene-pulse 2.4s ease-out infinite;
+}
+
+@keyframes ux-scene-pulse {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  80%, 100% { transform: scale(1.8); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-scene__pulse { animation: none; opacity: 0.35; }
+  .ux-spot > img, .ux-spot > svg, .ux-topic-tile__arrow { transition: none; }
+}
+
+/* ---- 6. Image box --------------------------------------------------------- */
+
+/* An empty box that reserves the exact space for a real image (client
+   work, photos, blog covers, industry and outcome visuals). Never fill it
+   with a generated picture. The label says what goes in it. */
+.ux-image-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: var(--ux-image-ratio, 3 / 2);
+  padding: 16px;
+  border: 1px dashed var(--ux-steel);
+  border-radius: var(--ux-radius-tile);
+  background: var(--ux-mist);
+  text-align: center;
+}
+
+.ux-image-box__label {
+  max-width: 32ch;
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-medium);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ux-steel);
+}
+
+.ux-image-box--scene { --ux-image-ratio: 1; border-radius: var(--ux-radius-card); }
+.ux-image-box--blog { --ux-image-ratio: 336 / 216; }
+.ux-image-box--industry { --ux-image-ratio: 437 / 377; }
+.ux-image-box--industry-narrow { --ux-image-ratio: 224 / 377; }
+.ux-image-box--outcome { --ux-image-ratio: 585 / 283; border-radius: 0 0 var(--ux-radius-card) var(--ux-radius-card); }
+.ux-image-box--portrait { --ux-image-ratio: 4 / 5; }
+.ux-image-box--wide { --ux-image-ratio: 16 / 9; }
 
 
 /* 4. Sections (organisms) */

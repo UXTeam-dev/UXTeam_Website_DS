@@ -1,0 +1,16 @@
+<!--
+  Topic tile with a spot illustration (Figma 2638:22054). Family 3 in docs/GRAPHICS.md.
+  Usage, inside <ul class="ux-topic-grid" role="list"><li>…</li></ul>:
+  @include components/graphic/_topic-tile.html art="cro" title="CRO" text="Test demo, trial and sign up funnels against one agreed metric." href="#"
+  art = a file name in assets/graphics/spot (without .svg).
+-->
+<a class="ux-topic-tile" href="{{href|#}}">
+  <div class="ux-spot"><img src="../assets/graphics/spot/{{art}}.svg" width="200" height="140" alt="" loading="lazy"></div>
+  <div class="ux-topic-tile__body">
+    <div class="ux-topic-tile__head">
+      <h3 class="ux-topic-tile__title">{{title}}</h3>
+      <span class="ux-topic-tile__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+    <p class="ux-topic-tile__text">{{text}}</p>
+  </div>
+</a>

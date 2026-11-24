@@ -17,6 +17,10 @@ Exports of the approved Figma frames (Final Design Pages), for comparing built p
 | `pages/insights-detail-desktop.webp` | Insights detail | 2102:3181 |
 | `pages/about-desktop.webp` | About Us | 2516:14841 |
 
+## Graphics
+
+`graphics/` holds a screenshot of every graphic on the Figma **Graphics** board (`2638:6786`): service rows and their scenes (`scene-*.webp`, `service-row-ux-audit.webp`), AI mini scenes, process icons, icon tiles, meta icons, spot illustrations in topic tiles, and the real image uses (outcome cards, industry cards, blog covers). `_all-graphics-board.webp` is the whole board. Which one to use where, and how to draw a new one: `docs/GRAPHICS.md`.
+
 ## Approved live references
 
 Pages the person has confirmed as the approved direction, beyond the Figma frames. Compare against these the same way.

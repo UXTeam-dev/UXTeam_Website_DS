@@ -38,7 +38,7 @@ Avoid repeating the composition of the section before or after it.
 - **Hierarchy:** section heading, group title, item title, body, meta (LLM.md 13.3).
 - **Surface:** white, Warm Glow or Deep Navy, within the band limits (section 10). Cards on any surface are white with a Steel border, or unfilled with a gradient stroke on Deep Navy. No gradient filled cards, and no gradient surface on a gradient (LLM.md 8.5).
 - **Eyebrow:** every section header has one (LLM.md 8.4).
-- **Visual anchor and icons:** what graphic carries the point (13.6). Icons and graphics are SVG only.
+- **Visual anchor and icons:** what graphic carries the point (13.6). Pick the family with `docs/GRAPHICS.md`, draw it with that family's recipe, and compare it with `reference/graphics/`. SVG only; real images stay image boxes.
 - **Interaction:** hover, focus and tap states, and what moves (13.12).
 - **Tablet and mobile:** how it stacks, what stays visible.
 - **Action:** at most one text link per item, and the screen's one main CTA if it belongs here.
@@ -66,7 +66,7 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Rhythm and variety | No two neighbouring sections share a layout; bands within limits; smooth gradient transitions |
 | Reuse and parity | Approved sections reused whole; equal items treated equally |
 | Spacing | Matches LLM.md section 9 exactly |
-| Visual anchors | Icons and graphics where they carry meaning, one style, not everywhere |
+| Visual anchors | The right graphic family for the section's job (docs/GRAPHICS.md), one family and size per section, drawn to its recipe so it matches `reference/graphics/` |
 | Craft details | Everything in LLM.md 13.1 to 13.11 holds |
 | Copy | Voice, claims and facts follow LLM.md 3 and 4 |
 | Quality | Web standards in LLM.md 13.12; `npm run check` passes |

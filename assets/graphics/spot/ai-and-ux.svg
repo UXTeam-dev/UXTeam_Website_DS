@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Connected nodes">
+<g transform="translate(-89 -24)">
+<path d="M189 94L139 64L159 136L189 94ZM189 94L239 58M189 94L235 130" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M189 110C197.837 110 205 102.837 205 94C205 85.1634 197.837 78 189 78C180.163 78 173 85.1634 173 94C173 102.837 180.163 110 189 110Z" fill="url(#ux-spot-ai-and-ux-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139 72C143.418 72 147 68.4183 147 64C147 59.5817 143.418 56 139 56C134.582 56 131 59.5817 131 64C131 68.4183 134.582 72 139 72Z" fill="#0A1B33"/>
+<path d="M247 58C247 62.4183 243.418 66 239 66C234.582 66 231 62.4183 231 58C231 53.5817 234.582 50 239 50C243.418 50 247 53.5817 247 58Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M167 136C167 140.418 163.418 144 159 144C154.582 144 151 140.418 151 136C151 131.582 154.582 128 159 128C163.418 128 167 131.582 167 136Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M235 138C239.418 138 243 134.418 243 130C243 125.582 239.418 122 235 122C230.582 122 227 125.582 227 130C227 134.418 230.582 138 235 138Z" fill="#0A1B33"/>
+</g>
+<defs>
+<linearGradient id="ux-spot-ai-and-ux-accent" x1="173" y1="78" x2="205" y2="110" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

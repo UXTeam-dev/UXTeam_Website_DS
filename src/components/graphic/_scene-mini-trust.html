@@ -1,0 +1,45 @@
+<!--
+  Mini scene example: Trust and Transparency (Figma 2638:20496, fourth card).
+  Family 5 in docs/GRAPHICS.md. 257 x 200: dark base, two blurred glows in one
+  hue family, one white card that shows the capability in a single moment.
+  Usage: @include components/graphic/_scene-mini-trust.html
+-->
+<div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative AI activity card listing what the assistant did, with Undo and Looks good actions.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mini-trust-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mini-trust-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mini-trust-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mini-trust-clip)">
+    <rect width="257" height="200" fill="url(#ux-mini-trust-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#0F9A96" fill-opacity="0.75" filter="url(#ux-mini-trust-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#14B8A6" fill-opacity="0.4" filter="url(#ux-mini-trust-blur)"/>
+
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="37" y="48" font-size="11" fill="#0A1B33">What the AI did</text>
+    <path d="M214 38.1l1.5 4.7 4.7 1.5-4.7 1.5-1.5 4.7-1.5-4.7-4.7-1.5 4.7-1.5z" fill="#5B4BDB"/>
+
+    <g fill="#F3F4F6">
+      <rect x="37" y="64" width="18.3" height="18.3" rx="4.9"/>
+      <rect x="37" y="89.8" width="18.3" height="18.3" rx="4.9"/>
+      <rect x="37" y="115.6" width="18.3" height="18.3" rx="4.9"/>
+    </g>
+    <g stroke="#0A1B33" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M42.3 73.2s1.4-2.7 3.9-2.7 3.9 2.7 3.9 2.7-1.4 2.7-3.9 2.7-3.9-2.7-3.9-2.7z"/><circle cx="46.2" cy="73.2" r="1.2"/>
+      <circle cx="45.7" cy="98.5" r="2.7"/><path d="M47.8 100.6l1.6 1.6"/>
+      <path d="M44.2 121.3h2.7l1.8 1.8v5.1h-4.5zM46.6 121.3v2.1h2.1"/>
+    </g>
+    <g class="ux-scene__b" font-size="8.5" fill="#374151">
+      <text x="63" y="76.3">Read 3 customer emails</text>
+      <text x="63" y="102.1">Checked order #4021</text>
+      <text x="63" y="127.9">Drafted a reply</text>
+    </g>
+
+    <path d="M105.2 150.5h2.3a2.2 2.2 0 0 1 0 4.4h-1.9M106.1 149.4l-1.1 1.1 1.1 1.1" stroke="#0A1B33" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="ux-scene__bb" x="112.5" y="155" font-size="8" fill="#0A1B33">Undo</text>
+    <rect x="152" y="141.5" width="67.9" height="20.8" rx="5.6" fill="#0A1B33"/>
+    <text class="ux-scene__bb" x="186" y="155" font-size="8" fill="#FFFFFF" text-anchor="middle">Looks good</text>
+  </g>
+</svg>
+</div>

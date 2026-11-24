@@ -25,6 +25,13 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 - The capability stack from the live What we do page (sticky tabs, stacked capability cards with deliverable visuals, AI design card with four sub areas, closing CTA band). Spec in LLM.md 15.4.
 - The why grid with icons from the live What we do page (four hairline columns with outline icons).
 - A What we do page in this repo, built from the two sections above and the existing ones.
+- From the Figma Graphics board (`2638:6786`), graphics are coded but these sections are not built: the service row with a product scene, the capability row with four mini scenes, the expectations row with icon tiles. The topic tiles are built (`components/graphic/_topic-tile.html`).
+- Drawn scenes coded so far: Conversion Optimization and the Trust and Transparency mini scene. UX Audit, Design Systems, UX Strategy Workshop and the other three AI mini scenes are references only (`reference/graphics/`); code them from the recipe in docs/GRAPHICS.md when a page needs them.
+
+## Waiting for real images (use an image box until supplied)
+
+- Product and App Design and Web and Marketing Design scenes: the client screenshots (HemNXT, seller dashboard, VORO) as separate files, with permission to show them.
+- Blog covers for any new insight, and industry visuals for any industry beyond the four approved.
 
 ## To confirm
 

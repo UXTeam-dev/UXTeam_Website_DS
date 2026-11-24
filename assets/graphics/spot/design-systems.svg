@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Grid of components">
+<g transform="translate(-89 -24)">
+<path d="M161 40H141C137.686 40 135 42.6863 135 46V66C135 69.3137 137.686 72 141 72H161C164.314 72 167 69.3137 167 66V46C167 42.6863 164.314 40 161 40Z" fill="#0A1B33" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M181 40H201C204.314 40 207 42.6863 207 46V66C207 69.3137 204.314 72 201 72H181C177.686 72 175 69.3137 175 66V46C175 42.6863 177.686 40 181 40Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241 40H221C217.686 40 215 42.6863 215 46V66C215 69.3137 217.686 72 221 72H241C244.314 72 247 69.3137 247 66V46C247 42.6863 244.314 40 241 40Z" fill="#0A1B33" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M141 80H161C164.314 80 167 82.6863 167 86V106C167 109.314 164.314 112 161 112H141C137.686 112 135 109.314 135 106V86C135 82.6863 137.686 80 141 80Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M201 80H181C177.686 80 175 82.6863 175 86V106C175 109.314 177.686 112 181 112H201C204.314 112 207 109.314 207 106V86C207 82.6863 204.314 80 201 80Z" fill="url(#ux-spot-design-systems-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M221 80H241C244.314 80 247 82.6863 247 86V106C247 109.314 244.314 112 241 112H221C217.686 112 215 109.314 215 106V86C215 82.6863 217.686 80 221 80Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M161 120H141C137.686 120 135 122.686 135 126V146C135 149.314 137.686 152 141 152H161C164.314 152 167 149.314 167 146V126C167 122.686 164.314 120 161 120Z" fill="#0A1B33" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M181 120H201C204.314 120 207 122.686 207 126V146C207 149.314 204.314 152 201 152H181C177.686 152 175 149.314 175 146V126C175 122.686 177.686 120 181 120Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241 120H221C217.686 120 215 122.686 215 126V146C215 149.314 217.686 152 221 152H241C244.314 152 247 149.314 247 146V126C247 122.686 244.314 120 241 120Z" fill="#0A1B33" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="ux-spot-design-systems-accent" x1="175" y1="80" x2="207" y2="112" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

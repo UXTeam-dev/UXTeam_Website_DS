@@ -32,6 +32,12 @@
     .lib-sections { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 0; list-style: none; }
     .lib-sections li { border: 1px solid var(--ux-stroke-menu); border-radius: 8px; padding: 14px 16px; font-size: 15px; }
     .lib-sections code { display: block; color: var(--ux-steel); font-size: 13px; margin-top: 4px; }
+    .lib-sub { margin: 40px 0 16px; font-size: 18px; font-weight: 600; }
+    .lib-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; padding: 0; margin: 0; list-style: none; }
+    .lib-gap { margin-top: 24px; }
+    .lib-scenes { display: grid; grid-template-columns: 518px 257px; gap: 40px; align-items: start; }
+    .lib-boxes { display: grid; grid-template-columns: 336px 224px 300px; gap: 30px; align-items: start; }
+    @media (max-width: 900px) { .lib-scenes, .lib-boxes { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -51,6 +57,7 @@
       <li><a href="#cards">Cards</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#industry">Industry cards</a></li>
+      <li><a href="#graphics">Graphics</a></li>
       <li><a href="#sections">Sections</a></li>
     </ul>
   </div>
@@ -165,6 +172,60 @@
     <h2>Industry cards</h2>
     <p class="lib-meta"><code>components/industry-card/industry-card.html</code>. Hover or focus a card to open it.</p>
     <!-- @include components/industry-card/industry-card.html -->
+  </section>
+
+  <section class="lib-block" id="graphics">
+    <h2>Graphics</h2>
+    <p class="lib-meta">Which graphic goes where, and how to draw a new one: <code>docs/GRAPHICS.md</code>. Figma references: <code>reference/graphics/</code>.</p>
+
+    <h3 class="lib-sub">1. Process icons, 64px (sections/process)</h3>
+    <ul class="lib-row" role="list">
+      <li><img src="../assets/icons/process/audit.svg" width="64" height="64" alt="Audit"></li>
+      <li><img src="../assets/icons/process/evidence.svg" width="64" height="64" alt="Evidence"></li>
+      <li><img src="../assets/icons/process/journey.svg" width="64" height="64" alt="Journey"></li>
+      <li><img src="../assets/icons/process/build.svg" width="64" height="64" alt="Build"></li>
+      <li><img src="../assets/icons/process/proof.svg" width="64" height="64" alt="Proof"></li>
+    </ul>
+
+    <h3 class="lib-sub">2. Icon tiles and meta icons</h3>
+    <ul class="lib-row" role="list">
+      <li><span class="ux-icon-tile"><img src="../assets/icons/line/person.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile"><img src="../assets/icons/line/target.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile"><img src="../assets/icons/line/trend-up.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile"><img src="../assets/icons/line/shield-check.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile ux-icon-tile--navy"><img src="../assets/icons/audience-product-studios.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile ux-icon-tile--navy"><img src="../assets/icons/audience-agencies.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile ux-icon-tile--navy"><img src="../assets/icons/audience-research.svg" width="32" height="32" alt=""></span></li>
+      <li><span class="ux-icon-tile ux-icon-tile--navy"><img src="../assets/icons/audience-growing.svg" width="32" height="32" alt=""></span></li>
+    </ul>
+    <ul class="ux-meta-list lib-gap" role="list">
+      <li><img class="ux-meta-icon" src="../assets/icons/industry-healthcare.svg" width="24" height="24" alt="">Healthcare</li>
+      <li><img class="ux-meta-icon" src="../assets/icons/industry-fintech.svg" width="24" height="24" alt="">Fintech</li>
+      <li><img class="ux-meta-icon" src="../assets/icons/industry-manufacturing.svg" width="24" height="24" alt="">Manufacturing</li>
+    </ul>
+
+    <h3 class="lib-sub">3. Spot illustrations in topic tiles</h3>
+    <ul class="ux-topic-grid" role="list">
+      <li><!-- @include components/graphic/_topic-tile.html art="ux-strategy" title="UX strategy" text="Find what's really holding growth back, before anyone redesigns." --></li>
+      <li><!-- @include components/graphic/_topic-tile.html art="cro" title="CRO" text="Test demo, trial and sign up funnels against one agreed metric." --></li>
+      <li><!-- @include components/graphic/_topic-tile.html art="design-systems" title="Design systems" text="Build systems your teams actually adopt and maintain." --></li>
+      <li><!-- @include components/graphic/_topic-tile.html art="ai-and-ux" title="AI and UX" text="Where AI speeds the work, and where people still make the call." --></li>
+      <li><!-- @include components/graphic/_topic-tile.html art="agency-growth" title="Agency growth" text="Scale design delivery without growing the team." --></li>
+      <li><!-- @include components/graphic/_topic-tile.html art="white-label" title="White label" text="How agencies deliver more design under their own brand." --></li>
+    </ul>
+
+    <h3 class="lib-sub">4 and 5. Product scene and mini scene (inline SVG)</h3>
+    <div class="lib-scenes">
+      <!-- @include components/graphic/_scene-cro.html -->
+      <!-- @include components/graphic/_scene-mini-trust.html -->
+    </div>
+
+    <h3 class="lib-sub">6. Image boxes (space reserved for a real image)</h3>
+    <div class="lib-boxes">
+      <div class="ux-image-box ux-image-box--blog"><span class="ux-image-box__label">Blog cover, 336 x 216: editorial 3D still life, one object, soft studio light</span></div>
+      <div class="ux-image-box ux-image-box--industry-narrow"><span class="ux-image-box__label">Industry card, 224 x 377: real client screen over an abstract backdrop</span></div>
+      <div class="ux-image-box ux-image-box--scene"><span class="ux-image-box__label">Service scene, 518 x 518: client dashboard screenshot on a dark panel</span></div>
+    </div>
   </section>
 
   <section class="lib-block" id="sections">

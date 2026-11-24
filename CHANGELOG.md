@@ -2,6 +2,16 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.9.0 · 24 Nov 2026
+
+Graphics guide and kit, from the Figma Graphics board (`2638:6786`):
+- New `docs/GRAPHICS.md`: six graphic families (process icons, line icons on tiles and meta icons, spot illustrations, product scenes, mini scenes, image boxes for real images), which section gets which, the shared visual language, a recipe and step by step guide for drawing new ones, and a checklist.
+- New assets: six spot illustrations and a template (`assets/graphics/spot/`), four 32px line icons and a template (`assets/icons/line/`).
+- New component `components/graphic`: icon tiles (tint and Navy), meta list, spot panel and topic tile (with `.ux-topic-grid`), scene frame and mini scene, image box placeholders in the standard ratios. Coded examples: the Conversion Optimization product scene and the Trust and Transparency mini scene, both inline SVG. Shown in the library under Graphics.
+- Tokens for graphics only: `color.graphic` (signal and UI drawing colors), `shadow.scene-frame`, `shadow.scene-card`, `gradient.g6-icon-tile`, `gradient.scene-mini`.
+- `reference/graphics/`: screenshots of every graphic on the board.
+- LLM.md (non-negotiable 17, Step 2, sections 1, 8.6, 13.6, 14), AGENTS.md and both skills point to the guide. `npm run check` now also requires SVG in `assets/graphics`, flags scenes inside a band, scenes in process sections, and image box placeholders left on a page.
+
 ## 1.8.0 · 24 Nov 2026
 
 From reviewing an AI built B2B SaaS and AI page:

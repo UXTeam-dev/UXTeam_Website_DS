@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Describe the shape, for example: a magnifier over a page">
+<!--
+  UXTeam spot illustration template. Full rules: docs/GRAPHICS.md, family 3.
+  - Canvas 200 x 140, transparent. It sits centered on the Mist panel (.ux-spot), so never draw a background.
+  - Keep the drawing inside x 30 to 170, y 10 to 130 (a 140 x 120 live area) and optically centered.
+  - 3 to 9 simple shapes: circles, rounded rectangles (radius 4 to 8), straight lines. No text, no people, no shading, no perspective.
+  - Every outline: stroke #0A1B33 (Navy), 1.5, round caps and joins.
+  - Exactly ONE accent shape filled with the G4 gradient below (the idea's focal point). Never two.
+  - Up to four small solid Navy fills for contrast (dots, a few tiles). A shape in front of another gets fill="#FFFFFF".
+  - Dashed lines (trends, paths): stroke-dasharray="4 4".
+  - Give the gradient a unique id per file (ux-spot-<name>-accent) so two inline SVGs never clash.
+-->
+  <circle cx="100" cy="70" r="40" stroke="#0A1B33" stroke-width="1.5"/>
+  <circle cx="100" cy="70" r="18" fill="url(#ux-spot-template-accent)"/>
+  <circle cx="100" cy="70" r="4" fill="#0A1B33"/>
+  <defs>
+    <linearGradient id="ux-spot-template-accent" x1="82" y1="52" x2="118" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A9FBFF"/>
+      <stop offset="1" stop-color="#FEDFBA"/>
+    </linearGradient>
+  </defs>
+</svg>
