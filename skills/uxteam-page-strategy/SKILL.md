@@ -79,7 +79,7 @@ For each section write:
 - **Body or items:** specific, with names and numbers over adjectives. Match the item count to the section's content fit (LLM.md section 14).
 - **Proof used:** which fact or result, and where it comes from.
 - **Action:** only if this section carries the screen's one CTA.
-- **Graphic:** the family from `docs/GRAPHICS.md` section 1 (process icons, icon tiles, meta icons, spot illustrations, product scene, mini scenes, or an image box for a real image) and, for a scene, its three beats. High sections always name one.
+- **Graphic:** the family from `docs/GRAPHICS.md` section 1 (process icons, icon tiles, meta icons, spot illustrations, product scene, mini scenes, or an image box placeholder wherever a client mockup or photo is needed; never the real mockup) and, for a scene, its three beats. High sections always name one.
 
 Stay within the length limits in LLM.md 5.3. Reuse approved lines and facts exactly. Repeated answers (FAQ, numbers, terms) must match the other pages.
 

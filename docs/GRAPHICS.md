@@ -19,17 +19,17 @@ Ask one question first: **is this section explaining how we work, or showing wha
 | Lists who it is for (audiences) on a detail page | 32px white icons on Navy tiles | 2 |
 | Gives facts about a client (industries, location) | 24px Steel meta icons beside the words | 2 |
 | Lets the reader pick a topic, service area or path (navigation tiles) | Spot illustrations on a Mist panel | 3 |
-| Presents a service and what the client gets (High weight) | A product scene, coded or with a real screenshot | 4 |
+| Presents a service and what the client gets (High weight) | A drawn product scene, or an image box where client work is wanted | 4 or 6 |
 | Shows the parts of one capability side by side (for example the four parts of AI design) | Mini scenes | 5 |
-| Shows real work, a result, an industry, a person or an article | An image box for a real image | 6 |
+| Shows client work, a result, an industry, a person or an article | An image box (placeholder) | 6 |
 
 Then the hard limits:
 
 - **How we work never gets a scene or a mockup.** Process, approach, method and principle sections use families 1 to 3 only.
-- **What we deliver gets a scene or real work.** Services, capabilities, outcomes and industries use families 4 to 6.
-- **Real images are never generated.** Client work, results, people, photos and blog covers go in an image box (family 6) until the real file is supplied.
+- **What we deliver gets a drawn scene or a placeholder.** Services, capabilities, outcomes and industries use families 4 to 6.
+- **Never add a real client mockup or screenshot, and never generate a real image.** Client work, results, people, photos and blog covers always go in a labeled image box (family 6). The team adds the real image later. Approved sections reused whole keep their existing images.
 - **One family per section,** and one size of it. Do not mix tiles with spot illustrations, or scenes with icons, in the same section.
-- **Everything drawn is SVG** (inline or an `.svg` file). Raster files are only for real photos, real screenshots and client logos supplied as raster.
+- **Everything drawn is SVG** (inline or an `.svg` file). Raster files already in the repo (photos, screenshots, client logos) stay where approved sections use them; do not add new ones.
 
 ---
 
@@ -112,7 +112,7 @@ Scenes (families 4 and 5) are drawn UI, so they follow their own recipe in secti
 - **Layout around it:** text column 528 wide on the left (title, intro, a checklist with arrow bullets, "Where it fits", one Primary plus one text link), scene 518 x 518 on the right, inside a 1200 white card with a 1px Steel border. Reference: `reference/graphics/service-row-ux-audit.webp`.
 - **Two ways to make one:**
   - **Drawn scene (preferred when the service is a method):** UX Audit, Conversion Optimization, Design Systems, UX Strategy Workshop. Coded as one inline SVG. Example to copy: `src/components/graphic/_scene-cro.html`.
-  - **Real work scene:** Product and App Design, Web and Marketing Design. A real client screenshot in a browser, laptop or phone frame on a dark panel. Until the real file is supplied, use an image box (`.ux-image-box--scene`) with a label that names the client and the screen wanted.
+  - **Client work scene:** Product and App Design, Web and Marketing Design. In Figma these show real client screens in a frame. **Never add the client mockup:** use an image box (`.ux-image-box--scene`) whose label describes the screen and frame wanted, without naming a client. The team adds the image.
 
 ### Recipe for a drawn scene
 
@@ -156,24 +156,26 @@ Numbers in a drawn scene are illustrative. Never use a real client name, logo or
 - **Hues, one per card in a row:** violet `#6D5BF5` with blue `#3B82F6`; blue `#2E6BD8` with aqua `#00BFF2`; magenta `#B23FD0` with purple `#6D28D9`; teal `#0F9A96` with `#14B8A6`. Product accent inside cards: `#5B4BDB`. These hues belong to drawn product UI, never to the page.
 - All four in a row share the same base, card size and type sizes; only the hue and the moment change.
 
-## 8. Family 6: image boxes for real images
+## 8. Family 6: image boxes (placeholders)
 
-Some places need a real image that only the team can supply. **Never fill these with a generated picture, a stock photo or a drawn substitute.** Leave an image box that reserves the exact space and says what goes there:
+**Rule: wherever a page needs a client mockup, a screenshot of client work, a photo or a blog cover, add a placeholder, never the image.** Do not copy client mockups from the repo, Figma or the live site into a new section, do not generate a picture, do not use stock, and do not draw a substitute. Put an image box that reserves the exact space and says what goes there. The team adds the real image later. Approved sections reused whole (outcomes, industry cards, story cards) keep their existing images; the rule is for anything new.
+
+
 
 ```html
 <div class="ux-image-box ux-image-box--blog"><span class="ux-image-box__label">Blog cover, 336 x 216: editorial 3D still life, one object, soft studio light</span></div>
 ```
 
-| Where | Size and ratio class | What the real image is | Reference |
+| Where | Size and ratio class | What the label describes | Reference |
 |---|---|---|---|
 | Outcome card, lower band | 585 x 283, `--outcome` | Real product on phones or a laptop over the client's brand gradient band | `image-outcome-cards.webp` |
 | Industry card | 437 x 377 open, 224 x 377 closed, `--industry`, `--industry-narrow` | Real client screen in a phone or browser over an abstract colored backdrop | `image-industry-cards.webp` |
 | Blog and insight cover | 336 x 216, radius 6, `--blog` | Editorial 3D still life: one object or scene, one dominant color, soft studio light, no text | `image-blog-covers.webp` |
-| Service scene with real work | 518 x 518, radius 8, `--scene` | Client dashboard, site or app screenshot in a frame on a dark panel | `scene-product-app-*.webp`, `scene-web-marketing.webp` |
+| Service scene with client work | 518 x 518, radius 8, `--scene` | A dashboard, site or app screen in a browser, laptop or phone frame on a dark panel | `scene-product-app-*.webp`, `scene-web-marketing.webp` |
 | People, founder, team | `--portrait` or as the component sets | Real photos with names; founder only in the booking section | Approved pages |
 | Featured video still | `--wide` | Real still from the client video | Homepage |
 
-The label is Besley 15 Steel, centered, and names the size and the content. When the real file arrives, replace the box with an `<img>` (WebP, width and height set, `loading="lazy"` below the fold) and remove the label.
+The label is Besley 15 Steel, centered, and names the size and the content in a few words (for example "Service scene, 518 x 518: SaaS dashboard in a laptop frame on a dark panel"). No client names in the label. The team swaps the box for the image.
 
 ## 9. Gradients and graphics
 
@@ -191,7 +193,7 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 - [ ] Every drawn graphic is SVG with Navy 1.5 lines, one G4 accent at most, no text in icons or spot illustrations.
 - [ ] New icons and spot illustrations sit beside the existing ones without standing out.
 - [ ] Scenes tell three beats, use invented names, say "Illustrative" in the label, and sit on a white section.
-- [ ] Real images are image boxes with a clear label until the real file is supplied.
+- [ ] No client mockup, screenshot, photo or cover was added; each one is an image box with a clear label.
 - [ ] Decorative graphics have `alt=""` or `aria-hidden`; scenes have one `role="img"` with an `aria-label`.
 
 ## 11. Files

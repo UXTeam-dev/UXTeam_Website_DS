@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.9.1 · 24 Nov 2026
+
+- New rule: never add real client mockups or screenshots to a page. Wherever one is needed, put a labeled image box placeholder; the team adds the image later. Approved sections reused whole keep their images. In LLM.md (non-negotiable 17, 8.6), AGENTS.md, docs/GRAPHICS.md (sections 1, 6, 8, 10), both skills and OPEN-ITEMS. The check's placeholder message now says this is expected.
+
 ## 1.9.0 · 24 Nov 2026
 
 Graphics guide and kit, from the Figma Graphics board (`2638:6786`):

@@ -248,7 +248,7 @@ function checkBuilt(name, html, report) {
     if (/class="[^"]*\bux-scene\b/.test(m[2])) report.error(`a product scene inside the ${m[1].replace('-', ' ')} band. Scenes sit on white sections only (docs/GRAPHICS.md section 9).`);
   }
   // 9n. Image boxes are placeholders, never live
-  if (/class="[^"]*\bux-image-box\b/.test(html)) report.warn('image box placeholder on the page. Replace it with the real image before publishing (docs/GRAPHICS.md section 8).');
+  if (/class="[^"]*\bux-image-box\b/.test(html)) report.warn(`${(html.match(/class="[^"]*\bux-image-box\b/g) || []).length} image placeholder(s). Expected: the team adds the images (docs/GRAPHICS.md section 8).`);
 
   // 10. Band limits
   const warm = (html.match(/class="[^"]*\bux-bg-warm-glow\b/g) || []).length;

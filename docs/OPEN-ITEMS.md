@@ -28,10 +28,9 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 - From the Figma Graphics board (`2638:6786`), graphics are coded but these sections are not built: the service row with a product scene, the capability row with four mini scenes, the expectations row with icon tiles. The topic tiles are built (`components/graphic/_topic-tile.html`).
 - Drawn scenes coded so far: Conversion Optimization and the Trust and Transparency mini scene. UX Audit, Design Systems, UX Strategy Workshop and the other three AI mini scenes are references only (`reference/graphics/`); code them from the recipe in docs/GRAPHICS.md when a page needs them.
 
-## Waiting for real images (use an image box until supplied)
+## Images
 
-- Product and App Design and Web and Marketing Design scenes: the client screenshots (HemNXT, seller dashboard, VORO) as separate files, with permission to show them.
-- Blog covers for any new insight, and industry visuals for any industry beyond the four approved.
+- New sections never get real client mockups or screenshots, only labeled image boxes (docs/GRAPHICS.md section 8). The team adds images later.
 
 ## To confirm
 
