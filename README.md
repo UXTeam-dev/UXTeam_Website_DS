@@ -57,7 +57,7 @@ UXTeam_Website_DS/
 ├── CHANGELOG.md            What changed and when
 ├── package.json            npm run build / check / serve / dev
 ├── docs/                   How to work with the system (start with HOW-TO-ADD.md)
-├── .claude/skills/         Two skills for AI tools: page strategy and creative review
+├── skills/                 Skills for any AI tool: page strategy and creative review
 ├── knowledge/              uxteam-website-knowledge.txt: everything the live ux.team site says
 ├── reference/              Screenshots of the approved Figma pages, for comparison
 ├── scripts/

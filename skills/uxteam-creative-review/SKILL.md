@@ -1,0 +1,91 @@
+---
+name: uxteam-creative-review
+description: Creative judgment for the UXTeam website. Use when designing a High weight section (services, industries, outcomes, an offer's core value), and before handing over any page or section, to review it like a senior design director and rank the fixes.
+---
+
+# UXTeam creative direction and review
+
+Two jobs: give a High weight section the right creative direction, and review finished work against UXTeam's standard. Read `LLM.md` sections 6, 8 to 13 and 19.3 first, and look at `reference/pages/` and the `reference/` folders in `src/sections/outcomes`, `src/sections/featured-story`, `src/sections/services` and `src/components/industry-card`. They show the level expected.
+
+## Part A. Directing a High weight section
+
+### A1. State the point
+Write the business point in one sentence ("A visitor sees which of our seven services fits their problem, and what they get from it"). If you cannot, the section is not ready to design.
+
+### A2. Take stock of the proof
+List what can make the point visible: approved numbers, client names and logos, product screens, deliverable previews (an audit report page, a website, a dashboard), counts, a quote. A High section with no proof needs some, or its weight is wrong.
+
+### A3. Pick a composition
+Consider at least two of these on-brand patterns and choose one, with a reason:
+
+| Pattern | Good for | Built from |
+|---|---|---|
+| Number-led | Results, scale, speed | Large Besley numbers with what they measure, hairlines |
+| Mockup-led | Products, websites, apps | Device or browser frames, client brand bands (outcome cards) |
+| Preview cards | Services, offers, deliverables | Cards with a preview of what the client gets, a short "included" list with icons, one text link |
+| Grouped by buyer question | Several services or options | Question labels with stacked cards (services section) |
+| Expanding or tabbed set | 4 to 7 parallel items with rich detail | Industry tiles, tabs, accordions; one open at a time |
+| Diagram or timeline | Process, how it works | Process icons, connector line, numbered steps |
+| Comparison | Choosing between options | Hairline table with the UXTeam column highlighted |
+| Quote-led | Trust, relationships | Besley italic quote, person, logo, result nearby |
+
+Avoid repeating the composition of the section before or after it.
+
+### A4. Decide the details
+- **Focal point:** the one thing seen first.
+- **Hierarchy:** section heading, group title, item title, body, meta (LLM.md 13.3).
+- **Surface:** white, Warm Glow, Deep Navy, a G6 tint or gradient strokes, within the band limits (section 10).
+- **Visual anchor and icons:** what graphic carries the point (13.6).
+- **Interaction:** hover, focus and tap states, and what moves (13.12).
+- **Tablet and mobile:** how it stacks, what stays visible.
+- **Action:** at most one text link per item, and the screen's one main CTA if it belongs here.
+
+### A5. Record it
+When the section is approved, add `reference/desktop.webp` and a `NOTES.md` (business point, why it looks this way, what can vary, what must not change) to its folder.
+
+## Part B. Reviewing a page or section
+
+Review as a strict senior design director. No praise padding. Every issue gets a concrete fix.
+
+### B1. Quick tests
+- **Five second test:** looking at each screen for five seconds, is it clear what UXTeam offers here and what to do next?
+- **Squint test:** blur your eyes. Is there one focal point per screen, and do the High sections stand out more than the Low ones?
+- **Side by side:** put the page next to the closest file in `reference/pages/`. Does anything appear that exists on no approved page (a color, a card style, a button, a header)?
+
+### B2. Score each area from 1 to 5
+
+| Area | What a 5 looks like |
+|---|---|
+| Business clarity | The page's job, reader and action are obvious; proof sits next to claims |
+| Brand fit | Only tokens, the three fonts in their roles, Arrow Glide buttons, radius 8, no shadows, fixed header, booking card and footer |
+| Emphasis by weight | High sections are the most designed and visual; Low sections are quiet |
+| Hierarchy and readability | Group titles beat their content; no orphans; comfortable line lengths |
+| Rhythm and variety | No two neighbouring sections share a layout; bands within limits; smooth gradient transitions |
+| Spacing | Matches LLM.md section 9 exactly |
+| Visual anchors | Icons and graphics where they carry meaning, one style, not everywhere |
+| Craft details | Everything in LLM.md 13.1 to 13.11 holds |
+| Copy | Voice, claims and facts follow LLM.md 3 and 4 |
+| Quality | Web standards in LLM.md 13.12; `npm run check` passes |
+
+### B3. Check the known failures
+Go through every row of LLM.md 19.3. Any match is an automatic issue.
+
+### B4. Output
+
+```
+Verdict: Ready / Needs changes / Start again
+
+Scores: Business clarity 4 · Brand fit 2 · Emphasis 3 · Hierarchy 4 · Rhythm 3 · Spacing 2 · Anchors 2 · Craft 3 · Copy 4 · Quality 4
+
+Fixes, most important first
+1. <where> · <what is wrong> · <the fix> · <rule it breaks>
+2. …
+
+Quick wins
+- …
+
+Not checked (and why)
+- …
+```
+
+A page is Ready only when no area scores below 4 and nothing from 19.3 is present.

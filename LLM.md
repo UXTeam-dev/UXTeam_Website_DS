@@ -63,7 +63,7 @@ Also check, depending on the task:
 
 ### Step 3. Share your plan, then start
 
-Before any design or build, share a short plan in the conversation. For new pages and copy, follow the `uxteam-page-strategy` skill (`.claude/skills/uxteam-page-strategy/SKILL.md`):
+Before any design or build, share a short plan in the conversation. For new pages and copy, follow the `uxteam-page-strategy` skill (`skills/uxteam-page-strategy/SKILL.md`):
 
 1. The page's job, its reader and its single main action
 2. The section list with business value weights and treatments (section 6.5)
@@ -124,7 +124,7 @@ General rules for every tool:
 
 ### 0A.4 Skills and outside guidance
 
-This repo ships two skills in `.claude/skills/`. Claude Code loads them automatically; other tools can read them as playbooks.
+This repo ships two skills in the `skills/` folder at the repo root. They are written for any tool or person: read the `SKILL.md` and follow it step by step. (`.claude/skills/` only holds pointers so Claude Code loads them automatically. Edit the skills in `skills/`.)
 
 | Skill | Use it when | What it produces |
 |---|---|---|
@@ -172,7 +172,7 @@ LLM.md                 This file (CLAUDE.md and AGENTS.md point here)
 README.md              Human readable overview and quick start
 docs/                  BRAND-GUIDE, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
 knowledge/             uxteam-website-knowledge.txt: facts from the live ux.team site
-.claude/skills/        uxteam-page-strategy and uxteam-creative-review (section 0A.4)
+skills/                uxteam-page-strategy and uxteam-creative-review, for any AI tool (section 0A.4)
 reference/pages/       Screenshots of the approved Figma pages, for visual comparison
 scripts/check.mjs      Automatic page check (npm run check)
 assets/                fonts, icons, images (WebP), logos (PNG or SVG)

@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.4.1 · 24 Nov 2026
+
+- Moved the skills to a tool-neutral `skills/` folder at the repo root, with `skills/README.md`, so Codex, Cursor and other tools use them too. `.claude/skills/` now only holds pointer files for Claude Code.
+
 ## 1.4.0 · 24 Nov 2026
 
 - Added two skills in `.claude/skills/`: `uxteam-page-strategy` (business framing, story, section weights, content brief) and `uxteam-creative-review` (creative direction for High weight sections, scored review with ranked fixes). LLM.md, AGENTS.md and CLAUDE.md point to them.
