@@ -51,6 +51,7 @@ UXTeam_Website_DS/
 ├── README.md               You are here
 ├── package.json            npm run build / serve / dev
 ├── docs/                   How to work with the system (start with HOW-TO-ADD.md)
+├── knowledge/              uxteam-website-knowledge.txt: everything the live ux.team site says
 ├── scripts/
 │   ├── build.mjs           Builds dist/ (tokens, CSS, JS, HTML includes, assets)
 │   └── serve.mjs           Tiny local server for dist/
@@ -133,6 +134,7 @@ Font sizes and the page margin change automatically through the tokens. Section 
 
 | File | Read it when |
 |---|---|
+| [knowledge/uxteam-website-knowledge.txt](knowledge/uxteam-website-knowledge.txt) | You need facts for a page: company details, services, clients, success stories, testimonials, FAQs, numbers (collected from the live ux.team site) |
 | [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) | You write or plan copy for a page, especially one with no content file (positioning, audience, offer, voice, page rules, claims) |
 | [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a component, section or page (step by step checklist) |
 | [docs/DESIGN-RULES.md](docs/DESIGN-RULES.md) | You design or build anything new (the Guideline rules in code terms) |

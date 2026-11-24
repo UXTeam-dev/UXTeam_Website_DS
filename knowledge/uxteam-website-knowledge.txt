@@ -1,0 +1,565 @@
+UXTEAM WEBSITE KNOWLEDGE
+========================
+
+Everything the current live website (https://ux.team) says about UXTeam, collected in one place and organized by topic.
+
+Captured: 23 Nov 2026, from every page in the site's sitemap (homepage, Why Choose Us, four capability pages, Success Stories listing, 16 success story pages, Privacy Policy, Thank You, 13 empty category pages), including text hidden in carousels, tabs and accordions.
+
+How to use this file
+--------------------
+- Use it as the FACT source when writing a page that has no content: company details, services, clients, projects, quotes, FAQs, numbers.
+- Use docs/BRAND-GUIDE.md for TONE, POSITIONING and PAGE RULES. Where the two disagree, the brand guide wins.
+- The live site is written for agencies buying white-label design. The redesign speaks to B2B leaders hiring UXTeam directly, with agencies as a secondary audience. Keep agency wording ("your agency", "white-label by default", "pre-sales collaboration") on agency pages only.
+- Check section 10 (Numbers) before reusing any figure, and section 11 (Issues) so mistakes on the live site are not copied.
+- If a fact is missing, leave a visible placeholder like [confirm with Chintan] instead of inventing it.
+
+
+CONTENTS
+--------
+ 1. Company facts
+ 2. Offices and contact
+ 3. Site structure
+ 4. Positioning and key messages
+ 5. How UXTeam works (process, engagement, pricing, AI)
+ 6. Services in detail
+ 7. Clients and success stories
+ 8. Portfolio projects
+ 9. Testimonials
+10. Numbers and claims
+11. FAQs
+12. Issues on the live site (do not copy)
+
+
+======================================================================
+1. COMPANY FACTS
+======================================================================
+
+Name ............ UXTeam (page titles say "UX Team")
+Domain .......... ux.team
+Founder ......... Chintan (Chintan Bhatt). Named on the site only in a client quote and in the booking link.
+Homepage eyebrow  A UX strategy and design studio for B2B teams
+Footer line ..... White-label Design Partner for Agencies
+SEO description . UXTeam is a niche UI UX design agency specializing in UX strategy, UX/UI design, Ecommerce & Enterprise UX, and Marketing design services.
+Years ........... 8+ years in business (shown as "08+")
+Agency partners . 50+
+Design team ..... 20+
+Offices ......... 3 (UAE, India, USA)
+Partner regions . "50+ agency partnerships, US, UAE, UK"
+Client regions .. Clients named on the site are in the UAE, India, Singapore, Hong Kong and wider Asia, Australia, USA, plus global agency partners (UK, Canada, Ireland via E2M).
+Copyright ....... ©2026 UXTeam. All rights reserved
+
+Self-descriptions used across the site (each success story has its own version):
+- "UXTeam is a UX research and strategy-driven experience design partner that helps agencies extend their design capabilities through embedded teams, strategic thinking, and high-quality execution. By working as an extension of internal teams, we enable agencies to scale client delivery, maintain consistency, and confidently manage growing project demands without increasing permanent headcount."
+- "We work as a white label UX partner for agencies and as a product UX strategy partner for digital businesses, focusing on UX research, journey design, and execution that improves real product outcomes such as decision clarity, user flow efficiency, and conversion performance."
+- "UXTeam is a UX research and strategy-driven product design partner helping SaaS companies and technology businesses accelerate product development without compromising user experience quality. We operate as an embedded extension of product, engineering, and leadership teams, supporting UX strategy, UI design, design systems, and ongoing product evolution."
+- "UXTeam is a design and branding partner helping agencies, event companies, and growing organizations scale creative execution without compromising quality, timelines, or operational efficiency."
+- "From product experiences to executive presentations, we combine business thinking with design excellence to create communication that is clear, engaging, and impactful."
+- Through UX research, rapid prototyping, experience strategy and human-centered design, UXTeam helps organizations "validate ideas faster, align stakeholders more effectively, and accelerate digital innovation with confidence."
+
+Our Team (Why page): "UXTeam is built as a structured group of designers working as an extension of agency teams. We bring continuity, context, and accountability across every engagement, not fragmented execution."
+
+Our Commitment (Why page): "Our work is guided by a shared commitment to clarity, consistency, and accountability across every project. This ensures every engagement is structured, reliable, and aligned with agency expectations."
+
+Approved boilerplate for NEW pages (from the brand guide, replaces the above):
+"UXTeam is a UX-led design studio for B2B teams. We start with the metric that matters, diagnose what is holding growth back, then design, build, test, and report the result. AI speeds the work. Senior people make the call."
+
+
+======================================================================
+2. OFFICES AND CONTACT
+======================================================================
+
+UAE ..... 3206, The One Tower, Barsha Heights, Sheikh Zayed Road, Dubai, United Arab Emirates
+India ... B-1304, Sankalp Iconic Tower, Ambli Road, Sanidhya, Ahmedabad 380054, Gujarat, India
+USA ..... 101 Edison Glen Terrace, Edison, New Jersey 08837, United States
+
+Book a call ... https://calendly.com/chintanuxteam
+LinkedIn ...... https://in.linkedin.com/company/uxteam
+Instagram ..... https://www.instagram.com/uxteam_studio/
+Dribbble ...... https://dribbble.com/uxteam_studio
+Email/phone ... Not published anywhere on the site.
+
+Contact form ("Start a Partnership", on every main page):
+  Heading: WORK WITH US / Start a Partnership
+  Line: Tell us about your agency's design requirements. We will review your scope and share clear next steps.
+  Steps beside the form: Review your requirements / Schedule a short call / Share scope and timeline
+  Fields: Full Name, Agency Name, Work Email, Website, Service You're Interested In (Marketing Experience Design, eCommerce Experience Design, Event & Experience Design, Product & App Experience Design, Other), Brief Project Overview ("Add timeline or budget details (optional)"), checkbox "NDA required before sharing details"
+  Button: Let's Get Started
+  Beside it: "Prefer to Speak Directly" + Book a Call
+
+After submitting (Thank You page):
+  "Thank You for Reaching Out. We've received your submission and our team is reviewing the details. You can expect to hear from us within 24 hours."
+  How We'll Move Forward Together:
+    1. Review & Qualification: align on project goals, scope and timeline.
+    2. Strategy Alignment Call: if aligned, a call to discuss priorities and outline the execution framework.
+    3. Structured Proposal: a clear proposal with next steps, timeline and deliverables.
+
+Founder call-to-action (on every success story):
+  "Skip the Layers, Talk to the Founder."
+  - 8+ years inside agency delivery
+  - 50+ agency partnerships, US, UAE, UK
+  - Strategy and execution, one partnership
+  Button: Book a Discovery Call
+
+Privacy policy, in short: collects info you give (forms) and usage data via cookies; does not sell, rent or trade data; shares only with hosting, analytics or payment providers under confidentiality; users can access, correct, delete and withdraw marketing consent; not aimed at under 13s; replies to privacy enquiries within 5 business days.
+
+
+======================================================================
+3. SITE STRUCTURE
+======================================================================
+
+Header menu: Capabilities (dropdown) / Why Choose Us / Success Stories / button "Start a Partnership"
+
+Capabilities dropdown (name, menu line):
+  Event & Experience Design ......... Event branding, websites, and onsite visuals
+  eCommerce Experience Design ....... Storefront UX driving discovery and conversions
+  Product & App Experience Design ... SaaS, mobile apps, and scalable UX
+  Marketing Experience Design ....... Websites and campaigns built for conversions
+
+Live pages:
+  /                                   Homepage
+  /why-agencies-choose-uxteam/        Why Agencies Choose UXTeam
+  /event-experience-design/           Event & Experience Design
+  /ecommerce-experience-design/       eCommerce Experience Design
+  /product-app-experience-design/     Product & App Experience Design
+  /marketing-design/                  Marketing Design
+  /success-story/                     Success Stories listing
+  /success-story/<slug>/              16 success stories
+  /privacy-policy/                    Privacy Policy
+  /thank-you/                         Thank You
+  /category/b2b/..., /category/b2c/... 13 category archives, all empty
+
+Pages the live site does NOT have (these need new content): About, Contact, How we work, UX Audit, Industries, Insights/Blog, Team, Careers.
+
+
+======================================================================
+4. POSITIONING AND KEY MESSAGES
+======================================================================
+
+The live positioning: UXTeam is a white-label design partner for agencies, a structured extension of the agency's team that brings both UX thinking and dependable execution, works invisibly under the agency's brand, and lets agencies scale without hiring. The homepage hero already uses the new B2B line.
+
+Main lines on the site:
+- We design decisions, not just screens (homepage H1)
+- Product, web, and app design that starts with finding what's holding growth back.
+- Built Through Agency Partnerships
+- Design Capabilities Built for Agencies: "We support agencies across key design areas where structured UX thinking and scalable execution matter most."
+- Built for How Agencies Actually Work: "We operate as a structured extension of your team, supporting both thinking and execution across client work."
+- Why Agencies Choose UXTeam: "A structured white-label design partner helping agencies scale with strategic UX thinking and reliable execution."
+- A Dedicated Team, Not Just Resources
+- What Our Work Enables: "Our work supports agencies in improving clarity, conversion, and product experience outcomes for their clients."
+- Partnerships That Scaled: how partners scaled delivery without scaling headcount
+- White-label AI Design Partner for Event Agencies / eCommerce Agencies / Tech Firms / Marketing Agencies
+
+What sets UXTeam apart (homepage, six points):
+- Strategic Discovery & Clarity: We help define requirements, uncover gaps, and align UX direction before design begins, supported by AI-assisted analysis where it adds value.
+- Structured Design Pods: Dedicated teams aligned with your workflow and delivery model.
+- Predictable Delivery Systems: Defined processes that ensure consistency across timelines and outputs.
+- Conversion & UX Thinking: Design decisions guided by usability, behavior, and performance outcomes.
+- Pre-Sales Collaboration: We support early client conversations and proposal stages.
+- White-Label by Default: We integrate seamlessly under your brand.
+(The Why page swaps the last one for AI-Assisted Efficiency: "We use AI to support research, audits, and workflows where it improves speed and clarity.")
+
+UXTeam vs typical approach (Why page):
+  Approach ....... Structured UX thinking     vs  Execution-focused design
+  Team model ..... Dedicated design pods      vs  Freelancers or rotating resources
+  Delivery ....... Predictable systems        vs  Inconsistent timelines
+  Involvement .... Pre-sales to delivery      vs  Execution only
+  Output ......... System-driven design       vs  One-off deliverables
+  Collaboration .. White-label integrated     vs  External vendor mindset
+
+What agencies gain (Why page):
+- Scale Without Hiring: expand delivery capacity without increasing internal team size.
+- Reduced Delivery Pressure: lower the burden on internal teams during peak workloads.
+- Improved Client Confidence: deliver work with more clarity and structure.
+- Consistent Design Quality: maintain uniform experience across projects and clients.
+- Better UX Outcomes: improve usability, clarity, and conversion across deliverables.
+- Reliable Ongoing Support: ensure continuity across campaigns, products, and updates.
+
+What clients say again and again (from 16 stories):
+1. An extension of our team, not a vendor.
+2. Responsive, takes ownership, needs little oversight.
+3. Lets us take on more work without hiring; protects margins.
+4. Predictable: timelines kept, quality consistent.
+5. Thinks strategically and commercially, not just visually.
+6. Fast.
+
+Live voice vs brand guide (rewrite live wording before reuse):
+- Live uses Title Case; brand guide wants sentence case.
+- Live CTAs vary (Start a Partnership, Let's Get Started, Book a Call); brand guide main CTA is "Book a Discovery Call".
+- Live uses "seamless", "solutions", "AI-powered", "high-performance"; brand guide avoids these.
+- Live uses em dashes and hyphenated forms (UI-UX, White-Label); brand guide says no em dashes.
+
+
+======================================================================
+5. HOW UXTEAM WORKS
+======================================================================
+
+Process (every page):
+  1. Start with Discovery or a Defined Scope: understand requirements, identify gaps, align UX direction.
+  2. Design & Deliver: structured UX and design aligned with your workflow.
+  3. Continue & Scale: ongoing work with dedicated capacity and systems.
+  "We follow a clear and scalable approach built around defined scope, disciplined delivery, and long-term collaboration."
+
+Start small: every capability begins with one focused piece of work (one event, one storefront, one audit or discovery, one campaign or landing page). "Starting with a focused scope allows both teams to establish collaboration rhythm before expanding further."
+
+Engagement levels (same idea on every capability page):
+  - Project-based: one clearly scoped piece of work. Good for a launch, redesign, or testing a new partner.
+  - Repeat collaboration: ongoing support across several projects, campaigns or editions.
+  - Retainer / ongoing support: dedicated capacity for continuous pipelines, CRO, or product updates.
+
+Pricing: based on scope, complexity and timeline (and product stage for product work). Each engagement is scoped individually with a transparent proposal, "rather than fixed hourly packages". No prices are published.
+
+Handoff and platforms: structured design files, responsive layouts and documentation for the client's developers. Webflow and WordPress (design and development), Shopify, BigCommerce, Magento, WooCommerce, headless commerce, iOS and Android, common event platforms.
+
+Working with clients of agencies: white label by default; joins client calls or presentations only under the agency's direction.
+
+Confidentiality: NDA option on the contact form. (Brand guide confirms mutual NDA, full IP ownership and data used only for the project on every engagement.)
+
+AI stance: each capability hero pairs AI with human judgment ("AI-assisted thinking and human creative direction", "AI-powered behavioral analysis and human-led UX strategy", "AI-powered audit analysis and senior UX strategy"). FAQ: "We use AI tools selectively to improve research efficiency and asset production speed where appropriate... Design direction and system thinking remain human led." Brand guide line to use instead: "We use AI. We don't outsource the decision."
+
+
+======================================================================
+6. SERVICES IN DETAIL
+======================================================================
+
+The live site sells four capabilities. The brand guide replaces them with seven services (UX audit, UX strategy workshop, Product and app design, Web and marketing design, Conversion optimization, Design systems, AI design for B2B products). The detail below feeds those.
+
+----------------------------------------------------------------------
+6.1 EVENT & EXPERIENCE DESIGN  (/event-experience-design/)
+----------------------------------------------------------------------
+Hero: White-label AI Design Partner for Event Agencies. We bring AI-assisted thinking and human creative direction to event branding, websites, and onsite design systems.
+Stats: 60+ Events Designed (conferences and multi-edition programs) / 3K+ Assets Delivered (digital and onsite design systems) / 20+ Agencies Partnered / 4+ Country Coverage
+Projects: Dubai Fintech Summit, Date With Tech, HODL Summit, Reg3 Forum (see section 8)
+
+Capabilities:
+- Event Branding: event logo and visual identity; brand guidelines and asset systems; speaker and sponsor templates; sponsor branding placements; event theme and campaign visuals; multi-edition brand continuity.
+- Event Websites & UX: event website UI and UX; registration and ticket pages; agenda and speaker layouts; sponsor showcase pages; session and track pages; multilingual-ready layouts; WordPress and Webflow development; platform-compatible handoff.
+- Marketing & Onsite Design: social media creatives; email and launch campaigns; digital ads and banners; stage backdrops and screen graphics; signage and wayfinding; badge and print design; exhibition booth graphics; sponsor visibility systems.
+
+How UXTeam supports event agencies: timeline alignment with the event calendar; sponsor and stakeholder sensitivity (hierarchies, approvals); scalable design systems across editions; high-volume asset management with revision control; multilingual and regional readiness (USA, Middle East); white-label collaboration.
+UXTeam vs typical: dedicated event expertise vs general studios; scalable white-label support vs stretched in-house teams; structured systems vs fragmented freelance assets; AI-assisted strategic design vs template AI output; design-led vs platform-driven layouts.
+Does NOT do: event management, logistics, vendor coordination, venue production or platform ownership.
+
+----------------------------------------------------------------------
+6.2 eCOMMERCE EXPERIENCE DESIGN  (/ecommerce-experience-design/)
+----------------------------------------------------------------------
+Hero: White-label AI Design Partner for eCommerce Agencies. We bring AI-powered behavioral analysis and human-led UX strategy to storefront design and conversion outcomes.
+Stats: 80+ Storefronts Designed (multi-category and DTC) / 1.5K+ Product Page Systems / 20+ Agency Partners / 10+ Commerce Platforms (Shopify, headless, custom builds)
+Projects: Cupshe, Fitcart, Blossom, ViralStyle
+
+Capabilities:
+- Storefront UX Design: homepage and campaign landing pages; collection and category pages; product detail page UX; search and filtering; navigation architecture; mobile commerce; turning brand guidelines into storefront UI systems.
+- Conversion & Checkout Optimization: cart and checkout UX; upsell and cross-sell; trust and purchase confidence; A/B test variations; funnel improvements; store UX audits from behavioral and performance data; mobile checkout.
+- Scalable Commerce Design Systems: storefront design systems; product templates; merchandising modules; campaign landing frameworks; platform-ready handoff (Shopify, BigCommerce, Magento, WooCommerce); ongoing maintenance and campaign support.
+
+Support points: conversion architecture; catalog complexity (large catalogs, variants, merchandising); brand system translation; platform and campaign flexibility; pre-sales collaboration; white-label collaboration.
+Starts with: one storefront (launch, redesign or CRO initiative).
+
+----------------------------------------------------------------------
+6.3 PRODUCT & APP EXPERIENCE DESIGN  (/product-app-experience-design/)
+----------------------------------------------------------------------
+Hero: White-label AI Design Partner for Tech Firms. We bring AI-powered audit analysis and senior UX strategy to AI-native products, SaaS platforms, and complex applications.
+Stats: 120+ UX Audits & Discovery Workshops / 25+ Technology Agency Partners / 250+ Product UX Engagements / 15+ Industries Served (SaaS, fintech, healthcare, enterprise)
+Projects: DX Outcomes, 3Motion, Health-e, Vitrina, Voro
+
+Capabilities:
+- UX Audit & Product Experience Evaluation: UX and interface evaluation; behavioral flow analysis; conversion friction; navigation and interaction review; usability insights; prioritized improvement roadmap.
+- Product Discovery & UX Architecture: discovery workshops; user journey mapping; information architecture; feature prioritization; MVP planning and validation; workflow structuring.
+- Product Interface & Interaction Design: SaaS dashboards; web app interfaces; mobile apps (iOS and Android); AI product interfaces; complex workflow interaction design; responsive product UI.
+- Scalable Product Design Systems: component libraries; design tokens and UI systems; developer-friendly UI kits; consistent patterns; feature scalability frameworks; documentation.
+
+Support points: discovery alignment with product managers and developers; complex multi-step and role-based workflows; design systems for development; AI product experience ("balance automation with user clarity and control"); data-informed UX decisions; pre-sales; white label.
+UXTeam vs typical: product thinking vs UI-only; audits combining usability and conversion vs surface reviews; long-term design systems vs page-by-page; AI for discovery and audits vs AI for UI generation; aligned with development vs no dev integration.
+Starts with: a UX audit or discovery engagement.
+
+----------------------------------------------------------------------
+6.4 MARKETING EXPERIENCE DESIGN  (/marketing-design/)
+----------------------------------------------------------------------
+Hero: White-label AI Design Partner for Marketing Agencies. We bring AI-powered behavioral analysis and human-led strategy to landing pages and campaign systems built to perform.
+Stats: 120+ Landing Pages & Campaigns / 25+ Agency Partners / 300+ Marketing Design Systems / 10+ Industries Served (B2B, SaaS, fintech, healthcare, consumer)
+Projects: Amnex, RIS Dubai, Supra ITS, Video Fusion, Voro
+
+Capabilities:
+- Landing Page UX & CRO: campaign landing pages; conversion-focused structures; lead gen and form UX; A/B variations; funnel-specific pages; mobile first.
+- Marketing Website UX: marketing site UX and UI; IA and navigation; service and solution pages; conversion layouts; content hierarchy; Webflow and WordPress handoff.
+- Campaign & Creative Systems: ad creatives (display, social, paid); campaign visual systems; banners; email templates; test variations; multi-channel consistency.
+- Marketing Design Systems: marketing asset systems; landing page component libraries; campaign frameworks; brand-aligned UI; reusable templates; design-to-development readiness.
+
+Support points: conversion-focused design; campaign scalability; brand system translation; CRO and experimentation support; Webflow/WordPress flexibility; pre-sales; white label.
+Starts with: one campaign, landing page or website section.
+
+
+======================================================================
+7. CLIENTS AND SUCCESS STORIES
+======================================================================
+
+The listing splits stories into "Agency & B2B Partnerships" (stories 1-11) and "Direct-to-Consumer Projects" (stories 12-16). Each story page has: client snapshot, about the client, four challenges, what UXTeam did, numbered outcomes, who this is for, a six-question client Q&A, and a testimonial.
+
+Quick list:
+  #  Client                Contact (role)                                  Location            Sector
+  1  RBBI                  Amol Kadam (Co-Founder)                         India               Agency / MarTech
+  2  E2M Solutions         Brent Weaver (CEO)                              USA, global         White-label services
+  3  Trescon               Naveen Bhardwaj (Group CEO)                     Dubai, UAE          Business events
+  4  Alfred Holdings       Hussain Fakhruddin (Group CTO)                  Dubai, UAE          Fintech / insurance
+  5  DXB Live (DWTC)       Vishal D'Souza (AVP, Conference Organizer)      Dubai, UAE          Events
+  6  FWD Group             Murtaza Ghulamali Kanchwala (Fmr Head Innov.)   Hong Kong           Insurance
+  7  Squaircle             Saravanan Vijayakumar (Founder & CEO)           USA, India          AI studio
+  8  Section               Eugene Boey (Creative Partner)                  Singapore           Digital transformation
+  9  Enoviq                Rajat Chaturvedi                                Singapore           InsurTech
+ 10  AgentSelect           Karim Belcaid (COO)                             Melbourne, AU       Real estate
+ 11  Elision Technologies  Nikhil Nimje (Asst. Project Manager)            Ahmedabad, India    Contact center software
+ 12  BlueGenAI             Growson Edwards (CEO)                           USA                 AI GovTech
+ 13  My Traffic Tickets    Kareem Ghuneim (Co-Founder)                     USA                 Legal tech
+ 14  HighMatch             Michael Harbolt (CMO)                           USA                 HR tech
+ 15  Voro                  Daniel Shamooil (Founder & CEO)                 New York, USA       PropTech
+ 16  Qwary                 Vishal Rana (Co-Founder)                        USA                 AI SaaS
+ Also: DXFactor (Dharmesh Trivedi, Co-Founder, USA) has a homepage testimonial but no story.
+
+Best proof by service:
+  UX audit ................ Alfred Holdings, AgentSelect, MTT
+  UX strategy ............. FWD Group, Squaircle
+  Product and app design .. Qwary, HighMatch, Elision, MTT, FWD
+  Web and marketing ....... E2M, BlueGenAI, AgentSelect, Trescon, DXB Live
+  Conversion .............. AgentSelect, Alfred Holdings, Voro
+  Design systems .......... Elision, Section, Qwary
+  AI products ............. FWD Group, Qwary, BlueGenAI
+  Presentations ........... Enoviq, E2M, FWD
+  Agency / white label .... RBBI, Section, Trescon, DXB Live, Squaircle, E2M
+
+Story details:
+
+1. RBBI: Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership
+   UX, usability and service design consultancy in India. Needed extra UX/UI capacity at peak demand without hiring. UXTeam provided embedded UX/UI designers, flexible scaling, consistent execution inside RBBI's workflows. Result: more capacity at peaks, consistent quality, more work taken on without permanent headcount, long-term partnership.
+
+2. E2M Solutions: Transforming Brand Identity into a High-Performance Website Experience
+   White-label growth partner for digital agencies (web, SEO, PPC, AI) serving the USA, Canada, UK, Ireland, Australia. After a rebrand the site was "visually strong, UX-light". UXTeam did website UX strategy, interface design, brand-to-digital translation, journey optimization and presentation design. Result: the brand translated into a usable site, better navigation, a "reliable and cost-effective design partnership".
+
+3. Trescon: Helping a Global Business Events Company Scale Design Delivery
+   Dubai events, consulting and media company running conferences across the Middle East, Europe, Africa, Asia and North America. Long-term embedded partnership: event websites, branding, collateral (brochures, social, campaigns, presentations). Result: more creative capacity, consistent branding, faster execution, no added headcount.
+
+4. Alfred Holdings: Driving UX Strategy & Conversion-Focused Design Across Its Platforms
+   Dubai digital group running InsuranceMarket.ae and InvestmentMarket.ae. Shared problems: decision complexity, friction, inconsistent conversion paths. UXTeam ran separate UX audits, journey analysis, strategy-led redesign of key flows and decision-clarity work. Result: clearer decisions on both platforms, less friction, consistent UX, a scalable foundation.
+
+5. DXB Live: Helping a Global Events Company Scale Design Delivery Across Campaigns
+   The experiential agency of Dubai World Trade Centre. Heavy conference schedule, last-minute content changes. UXTeam designed event websites (multilingual, third-party integrations, bots), branding and collateral, and handled rapid pre-event updates. Result: faster response in crunch periods, consistency across events, scaled without hiring, better client satisfaction. Client mentions "24/7 team availability".
+
+6. FWD Group: Helping a Leading Asian Insurer Accelerate Innovation Through Strategic UX
+   Hong Kong insurer across 10+ Asian markets. UXTeam designed 19 high-fidelity prototypes across 11 markets, user journeys, an executive investment dashboard and pitch decks, embedded with innovation teams. Projects included: Financially Broke (Cambodia, expense tracker), Pocket Pal and FWD Revive (Group Office), Innovative Distribution Model, End-to-End Tracking System and AI for Group Underwriting (Indonesia), My Number Service Platform and FWD Life Coach (Japan), Affiliate+ and FWD WithU (Malaysia), Magsasa Can and Plant a Seed (Philippines), Next Gen-Er AI hologram assistant and #IYKYK game (Singapore), Legacy Log (Thailand), Independent Agency Model and Next Alpha (Vietnam). Result: faster concept visualization and stakeholder alignment.
+
+7. Squaircle: Premium UX Strategy Partnership for a Digital Product Studio
+   AI transformation studio (USA, India) serving healthcare, fintech and manufacturing. White-label, embedded UX research and strategy. Highlights: turnaround 30% faster, review rounds 3 to 1. Result: predictable delivery, consistent UX quality, less coordination load. (The repo's coded success story page uses this story.)
+
+8. Section: Helping a Digital Transformation Company Scale Design Delivery
+   Singapore company (Singapore, Malaysia, Vietnam). A dedicated UI designer embedded in their team, built a design library, presented directly to clients, weekly check-ins. Highlight: 0 additional headcount. Client: "Chintan and his leadership team are highly responsive and always just a call away."
+
+9. Enoviq: Helping an InsurTech Company Simplify Complex Ideas With Presentation Design
+   InsurTech company. UXTeam created a corporate presentation: information design, visual storytelling, iterative refinement. Result: a polished executive presentation, complex ideas made simple, no in-house design hire needed.
+
+10. AgentSelect: Helping a Real Estate Platform Increase Lead Generation through Strategic UX
+   Australian platform matching homeowners with agents. Paid traffic (Google Ads, Facebook) grew but conversions didn't. UXTeam did UX discovery and conversion analysis, landing pages, website restructure, IA and journeys, then ongoing support. Result: 20-30% increase in lead generation and conversion performance after launch, within weeks.
+
+11. Elision Technologies: Helping Modernize a Complex Contact Center Solution Through UX Design
+   Ahmedabad company behind the DialShree contact center (admin, supervisor and agent apps, omnichannel, AI voice). UXTeam did workflow discovery, UX modernization, IA, consistent UI and a Figma design system. Result: modern, consistent product, clearer handoff to developers, less rework.
+
+12. BlueGenAI: Strategic UX Partnership for an AI Startup Modernizing Public Services
+   AI platform helping government agencies modernize software delivery. UXTeam designed and launched its website at an early growth stage. Result: credible market presence while leadership stayed focused on product.
+
+13. My Traffic Tickets: UX Partnership with a Legal Services Platform to Improve Onboarding and Retention
+   US platform connecting drivers with traffic attorneys. UXTeam analyzed and redesigned onboarding, journeys and IA. Result: less friction, better onboarding, stronger retention (no figures).
+
+14. HighMatch: Helping a Profile Assessment Platform Improve the Hiring Experience
+   US talent assessment platform. Mobile-first redesign of the candidate assessment portal. Result: increased assessment completion rates (no figure), stronger differentiation, helped close new business.
+
+15. Voro: Scalable Design Partnership for a Fast-Growing Real Estate Technology Company
+   New York cloud brokerage for independent agents. Ongoing embedded design across branding, UI/UX, website and marketing. Result: faster execution, consistency, more projects without hiring. (Brand guide approved results: agent sign-ups 4.0% to 5.4%, onboarding 21% to 30.7%, from a 4-week homepage A/B test with about 600K visitors per variant.)
+
+16. Qwary: Product Design Partnership for Fast-Growing Experience Management Platform
+   US AI experience management platform. Replaced scattered freelancers with UXTeam as the embedded product design team for platform and website. Result: no design bottlenecks, engineers back on engineering, faster features, no in-house UX team needed.
+
+The six questions every client answers on their story page:
+  1. What was breaking or becoming difficult in your design delivery before you started working with UXTeam?
+  2. When evaluating partners, what made UXTeam feel like the right fit beyond just design capability?
+  3. Where has UXTeam made the biggest difference in how your team delivers work today?
+  4. How has working with UXTeam impacted your ability to scale projects or protect or improve your margins?
+  5. What's something UXTeam does consistently that makes your life easier as an agency partner?
+  6. If another agency asked you about UXTeam, how would you describe the partnership in one or two lines?
+
+
+======================================================================
+8. PORTFOLIO PROJECTS (service page carousels)
+======================================================================
+
+EVENTS
+- Dubai Fintech Summit (Dubai, annual conference): unified event brand and interface system across digital and onsite. Event Branding, Onsite Visual Systems, Website UI-UX, API Integration.
+- Date With Tech (Dubai, technology conference): event design system for multi-track sessions and enterprise audiences. Brand Identity, Event Website UI-UX, Session Architecture.
+- HODL Summit (Dubai, global Web3 summit): scalable event interface for complex speaker lineups. Event Branding, Website UI-UX, Agenda & Speaker Design System.
+- Reg3 Forum (Dubai, Web3 governance forum): event brand and UI-UX system. Event Branding, Website UI-UX, Digital & Onsite Visual Systems.
+
+eCOMMERCE
+- Cupshe (DTC swimwear and vacation fashion): trend-led, mobile-first global storefront. Storefront UX, Checkout Optimization, Navigation & Design System.
+- Fitcart (sports nutrition marketplace, India): goal-based discovery and athlete trust signals. Storefront UX, Brand & Goal Navigation, Trust Architecture.
+- Blossom (craft beverage brand): lifestyle storefront with small-batch SKUs and local retail discovery. Storefront UX, Product Storytelling, Retail Locator Integration.
+- ViralStyle (custom apparel, print on demand): creator storefront with Shopify integration. Storefront UX, Product Customizer, Seller & Buyer Experience.
+
+PRODUCT & APP
+- DX Outcomes (AI gym management SaaS): AI dashboards for gym owners. Dashboard Design, Data Visualization, Stakeholder UX.
+- 3Motion (AI healthcare and sports tech): real-time motion analysis app. NOT APPROVED for reuse per the brand guide.
+- Health-e (medical records app): OCR scanning and family health insights. Information Architecture, OCR Integration, Family Health UX.
+- Vitrina (AI/ML content marketplace): analytical platform with AI recommendations for video content deals. Information Architecture, Analytical UX, AI Recommendation Design.
+- Voro (PropTech brokerage platform): agent dashboards, analytics, lead generation. Agent Dashboard UX, Research & Analytics, Lead Generation Design.
+
+MARKETING
+- Amnex (B2G IoT and smart infrastructure): full website redesign. Website Audit & Design, Visual Identity System, Info Architecture.
+- RIS Dubai (premium international school): website for a parent audience. Website Audit & Design, Brand Storytelling, Parent-Facing UX.
+- Supra ITS (managed IT and cybersecurity, 25 years old, North America): full website. Website Design, Service Architecture, Trust & Credibility Design.
+- Video Fusion (AI video marketing SaaS): signup-focused website. Website Audit, Conversion-Led Design, Product Storytelling.
+- Voro (website): conversion-focused redesign for agents. Website Audit, Agent-Focused Messaging, Feature Communication Design.
+
+
+======================================================================
+9. TESTIMONIALS (verbatim)
+======================================================================
+
+Homepage and Why page:
+- "UXTeam has been a reliable white-label partner, supporting both design execution and strategic input as we scale our delivery." Karim Belcaid, COO, AgentSelect, Australia
+- "UXTeam brings strong strategic thinking and consistency to our delivery, especially when handling complex design work at scale." Dharmesh Trivedi, Co-Founder, DXFactor, USA
+- "UXTeam feels like a true extension of our team, helping us deliver faster while keeping quality and margins in check." Kareem Ghuneim, Co-Founder, MTT, USA
+
+Success stories:
+- "UXTeam has been our design team from day one. If you want senior design talent that thinks like a partner and not a vendor, this is the team to work with." Vishal Rana, Co-Founder, Qwary
+- "UXTeam understands the commercial aspect of business. They communicate efficiently, deliver on time, maintain consistency in quality, and help us move from ideation to activation much faster." Karim Belcaid, COO, AgentSelect
+- "Working with UXTeam never felt like a supplier engagement. It felt like an extension of our team. Their clarity of thinking, ownership in delivery, and reliability has meaningfully improved how we scale and deliver work across clients." Saravanan Vijayakumar, Founder and CEO, Squaircle
+- "UXTeam helped us improve complex insurance and investment journeys into more intuitive, conversion focused experiences driven by UX strategy and structured execution, while maintaining clarity and trust for end users." Hussain Fakhruddin, Group CTO, Alfred Holdings
+- "UXTeam became a trusted extension of our innovation team, helping us rapidly transform ideas into meaningful digital experiences across multiple markets. Their strategic thinking, responsiveness, and ability to consistently deliver high-quality prototypes made them an invaluable partner throughout our innovation journey." Murtaza Ghulamali Kanchwala, Former Group Head of Innovation, FWD Group
+- "UXTeam has been a reliable and collaborative design partner for us. They understood our complex Call Center Solution, helped us modernize its UI/UX to current market standards, and worked closely with our team throughout the journey. I would definitely recommend them to organizations looking for a design partner who takes ownership and works as an extension of their team." Nikhil Nimje, Assistant Project Manager, Elision Technologies
+- "UXTeam are extremely reliable partners who deliver high-quality design in a very short amount of time. We will continue to use them in the future for this type of work." Michael Harbolt, CMO, HighMatch
+- "UXTeam has been a reliable and professional partner that consistently delivers high-quality work while integrating seamlessly with our team. They've made scaling and execution significantly easier for us." Daniel Shamooil, Founder & CEO, Voro
+- "UXTeam was a reliable and collaborative partner that helped us design and launch a professional website during an important early stage of our company's growth." Growson Edwards, CEO, BlueGenAI
+- "UXTeam is an incredibly responsive and flexible design partner. They are patient, accommodating with revisions, and collaborate with you to get the final product exactly right without the typical agency friction." Rajat Chaturvedi, Enoviq
+- "Working with UXTeam has transformed our design delivery with their reliability, collaboration, and quality of work; they truly feel like an extension of our team." Vishal D'Souza, DXB Live
+- "UXTeam has been a reliable delivery partner that consistently provides high-quality support and integrates seamlessly with our team. We value the partnership and would confidently recommend them to other agencies." Amol Kadam, Co-Founder, RBBI
+- "Reliable and flexible partners that allow our team to scale at ease to cater for our client needs." Eugene Boey, Creative Partner, Section
+- "UXTeam is more than a design partner—they are a dependable extension of our team, combining creativity, speed, and ownership to consistently deliver exceptional outcomes." Naveen Bhardwaj, Group CEO, Trescon (the same words are also credited to Brent Weaver, CEO, E2M Solutions, see section 12)
+- "UXTeam feels like a true extension of our team, helping us deliver faster while keeping quality and margins in check." Kareem Ghuneim, Co-Founder, My Traffic Tickets
+
+Strong lines from the client Q&As:
+- "They approached projects with strong research and strategic product thinking rather than just visual design execution." Alfred Holdings
+- "Working with UXTeam allowed us to handle larger and more strategic projects without increasing internal overhead." Alfred Holdings
+- "Knowing that there is constant design support available allows us to pursue new projects without the constraints of internal design resources." Section
+- "They take ownership of their deliverables with minimal oversight." RBBI
+- "We can now take on more work without the need to hire additional staff... which consequently helps protect our margins." DXB Live
+
+
+======================================================================
+10. NUMBERS AND CLAIMS
+======================================================================
+
+SAFE TO USE (approved in the brand guide):
+- 50+ agency partners
+- 8+ years in business (write "8+", not "08+")
+- 3 locations: India, UAE, USA
+- 450+ projects designed (covers B2B and B2C; not on the live site yet)
+- Founder: 20+ years in design (always "in design", never "in UX"; not on the live site yet)
+- AgentSelect: +20 to 30% lead generation (add timeframe when known)
+- Voro: agent sign-ups 4.0% to 5.4%, onboarding 21% to 30.7% (4-week homepage A/B test, about 600K visitors per variant)
+- UX audit report in about 3 days after analytics access
+- Published client quotes, exactly as written
+
+ASK CHINTAN BEFORE USING (on the live site, not in the brand guide):
+- 20+ design team (can be confused with the founder's 20+ years)
+- "US, UAE, UK" partner regions (UK is pending in the brand guide)
+- Reply within 24 hours of a form submission
+- All capability page stats (60+ events, 3K+ assets, 80+ storefronts, 1.5K+ product pages, 120+ audits, 250+ product engagements, 120+ landing pages, 300+ marketing systems, the 20+/25+ agency partner counts, 4+/10+/15+ countries, platforms and industries)
+- Squaircle: 30% faster turnaround, review rounds 3 to 1
+- FWD Group: 19 prototypes across 11 markets (the same page still carries a "check and revise the numbers" note)
+
+DO NOT USE:
+- 3Motion / 3motionAI name, screens or figures (not approved)
+- HighMatch "increased completion rates" turned into a number
+- Any new figure or screen from agency partner work without approval (white label work is confidential by default)
+
+
+======================================================================
+11. FAQs (combined from all four capability pages)
+======================================================================
+
+Will you work directly with our client?
+  White label by default; UXTeam fits into the agency's communication structure and joins client discussions or presentations only under the agency's direction.
+
+How is pricing structured?
+  By scope, complexity and timeline (and product stage for products). Each engagement is scoped individually with a transparent proposal, not fixed hourly packages. Usually project-based, repeat collaboration or retainer.
+
+Can we start with just one deliverable?
+  Yes. Many partnerships start with one focused piece: an event website redesign, branding refresh, sponsor kit, onsite system, product page redesign, storefront refresh, checkout optimization, UX audit or landing page.
+
+Can you work with our development team or platform?
+  Yes, with internal developers, external tech partners and platform vendors. UXTeam provides structured design files, responsive layouts and handoff documentation; your team implements while UXTeam protects design integrity.
+
+Which platforms do you design for?
+  Webflow and WordPress; Shopify, BigCommerce, Magento, WooCommerce and headless commerce; iOS and Android; common event platforms.
+
+Do you follow the client's brand guidelines?
+  Yes. UXTeam works from brand books and design systems and turns them into scalable experiences that keep consistency and conversion performance.
+
+Do you use AI?
+  Selectively, to speed up research, audits and asset production. Design direction and system thinking remain human led.
+
+Do you provide UX audits?
+  Yes, for apps, websites and stores. Audits combine interface review with behavioral signals such as navigation patterns, discovery friction and drop-off points. Many engagements begin with one.
+
+Do you support CRO and A/B testing?
+  Yes: landing page variations, checkout improvements, funnel analysis and test variations aligned with performance cycles.
+
+Do you support pre-sales or pitch-stage work?
+  Yes: clarifying requirements, shaping UX direction and contributing to proposals.
+
+Do you design web apps and mobile apps? MVPs? AI interfaces? Design systems?
+  Yes to all: SaaS platforms, enterprise dashboards, iOS and Android apps, MVPs before development, AI interfaces that balance automation, usability and clarity, and design systems as a core part of product work.
+
+Do you run product discovery workshops?
+  Yes: structuring user journeys, product architecture and feature prioritization in early product stages.
+
+Do you design landing pages and full marketing websites?
+  Yes, including information architecture, page structure and UX aligned with lead generation.
+
+Can you support ongoing campaigns and work with our media team?
+  Yes: continuous landing pages, ad creatives and iterations, aligned with campaign goals, targeting and conversion objectives.
+
+How do you handle tight timelines and fast turnaround?
+  Delivery is aligned with the client's calendar from the start (launch dates, speaker announcements, sponsor approvals, marketing rollouts), with clear revision checkpoints and workflows built for rapid iterations and multiple variations.
+
+Do you provide event management or production?
+  No. Only event branding, website UI and UX, and onsite visual design. No logistics, vendor coordination, venue production or platform ownership.
+
+Do you support multilingual websites?
+  Yes: layouts that allow for content expansion, regional formatting and clarity, for audiences across the USA, Middle East, Australia and Singapore.
+
+Questions the live site never answers (need Chintan's input): project length, what an audit includes and costs, who the client works with and how senior they are, IP ownership, what UXTeam needs to start, how results are reported, whether UXTeam builds as well as designs, time zones.
+
+
+======================================================================
+12. ISSUES ON THE LIVE SITE (do not copy)
+======================================================================
+
+Drafts and placeholders left live:
+- FWD Group story: "Collaboration with 10 teams based in 10 different countries (check and revise the numbers)" and a table column headed "Description (Draft)".
+- Footer: hidden x-twitter, facebook, linkedin, youtube and whatsapp icons all link to the homepage.
+- 13 category pages are in the sitemap but say "No archives to show."
+- Privacy policy refers to numbered sections that aren't numbered, a "Last Updated" date that isn't shown, account settings and payments the site doesn't have, and gives no contact email.
+- Why Choose Us, Thank You and Privacy Policy have no meta description.
+
+Inconsistencies:
+- E2M (Brent Weaver) and Trescon (Naveen Bhardwaj) have the identical testimonial; one is probably wrong.
+- Locations differ between the listing and the story pages: RBBI (Dubai vs India), FWD (Singapore vs Hong Kong), E2M (California vs none).
+- The listing's featured card title ("Transforming a Strong Brand Identity...") and location (USA, India) don't match the E2M story.
+- Voro, Qwary, HighMatch, BlueGenAI and MTT are B2B software companies but are filed under "Direct-to-Consumer Projects".
+- "Squaircle" is also spelled "Squircle" on its own page.
+- Section story says "The section experienced..." (company name read as a common noun).
+- Broken intro sentences on the Voro, E2M and BlueGenAI stories ("Voro partnered with UXTeam, Voro is a real estate technology brokerage, to avail...").
+- RBBI is described as both a "Brand Strategy & Creative Agency" and a "UX, Usability, and Service Design consulting firm"; the FWD and Elision stories reuse that RBBI wording to describe UXTeam.
+- Murtaza's surname is spelled both "Ghulamali" and "Gulamali".
+- DXB Live outcome intro sentence appears twice.
+- Home meta description still uses the old "niche UI UX design agency" positioning.
+- "08+ Years" and "8+ years" used for the same number.
+
+Style against the brand guide:
+- Title Case headings and buttons; em dashes; "seamless", "solutions", "high-performance"; mixed CTAs; inconsistent hyphenation (UI-UX, White-Label); British spellings in the privacy policy; comparison tables hidden behind "Swipe to compare" on mobile.
