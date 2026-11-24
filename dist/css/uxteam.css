@@ -4397,9 +4397,9 @@ button {
 }
 
 .ux-step__icon {
-  width: 72px;
-  height: 68px;
-  margin-top: -8px;
+  width: 64px;
+  height: 64px;
+  margin-top: -6px;
 }
 
 .ux-step:not(:last-child)::before {
@@ -4449,7 +4449,7 @@ button {
     margin-top: 50px;
   }
   .ux-step::before { display: none; }
-  .ux-step__icon { width: 56px; height: 53px; margin-top: 0; }
+  .ux-step__icon { width: 52px; height: 52px; margin-top: 0; }
   .ux-step__label { margin-top: 24px; }
   .ux-step__title { margin-top: 12px; }
   .ux-step__body { margin-top: 12px; }
@@ -4465,7 +4465,7 @@ button {
     grid-template-columns: 32px 1fr;
     column-gap: 16px;
   }
-  .ux-step__icon { grid-row: 1 / span 3; width: 34px; height: 32px; }
+  .ux-step__icon { grid-row: 1 / span 3; width: 34px; height: 34px; }
   .ux-step:not(:last-child)::before {
     display: block;
     top: 40px;

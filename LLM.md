@@ -19,11 +19,16 @@ Breaking any of these means the page is wrong, however good it looks.
 7. **Radius 8 on cards and boxes, 1px Steel borders, no square corners, no shadows.**
 8. **At most one Warm Glow band and one Deep Navy band per page.** Every other section is white.
 9. **Fixed spacing only** (section 9). Sections touch; padding does the spacing.
-10. **High weight sections get a visual anchor** (graphic, mockup, icons, numbers, proof). A page made only of text rows is not finished.
+10. **High weight sections get a visual anchor** (graphic, mockup, icons, numbers, proof). A page made only of text rows is not finished. **A process or approach section shows the process, never the result:** icons, numbers, steps, simple cards or a diagram, never a mockup or screenshot (13.6).
 11. **Facts, offers and copy follow the business rules:** exactly three ways to work (Audit, Project, Partnership); the strategy workshop is a service, not a way to work; no invented claims.
 12. **Equal items get equal treatment.** In a set of parallel items (the seven services, the industries), every item gets the same layout and weight; none is featured, none is split off (12.6).
 13. **The page type decides the hero and the booking card** (15.5). Declare it at the top of the page file and the check verifies it.
 14. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
+15. **No gradient fills on content cards, and never a gradient on a gradient** (8.5). Content cards are white with a 1px Steel border (a gradient stroke on Deep Navy). Nothing with a gradient surface sits on a gradient band or hero.
+16. **Every section header has an eyebrow,** whether or not the content document gives one. Write one if it is missing (8.4).
+17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic (8.6).
+18. **The trusted-by logo strip is always the logo marquee include, as it is** (`sections/logo-marquee`, auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip (12.5).
+19. **A content heavy section is brainstormed before it is built** (12.7). Never stack every point the content gives into columns plus another section's content.
 
 
 ## 0. Start here
@@ -83,7 +88,8 @@ Before any design or build, share a short plan in the conversation. For new page
 1. The page's job, its reader and its single main action
 2. The section list with business value weights and treatments (section 6.5)
 3. **For every section, the repo file you will use** (for example `sections/process/process.html`). "New" is allowed only for content no existing section can carry, with one line on why
-4. Any content changes, open questions or placeholders
+4. **For every section with more than one idea or more than about 80 words of content, the composition brainstorm from 12.7:** two or three layout options, the one you picked and why, and what you cut, merged or moved
+5. Any content changes, open questions or placeholders
 
 Start once the plan is clear. For small changes and fixes, the plan can be one or two lines.
 
@@ -93,7 +99,7 @@ Before saying the work is done:
 
 1. Run `npm run build`, then `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix.
 2. Screenshot the page at 1440, 768 and 375 and put it beside the closest approved page (`reference/pages/` holds screenshots of every approved page). Look for anything that does not appear on an approved page: a new color, a new card style, a different header or footer, a plain button, a flat hero. Remove it or justify it.
-3. Go through section 19.3 (failures seen before) and confirm none of them is present.
+3. Go through section 19.3 (failures seen before) and confirm none of them is present. Check every section for an eyebrow, card fills (no gradients), icon files (SVG only), the logo marquee and the composition of content heavy sections.
 4. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
 5. Report what you checked and anything you could not check.
 
@@ -467,7 +473,7 @@ The hero is always treated as High in importance, but uses one of the existing h
 | Process or how it works | Medium | SL-33 process steps |
 | Stats and company facts | Medium | SL-31 stats row |
 | Team and leadership | Medium | Team section (About) |
-| Client logos and presence | Medium | Logo grid or marquee |
+| Client logos and presence | Medium | The logo marquee, as it is (SL-10). The hairline logo grid is About only |
 | Ways to work with us | Low | SL-35 engagement models |
 | Our approach, beliefs, principles | Low (Medium when paired with stats as proof, as on the homepage) | SL-30 principles |
 | Why choose us (short reasons) | Medium | Why grid with icons (15.4) |
@@ -549,11 +555,13 @@ Support tokens for specific uses: hero-sub #E4F0FF, stroke-soft #ACB5C2, stroke-
 | G3 Footer | Footer only |
 | G4 Aqua to Peach | The signature accent: highlight words, strokes, 4px rules, icons. **Never large areas** |
 | G5 CTA Card | Booking card |
-| G6 Detail Card | Soft gradient rows and cards on detail pages |
+| G6 Detail Card | Existing rows on the approved Success Story detail page only. **Never on a new card or section** (8.5) |
 | G7 Warm Glow | One soft feature band per page |
 | G8 Hero Light | Light hero version |
 
 Client brand gradients appear only inside outcome cards (client band).
+
+**Gradients are for backgrounds and accents, never for content cards.** Backgrounds: the hero, one Warm Glow band, one Deep Navy band, the booking card, the footer. Accents: G4 words, strokes, rules and icons. A gradient surface never sits on another gradient surface (no G6 or G5 card on Warm Glow, Deep Navy or a hero).
 
 ### 8.4 Type
 
@@ -570,18 +578,20 @@ Three fonts only:
 | Card, step, column title | Aeonik Medium 30 (26, 22) |
 | Small title (FAQ, blog card, detail cards) | Aeonik Medium 25 |
 | Body | Manrope 20 (18, 17); 18 and 16 for dense cards |
-| Eyebrow | Besley Medium 14, uppercase, +8% tracking, 2px Sky line matching the text width, 5 below |
+| Eyebrow | Besley Medium 14, uppercase, +8% tracking, 2px Sky line matching the text width, 5 below. **Every section header has one** (below) |
 | Meta and labels | Besley Medium 18 |
 | Stats | Besley Bold 60 + Regular "+", label Aeonik Regular 30 |
 | Quote | Besley Italic 28 |
 
+- **Every section header has an eyebrow** above its H2, on every page type except the long form body of detail pages (article and case study content blocks). If the content document gives none, write one: two to four words naming the topic or the reader's question (for example "How we work", "Built for SaaS", "Why UXTeam"), never a repeat of the heading.
 - Headings: sentence case, -2% tracking.
 - A **G4 gradient word** in a heading is optional, only for a word or short phrase that needs attention (`.ux-highlight`).
 - Numbers may go bigger than the text styles in Besley for balance.
 
 ### 8.5 Shape and depth
 
-- Cards: white, 1px Steel border, radius 8, **no shadow**.
+- Cards: white, 1px Steel border, radius 8, **no shadow, no gradient fill.** This is a hard rule for every content card (a card holding a title, text, a list, a stat or an icon), on every page and every background. The only cards with gradients are approved components used as they are: the booking card (G5), the outcome card's client band, the service card's gradient stroke on Deep Navy, and the existing Success Story detail rows (G6).
+- **Never a gradient on a gradient.** A card, panel or band with a gradient surface never sits on a gradient background. On Warm Glow, cards are white. On Deep Navy, cards have no fill and a gradient stroke.
 - Radius 6 for images and logo tiles inside cards, 12 for navy stat strips, 4 for inputs, pill for buttons and chips.
 - Prefer **hairlines** to structure text heavy layouts before adding boxes.
 - On dark backgrounds, cards use gradient strokes, not fills.
@@ -589,7 +599,8 @@ Three fonts only:
 
 ### 8.6 Icons and imagery
 
-- Icons: outline style, 24px grid, 1.5px stroke, current text color (Phosphor style). Process icons are provided in `assets/icons/process/`.
+- Icons: outline style, 24px grid, 1.5px stroke, current text color (Phosphor style). Process icons are provided in `assets/icons/process/` as SVG.
+- **Icons, graphics, diagrams and illustrations are always SVG:** inline `<svg>` or an `.svg` file in `assets/`. Never a PNG, JPG, WebP or base64 data image of an icon or graphic, and never a screenshot of one. Raster files are only for photos, client logos supplied as raster, and real product screenshots. A missing icon is drawn as SVG in the house style or taken from Figma as SVG.
 - Imagery: real, client-approved work over stock. One crop, one radius, one overlay per image set.
 - Founder photo and name appear **only in the booking section**. Team pages use real photos with names.
 - Product mockups (phones, laptops, browser frames) for outcomes and industries.
@@ -754,7 +765,8 @@ Study these before designing a new creative section. They show the level and the
 
 When a page needs content that already exists as an approved section (the process, the partnerships stories, the outcomes, the logo strip, the FAQ), use that section **as it is, with its approved copy and labels**:
 
-- Keep the approved wording. The process steps are "1. Audit" with the story line "We walk your product as your buyers do.", not "Step 1 / Audit" with new copy. The logo strip label is "Trusted by B2B companies worldwide". The homepage FAQ heading is "What we observe, think, and learn".
+- Keep the approved wording. The process steps are "1. Audit" with the story line "We walk your product as your buyers do.", not "Step 1 / Audit" with new copy. The logo strip label is "Trusted by B2B companies worldwide".
+- **The trusted-by logo strip is always `sections/logo-marquee/logo-marquee.html`,** the auto scrolling marquee with its approved logos, wherever a page shows trusted partners (under a hero or as a trust row). Never a static row of four or five logos, never a new logo layout, never a hand picked subset. The About page's "Our clients" logo grid is a different approved section and stays on About. The homepage FAQ heading is "What we observe, think, and learn".
 - Keep the approved structure. The partnerships section is the featured video story plus three story cards; the outcomes section is two outcome cards. Never merge two approved sections into one new section, and never add a sub heading inside one to make room for another.
 - Keep the approved layout. Story cards are always three across on desktop. A two across story grid does not exist.
 - Change copy only where the page's content document says so.
@@ -767,6 +779,18 @@ When a section presents a set of parallel items (the seven services, the industr
 - Never pull one item out of the set into its own band (for example AI design on a separate dark band while the other services sit on white). A set stays together.
 - If one item is the natural starting point (the audit), mark it with a label such as "Start here", not with a different layout.
 - An index of the items (anchor links) is a compact sticky tab bar, never a grid of tiles that fills a screen before the content starts.
+
+### 12.7 Brainstorm content heavy sections before building
+
+A section that receives a lot of content (several groups of points, or more than about 80 words) is a design problem, not a layout to fill. Dumping every point into columns, or stacking two kinds of content in one section, makes a wall the reader skips. Before building such a section, think it through and write it in the plan (Step 3):
+
+1. **Name the one idea** the section must leave with the reader, in one sentence. If you need two sentences, it is two sections or one idea is cut.
+2. **Sort the content:** what proves the idea, what supports it, what repeats another section, what the reader does not need here. Cut or move the last two. Never repeat another section's content (for example the full process inside a "how we fit your team" section).
+3. **Sketch two or three compositions** in words (for example: a short intro with three icon points; a split with a diagram on one side and three lines on the other; a numbered strip). Pick the one that makes the idea readable in five seconds and differs from the neighbouring sections.
+4. **Write to the composition,** within the limits in 5.3. Each item gets a short title and at most one line or two of body.
+5. **Check:** one focal point, at most one group of parallel items, one visual anchor if it is Medium or High, and it reads in five seconds.
+
+The same thinking applies when you write the content yourself from an outline (5.2): plan the composition first, then write only what it can hold.
 
 ---
 
@@ -815,24 +839,25 @@ These rules fix the details that make a page feel finished. They apply to every 
 - Not every section. On a typical page, 2 to 4 sections use icons or graphics, mostly the Medium and High ones.
 - One icon style per page: outline, 24 grid, 1.5 stroke, current color. For steps, the 64px line icons with a G4 accent from `assets/icons/process`. Same size and treatment inside a section.
 - Step by step content (how it works, how the partnership works) starts from the existing process section with icons (SL-33) before anything new is designed.
+- **A section about a process, an approach, a method or principles shows how the work happens, never what it produces.** Use icons, step numbers, simple white cards, a flow or a diagram drawn in SVG. Never a product mockup, a phone or browser frame, a screenshot or an "illustrative interface". Mockups belong to outcomes, stories and industries, where they show a result.
 - Every High section has a visual anchor: an illustration, a product mockup, a preview of a deliverable, a diagram, a large number or an icon set. Graphics that show data are labeled "Illustrative".
 
 ### 13.7 Everything inside a section belongs to it
 
 - Supporting elements (a confidentiality note, a guarantee, terms, a footnote) are designed as part of their section: same surface, same stroke and radius, on the same grid, placed as the closing row or a side column.
-- A high contrast card (navy on light, white on dark) is used only when it is the section's focal point. A supporting note gets a quieter treatment: a row separated by a hairline, a G6 tint, a gradient stroke on dark, or an icon with text.
+- A high contrast card (navy on light, white on dark) is used only when it is the section's focal point. A supporting note gets a quieter treatment: a row separated by a hairline, a gradient stroke on dark, or an icon with text. Never a gradient filled card.
 
 ### 13.8 Tables
 
 - Rows are separated by 1px hairlines. No full grid. Vertical lines only where columns truly need them.
-- **The highlighted column** (UXTeam) gets a G6 fill and a 1px stroke around the whole column with radius 8, so it reads as one unit.
+- **The highlighted column** (UXTeam) gets a G6 fill and a 1px stroke around the whole column with radius 8, so it reads as one unit. The table sits on a white section, never on a gradient band.
 - Column headers and row labels use Besley Medium 18. Cell text is Manrope 16 to 18, short and parallel, never paragraphs.
 - On mobile the table scrolls inside its own container with the first column fixed, or becomes one stacked card per row.
 
 ### 13.9 CTA bands inside a page
 
 - When content ends a section with a question and an action (for example "Need something outside these three?"), give it a CTA band instead of loose text and a button.
-- A CTA band sits inside the 1200 container: radius 8, a soft tint on light pages (Mist, as on the live What we do page, or G5 or G6), a navy card with a gradient stroke on dark, a heading in the 30 style, one line of body, one Primary button on the right (stacked under the text on mobile).
+- A CTA band sits inside the 1200 container: radius 8, a Mist panel on light pages (as on the live What we do page, never a gradient fill), a navy card with a gradient stroke on dark, a heading in the 30 style, one line of body, one Primary button on the right (stacked under the text on mobile).
 - At most 2 per page. Never directly above the booking card. It counts as that screen's one main CTA.
 
 ### 13.10 High section checklist
@@ -842,9 +867,9 @@ A High weight section is ready only when all of these are true:
 - [ ] It makes its business point within a few seconds of looking at it.
 - [ ] It has a visual anchor (13.6), not just text.
 - [ ] Its composition differs from the sections around it.
-- [ ] It gets more space and more emphasis than Low sections: a band, gradient stroke cards, a tinted surface, or larger scale with visuals and interaction (the capability stack), within the band limits in section 10.
+- [ ] It gets more space and more emphasis than Low sections: a band, gradient stroke cards on Deep Navy, or larger scale with visuals and interaction (the capability stack), within the band limits in section 10.
 - [ ] It has clear hierarchy (13.3) and one main action at most.
-- [ ] It is still fully on brand: tokens, type roles, radius, the CTA component.
+- [ ] It is still fully on brand: tokens, type roles, radius, the CTA component, an eyebrow, white cards without gradient fills, SVG icons.
 
 ### 13.11 Besley for labels
 
@@ -1147,6 +1172,12 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] No orphan words in headings, intros or card titles
 - [ ] Group titles are stronger than their content; paired sides match
 - [ ] No decorative element looks like a CTA
+- [ ] Every section header has an eyebrow
+- [ ] No gradient filled content card, and no gradient surface on a gradient background
+- [ ] Every icon and graphic is SVG
+- [ ] The trusted-by logos are the logo marquee include, unchanged
+- [ ] Process and approach sections show the process, not a mockup
+- [ ] Content heavy sections were brainstormed (12.7) and read in five seconds
 - [ ] High sections pass the checklist in 13.10
 - [ ] Claims pass section 4
 - [ ] Web quality standards in 13.12 are met (focus, contrast, tap targets, image sizes, motion, forms)
@@ -1180,6 +1211,9 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Follow a given content document strictly.
 - Share links or screenshots for approval in the conversation.
 - Keep the repo updated with every new section.
+- Give every section header an eyebrow, writing one when the content has none.
+- Draw icons and graphics as SVG.
+- Brainstorm two or three compositions for a content heavy section before building it.
 
 ### 19.2 Don't
 
@@ -1195,6 +1229,11 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Don't use shadows on cards, square or outline buttons, or new colors or fonts.
 - Don't use Besley for headings or body.
 - Don't use G4 on large areas.
+- Don't fill content cards with a gradient, and don't put a gradient surface on a gradient background.
+- Don't show a mockup or screenshot in a process or approach section.
+- Don't build a static logo row; the trusted-by strip is the logo marquee.
+- Don't use PNG, JPG, WebP or data images for icons or graphics.
+- Don't pour every point of the content into one section.
 - Don't stack two dark bands or repeat the same layout back to back.
 - Don't use spacer elements or pick padding by eye.
 - Don't put the founder photo anywhere except the booking section.
@@ -1253,6 +1292,13 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 41 | Open items (Calendly link, social links, article metadata) were filled from the old public site | Open items stay open until the person supplies them | Sections 16.4, 20 |
 | 42 | The page was deployed to an outside preview host | Nothing is published unless asked | Section 16.4 |
 | 43 | Testing covered links, menus, forms and overflow at eight widths, but never compared the page with an approved page or the live What we do page | Functional tests do not replace the visual and treatment comparison | Step 4, section 18 |
+| 44 | The trusted-by strip under the hero was a static row of four logos | The logo strip is one approved section and must look the same everywhere | The logo marquee include, as it is (12.5) |
+| 45 | "Designing AI products people trust", an approach section, showed a phone mockup labeled "Illustrative product interface" | An approach section explains how we work; a mockup shows a result we have not delivered | Process and approach sections show the process (13.6) |
+| 46 | Content cards used the G6 gradient fill, on a non-detail page and on the Warm Glow band | Gradient cards look decorative and compete with the band; a gradient on a gradient muddies both | No gradient fills on content cards, never a gradient on a gradient (8.5) |
+| 47 | Most section headers had no eyebrow because the content document did not give one | Eyebrows are part of every section header in the system | Write an eyebrow for every section header (8.4) |
+| 48 | Process step icons were embedded as PNG data images | Raster icons blur, cannot take the color tokens and add weight | Icons and graphics are SVG (8.6) |
+| 49 | "Built to fit your product team" stacked four text columns and the full process section in one block | Two ideas and every point of the content in one section; nothing was chosen | Brainstorm content heavy sections before building (12.7) |
+| 50 | "Why SaaS and AI teams choose UXTeam" used G6 gradient cards and had no eyebrow | Same rules as rows 46 and 47 | Sections 8.4, 8.5 |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
 

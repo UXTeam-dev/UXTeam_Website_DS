@@ -2,6 +2,14 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.8.0 · 24 Nov 2026
+
+From reviewing an AI built B2B SaaS and AI page:
+- Process icons are now SVG (`assets/icons/process/*.svg`, from Figma node 1968:7685) and the Facebook share icon is SVG. The PNG versions are removed.
+- New hard rules in LLM.md (non-negotiables 15 to 19, sections 8.3 to 8.6, 12.5, 12.7, 13.6 to 13.10, 18, 19): no gradient fills on content cards and never a gradient on a gradient; an eyebrow on every section header; icons and graphics are SVG only; the trusted-by strip is always the logo marquee include; process and approach sections show the process, never a mockup; content heavy sections are brainstormed before they are built (new 12.7, required in the Step 3 plan).
+- AGENTS.md, the page strategy skill (new step 4A, section brainstorm) and the creative review skill carry the same rules. LLM.md 19.3 failures 44 to 50.
+- `npm run check` now flags: "Trusted by" without the marquee and static logo rows; section headers without an eyebrow; G6 cards off the detail page; gradient surfaces inside a gradient band; non-SVG icons in pages and in `assets/icons`; gradient backgrounds on cards in new CSS; mockups in process or approach sections; the process combined with other content; sections over 150 words.
+
 ## 1.7.0 · 24 Nov 2026
 
 From reviewing a second AI built What we do page and the steps its tool recorded:

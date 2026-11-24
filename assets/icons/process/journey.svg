@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(5.000 45.833)"><path d="M6.58333 12.4167C9.80499 12.4167 12.4167 9.80499 12.4167 6.58333C12.4167 3.36167 9.80499 0.75 6.58333 0.75C3.36167 0.75 0.75 3.36167 0.75 6.58333C0.75 9.80499 3.36167 12.4167 6.58333 12.4167Z" fill="url(#gjourney0)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/>
+<defs>
+<linearGradient id="gjourney0" x1="0.869071" y1="0.805555" x2="14.6189" y2="7.79395" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs></g><g transform="translate(45.833 5.000)"><path d="M6.58333 12.4167C9.80499 12.4167 12.4167 9.80499 12.4167 6.58333C12.4167 3.36167 9.80499 0.75 6.58333 0.75C3.36167 0.75 0.75 3.36167 0.75 6.58333C0.75 9.80499 3.36167 12.4167 6.58333 12.4167Z" fill="url(#gjourney1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/>
+<defs>
+<linearGradient id="gjourney1" x1="0.869071" y1="0.805555" x2="14.6189" y2="7.79395" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs></g><g transform="translate(16.667 10.833)"><path d="M0.75 41.5833H18.25C20.9574 41.5833 23.5539 40.5078 25.4684 38.5934C27.3828 36.679 28.4583 34.0824 28.4583 31.375C28.4583 28.6676 27.3828 26.0711 25.4684 24.1566C23.5539 22.2422 20.9574 21.1667 18.25 21.1667H12.4167C9.70925 21.1667 7.11272 20.0911 5.19829 18.1767C3.28385 16.2623 2.20833 13.6658 2.20833 10.9583C2.20833 8.25092 3.28385 5.65439 5.19829 3.73995C7.11272 1.82552 9.70925 0.75 12.4167 0.75H29.9167" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/></g></svg>

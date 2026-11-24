@@ -21,21 +21,24 @@ Consider at least two of these on-brand patterns and choose one, with a reason:
 | Pattern | Good for | Built from |
 |---|---|---|
 | Number-led | Results, scale, speed | Large Besley numbers with what they measure, hairlines |
-| Mockup-led | Products, websites, apps | Device or browser frames, client brand bands (outcome cards) |
+| Mockup-led | Results: outcomes, stories, industries. **Never a process or approach section** | Device or browser frames, client brand bands (outcome cards) |
 | Preview cards | Services, offers, deliverables | Cards with a preview of what the client gets, a short "included" list with icons, one text link |
 | Grouped by buyer question | Several services or options | Question labels with stacked cards (services section) |
 | Expanding or tabbed set | 4 to 7 parallel items with rich detail | Industry tiles, tabs, accordions; one open at a time |
-| Diagram or timeline | Process, how it works | Process icons, connector line, numbered steps |
+| Diagram or timeline | Process, approach, how it works | SVG process icons, connector line, numbered steps, simple white cards |
 | Comparison | Choosing between options | Hairline table with the UXTeam column highlighted |
 | Quote-led | Trust, relationships | Besley italic quote, person, logo, result nearby |
 
 Avoid repeating the composition of the section before or after it.
 
+**Content heavy sections:** before picking, cut the content to one idea and sketch two or three compositions in words (LLM.md 12.7). A section that stacks several column groups, or another section's content (such as the full process), has not been designed yet.
+
 ### A4. Decide the details
 - **Focal point:** the one thing seen first.
 - **Hierarchy:** section heading, group title, item title, body, meta (LLM.md 13.3).
-- **Surface:** white, Warm Glow, Deep Navy, a G6 tint or gradient strokes, within the band limits (section 10).
-- **Visual anchor and icons:** what graphic carries the point (13.6).
+- **Surface:** white, Warm Glow or Deep Navy, within the band limits (section 10). Cards on any surface are white with a Steel border, or unfilled with a gradient stroke on Deep Navy. No gradient filled cards, and no gradient surface on a gradient (LLM.md 8.5).
+- **Eyebrow:** every section header has one (LLM.md 8.4).
+- **Visual anchor and icons:** what graphic carries the point (13.6). Icons and graphics are SVG only.
 - **Interaction:** hover, focus and tap states, and what moves (13.12).
 - **Tablet and mobile:** how it stacks, what stays visible.
 - **Action:** at most one text link per item, and the screen's one main CTA if it belongs here.
@@ -57,9 +60,9 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Area | What a 5 looks like |
 |---|---|
 | Business clarity | The page's job, reader and action are obvious; proof sits next to claims |
-| Brand fit | Only tokens, the three fonts in their roles, Arrow Glide buttons, radius 8, no shadows, fixed header, booking card and footer |
+| Brand fit | Only tokens, the three fonts in their roles, Arrow Glide buttons, radius 8, no shadows, no gradient filled cards, an eyebrow on every section, SVG icons, fixed header, booking card and footer |
 | Emphasis by weight | High sections are the most designed and visual; Low sections are quiet |
-| Hierarchy and readability | Group titles beat their content; no orphans; comfortable line lengths |
+| Hierarchy and readability | Group titles beat their content; no orphans; comfortable line lengths; one idea per section, nothing dumped |
 | Rhythm and variety | No two neighbouring sections share a layout; bands within limits; smooth gradient transitions |
 | Reuse and parity | Approved sections reused whole; equal items treated equally |
 | Spacing | Matches LLM.md section 9 exactly |
@@ -69,7 +72,8 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Quality | Web standards in LLM.md 13.12; `npm run check` passes |
 
 ### B3. Check reuse, parity and scope
-- Every approved section that appears (process, partnerships, outcomes, logo strip, FAQ) matches the approved version: same copy, labels, structure and layout (LLM.md 12.5).
+- Every approved section that appears (process, partnerships, outcomes, logo strip, FAQ) matches the approved version: same copy, labels, structure and layout (LLM.md 12.5). The trusted-by logos are the logo marquee include, never a static row.
+- Process and approach sections show the process (icons, numbers, steps, cards, a diagram), never a mockup or screenshot.
 - Every set of parallel items has one treatment; nothing is featured or split off on its own (LLM.md 12.6).
 - The hero and booking card match the page type (LLM.md 15.5).
 - If an approved or live version of this page exists, compare section by section: order, emphasis, visuals, actions.

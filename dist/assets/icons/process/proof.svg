@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(5.583 16.715)"><path d="M0.75 26.4167C0.75 19.6094 3.45416 13.081 8.26759 8.26759C13.081 3.45416 19.6094 0.75 26.4167 0.75C33.2239 0.75 39.7523 3.45416 44.5657 8.26759C49.3792 13.081 52.0833 19.6094 52.0833 26.4167" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/></g><g transform="translate(35.250 26.250)"><path d="M0.750023 11.75L9.75002 0.750023" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/></g><g transform="translate(25.250 36.250)"><path d="M6.75 12.75C10.0637 12.75 12.75 10.0637 12.75 6.75C12.75 3.43629 10.0637 0.75 6.75 0.75C3.43629 0.75 0.75 3.43629 0.75 6.75C0.75 10.0637 3.43629 12.75 6.75 12.75Z" fill="url(#gproof2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/>
+<defs>
+<linearGradient id="gproof2" x1="0.872473" y1="0.807143" x2="15.0152" y2="7.99521" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs></g></svg>

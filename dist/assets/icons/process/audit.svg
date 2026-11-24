@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(10.833 5.000)"><path d="M35.75 0.75H6.58333C3.36167 0.75 0.75 3.36167 0.75 6.58333V47.4167C0.75 50.6383 3.36167 53.25 6.58333 53.25H35.75C38.9717 53.25 41.5833 50.6383 41.5833 47.4167V6.58333C41.5833 3.36167 38.9717 0.75 35.75 0.75Z" fill="url(#gaudit0)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/>
+<defs>
+<linearGradient id="gaudit0" x1="1.16675" y1="1" x2="53.5387" y2="21.703" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs></g><g transform="translate(22.500 28.333)"><path d="M0.75 18.25V9.5M9.5 18.25V0.75M18.25 18.25V6.58333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0A1B33"/></g></svg>

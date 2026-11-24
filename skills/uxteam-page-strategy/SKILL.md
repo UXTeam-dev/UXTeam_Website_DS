@@ -47,12 +47,33 @@ Answer each in one or two lines:
 5. For each section, name the repo file you will use, or "new" with one line on why nothing existing fits.
 6. Where the content matches an approved section (process, partnerships, outcomes, logo strip, FAQ), plan to reuse it whole with its approved copy and labels (LLM.md 12.5). Never merge two approved sections.
 7. For a set of parallel items (services, industries, ways to work), plan one treatment for all of them (LLM.md 12.6).
+8. Where the page shows trusted partners, plan the logo marquee include as it is (`sections/logo-marquee`). Never a static logo row.
+9. For a process, approach, method or principles section, plan a visual that shows how the work happens (icons, numbers, steps, simple white cards, an SVG diagram). Never a mockup or screenshot there (LLM.md 13.6).
+
+## 4A. Brainstorm content heavy sections (required)
+
+Any section with more than one idea or more than about 80 words of content must be thought through before it is built (LLM.md 12.7). Do not pour every point of the content into columns. For each such section, write in the plan:
+
+1. **The one idea**, in one sentence. If it takes two, split the section or cut one idea.
+2. **Keep, cut, move:** which points prove the idea, which repeat another section (for example the full process), which the reader does not need here.
+3. **Two or three compositions,** described in a line each, and the one you picked with the reason (reads in five seconds, differs from its neighbours, fits the weight).
+4. **The trimmed content** written to that composition, within LLM.md 5.3.
+
+A section brainstorm looks like this:
+
+```
+Section: Built to fit your product team (Medium)
+Idea: We slot into how product teams already work, so design speeds them up.
+Keep: tools, working alongside PMs and engineers, dev ready handoff. Cut: flexible engagement (ways to work covers it). Move: the process (its own section).
+Options: A) three icon points under a centered intro  B) split, an SVG diagram of the sprint loop beside three lines  C) a numbered strip
+Pick: A. The page already has a split section above; three short points read fastest.
+```
 
 ## 5. Write the content (outline-only requests)
 
 For each section write:
 
-- **Eyebrow:** 2 to 3 words.
+- **Eyebrow:** 2 to 4 words. Every section header has one, even when the content document gives none.
 - **Heading:** short, often first person, answer first.
 - **Subhead:** optional, one line.
 - **Body or items:** specific, with names and numbers over adjectives. Match the item count to the section's content fit (LLM.md section 14).
@@ -69,6 +90,10 @@ Stay within the length limits in LLM.md 5.3. Reuse approved lines and facts exac
 - [ ] Facts match the knowledge file and the other pages; anything missing is a visible `[confirm with Chintan]` placeholder.
 - [ ] Exactly three ways to work; service labels exactly as in LLM.md 2.3.
 - [ ] One CTA in the hero; booking card and footer standard.
+- [ ] Every section has an eyebrow.
+- [ ] Every content heavy section has its brainstorm (4A): one idea, what was cut, the composition picked.
+- [ ] No mockup planned for a process or approach section; the trusted-by strip is the logo marquee.
+- [ ] No gradient filled cards planned; icons and graphics planned as SVG.
 
 ## 7. Output
 
@@ -86,6 +111,9 @@ Objections to answer: 1. … 2. …
 
 Content brief
 <one block per section: eyebrow, heading, subhead, body or items, proof, action, visual anchor>
+
+Section brainstorms (4A)
+<one block per content heavy section: idea, keep/cut/move, options, pick>
 
 Open questions and placeholders
 - …

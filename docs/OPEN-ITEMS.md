@@ -29,6 +29,8 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 ## To confirm
 
 - Hub pages (What we do) use the homepage booking card ("Skip the layers, talk to the founder."), as on the live page. LLM.md 15.5 now says so.
+- The no gradient cards rule (LLM.md 8.5) keeps the G6 rows on the approved Success Story detail page as they are. Confirm, or switch them to white cards.
+- The eyebrow rule (LLM.md 8.4) does not apply to detail pages, whose body blocks and "Other success stories" / "Other insights" rows have no eyebrow in Figma. Confirm, or add eyebrows there too.
 
 ## Copy to review
 

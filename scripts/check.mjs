@@ -109,6 +109,7 @@ function checkSource(name, src, report) {
 
 function checkBuilt(name, html, report) {
   const text = visibleText(html);
+  const pageType = (html.match(/ux-page-type:\s*([a-z]+)/) || [, ''])[1];
 
   // 6b. Skip link target
   if (!/<main\b[^>]*\bid="main"/i.test(html)) report.error('<main> needs id="main" so the header\'s skip link works.');
@@ -159,7 +160,6 @@ function checkBuilt(name, html, report) {
   }
 
   // 9d. Section intros are centered except on detail pages (LLM.md 8.4, SL-04)
-  const pageType = (html.match(/ux-page-type:\s*([a-z]+)/) || [])[1];
   if (pageType !== 'detail') {
     const starts = (html.match(/class="[^"]*\bux-section-header--start\b/g) || []).length;
     if (starts) report.warn(`${starts} left aligned section header(s). Section intros are centered except on detail pages (LLM.md 8.4).`);
@@ -178,6 +178,70 @@ function checkBuilt(name, html, report) {
   ];
   for (const [re, fix] of REWRITES) if (re.test(html)) report.warn(`rewritten approved label: ${fix}.`);
   if (/ux-step__title/.test(html) && !/We walk your product as your buyers do/.test(html)) report.warn('the process section copy differs from the approved version. Reuse sections/process/process.html as it is (LLM.md 12.5).');
+
+  // 9g. Trusted-by logos are the logo marquee (LLM.md 12.5)
+  for (const m of html.matchAll(/<section\b[\s\S]*?<\/section>/gi)) {
+    const sec = m[0];
+    const trusted = /Trusted by B2B companies/i.test(visibleText(sec));
+    const loose = sec.replace(/<article\b[\s\S]*?<\/article>/gi, '');
+    const logos = [...loose.matchAll(/<img\b[^>]*>/gi)].filter((i) => /assets\/logos\/clients\//.test(i[0]) && !/__(logo|client)\b/.test(i[0])).length + (loose.match(/class="[^"]*\bux-logo-tile\b/g) || []).length;
+    const inMarqueeOrGrid = /ux-marquee|ux-logo-grid/.test(sec);
+    if (trusted && !/ux-marquee/.test(sec)) report.error('"Trusted by B2B companies worldwide" without the logo marquee. Use sections/logo-marquee as it is (LLM.md 12.5).');
+    else if (logos >= 3 && !inMarqueeOrGrid) report.error('a row of client logos that is not the logo marquee. The trusted-by strip is sections/logo-marquee, as it is (LLM.md 12.5).');
+  }
+
+  // 9h. Every section header has an eyebrow (LLM.md 8.4). Detail page body blocks are exempt.
+  if (pageType !== 'detail') {
+    for (const m of html.matchAll(/<section\b([^>]*)>([\s\S]*?)<\/section>/gi)) {
+      const cls = (m[1].match(/class="([^"]*)"/) || [, ''])[1];
+      if (/ux-hero|ux-booking|ux-detail-section|ux-content-section|ux-article/.test(cls)) continue;
+      const body = m[2];
+      const h2 = body.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i);
+      if (h2 && !/ux-eyebrow/.test(body.slice(0, h2.index + h2[0].length))) report.error(`section "${visibleText(h2[1]).trim().slice(0, 50)}" has no eyebrow. Every section header has one; write it if the content has none (LLM.md 8.4).`);
+    }
+  }
+
+  // 9i. No gradient filled content cards, no gradient on a gradient (LLM.md 8.5)
+  if (pageType !== 'detail' && /class="[^"]*\bux-g-card\b/.test(html)) report.error('G6 gradient cards (ux-g-card) outside the Success Story detail page. Content cards are white with a Steel border (LLM.md 8.5).');
+  for (const m of html.matchAll(/<section\b[^>]*class="[^"]*\bux-bg-(warm-glow|deep-navy)\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gi)) {
+    if (/class="[^"]*\b(ux-g-card|ux-booking__card|ux-bg-warm-glow|ux-bg-deep-navy|ux-bg-hero-light)\b/.test(m[2])) report.error(`a gradient surface inside the ${m[1].replace('-', ' ')} band. Never a gradient on a gradient (LLM.md 8.5).`);
+  }
+  for (const m of html.matchAll(/<(div|article|li|aside)\b[^>]*class="[^"]*\bux-bg-(warm-glow|deep-navy|hero-light)\b[^"]*"/gi)) {
+    report.error(`a ${m[2].replace('-', ' ')} gradient on a <${m[1]}>. Gradient backgrounds are for whole sections, never cards or panels (LLM.md 8.5).`);
+  }
+
+  // 9j. Icons and graphics are SVG (LLM.md 8.6)
+  for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = m[0];
+    const src = (tag.match(/\ssrc="([^"]*)"/) || [, ''])[1];
+    const isIconContext = /class="[^"]*(icon|graphic|illustration|diagram)/i.test(tag) || /assets\/icons\//.test(src);
+    const isSvg = /\.svg(\?|#|$)/i.test(src) || /^data:image\/svg\+xml/i.test(src);
+    if (isIconContext && !isSvg) report.error(`icon or graphic that is not SVG: ${tag.slice(0, 90)}… Icons and graphics are SVG (LLM.md 8.6).`);
+  }
+
+  // 9k. Process and approach sections show the process, not a mockup (LLM.md 13.6)
+  for (const m of pageType === 'detail' ? [] : html.matchAll(/<section\b[^>]*>([\s\S]*?)<\/section>/gi)) {
+    const head = (m[1].match(/<header\b[^>]*ux-section-header[\s\S]*?<\/header>/i) || [''])[0];
+    if (!head) continue;
+    const headText = visibleText(head).toLowerCase();
+    if (!/\b(process|approach|how we|how it works|method|principles|framework|steps|our way|designing)\b/.test(headText)) continue;
+    const media = /<figure\b|class="[^"]*(mockup|device|phone|browser-frame|screen)[^"]*"|illustrative (product )?interface/i.test(m[1]);
+    const rasterImg = [...m[1].matchAll(/<img\b[^>]*>/gi)].some((i) => !/\.svg|data:image\/svg/i.test(i[0]) && !/ux-btn|logo|founder|person/i.test(i[0]));
+    if (media || rasterImg) report.warn(`"${headText.trim().slice(0, 50)}" reads as a process or approach section but holds a mockup or image. Show the process (icons, numbers, steps, cards, an SVG diagram), never a result (LLM.md 13.6).`);
+  }
+
+  // 9l. Content heavy sections need a composition, not a dump (LLM.md 12.7)
+  for (const m of html.matchAll(/<section\b([^>]*)>([\s\S]*?)<\/section>/gi)) {
+    const cls = (m[1].match(/class="([^"]*)"/) || [, ''])[1];
+    if (/ux-hero|ux-booking|ux-detail|ux-content-section|ux-article/.test(cls)) continue;
+    const body = m[2];
+    if (/ux-faq|ux-story-card/.test(body)) continue;
+    const words = visibleText(body).trim().split(/\s+/).length;
+    const blocks = ['ux-step', 'ux-grid--4', 'ux-grid--3', 'ux-grid--2', 'ux-service', 'ux-engagement', 'ux-industry', 'ux-outcome-card', 'ux-stat'].filter((b) => new RegExp(`class="[^"]*\\b${b}\\b`).test(body));
+    const title = visibleText((body.match(/<h2\b[\s\S]*?<\/h2>/i) || [''])[0]).trim().slice(0, 50);
+    if (blocks.length >= 2 && blocks.includes('ux-step')) report.warn(`"${title}" combines the process steps with other content. One idea per section; give the process its own section (LLM.md 12.7).`);
+    else if (words > 150 && !/ux-services|ux-approach|ux-beliefs/.test(cls)) report.warn(`"${title}" holds ${words} words. Brainstorm the composition and cut to one idea (LLM.md 12.7).`);
+  }
 
   // 10. Band limits
   const warm = (html.match(/class="[^"]*\bux-bg-warm-glow\b/g) || []).length;
@@ -199,6 +263,37 @@ function checkBuilt(name, html, report) {
   for (const w of AVOID_WORDS) if (new RegExp(`\\b${w}\\b`, 'i').test(text)) report.warn(`avoided word "${w}" in page copy (LLM.md 3.2).`);
   if (/[A-Za-z]!(\s|$)/.test(text)) report.warn('exclamation mark in page copy.');
   if (/\[(x|confirm)[^\]]*\]/i.test(text)) report.warn('placeholder ([X] or [confirm ...]) in page copy. Fine in a draft, never live.');
+}
+
+// Repo level: icon files are SVG; no new gradient filled cards in CSS (LLM.md 8.5, 8.6)
+const GRADIENT_CSS_ALLOWED = [
+  'components/outcome-card', 'components/video-card', 'components/faq', 'components/detail-blocks', 'components/service-card',
+  'sections/team', 'sections/story-split', 'sections/hero-', 'sections/site-footer', 'sections/booking-cta', 'base/', 'tokens/',
+];
+async function walk(dir) {
+  const out = [];
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) out.push(...(await walk(p)));
+    else out.push(p);
+  }
+  return out;
+}
+async function checkRepo(report) {
+  const icons = join(ROOT, 'assets', 'icons');
+  if (existsSync(icons)) {
+    for (const p of await walk(icons)) if (!/\.svg$/i.test(p)) report.error(`${p.slice(ROOT.length + 1)} is not SVG. Icons and graphics are SVG (LLM.md 8.6).`);
+  }
+  for (const p of (await walk(join(ROOT, 'src'))).filter((x) => x.endsWith('.css'))) {
+    const rel = p.slice(join(ROOT, 'src').length + 1);
+    if (GRADIENT_CSS_ALLOWED.some((a) => rel.startsWith(a))) continue;
+    const css = await readFile(p, 'utf8');
+    for (const m of css.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
+      if (/background[^;]*(gradient|--ux-gradient)/.test(m[2]) && /card|tile|panel|item|box/i.test(m[1])) {
+        report.error(`${rel}: "${m[1].trim().slice(0, 60)}" has a gradient background. Content cards are never gradient filled (LLM.md 8.5).`);
+      }
+    }
+  }
 }
 
 async function main() {
@@ -228,6 +323,14 @@ async function main() {
     console.log(`${e ? '✗' : '✓'} ${f}${issues.length ? '' : '  all checks passed'}`);
     for (const [level, msg] of issues) console.log(`   ${level}  ${msg}`);
   }
+
+  const repoIssues = [];
+  await checkRepo({ error: (msg) => repoIssues.push(['ERROR', msg]), warn: (msg) => repoIssues.push(['warn ', msg]) });
+  const re = repoIssues.filter((i) => i[0] === 'ERROR').length;
+  errors += re;
+  warnings += repoIssues.length - re;
+  console.log(`${re ? '✗' : '✓'} repo assets and CSS${repoIssues.length ? '' : '  all checks passed'}`);
+  for (const [level, msg] of repoIssues) console.log(`   ${level}  ${msg}`);
 
   console.log(`\n${files.length} pages, ${errors} errors, ${warnings} warnings.`);
   console.log('This check does not replace a visual comparison with reference/pages at 1440, 768 and 375.');
