@@ -9,6 +9,9 @@ Turn a page request into a plan a designer or builder can follow: the page's job
 
 ## 1. Read first
 
+Make sure you are on the latest `main` (LLM.md section 0, Step 0). If `LLM.md` or this skill's folder looks different from what you expect, update first.
+
+
 - `LLM.md` sections 2 to 7 (business, voice, claims, content, weighting, storytelling).
 - `docs/BRAND-GUIDE.md`, especially section 8 (page rules) and section 10 (claims).
 - `knowledge/uxteam-website-knowledge.txt` for facts. Use only numbers its section 10 marks as safe, never copy from its section 12.

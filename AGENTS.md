@@ -2,7 +2,9 @@
 
 This repo is the coded design system and pages for the UXTeam website.
 
-**Before doing anything, read [LLM.md](LLM.md) completely.** It holds the business, brand voice, design rules, craft rules, section library, page blueprints and the process to follow. Then follow its four steps: pick the approach, read the repo, share a plan that maps every section to a repo file, and review your work before handing it over.
+**First, make sure you are on the latest `main`** (`git fetch origin && git checkout main && git pull`). If `LLM.md` or `skills/` is missing, your copy is out of date: update before doing anything.
+
+**Then read [LLM.md](LLM.md) completely.** It holds the business, brand voice, design rules, craft rules, section library, page blueprints and the process to follow. Then follow its steps: make sure the repo is current, pick the approach, read the repo, share a plan that maps every section to a repo file, and review your work before handing it over.
 
 ## Non-negotiables
 
@@ -16,4 +18,5 @@ This repo is the coded design system and pages for the UXTeam website.
 8. Start new pages from `src/starters/` and keep the `ux-page-type` comment correct; it decides the hero and booking card (LLM.md 15.5). Edit `src/`, never `dist/`.
 9. After building, run `npm run build` and `npm run check`, fix every error, and compare with `reference/pages/`. If you cannot run or preview, say so.
 10. Plan new pages with `skills/uxteam-page-strategy/SKILL.md` and review work with `skills/uxteam-creative-review/SKILL.md`. General design skills may only be used for usability, accessibility and performance checks, never for style, color, font or layout choices.
-11. Every new section or element goes into the repo with its library entry, docs and a `CHANGELOG.md` line.
+11. Stay inside the task: a page task does not edit shared files (header, footer, booking card, scripts, other pages), add new mechanisms, fill open items, or publish anything outside the repo (LLM.md 16.4). No AI generated imagery.
+12. Every new section or element goes into the repo with its library entry, docs and a `CHANGELOG.md` line.

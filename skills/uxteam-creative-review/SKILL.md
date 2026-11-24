@@ -68,11 +68,13 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Copy | Voice, claims and facts follow LLM.md 3 and 4 |
 | Quality | Web standards in LLM.md 13.12; `npm run check` passes |
 
-### B3. Check reuse and parity
+### B3. Check reuse, parity and scope
 - Every approved section that appears (process, partnerships, outcomes, logo strip, FAQ) matches the approved version: same copy, labels, structure and layout (LLM.md 12.5).
 - Every set of parallel items has one treatment; nothing is featured or split off on its own (LLM.md 12.6).
 - The hero and booking card match the page type (LLM.md 15.5).
 - If an approved or live version of this page exists, compare section by section: order, emphasis, visuals, actions.
+- Only the files the task needed were changed; no shared files, new mechanisms, filled open items or outside deployments (LLM.md 16.4).
+- No AI generated imagery; section intros centered except on detail pages; no full Mist bands.
 
 ### B4. Check the known failures
 Go through every row of LLM.md 19.3. Any match is an automatic issue.

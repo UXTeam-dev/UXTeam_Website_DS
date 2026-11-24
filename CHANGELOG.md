@@ -2,6 +2,16 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.7.0 · 24 Nov 2026
+
+From reviewing a second AI built What we do page and the steps its tool recorded:
+- LLM.md Step 0: work from the latest `main` and confirm LLM.md, AGENTS.md, skills and the check exist (the tool had worked from an old copy without them). AGENTS.md, CLAUDE.md and the page strategy skill say the same.
+- LLM.md Step 1: ask when inputs disagree; "start fresh" means a fresh page in the same system.
+- LLM.md 8.6: no AI generated imagery; Mist is never a full section background.
+- LLM.md 16.4 "Stay inside the scope of the task": no edits to shared files, no new mechanisms, no filling open items, no outside publishing, no button classes on cards.
+- LLM.md 19.3: failures 31 to 43. Quality bar and creative review skill check scope too.
+- `npm run check` now flags left aligned section intros outside detail pages, button classes on cards or tiles, rewritten approved labels (logo strip, FAQ heading, process copy) and full Mist sections.
+
 ## 1.6.0 · 24 Nov 2026
 
 Repo review and refinement:

@@ -158,9 +158,32 @@ function checkBuilt(name, html, report) {
     if (/ux-story-card\b/.test(next)) report.warn('story cards in a ' + m[1] + ' column grid. Story cards are always three across (LLM.md 12.5).');
   }
 
+  // 9d. Section intros are centered except on detail pages (LLM.md 8.4, SL-04)
+  const pageType = (html.match(/ux-page-type:\s*([a-z]+)/) || [])[1];
+  if (pageType !== 'detail') {
+    const starts = (html.match(/class="[^"]*\bux-section-header--start\b/g) || []).length;
+    if (starts) report.warn(`${starts} left aligned section header(s). Section intros are centered except on detail pages (LLM.md 8.4).`);
+  }
+
+  // 9e. Button classes only on real CTAs, never on cards or tiles
+  for (const m of html.matchAll(/<(a|button)\b[^>]*class="[^"]*\bux-btn\b[^"]*"[^>]*>([\s\S]*?)<\/\1>/g)) {
+    const label = visibleText(m[2]).trim();
+    if (/<h[1-6]\b|<p\b/.test(m[2]) || label.length > 60) { report.error(`"${label.slice(0, 40)}…" is a card or tile using the ux-btn classes. ux-btn is only for real CTAs (LLM.md 16.4).`); break; }
+  }
+
+  // 9f. Approved wording that has been rewritten before (LLM.md 12.5)
+  const REWRITES = [
+    [/Companies we(’|')ve worked with/i, 'the logo strip label is "Trusted by B2B companies worldwide"'],
+    [/>\s*Frequently asked questions\s*</i, 'reuse the approved FAQ heading ("What we observe, think, and learn" on home and hub pages)'],
+  ];
+  for (const [re, fix] of REWRITES) if (re.test(html)) report.warn(`rewritten approved label: ${fix}.`);
+  if (/ux-step__title/.test(html) && !/We walk your product as your buyers do/.test(html)) report.warn('the process section copy differs from the approved version. Reuse sections/process/process.html as it is (LLM.md 12.5).');
+
   // 10. Band limits
   const warm = (html.match(/class="[^"]*\bux-bg-warm-glow\b/g) || []).length;
   const navy = (html.match(/class="[^"]*\bux-bg-deep-navy\b/g) || []).length;
+  const mist = (html.match(/<section\b[^>]*class="[^"]*\bux-bg-mist\b/g) || []).length;
+  if (mist) report.warn('a full section on Mist. Mist is for small panels, not section backgrounds (LLM.md 8.6).');
   if (warm > 1) report.error(`${warm} Warm Glow bands. At most one per page.`);
   if (navy > 1) report.error(`${navy} Deep Navy bands. At most one per page.`);
 

@@ -1,6 +1,6 @@
 # LLM.md · UXTeam Website Design System
 
-**Read this whole file before you plan, write, design or build anything in this repo, then follow the four steps in section 0.** It is the single brief for any AI model, agent or tool working on the UXTeam website. It covers the business, the brand voice, the creative approach, the design rules, the coded system and the do's and don'ts.
+**Read this whole file before you plan, write, design or build anything in this repo, then follow the steps in section 0 (Step 0 to Step 4).** It is the single brief for any AI model, agent or tool working on the UXTeam website. It covers the business, the brand voice, the creative approach, the design rules, the coded system and the do's and don'ts.
 
 If something here conflicts with a direct instruction from the person you are working with, follow the person and point out the conflict in one line.
 
@@ -28,7 +28,15 @@ Breaking any of these means the page is wrong, however good it looks.
 
 ## 0. Start here
 
-**Do not write copy, design or code until you have finished Steps 1 to 3, in this order. Do not hand anything over until you have done Step 4.** Skipping them is the main reason pages come out generic, badly spaced or off brand.
+**Do not write copy, design or code until you have finished Steps 0 to 3, in this order. Do not hand anything over until you have done Step 4.** Skipping them is the main reason pages come out generic, badly spaced or off brand.
+
+### Step 0. Make sure you have the current repo
+
+Rules change often. An old copy of the repo means old rules.
+
+1. Work from the latest `main`: `git fetch origin`, `git checkout main`, `git pull`. If you must work on another branch, create it from the latest `main`.
+2. Confirm that `LLM.md`, `AGENTS.md`, `skills/` and `scripts/check.mjs` exist, and read the top of `CHANGELOG.md`. If any of them is missing, you are on an old copy: stop and update before doing anything else.
+3. If you cannot update (no network, read only access), say so before you start, and say which version you are working from.
 
 ### Step 1. Pick the approach
 
@@ -42,6 +50,10 @@ Before touching anything, settle four things and state them back to the person i
 | Output | Figma frames · Coded page in the repo · Both | From the request |
 
 Then say what you will produce, and what you need from the person, if anything.
+
+**When the inputs disagree, ask before building.** Examples: the file name says one page and the document inside describes another; the brief contradicts an approved page; "start fresh" could mean new copy or a new design. Name the conflict in one line and ask which one is meant. Do not pick one silently and build a whole page on it.
+
+**Know what "start fresh" means here.** It means a fresh page built from the system, not a fresh visual language. The page still uses the approved hero type, approved sections, blueprints and rules.
 
 ### Step 2. Build your knowledge from the repo
 
@@ -142,7 +154,7 @@ Use them in this order on a new page: page strategy (Step 3 plan), then build, t
 
 | # | Section | Use it for |
 |---|---|---|
-| 0 | Start here | Approach, knowledge, plan, review. Always first |
+| 0 | Start here | Current repo, approach, knowledge, plan, review. Always first |
 | 1 | The repo | Where things live |
 | 2 | The business | Who UXTeam is, who it serves, what it sells |
 | 3 | Voice and copy | How UXTeam sounds |
@@ -583,6 +595,8 @@ Three fonts only:
 - Product mockups (phones, laptops, browser frames) for outcomes and industries.
 - Blog covers: editorial 3D style.
 - Placeholders: describe the intended visual clearly in the placeholder.
+- **Never generate imagery with AI image tools** (abstract glass shapes, 3D renders, invented interfaces) for the website unless the person asks for it. Use real, approved work and the assets in `assets/`, or leave a labeled placeholder that describes the visual. The hero types decide whether there is an image at all: the display and listing heroes have none.
+- Mist is a surface for small panels (the author box, a CTA band). It is never a full section background.
 
 ---
 
@@ -1090,6 +1104,17 @@ Every page declares its type in a comment at the top of its file, for example `<
 
 **Standing rule:** every new section or element designed is added to the repo in the same piece of work, so the repo is always up to date.
 
+### 16.4 Stay inside the scope of the task
+
+A page task adds a page, and the new sections that page needs as reusable sections. It does not change the rest of the site.
+
+- **Do not edit shared files as part of a page task:** the header, footer, booking card, shared components and their JavaScript, `scripts/`, tokens, or other pages (their copy, metadata, dates or links). If the page needs one of these changed, stop and propose the change separately with the reason.
+- **Do not add new mechanisms** (content catalogs, build steps, data files, new directives) without asking. Use the existing includes.
+- **New sections are reusable sections, not page styles.** Put them in `src/sections/<name>/` with a partial and a library entry, named for what they are (`capability-stack`), not for the page (`what-we-do-*`). Page specific CSS files do not exist in this system.
+- **Do not fill open items yourself.** Links, booking URLs, social links, article titles and dates listed as open (section 20) stay open until the person supplies them. Finding a value on the old site is a suggestion to raise, not a fact to ship.
+- **Do not publish anything** (preview hosts, external sites, public links) unless the person asks. Deliver in the repo, and share screenshots for review.
+- **Do not use component classes for something else.** `ux-btn` is only for real CTAs; a card or tile never carries button classes.
+
 ---
 
 ## 17. Working in Figma (when the person asks for it)
@@ -1130,6 +1155,7 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] The page file contains no `<style>`, inline styles or hex colors
 - [ ] Nothing on the page appears that does not exist on an approved page, unless it is a planned new section
 - [ ] Treatment matches the approved direction: the right sections are emphasized, approved sections are reused whole, equal items are treated equally
+- [ ] Only the files the task needed were changed (16.4); nothing was published outside the repo
 - [ ] Repo updated (library, docs, changelog) and pushed
 
 Check by screenshotting the built page at the three widths and comparing side by side with the Figma frames. List any accepted difference with a reason.
@@ -1214,8 +1240,23 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 28 | The FAQ heading became the generic "Frequently asked questions" | Reuse the approved heading | Section 12.5 |
 | 29 | The inner booking card was used on a hub page | Hub pages use the homepage booking version | Section 15.5 |
 | 30 | On mobile the seven index tiles filled about 1000px before any content | Index becomes a sideways scrolling tab strip on mobile | Sections 12.6, 15.4 |
+| 31 | The model worked on an old copy of the repo: it read a rules file that no longer exists and never saw LLM.md, the skills, the starters or the page check | Rules only work if the current repo is read | Step 0 |
+| 32 | The attachment's file name and its content described different pages; the model guessed instead of asking | Conflicting inputs are raised before building | Step 1 |
+| 33 | "Start fresh" was read as permission for a new visual language: a left aligned split hero with an AI generated glass illustration | Fresh page, same system; no AI imagery; heroes from the approved types | Step 1, sections 8.6, 15.5 |
+| 34 | Section intros were left aligned across the page | Section intros (eyebrow + H2) are centered; left aligned headers are for detail pages | Sections 8.4, 14 (SL-04) |
+| 35 | Insights sat on a full Mist band, making four tinted or dark areas on one page | Mist is for panels; at most one Warm Glow and one Deep Navy band | Sections 8.6, 10 |
+| 36 | The capability index tiles carried the button classes | Component classes are used only for what they are | Section 16.4 |
+| 37 | The case studies were new invented cards instead of the outcome and story cards | Approved sections are reused whole | Section 12.5 |
+| 38 | The FAQ became one list beside a left aligned heading instead of the approved two groups | Approved sections are reused whole | Section 12.5 |
+| 39 | A page task also changed the shared header, footer links, booking form, FAQ script, build script, the homepage and another page's article title and date | A page task stays inside its scope; shared changes are proposed separately | Section 16.4 |
+| 40 | A new content catalog and build directive were added for one Insights card | No new mechanisms without asking | Section 16.4 |
+| 41 | Open items (Calendly link, social links, article metadata) were filled from the old public site | Open items stay open until the person supplies them | Sections 16.4, 20 |
+| 42 | The page was deployed to an outside preview host | Nothing is published unless asked | Section 16.4 |
+| 43 | Testing covered links, menus, forms and overflow at eight widths, but never compared the page with an approved page or the live What we do page | Functional tests do not replace the visual and treatment comparison | Step 4, section 18 |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
+
+Rows 31 to 43 come from a second What we do attempt by another tool. It tested carefully and documented every decision, but it started from an old copy of the repo, so none of the current rules reached it. Step 0 exists because of this.
 
 Rows 17 to 30 come from a What we do page that used the repo correctly at code level (right classes, right components, clean spacing) but still missed the approved direction. Following the code rules is not enough: the page also has to match the approved page's **treatment** (which sections are emphasized, which approved sections are reused whole, and how a set of items is presented).
 

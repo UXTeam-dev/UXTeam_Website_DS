@@ -2,7 +2,7 @@
 
 This repo is the coded design system and pages for the UXTeam website.
 
-**Read [LLM.md](LLM.md) completely before planning, writing, designing or building anything.** It is the full brief. The non-negotiables are repeated in [AGENTS.md](AGENTS.md).
+**Work from the latest `main`, then read [LLM.md](LLM.md) completely before planning, writing, designing or building anything.** It is the full brief. The non-negotiables are repeated in [AGENTS.md](AGENTS.md).
 
 ## Writing copy for a page
 
