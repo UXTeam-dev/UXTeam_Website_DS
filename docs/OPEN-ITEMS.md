@@ -22,6 +22,13 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 
 - A CTA band for mid-page prompts with an action (rules in LLM.md 13.9).
 - A comparison table section (rules in LLM.md 13.8).
+- The capability stack from the live What we do page (sticky tabs, stacked capability cards with deliverable visuals, AI design card with four sub areas, closing CTA band). Spec in LLM.md 15.4.
+- The why grid with icons from the live What we do page (four hairline columns with outline icons).
+- A What we do page in this repo, built from the two sections above and the existing ones.
+
+## To confirm
+
+- Hub pages (What we do) use the homepage booking card ("Skip the layers, talk to the founder."), as on the live page. LLM.md 15.5 now says so.
 
 ## Copy to review
 

@@ -29,10 +29,11 @@ Answer each in one or two lines:
 2. **Decision.** What are they deciding when they land here?
 3. **Beliefs.** What must they believe before they act? List 3 to 5 beliefs, for example "they understand my kind of product" or "the result is measured, not promised".
 4. **Objections.** What would stop them? List 2 to 4.
-5. **Job and action.** The page's one job and one main action (LLM.md 15.4 for known pages).
-6. **Pillars.** Which one or two pillars carry the page (AI and people, Outcomes, Experience)?
-7. **Proof.** Which approved proof supports it (results, clients, quotes, facts)? Proof that is not approved stays out or becomes a marked placeholder.
-8. **Journey.** Where do visitors arrive from, and where should they go next?
+5. **Job and action.** The page's one job and one main action (LLM.md 15.6 for known pages).
+6. **Page type.** Hub, company, listing, detail or other inner page. This decides the hero and booking card (LLM.md 15.5). If an approved or live version of the page exists (for example What we do, LLM.md 15.4), it is the blueprint.
+7. **Pillars.** Which one or two pillars carry the page (AI and people, Outcomes, Experience)?
+8. **Proof.** Which approved proof supports it (results, clients, quotes, facts)? Proof that is not approved stays out or becomes a marked placeholder.
+9. **Journey.** Where do visitors arrive from, and where should they go next?
 
 ## 4. Build the story and weight the sections
 
@@ -41,6 +42,8 @@ Answer each in one or two lines:
 3. Score each section with the four questions in LLM.md 6.1. Assign Low, Medium or High and the treatment (6.2).
 4. Keep 2 to 3 High sections at most, never two heavy High sections back to back, and the main action right after the strongest one (6.4).
 5. For each section, name the repo file you will use, or "new" with one line on why nothing existing fits.
+6. Where the content matches an approved section (process, partnerships, outcomes, logo strip, FAQ), plan to reuse it whole with its approved copy and labels (LLM.md 12.5). Never merge two approved sections.
+7. For a set of parallel items (services, industries, ways to work), plan one treatment for all of them (LLM.md 12.6).
 
 ## 5. Write the content (outline-only requests)
 

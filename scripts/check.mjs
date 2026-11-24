@@ -122,9 +122,24 @@ function checkBuilt(name, html, report) {
     if (pills + links > 1) report.error(`the hero has ${pills + links} CTAs. A hero has exactly one (LLM.md 13.1).`);
   }
 
+  // 9b. Section level actions: one Primary, never a lone Secondary or a pair
+  for (const m of html.matchAll(/<div class="[^"]*\bux-center\b[^"]*"[^>]*>([\s\S]*?)<\/div>/g)) {
+    const block = m[1];
+    const sec = (block.match(/ux-btn--secondary/g) || []).length;
+    const all = (block.match(/class="ux-btn\b/g) || []).length;
+    if (all > 1) report.warn('a section closes with more than one action. Use one Primary pill (LLM.md 11).');
+    else if (sec) report.warn('a section closes with a Secondary text link. Section closing actions are one Primary pill; text links belong inside cards (LLM.md 11).');
+  }
+
+  // 9c. Story cards are three across
+  for (const m of html.matchAll(/class="[^"]*\bux-grid--(2|4)\b[^"]*"/g)) {
+    const next = html.slice(m.index, m.index + 1500);
+    if (/ux-story-card\b/.test(next)) report.warn('story cards in a ' + m[1] + ' column grid. Story cards are always three across (LLM.md 12.5).');
+  }
+
   // 10. Band limits
-  const warm = (html.match(/\bux-bg-warm-glow\b/g) || []).length;
-  const navy = (html.match(/\bux-bg-deep-navy\b/g) || []).length;
+  const warm = (html.match(/class="[^"]*\bux-bg-warm-glow\b/g) || []).length;
+  const navy = (html.match(/class="[^"]*\bux-bg-deep-navy\b/g) || []).length;
   if (warm > 1) report.error(`${warm} Warm Glow bands. At most one per page.`);
   if (navy > 1) report.error(`${navy} Deep Navy bands. At most one per page.`);
 

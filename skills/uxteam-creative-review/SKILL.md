@@ -61,21 +61,28 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Emphasis by weight | High sections are the most designed and visual; Low sections are quiet |
 | Hierarchy and readability | Group titles beat their content; no orphans; comfortable line lengths |
 | Rhythm and variety | No two neighbouring sections share a layout; bands within limits; smooth gradient transitions |
+| Reuse and parity | Approved sections reused whole; equal items treated equally |
 | Spacing | Matches LLM.md section 9 exactly |
 | Visual anchors | Icons and graphics where they carry meaning, one style, not everywhere |
 | Craft details | Everything in LLM.md 13.1 to 13.11 holds |
 | Copy | Voice, claims and facts follow LLM.md 3 and 4 |
 | Quality | Web standards in LLM.md 13.12; `npm run check` passes |
 
-### B3. Check the known failures
+### B3. Check reuse and parity
+- Every approved section that appears (process, partnerships, outcomes, logo strip, FAQ) matches the approved version: same copy, labels, structure and layout (LLM.md 12.5).
+- Every set of parallel items has one treatment; nothing is featured or split off on its own (LLM.md 12.6).
+- The hero and booking card match the page type (LLM.md 15.5).
+- If an approved or live version of this page exists, compare section by section: order, emphasis, visuals, actions.
+
+### B4. Check the known failures
 Go through every row of LLM.md 19.3. Any match is an automatic issue.
 
-### B4. Output
+### B5. Output
 
 ```
 Verdict: Ready / Needs changes / Start again
 
-Scores: Business clarity 4 · Brand fit 2 · Emphasis 3 · Hierarchy 4 · Rhythm 3 · Spacing 2 · Anchors 2 · Craft 3 · Copy 4 · Quality 4
+Scores: Business clarity 4 · Brand fit 2 · Emphasis 3 · Hierarchy 4 · Rhythm 3 · Reuse 3 · Spacing 2 · Anchors 2 · Craft 3 · Copy 4 · Quality 4
 
 Fixes, most important first
 1. <where> · <what is wrong> · <the fix> · <rule it breaks>

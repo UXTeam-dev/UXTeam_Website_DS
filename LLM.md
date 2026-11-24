@@ -326,7 +326,7 @@ UXTeam sounds like a **senior colleague who tells you the truth plainly**: warm,
 - Write ranges with "to": "20 to 30%", "8 to 10 weeks".
 - American spelling.
 - No exclamation marks.
-- Headings: short, sentence case, often first person ("Outcomes we've delivered").
+- Headings: short, sentence case, often first person ("Outcomes we've delivered"). Short label style titles (two to four words, such as "Design specialists") have no full stop; titles written as a full sentence keep it.
 - Section pattern: a 2 to 3 word eyebrow, a short heading, an optional one line subhead.
 - Main CTA label is always **"Book a Discovery Call"** (title case). "Start with an audit" belongs to the audit offer. Never "Contact us" or "Get a quote".
 - Card and column links follow the approved pages ("Read Story", "Read Case", "Learn More").
@@ -386,7 +386,7 @@ Generate the content yourself, in this order:
    - **Facts** (company details, services, clients, stories, testimonials, FAQs) come from `knowledge/uxteam-website-knowledge.txt`. Use only the numbers its section 10 marks as safe, and never copy anything from its section 12 (issues on the live site).
    - The live site speaks to agencies. The new site speaks to B2B leaders first, so keep agency wording ("your agency", "white-label by default") on agency pages only.
    - If a fact is missing, leave a visible placeholder such as `[confirm with Chintan]`. Never invent it.
-2. **Find the page's job and main action** in section 15.4 (page rules). If the page is not listed, define its job in one sentence and its single main action.
+2. **Find the page's job and main action** in section 15.6 (page rules). If the page is not listed, define its job in one sentence and its single main action.
 3. **Study what already exists.** Read the copy on the approved pages in `src/pages/` and the Figma Final Design Pages. Reuse their tone, sentence length, heading style and any matching content (facts, proof, service descriptions, FAQ answers). Repeated answers must match across pages.
 4. **Plan the story** (section 7) and **score each section's business value** (section 6).
 5. **Write section by section:** eyebrow, heading, optional subhead, body, actions, proof used.
@@ -661,12 +661,14 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 |---|---|
 | Glass (on dark) | Header only, dark header |
 | Primary on dark | Dark hero |
-| Primary on light | Light hero, booking form, light header, one closing action under a section where the design calls for it |
-| Secondary (text link + circle) | Inside a card or column only |
+| Primary on light | Light hero, booking form, light header, one closing action under a section, the main action inside a large capability card |
+| Secondary (text link + circle) | Inside a card or column only, never alone at section level |
 | Secondary subtle | Inside dark cards |
 | Icon (circle only) | Industry cards, blog cards |
 
 - One main CTA per screen.
+- **A section's closing action is one Primary pill, centered, alone** ("Learn How We Work", "Read Other Blogs"). Never a Secondary text link floating at section level, and never a Primary plus Secondary pair under a section.
+- **Inside a card:** at most one Primary (that card's own action, for example "Book an Audit") and one text link. Never three actions in one card.
 - **A hero has exactly one CTA.** See 13.1 for choosing it when the content gives two.
 - **Only CTAs look like CTAs.** The arrow circle, pills and the Aeonik 17 link style are reserved for things you can click. See 13.5.
 - A prompt with an action in the middle of a page ("Need something else?") becomes a CTA band, not loose text and a button. See 13.9.
@@ -710,6 +712,25 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 - Keep them quiet: white background, hairlines, standard spacing.
 - Their job is to support the High sections, not compete with them.
 
+### 12.5 Reuse approved sections exactly
+
+When a page needs content that already exists as an approved section (the process, the partnerships stories, the outcomes, the logo strip, the FAQ), use that section **as it is, with its approved copy and labels**:
+
+- Keep the approved wording. The process steps are "1. Audit" with the story line "We walk your product as your buyers do.", not "Step 1 / Audit" with new copy. The logo strip label is "Trusted by B2B companies worldwide". The homepage FAQ heading is "What we observe, think, and learn".
+- Keep the approved structure. The partnerships section is the featured video story plus three story cards; the outcomes section is two outcome cards. Never merge two approved sections into one new section, and never add a sub heading inside one to make room for another.
+- Keep the approved layout. Story cards are always three across on desktop. A two across story grid does not exist.
+- Change copy only where the page's content document says so.
+
+### 12.6 Items of equal weight get equal treatment
+
+When a section presents a set of parallel items (the seven services, the industries, the ways to work), every item gets the same layout, the same visual weight and the same parts:
+
+- Never feature one item in a rich card and leave the others as plain text rows.
+- Never pull one item out of the set into its own band (for example AI design on a separate dark band while the other services sit on white). A set stays together.
+- If one item is the natural starting point (the audit), mark it with a label such as "Start here", not with a different layout.
+- An index of the items (anchor links) is a compact sticky tab bar, never a grid of tiles that fills a screen before the content starts.
+
+
 ### 12.4 Creative references
 
 Every creative (High weight) section in the repo keeps its reference next to its code:
@@ -736,7 +757,7 @@ These rules fix the details that make a page feel finished. They apply to every 
 
 ### 13.1 Hero
 
-- **One CTA only.** A hero has exactly one action. If the content gives two, keep the one that matches the page's main action (section 15.4), usually "Book a Discovery Call". The other destination is usually covered by the page itself (for example "See how it works" is just the next sections). If it is still needed, place it as a text link inside the section it belongs to.
+- **One CTA only.** A hero has exactly one action. If the content gives two, keep the one that matches the page's main action (section 15.6), usually "Book a Discovery Call". The other destination is usually covered by the page itself (for example "See how it works" is just the next sections). If it is still needed, place it as a text link inside the section it belongs to.
 - Trust lines and logo strips under the CTA are fine. They are not actions.
 - **The dark gradient must reach white inside the hero.** Size the gradient to the real height of the hero content at every breakpoint. When content grows (longer copy, a logo strip, wrapping on mobile), extend the gradient. The section must never cut the gradient off.
 - The section after a dark hero starts on white, or overlaps the fade with a card. Never start a tinted or banded section right under a dark hero.
@@ -901,6 +922,8 @@ Code: `src/sections/<name>/` or `src/components/<name>/`. Figma refs are node ID
 | SL-34 | Industry cards (expanding) | High | 4 industries with image, description, project count | `components/industry-card` |
 | SL-35 | Engagement models (3 columns) | Low | 3 offers: label, title, description, link | `sections/engagement` |
 | Beliefs grid | 6 principles on Warm Glow | Low | 6 short beliefs (About) | `sections/beliefs` |
+| Capability stack | Sticky tabs + stacked capability cards with deliverable visuals + closing CTA band | High | 5 to 8 capabilities, each with intro, included list, where it fits, one action, one visual | Not in the repo yet. Reference: new.ux.team/what-we-do (15.4) |
+| Why grid with icons | 4 columns with hairlines, outline icon, title, one sentence | Medium | 4 reasons | Live What we do page; build from `sections/approach` styles |
 
 ### Content and listing
 
@@ -972,7 +995,39 @@ Every page shares the same shell: **header → hero → body → booking card �
 3. Related items (SL-60)
 4. Booking card + footer (Insights: footer only)
 
-### 15.4 Page rules for pages still to come
+### 15.4 BP-4 Hub page: What we do (live at new.ux.team/what-we-do)
+
+The approved direction for a page that sells the whole offer. Use it for What we do, and as the model for any page that presents all services or capabilities.
+
+1. Header + **display hero** (the homepage style): H1 at the display size, one short sub (about 30 words at most, 3 lines), one Primary CTA, the logo strip labeled "Trusted by B2B companies worldwide". No eyebrow needed.
+2. **Capabilities, the High section.** Section header ("Our capabilities at a glance"), then:
+   - a sticky tab bar with one tab per capability, the active one underlined as you scroll;
+   - one large white card per capability (radius 8, 1px Steel border, roughly 40 by 56 padding), stacked so each card slides over the previous one on desktop: text on the left (title at about 40, a short intro, an arrow list of what is included, a Besley "Where it fits" line, one Primary action for that service plus at most one text link), and a deliverable visual on the right (about 518 square: an audit report, a product screen, a website);
+   - AI design as one of these cards, with its four sub areas shown as a row of small image tiles inside the card;
+   - a closing CTA band ("Don't see exactly what you need?") on a Mist tint with the button on the right.
+   On mobile the tab bar scrolls sideways and each card stacks with the visual on top.
+3. How we work: the approved process section, unchanged, closing with one Primary "Learn How We Work".
+4. Why B2B teams choose UXTeam: four columns separated by hairlines, each with an outline icon, a short title (no full stop) and one sentence, on Warm Glow.
+5. The partnerships behind the results: featured video story plus three story cards, unchanged.
+6. Outcomes we've delivered: the two outcome cards, unchanged.
+7. Insights: three blog cards and one Primary link to the blog.
+8. FAQ: two groups, heading "What we observe, think, and learn".
+9. Booking card, **homepage version** ("Skip the layers, talk to the founder.") + footer.
+
+Notes: the capability stack is not in the repo yet (see section 20). The live page uses 110 section padding; in this repo keep the fixed scale in section 9.
+
+### 15.5 Which hero and booking card a page uses
+
+| Page type | Hero | Booking card |
+|---|---|---|
+| Homepage | Display hero with logo marquee | Homepage version |
+| Hub pages that present the whole offer (What we do) | Display hero, dark, with logo strip | Homepage version |
+| Company page (About) | Light hero, display H1 | Inner version |
+| Listing pages (Success Stories, Insights) | Listing hero, 64 H1 | Inner version (Insights: footer only) |
+| Detail pages (case study, article) | Case study or article hero | Inner version, flush (Insights articles: footer only) |
+| Other inner pages (UXAudit, How we work, White label, Contact) | Listing hero, 64 H1 | Inner version |
+
+### 15.6 Page rules for pages still to come
 
 | Page | Its job | Must include | Main action |
 |---|---|---|---|
@@ -1133,9 +1188,25 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 13 | Checkmark icons in colored circles and a navy quote box were added to a terms list | Icons follow one outline style; supporting elements must belong to their section; nothing decorative should look like UI controls | Sections 13.5, 13.6, 13.7 |
 | 14 | A low value section ("the principle") got a large two column feature treatment near the top | Low weight sections stay minimal and do not compete with High ones | Section 6.2 |
 | 15 | Heavy dark rules and light hairlines were mixed in the same page | Dividers are 1px Steel hairlines; the 4px G4 rule only tops FAQ groups | Section 8.5 |
-| 16 | The page had no proof at all (no VORO result, no client names, no stats) | Proof near claims; How we work must show the process in practice | Section 7.2, section 15.4 |
+| 16 | The page had no proof at all (no VORO result, no client names, no stats) | Proof near claims; How we work must show the process in practice | Section 7.2, section 15.6 |
+| 17 | What we do used the inner 64 hero with an eyebrow and a four line sub | A page that presents the whole offer uses the display hero with a short sub | Section 15.5 |
+| 18 | The logo strip label was rewritten ("Companies we've worked with") | Approved labels are reused word for word | Section 12.5 |
+| 19 | The seven services became a screen of index tiles, then one rich featured card (UX audit) and five plain text rows | Equal items get equal treatment; the index is a compact sticky tab bar | Section 12.6, 15.4 |
+| 20 | No service had a visual: every capability was text only | Capabilities are High weight and each needs a deliverable visual | Sections 13.10, 15.4 |
+| 21 | AI design was pulled out of the set onto its own Deep Navy band | A set stays together; a band is not a way to feature one item | Section 12.6 |
+| 22 | The down arrow circles on the index tiles looked like CTAs | Only CTAs look like CTAs | Section 13.5 |
+| 23 | "Don't see exactly what you need?" was plain centered text with a text link | A prompt with an action is a CTA band | Section 13.9 |
+| 24 | The process copy and labels were rewritten ("Step 1", "Audit") | Approved sections keep their approved copy | Section 12.5 |
+| 25 | Section closing actions were Secondary links, or a Primary plus Secondary pair; one card had three actions | One Primary per section close; at most one Primary and one link per card | Section 11 |
+| 26 | Outcomes and success stories were merged into one "Case studies" section with a sub heading and two across story cards; the featured video story was dropped | Approved sections are reused whole; story cards are three across | Section 12.5 |
+| 27 | The why grid had no icons and its short titles ended with full stops | Icons where they carry meaning; label style titles have no full stop | Sections 13.6, 3.3 |
+| 28 | The FAQ heading became the generic "Frequently asked questions" | Reuse the approved heading | Section 12.5 |
+| 29 | The inner booking card was used on a hub page | Hub pages use the homepage booking version | Section 15.5 |
+| 30 | On mobile the seven index tiles filled about 1000px before any content | Index becomes a sideways scrolling tab strip on mobile | Sections 12.6, 15.4 |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
+
+Rows 17 to 30 come from a What we do page that used the repo correctly at code level (right classes, right components, clean spacing) but still missed the approved direction. Following the code rules is not enough: the page also has to match the approved page's **treatment** (which sections are emphasized, which approved sections are reused whole, and how a set of items is presented).
 
 ---
 
@@ -1150,6 +1221,6 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 - Most FAQ answers are "Add answer here." placeholders
 - Featured story video file; Aeonik font files; Calendly link; LinkedIn URLs
 - Tablet and mobile designs exist only for the homepage and Success Stories pages; About and Insights follow the rules
-- Not built in the repo yet: the CTA band (13.9) and a comparison table section (13.8). Build each once, following those rules, and add it to the library before reusing it
+- Not built in the repo yet: the CTA band (13.9), a comparison table section (13.8), the capability stack and the why grid with icons from the live What we do page (15.4). Build each once, following those rules, and add it to the library before reusing it
 
 When any of these is resolved, update this file and `docs/OPEN-ITEMS.md`.

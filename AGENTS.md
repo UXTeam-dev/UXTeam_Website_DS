@@ -10,7 +10,7 @@ This repo is the coded design system and pages for the UXTeam website.
 2. The header, booking card and footer are fixed includes (`sections/site-header`, `sections/booking-cta`, `sections/site-footer`). Never redesign them or change their navigation, links or copy.
 3. Every button is the Arrow Glide partial (`components/button/_button.html`).
 4. Heroes use an existing hero section, have one CTA, and a dark hero fades to white.
-5. Reuse the matching section first (process, engagement, FAQ, story cards, services, industries). New sections only for content nothing existing can carry.
+5. Reuse the matching section first (process, engagement, FAQ, story cards, services, industries), whole, with its approved copy and labels. Never merge two approved sections. Items of equal weight (the seven services) get the same treatment. New sections only for content nothing existing can carry.
 6. Cards: radius 8, 1px Steel border, no shadow. At most one Warm Glow and one Deep Navy band per page. Fixed section spacing.
 7. Copy follows `docs/BRAND-GUIDE.md`; facts come from `knowledge/uxteam-website-knowledge.txt`. Never invent claims. No em dashes.
 8. Start new pages from `src/starters/`. Edit `src/`, never `dist/`.

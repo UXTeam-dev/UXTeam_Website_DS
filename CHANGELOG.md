@@ -2,6 +2,17 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.5.0 · 24 Nov 2026
+
+From comparing an AI built What we do page with the live approved one (new.ux.team/what-we-do):
+- LLM.md 12.5 "Reuse approved sections exactly" and 12.6 "Items of equal weight get equal treatment".
+- LLM.md 15.4 blueprint for the What we do hub page and 15.5 table of which hero and booking card each page type uses. Page rules moved to 15.6.
+- LLM.md section 11: one Primary pill per section close; at most one Primary and one link per card.
+- LLM.md 19.3: failures 17 to 30 from the comparison. House style: short label titles have no full stop.
+- Section library: capability stack and why grid with icons listed as to build.
+- `npm run check` now warns about section level Secondary links or action pairs, and story cards in two or four column grids; band counting only reads class attributes.
+- Both skills check page type, reuse of approved sections and parity of equal items.
+
 ## 1.4.1 · 24 Nov 2026
 
 - Moved the skills to a tool-neutral `skills/` folder at the repo root, with `skills/README.md`, so Codex, Cursor and other tools use them too. `.claude/skills/` now only holds pointer files for Claude Code.
