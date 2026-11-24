@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ux-check: no-booking -->
 <!--
   Insights listing (BP-2). Figma: 2102:3047.
   Ends with the footer only (no booking card), decided 18 Nov 2026.
@@ -64,7 +65,7 @@
 
   <main>
     <!-- SL-11 Listing hero (no eyebrow, no CTA) + filter chips + grid -->
-    <section class="ux-hero-listing ux-section--pb-120" style="--ux-hero-bg-height: 810px; --ux-hero-bg-height-tablet: 560px; --ux-hero-bg-height-mobile: 560px; padding-bottom: var(--ux-section-120)" aria-labelledby="insights-title">
+    <section class="ux-hero-listing ux-section--pb-120" style="--ux-hero-bg-height: 810px; --ux-hero-bg-height-tablet: 560px; --ux-hero-bg-height-mobile: 560px" aria-labelledby="insights-title">
       <div class="ux-container">
         <div class="ux-hero-listing__inner">
           <div class="ux-hero-listing__text">
@@ -73,7 +74,7 @@
           </div>
         </div>
 
-        <div class="ux-hero-listing__overlap" style="margin-top:120px">
+        <div class="ux-hero-listing__overlap ux-hero-listing__overlap--chips">
           <div class="ux-chip-row ux-filter-bar" role="group" aria-label="Filter insights by topic" data-ux-filter="#insights-grid">
             <button class="ux-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
             <button class="ux-chip" type="button" data-filter="UX Strategy" aria-pressed="false">UX Strategy</button>
@@ -84,7 +85,7 @@
             <button class="ux-chip" type="button" data-filter="White Label" aria-pressed="false">White Label</button>
           </div>
 
-          <div class="ux-grid ux-grid--3 ux-grid--gap-24" id="insights-grid" style="text-align:left">
+          <div class="ux-grid ux-grid--3 ux-grid--gap-24" id="insights-grid">
             <a class="ux-blog-card" href="insight-content-strategy.html" data-category="AI and UX">
   <div class="ux-blog-card__top">
     <div class="ux-blog-card__meta">

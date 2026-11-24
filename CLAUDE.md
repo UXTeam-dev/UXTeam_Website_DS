@@ -1,6 +1,8 @@
 # Notes for Claude
 
-This repo is the coded design system and pages for the UXTeam website (see README.md).
+This repo is the coded design system and pages for the UXTeam website.
+
+**Read [LLM.md](LLM.md) completely before planning, writing, designing or building anything.** It is the full brief. The non-negotiables are repeated in [AGENTS.md](AGENTS.md).
 
 ## Writing copy for a page
 
@@ -14,4 +16,4 @@ House style for copy: sentence case, American spelling, no em dashes, main CTA "
 
 ## Building
 
-Follow `docs/HOW-TO-ADD.md` for any new component, section or page, and add a line to `CHANGELOG.md` for every change.
+Start new pages from `src/starters/`, follow LLM.md sections 15 and 16, run `npm run build` and `npm run check`, and add a line to `CHANGELOG.md` for every change.

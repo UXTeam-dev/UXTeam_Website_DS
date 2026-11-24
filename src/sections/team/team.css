@@ -134,3 +134,6 @@
   .ux-leaders { grid-template-columns: 1fr; gap: 40px; }
   .ux-leader__photo { height: 320px; }
 }
+
+/* Photo that should fill its box, cropped from the top */
+.ux-leader__photo--cover { object-fit: cover; object-position: center top; }

@@ -35,3 +35,8 @@
 @media (max-width: 767px) {
   .ux-detail-section { padding: 40px 0 24px; }
 }
+
+/* Article detail: the cover image already gives the hero its depth */
+.ux-detail-section--article { padding-top: 120px; }
+@media (max-width: 1199px) { .ux-detail-section--article { padding-top: 60px; } }
+@media (max-width: 767px) { .ux-detail-section--article { padding-top: 40px; } }

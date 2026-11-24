@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  STARTER · Inner page with a light header and hero (About style).
+  Use it to vary pages so not every header is dark.
+  Copy to src/pages/<page-name>.html and follow the steps in dark-hero-page.html.
+  Write the Figma frame IDs here: Desktop [ID], Tablet [ID], Mobile [ID].
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="[Page title] | UXTeam" description="[One sentence description]" -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-header/site-header.html theme="light" cta="ux-btn--primary" bordered="" -->
+
+  <main>
+    <!-- HERO (light). One CTA only. Stats row is optional. -->
+    <section class="ux-hero-light" aria-labelledby="page-title">
+      <div class="ux-container">
+        <div class="ux-hero-light__inner">
+          <div class="ux-hero-light__text">
+            <span class="ux-eyebrow">[Eyebrow]</span>
+            <h1 class="ux-h1 ux-hero-light__title" id="page-title">[Short H1]</h1>
+            <p class="ux-hero-light__sub">[One sentence sub]</p>
+          </div>
+          <!-- @include components/button/_button.html class="ux-btn--primary" -->
+        </div>
+        <!-- @include components/stat/stat.html -->
+      </div>
+    </section>
+
+    <!-- YOUR SECTIONS: follow your plan. See dark-hero-page.html for the section shell and examples. -->
+
+    <!-- FIXED: booking card, do not edit -->
+    <!-- @include sections/booking-cta/booking-cta.html -->
+  </main>
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

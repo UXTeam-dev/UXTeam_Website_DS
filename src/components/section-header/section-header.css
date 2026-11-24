@@ -40,3 +40,8 @@
   text-align: left;
   margin-inline: 0;
 }
+
+/* Variants used by listing pages */
+.ux-section-header--gap-16 { gap: 16px; }
+.ux-section-header__intro--flush { margin-top: 0; }
+.ux-section-header__intro--narrow { max-width: 760px; }

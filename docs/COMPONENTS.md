@@ -17,6 +17,7 @@ Include a partial with `<!-- @include path key="value" -->` (paths from `src/`).
 | `.ux-grid` + `--2`, `--3`, `--4`, `--gap-24`, `--gap-32` | Card grids, gap 30 by default, collapse on tablet and mobile |
 | `.ux-stack` (set `--ux-stack-gap`) | Vertical stack with an even gap |
 | `.ux-center`, `.ux-hairline` | Center a row, 1px divider |
+| `.ux-mt-40`, `.ux-mt-48` | Space above a closing row under a grid (a button row, a second grid) |
 | `.ux-bg-warm-glow`, `.ux-bg-deep-navy`, `.ux-bg-hero-light` | Section backgrounds |
 | `.ux-h1-display`, `.ux-h1`, `.ux-h2`, `.ux-h2-related`, `.ux-h3`, `.ux-h3-small` | Headings |
 | `.ux-body-26/20/18/16`, `.ux-label`, `.ux-accent`, `.ux-prose` | Body text, labels, Besley accent, long form text |
@@ -43,7 +44,7 @@ Figma "CTA / 01 Arrow Glide" (1271:70). All variants: `button/button.html`.
 `<span class="ux-eyebrow">Measured results</span>`. Add `ux-eyebrow--on-dark` on dark backgrounds.
 
 ### Section header: `section-header/`
-`.ux-section-header` with `.ux-eyebrow`, `.ux-h2.ux-section-header__title` and optional `.ux-section-header__intro`. Variants `--on-dark`, `--start` (left aligned).
+`.ux-section-header` with `.ux-eyebrow`, `.ux-h2.ux-section-header__title` and optional `.ux-section-header__intro`. Variants `--on-dark`, `--start` (left aligned), `--gap-16`. Intro variants `__intro--narrow` (760 wide), `__intro--flush` (no top margin).
 
 ### Story card: `story-card/`
 ```html

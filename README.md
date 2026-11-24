@@ -6,6 +6,8 @@ The coded version of the **UXTeam Website 2026** Figma file. It holds the design
 - Sources used: **Final Design Pages** (1231:508) and **Assets & Components** (1231:897)
 - Rules followed: **Design System Guideline** (2351:577)
 
+> **Working with an AI tool (Claude, Codex, Cursor, Copilot)?** It must read [LLM.md](LLM.md) first. [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) point tools there automatically.
+
 ---
 
 ## Quick start
@@ -14,8 +16,9 @@ You need [Node.js](https://nodejs.org) 18 or newer. Nothing else is installed.
 
 ```bash
 npm run build     # builds everything into dist/
+npm run check     # checks every page against the system rules (run after build)
 npm run serve     # opens dist/ at http://localhost:4321
-npm run dev       # build, then serve
+npm run dev       # build, check, then serve
 ```
 
 Then open:
@@ -49,11 +52,16 @@ tokens  →  base  →  components  →  sections  →  pages
 ```
 UXTeam_Website_DS/
 ├── README.md               You are here
-├── package.json            npm run build / serve / dev
+├── LLM.md                  ★ Full brief for AI tools: business, voice, rules, process
+├── AGENTS.md, CLAUDE.md    Short pointers to LLM.md that AI tools read automatically
+├── CHANGELOG.md            What changed and when
+├── package.json            npm run build / check / serve / dev
 ├── docs/                   How to work with the system (start with HOW-TO-ADD.md)
 ├── knowledge/              uxteam-website-knowledge.txt: everything the live ux.team site says
+├── reference/              Screenshots of the approved Figma pages, for comparison
 ├── scripts/
 │   ├── build.mjs           Builds dist/ (tokens, CSS, JS, HTML includes, assets)
+│   ├── check.mjs           Checks pages against the system rules (npm run check)
 │   └── serve.mjs           Tiny local server for dist/
 ├── assets/                 Shared files used by every page
 │   ├── fonts/              Aeonik (licensed, add files), Manrope, Besley
@@ -68,6 +76,7 @@ UXTeam_Website_DS/
 │   ├── components/         One folder per component (CSS, JS, HTML partials)
 │   ├── sections/           One folder per section (CSS, JS, HTML partials)
 │   ├── templates/          <head> and <script> partials shared by all pages
+│   ├── starters/           Starter files for new pages (dark hero, light hero, detail)
 │   ├── pages/              The pages, built from includes
 │   ├── library/            The component library page
 │   ├── js/
@@ -134,6 +143,8 @@ Font sizes and the page margin change automatically through the tokens. Section 
 
 | File | Read it when |
 |---|---|
+| [LLM.md](LLM.md) | You (or an AI tool) plan, write, design or build anything. The full brief |
+| [reference/README.md](reference/README.md) | You compare a built page with the approved design |
 | [knowledge/uxteam-website-knowledge.txt](knowledge/uxteam-website-knowledge.txt) | You need facts for a page: company details, services, clients, success stories, testimonials, FAQs, numbers (collected from the live ux.team site) |
 | [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) | You write or plan copy for a page, especially one with no content file (positioning, audience, offer, voice, page rules, claims) |
 | [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a component, section or page (step by step checklist) |
@@ -146,4 +157,4 @@ Font sizes and the page margin change automatically through the tokens. Section 
 
 ## The one rule for keeping this repo alive
 
-**Every new section or element designed in Figma is added here, in the same change.** Build it as a component or section folder, add it to the library page, list it in `docs/COMPONENTS.md` and `docs/FIGMA-MAP.md`, note it in `CHANGELOG.md`, then commit and push. The checklist is in [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md).
+**Every new section or element designed in Figma is added here, in the same change.** Build it as a component or section folder, add it to the library page, list it in `docs/COMPONENTS.md` and `docs/FIGMA-MAP.md`, note it in `CHANGELOG.md`, run `npm run build` and `npm run check`, then commit and push. The checklist is in [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md).

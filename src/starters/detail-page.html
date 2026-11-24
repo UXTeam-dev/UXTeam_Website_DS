@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  STARTER · Detail page (BP-3): case study hero, table of contents rail,
+  content column, related items. For an article, swap the hero for the
+  article hero (see src/pages/insight-content-strategy.html) and, if it is an
+  Insights article, remove the booking card and add the "ux-check: no-booking" marker comment
+  (see src/pages/insights.html).
+  Copy to src/pages/<page-name>.html and follow the steps in dark-hero-page.html.
+  Write the Figma frame IDs here: Desktop [ID], Tablet [ID], Mobile [ID].
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="[Page title] | UXTeam" description="[One sentence description]" -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" -->
+
+  <main>
+    <!-- HERO (SL-12 case study). No CTA in this hero type. -->
+    <section class="ux-hero-case" aria-labelledby="page-title">
+      <div class="ux-container">
+        <h1 class="ux-h1 ux-hero-case__title" id="page-title">[Title of the story]</h1>
+        <div class="ux-hero-case__lockup">
+          <img class="ux-hero-case__ux" src="../assets/logos/uxteam-logo-white.svg" width="190" height="46" alt="UXTeam">
+          <img class="ux-hero-case__x" src="../assets/icons/times.svg" width="28" height="28" alt="with">
+          <img class="ux-hero-case__client" src="../assets/logos/clients/[client-logo].png" width="88" height="76" alt="[Client]">
+        </div>
+        <div class="ux-hero-case__intro">
+          <p>[Intro paragraph]</p>
+          <!-- @include components/person/_person.html mod="ux-person--on-dark" name="[Name]" photo="[photo-file]" role1="[Role]," role2="[Company]" role3="[Location]" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY: TOC rail + content column. Every content section needs an id that the TOC and the section menu link to. -->
+    <section class="ux-detail-section" data-ux-toc-scope>
+      <div class="ux-container ux-detail">
+        <div class="ux-detail__rail">
+          <nav class="ux-toc" aria-label="Table of contents" data-ux-toc>
+            <p class="ux-toc__title">Table of Contents</p>
+            <ul class="ux-toc__list" role="list">
+              <li class="ux-toc__item"><a class="ux-toc__link" href="#section-1">[Section 1]</a></li>
+              <li class="ux-toc__item"><a class="ux-toc__link" href="#section-2">[Section 2]</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="ux-content-column">
+          <!-- Blocks for the content column live in components/detail-blocks (key value table, stat strip,
+               gradient rows, numbered outcomes, Q&A cards, quote). See docs/COMPONENTS.md. -->
+          <section class="ux-content-section" id="section-1">
+            <h2 class="ux-h3">[Section 1]</h2>
+            <p class="ux-body-20">[Content]</p>
+          </section>
+          <section class="ux-content-section" id="section-2">
+            <h2 class="ux-h3">[Section 2]</h2>
+            <p class="ux-body-20">[Content]</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- Floating section menu for tablet and mobile. Mirror the TOC links. -->
+      <div class="ux-section-menu" data-ux-section-menu>
+        <ul class="ux-section-menu__list" role="list">
+          <li><a href="#section-1">[Section 1]</a></li>
+          <li><a href="#section-2">[Section 2]</a></li>
+        </ul>
+        <button class="ux-section-menu__toggle" type="button" aria-expanded="false">
+          <span class="ux-section-menu__label">[Section 1]</span>
+          <svg viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- RELATED (SL-60) -->
+    <section class="ux-section" aria-labelledby="related-title">
+      <div class="ux-container">
+        <h2 class="ux-h2-related ux-related__title" id="related-title">Other Success Stories</h2>
+        <div class="ux-grid ux-grid--3 ux-grid--gap-32">
+          <!-- @include components/story-card/_story-card.html logo="[logo-file]" logo-w="57" logo-h="57" logo-alt="[Client]" title="[Title]" meta="[Type]" place="[Place]" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FIXED: booking card, flush version after the related row. Do not edit. -->
+    <!-- @include sections/booking-cta/booking-cta.html mod="ux-booking--flush" -->
+  </main>
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

@@ -1,5 +1,7 @@
 # How to add things
 
+> AI agents: read [LLM.md](../LLM.md) first. It is the full brief, and its section 0 sets the order of work.
+
 Use this every time something new is designed in Figma. Reuse first, build new only when nothing fits.
 
 ## Before you build: reuse check
@@ -63,7 +65,7 @@ Add tablet and mobile rules at the bottom of the CSS file inside `@media (max-wi
 
 ## Add a page
 
-1. Create `src/pages/<page-name>.html`. Copy the structure of the closest existing page.
+1. Copy the closest starter from `src/starters/` to `src/pages/<page-name>.html` (dark hero, light hero or detail page).
 2. The header comment names the Figma frame and its tablet and mobile frames.
 3. Include `templates/_head.html` with a `title` and `description`, then the header, sections, booking card (if the page has one) and footer, then `templates/_scripts.html`.
 4. Put new images in `assets/images/<page or group>/` as WebP. Logos stay PNG or SVG.
@@ -79,6 +81,7 @@ Edit `src/tokens/tokens.json`, then run `npm run build`. Never edit `tokens.css`
 ## Finish (every time)
 
 - [ ] `npm run build` runs without errors.
+- [ ] `npm run check` reports no errors. Warnings are fixed or explained.
 - [ ] Checked in the browser at 1440, 768 and 375 against Figma. No sideways scroll.
 - [ ] Hover, focus and keyboard work. Motion respects reduced motion.
 - [ ] Added to `src/library/index.html`.

@@ -18,7 +18,7 @@ When a new page has no content file, build its copy from this guide in this orde
 6. **Check every number and claim** against [Claims and proof rules](#10-claims-and-proof-rules). Anything pending stays a placeholder.
 7. **Send the draft to Chintan for sign off.** Final wording needs his approval.
 
-**Note (repo):** UXTeam house style for website copy avoids hyphens and dashes. Write "UX led" style phrases as restructured sentences where possible, and check with Chintan where the guide's own wording uses a hyphen.
+**Note (repo):** hyphens in compound words are fine in website copy ("UX-led", "first-pass"). Em dashes are never used.
 
 ---
 

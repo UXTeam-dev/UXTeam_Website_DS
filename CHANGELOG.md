@@ -2,6 +2,16 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.3.0 · 24 Nov 2026
+
+- Added `LLM.md`, the full brief for AI tools: business, voice, claims, process (approach, read the repo, plan, review), business value weighting, design rules, fixed spacing, craft rules, section library, page blueprints, quality bar and failures seen before.
+- Added `AGENTS.md` and updated `CLAUDE.md` so AI tools find LLM.md automatically.
+- Added `npm run check` (`scripts/check.mjs`): flags custom styles, hex colors, missing or rewritten header, footer and booking card, buttons without the Arrow Glide arrow, more than one hero CTA, too many bands, wrong section padding, missing alt text and copy rule breaks.
+- Added starter files for new pages in `src/starters/`.
+- Added screenshots of every approved page in `reference/pages/`, and reference folders with notes for the outcomes, featured story, services and industry sections.
+- Replaced inline styles in pages with named classes so every page passes the check. Removed an em dash from the Insights article.
+- Brand guide note now says hyphens are fine and em dashes are never used.
+
 ## 1.2.0 · 23 Nov 2026
 
 - Added `knowledge/uxteam-website-knowledge.txt`, one text file with everything the live site (ux.team) says, organized by topic: company facts and contact, site structure, positioning, process, the four capability pages, all 16 success stories, portfolio projects, testimonials, numbers with their approval status, FAQs, and issues found on the live site.

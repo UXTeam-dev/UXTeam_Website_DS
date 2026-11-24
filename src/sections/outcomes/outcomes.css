@@ -7,3 +7,6 @@
 @media (max-width: 1199px) {
   .ux-outcomes__grid { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* Homepage: outcome cards sit 42 below the hero logo strip */
+.ux-outcomes { margin-top: 42px; }

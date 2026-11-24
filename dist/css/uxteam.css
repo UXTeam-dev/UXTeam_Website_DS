@@ -636,6 +636,10 @@ button {
   .ux-section--pt-40 { padding-top: 24px; }
 }
 
+/* Spacing utilities for a closing row under a grid (use sparingly) */
+.ux-mt-40 { margin-top: 40px; }
+.ux-mt-48 { margin-top: 48px; }
+
 
 /* 3. Components (atoms and molecules) */
 
@@ -935,6 +939,11 @@ button {
   text-align: left;
   margin-inline: 0;
 }
+
+/* Variants used by listing pages */
+.ux-section-header--gap-16 { gap: 16px; }
+.ux-section-header__intro--flush { margin-top: 0; }
+.ux-section-header__intro--narrow { max-width: 760px; }
 
 
 /* ===== components/logo-tile/logo-tile.css ===== */
@@ -1402,6 +1411,9 @@ button {
     font-size: 14px;
   }
 }
+
+/* Square photo filling the frame (author box) */
+.ux-person__photo--fill img { inset: 0; }
 
 
 /* ===== components/story-card/story-card.css ===== */
@@ -3925,6 +3937,12 @@ button {
   .ux-hero-listing__overlap { margin-top: 48px; }
 }
 
+/* Filter chips sit a little lower on the fade than a featured card */
+.ux-hero-listing__overlap--chips { margin-top: 120px; }
+@media (max-width: 1199px) { .ux-hero-listing__overlap--chips { margin-top: 64px; } }
+@media (max-width: 767px) { .ux-hero-listing__overlap--chips { margin-top: 48px; } }
+.ux-hero-listing__overlap--chips .ux-grid { text-align: left; }
+
 
 /* ===== sections/hero-case-study/hero-case-study.css ===== */
 /* ==========================================================================
@@ -4173,6 +4191,9 @@ button {
 @media (max-width: 1199px) {
   .ux-outcomes__grid { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* Homepage: outcome cards sit 42 below the hero logo strip */
+.ux-outcomes { margin-top: 42px; }
 
 
 /* ===== sections/approach/approach.css ===== */
@@ -4554,6 +4575,11 @@ button {
   .ux-detail-section { padding: 40px 0 24px; }
 }
 
+/* Article detail: the cover image already gives the hero its depth */
+.ux-detail-section--article { padding-top: 120px; }
+@media (max-width: 1199px) { .ux-detail-section--article { padding-top: 60px; } }
+@media (max-width: 767px) { .ux-detail-section--article { padding-top: 40px; } }
+
 
 /* ===== sections/related-row/related-row.css ===== */
 /* SL-60 Related items row: heading 48 to 50 Ink, 40 gap, 3 cards, 120 padding. */
@@ -4854,6 +4880,9 @@ button {
   .ux-leaders { grid-template-columns: 1fr; gap: 40px; }
   .ux-leader__photo { height: 320px; }
 }
+
+/* Photo that should fill its box, cropped from the top */
+.ux-leader__photo--cover { object-fit: cover; object-position: center top; }
 
 
 /* ===== sections/beliefs/beliefs.css ===== */

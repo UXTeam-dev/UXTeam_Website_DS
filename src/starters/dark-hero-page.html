@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  STARTER · Inner page with a dark header and hero (Hero Dusk).
+  Copy to src/pages/<page-name>.html, then:
+  1. Replace every [PLACEHOLDER] and the example sections with your plan (LLM.md section 0, Step 3).
+  2. Keep the header, booking card and footer includes exactly as they are.
+  3. Sections come from includes or existing section markup only. No <style>, no inline styles.
+  4. npm run build, npm run check, compare with reference/pages/.
+  Write the Figma frame IDs here: Desktop [ID], Tablet [ID], Mobile [ID].
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="[Page title] | UXTeam" description="[One sentence description]" -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" -->
+
+  <main>
+    <!-- HERO (SL-11 listing hero). One CTA only. The gradient fades to white by itself. -->
+    <section class="ux-hero-listing" aria-labelledby="page-title">
+      <div class="ux-container">
+        <div class="ux-hero-listing__inner">
+          <div class="ux-hero-listing__text">
+            <span class="ux-eyebrow ux-eyebrow--on-dark">[Eyebrow]</span>
+            <h1 class="ux-h1 ux-hero-listing__title" id="page-title">[Short H1, optional <span class="ux-highlight">highlight</span>]</h1>
+            <p class="ux-hero-listing__sub">[One sentence sub]</p>
+          </div>
+          <!-- @include components/button/_button.html class="ux-btn--primary ux-btn--on-dark" -->
+        </div>
+        <!-- Optional: one block that overlaps the fade (featured story, chips, cards) -->
+        <div class="ux-hero-listing__overlap">
+          <!-- @include sections/featured-story/featured-story.html -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLE section shell (white). Spacing from LLM.md section 9: light to light is pb-120 then pt-100. -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="s1-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head">
+          <span class="ux-eyebrow">[Eyebrow]</span>
+          <h2 class="ux-h2 ux-section-header__title" id="s1-title">[Short H2]</h2>
+          <p class="ux-section-header__intro">[Optional one line intro]</p>
+        </header>
+        <div class="ux-grid ux-grid--3">
+          <!-- @include components/story-card/_story-card.html logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi" title="[Title]" meta="[Type]" place="[Place]" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLES of existing sections you can include as they are:
+         sections/process/process.html        5 steps with icons (Medium)
+         sections/services/services.html      grouped services, Deep Navy band (High)
+         components/industry-card/industry-card.html   industries (High)
+         sections/engagement/engagement.html  ways to work, 3 columns (Low)
+         sections/outcomes/outcomes.html      2 outcome cards (High)
+         components/faq/faq.html              FAQ, two groups (Low)
+         See docs/COMPONENTS.md for every section and its fields. -->
+
+    <!-- FIXED: booking card, do not edit (use booking-cta-home.html on the homepage only) -->
+    <!-- @include sections/booking-cta/booking-cta.html -->
+  </main>
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-footer/site-footer.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

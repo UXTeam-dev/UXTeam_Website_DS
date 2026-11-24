@@ -18,6 +18,15 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 - Homepage outcomes: both cards carry the same headline and numbers in Figma, and the 3motionAI name is still waiting for approval.
 - Article "Mapping User Flows" reuses the landing page audit image in Figma; the Google Analytics screen capture is still to come.
 
+## Not built yet
+
+- A CTA band for mid-page prompts with an action (rules in LLM.md 13.9).
+- A comparison table section (rules in LLM.md 13.8).
+
+## Copy to review
+
+`npm run check` warns about avoided words in approved Figma copy: "synergy" and "solutions" on the Insights article, "solutions" on the Squaircle success story. Confirm with Chintan whether to keep or change them.
+
 ## Not designed yet
 
 - Tablet and mobile frames for Insights listing, Insights detail and About. They currently follow the rules of the designed pages (same breakpoints, the detail page TOC becomes the floating bottom menu).

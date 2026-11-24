@@ -145,3 +145,7 @@
   .ux-section--pb-180 { padding-bottom: 70px; }
   .ux-section--pt-40 { padding-top: 24px; }
 }
+
+/* Spacing utilities for a closing row under a grid (use sparingly) */
+.ux-mt-40 { margin-top: 40px; }
+.ux-mt-48 { margin-top: 48px; }
