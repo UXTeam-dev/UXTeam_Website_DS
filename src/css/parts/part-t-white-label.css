@@ -1,7 +1,7 @@
 /* =====================================================================
    PART T | WHITE LABEL PAGE  (Figma: no frame yet, built from the page
             copy "White Label Page Copy v1.1" and the What we do PART M)
-   HTML: src/pages/white-label.html, wrapped in
+   HTML: src/pages/white-label.html (scenes in src/partials/graphics/wl-scene-*.html), wrapped in
          <div class="uxt-home uxt-wl">
          Sections also kept as partials: src/partials/sections/
          wl-fixes.html, wl-services.html, wl-win.html, wl-compare.html
@@ -203,6 +203,14 @@
     flex: 0 0 auto;
     width: 518px;
     max-width: 100%;
+}
+
+/* Drawn scene (GRAPHICS.md family 4), inline SVG in src/partials/graphics */
+.uxt-wl .uxt-wl-scene {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Closing CTA band (13.9): Mist panel, button on the right */

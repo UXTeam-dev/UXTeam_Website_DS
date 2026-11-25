@@ -4233,6 +4233,22 @@
     "partials/sections/wl-services.html"
    ]
   },
+  "uxt-wl-scene": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-scene",
+   "usedIn": [
+    "partials/graphics/wl-scene-audit.html",
+    "partials/graphics/wl-scene-ux.html",
+    "partials/graphics/wl-scene-web.html"
+   ]
+  },
   "uxt-wl-band": {
    "kind": "styled",
    "sources": [
