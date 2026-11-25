@@ -26,7 +26,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Agency partner logos that agreed to be shown, and their label | Under the hero | The standard trusted-by marquee and label, unchanged (LLM.md 12.5) |
 | Testimonials 1 and 2 and the partnership story card (placeholders in the copy) | Partnership stories | Not on the page; the approved stories section (E2M video, Squaircle, Section, RBBI) carries the proof |
 | Four ways to partner vs the three ways to work rule | Ways to partner | Built as four, as the copy says (agency channel); confirm |
-| Three service visuals, 518 x 518 | Service cards | Labeled placeholders; a drawn UX audit scene could replace the third (GRAPHICS.md 6) |
+| Three service visuals, 518 x 518 | Service cards | Drawn illustrative scenes (`partials/graphics/wl-scene-*.html`); swap for approved work samples if wanted |
 | Five process icons `wl-*.svg` to upload, or keep inline | Process | Inlined SVG in the page body |
 | Links: `/how-we-work/`, `/success-story/` | Closing buttons | As written; confirm the URLs |
 | Agree PART T (`part-t-white-label.css`) | `dist/css/uxteam-site-additions.css` | Not live yet |
