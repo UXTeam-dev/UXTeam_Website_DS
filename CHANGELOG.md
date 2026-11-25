@@ -2,6 +2,18 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.12.0 · 25 Nov 2026
+
+From reviewing the two B2B SaaS and AI demo pages:
+- **Header:** no bottom line on any page (`ux-header--bordered` and the `bordered` param removed). New scroll behavior: the bar scrolls away; scrolling up pins an Ink bar that slides in (white logo and nav, Glass CTA, soft shadow); scrolling down hides it; at the top the transparent bar returns. Works on light pages too.
+- **Page end:** new global `sections/page-end/page-end.html` (booking card plus footer, fixed copy), placed after `</main>`. The card now overlaps the footer by 42px as in Figma; before, the card sat inside `<main>` and the footer outside it, so the overlap rule never applied on any page. All pages and starters switched. `:has()` fallback for older markup.
+- **Card hover:** a global rule in `button.css` plays the Arrow Glide (and the Secondary underline) when a card that is a link, or a `.ux-hover-host`, is hovered or focused. The topic tile and the blog card now use the real Arrow Glide icon instead of their own arrows.
+- **Hero eyebrow:** always above the H1. Added to Insights ("From the UXTeam studio") and the success story detail ("Success story"), and to the hub and detail starters.
+- **Copy wrapping:** new LLM.md 5.4 (read copy in place, break at phrase boundaries, no lone last word, how to fix). Body text gets `text-wrap: pretty`; new `.ux-nowrap` helper.
+- **Any AI tool:** LLM.md and AGENTS.md now say "you" and "use your judgment" mean whichever AI tool is building the page.
+- LLM.md: non-negotiables 2 and 20 to 22, sections 5.4, 8.4, 11, 16.5, Step 4, quality bar, do's and don'ts, failures 51 to 55. AGENTS.md, both skills, COMPONENTS and HOW-TO-ADD updated.
+- `npm run check` now flags: a hero without an eyebrow, arrows drawn outside the Arrow Glide component, a header line, the booking card included directly or inside `<main>`, and a booking card not directly followed by the footer. It also fixes the swapped home/inner booking messages.
+
 ## 1.11.0 · 25 Nov 2026
 
 - Phosphor is the base icon set, not the only option. Utility icons (trust points, benefits, meta facts, lists, controls) use stock Phosphor Light; when a section needs icons with more character (the main visual of a tile or card), curate custom ones in the same line style with one G4 accent. One approach per section. New docs/GRAPHICS.md 4.5 (when and how to curate); LLM.md (non-negotiable 17, 8.6), AGENTS.md, both skills, the Phosphor readme and the line icon template updated.

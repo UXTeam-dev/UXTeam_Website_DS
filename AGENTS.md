@@ -9,7 +9,7 @@ This repo is the coded design system and pages for the UXTeam website.
 ## Non-negotiables
 
 1. Build pages from the repo, never from scratch. Pages are `<!-- @include ... -->` partials plus content. No `<style>`, no inline styles (CSS variables like `--ux-*` only), no hex colors outside `src/tokens/tokens.json`.
-2. The header, booking card and footer are fixed includes (`sections/site-header`, `sections/booking-cta`, `sections/site-footer`). Never redesign them or change their navigation, links or copy.
+2. The header, booking card and footer are fixed includes (`sections/site-header`, and `sections/page-end/page-end.html` after `</main>` for the booking card plus footer). Never redesign them or change their navigation, links or copy.
 3. Every button is the Arrow Glide partial (`components/button/_button.html`).
 4. Heroes use an existing hero section, have one CTA, and a dark hero fades to white.
 5. Reuse the matching section first (process, engagement, FAQ, story cards, services, industries), whole, with its approved copy and labels. Never merge two approved sections. Items of equal weight (the seven services) get the same treatment. New sections only for content nothing existing can carry.
@@ -25,3 +25,8 @@ This repo is the coded design system and pages for the UXTeam website.
 15. The trusted-by logo strip is always `sections/logo-marquee` as it is (auto scrolling). Never a static logo row.
 16. Process and approach sections show the process (icons, numbers, steps, simple cards, an SVG diagram), never a mockup or screenshot.
 17. Brainstorm content heavy sections before building (LLM.md 12.7): one idea per section, two or three composition options, cut what repeats. Never dump every point into columns.
+18. "You" and "use your judgment" mean whichever AI tool is building the page. Make the call yourself, following LLM.md.
+19. Every hero has an eyebrow above the H1. Write one if the content has none.
+20. Read copy in place at 1440, 768 and 375; break lines at phrase boundaries, no lone last word (LLM.md 5.4).
+21. Header: no line under it; its scroll-up Ink bar is built in. Close every page with `<!-- @include sections/page-end/page-end.html -->` after `</main>` (booking card overlaps the footer; copy fixed).
+22. Every arrow in a card is the Arrow Glide icon (`components/button/_icon.html` in `.ux-btn--icon`), so hovering the card plays the glide.

@@ -56,24 +56,12 @@
 }
 
 .ux-blog-card__icon {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--ux-ink);
-  color: var(--ux-white);
+  /* The Arrow Glide icon (.ux-btn--icon). It fades in on card hover, and the
+     card hover rule in button.css plays its glide. */
+  --icon-bg: var(--ux-ink);
   opacity: 0;
   transform: scale(0.8);
   transition: opacity var(--ux-motion-card), transform var(--ux-motion-card);
-}
-
-.ux-blog-card__icon svg {
-  width: 14px;
-  height: 14px;
-  transform: rotate(-45deg);
 }
 
 .ux-blog-card__title {

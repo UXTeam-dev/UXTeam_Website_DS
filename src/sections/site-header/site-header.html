@@ -1,11 +1,12 @@
 <!--
   SL-01 Site header (Figma: inner pages 2099:476, light version on About 2516:14843)
-  Params: theme="dark|light"  cta="ux-btn--glass|ux-btn--primary"  bordered="ux-header--bordered|"
+  Params: theme="dark|light"  cta="ux-btn--glass|ux-btn--primary"
+  No bottom line. Pinned Ink bar on scroll up (site-header.js); its CTA switches to Glass.
   Same on every page. Dropdown menus are not designed yet (the nav will change),
   so the items with a caret are buttons that can later open a menu.
 -->
 <a class="ux-skip-link" href="#main">Skip to content</a>
-<header class="ux-header ux-header--{{theme|dark}} {{bordered|ux-header--bordered}}" data-ux-header>
+<header class="ux-header ux-header--{{theme|dark}}" data-ux-header data-ux-cta="{{cta|ux-btn--glass}}">
   <div class="ux-header__bar ux-container">
     <a class="ux-header__logo" href="index.html" aria-label="UXTeam home">
       <img class="ux-header__logo-light" src="../assets/logos/uxteam-logo-white.svg" width="156" height="38" alt="UXTeam">

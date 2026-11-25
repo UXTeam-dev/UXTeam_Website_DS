@@ -1,6 +1,6 @@
 /* ==========================================================================
    SL-12 Case study hero (partnership lockup)
-   H1 centered (64, up to 1200) | 80 | lockup between two Steel rules:
+   Eyebrow (always) | 24 | H1 centered (64, up to 1200) | 80 | lockup between two Steel rules:
    uxteam x client mark (gap 70) | 72 | intro paragraph + person card.
    On G1 Hero Dusk, 1040 high; the content column starts below the fade.
    ========================================================================== */
@@ -9,6 +9,11 @@
   padding: 192px 0 0;
   color: var(--ux-white);
   background: var(--ux-gradient-g1-hero-dusk) top / 100% 1040px no-repeat;
+}
+
+.ux-hero-case__eyebrow {
+  display: flex;
+  margin: 0 auto 24px;
 }
 
 .ux-hero-case__title {

@@ -2,6 +2,8 @@
 
 **Read this whole file before you plan, write, design or build anything in this repo, then follow the steps in section 0 (Step 0 to Step 4).** It is the single brief for any AI model, agent or tool working on the UXTeam website. It covers the business, the brand voice, the creative approach, the design rules, the coded system and the do's and don'ts.
 
+**"You" in this repo means whichever AI tool is building the page** (Claude, Codex, Cursor, Gemini, Copilot or any other). Wherever a rule says "use your judgment", "write one", "pick" or "decide", the tool doing the work makes that call itself, following these rules. No step is reserved for one particular tool.
+
 If something here conflicts with a direct instruction from the person you are working with, follow the person and point out the conflict in one line.
 
 ---
@@ -11,7 +13,7 @@ If something here conflicts with a direct instruction from the person you are wo
 Breaking any of these means the page is wrong, however good it looks.
 
 1. **Build pages from the repo, never from scratch.** A page is an assembly of existing partials (`<!-- @include ... -->`). No `<style>` blocks, no inline styles, no new CSS in a page file, no hex colors outside `tokens.json`.
-2. **Global sections are fixed.** The header, the booking card and the footer always come from `sections/site-header`, `sections/booking-cta` and `sections/site-footer`. Never redesign them, never change their navigation, links or copy for a page.
+2. **Global sections are fixed.** The header comes from `sections/site-header`; the closing booking card and the footer come together from `sections/page-end/page-end.html`, placed **after `</main>`** so the card's bottom 42px sits over the footer (16.5). Never redesign them, never change their navigation, links or copy for a page, never add a line under the header.
 3. **Header navigation is the site navigation** (What We Do, UXAudit, Work, About, Insights, Contact), never anchor links to the current page's sections.
 4. **Every button is the Arrow Glide component** (`components/button/_button.html`): a pill or text link with an arrow circle. No plain pills, no underlined links as CTAs, no buttons without the arrow.
 5. **A hero uses one of the existing hero sections, is centered, has one CTA, and a dark hero fades to white** (Hero Dusk). No flat dark blocks, no glow blobs, no left aligned hero unless the design says so.
@@ -29,6 +31,9 @@ Breaking any of these means the page is wrong, however good it looks.
 17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **Icons start from Phosphor Light** (`assets/icons/phosphor/`, find with `npm run icon -- <word>`, place with `<!-- @icon name size="32" -->`); when a section needs icons with more character, curate custom ones in the same line style (`docs/GRAPHICS.md` 4.5). **Pick and draw every other graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; **Never add a real client mockup or screenshot:** wherever one is needed, put a labeled placeholder (an image box); the team adds the image later (8.6).
 18. **The trusted-by logo strip is always the logo marquee include, as it is** (`sections/logo-marquee`, auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip (12.5).
 19. **A content heavy section is brainstormed before it is built** (12.7). Never stack every point the content gives into columns plus another section's content.
+20. **Every hero has an eyebrow above the H1.** If the content gives none, write one (8.4).
+21. **Read every line of copy in place and fix breaks that split a phrase** (5.4).
+22. **Every arrow in a card is the Arrow Glide icon, and hovering the card plays its glide** (11).
 
 
 ## 0. Start here
@@ -100,9 +105,10 @@ Before saying the work is done:
 
 1. Run `npm run build`, then `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix.
 2. Screenshot the page at 1440, 768 and 375 and put it beside the closest approved page (`reference/pages/` holds screenshots of every approved page). Look for anything that does not appear on an approved page: a new color, a new card style, a different header or footer, a plain button, a flat hero. Remove it or justify it.
-3. Go through section 19.3 (failures seen before) and confirm none of them is present. Check every section for an eyebrow, card fills (no gradients), icon files (SVG only), the logo marquee and the composition of content heavy sections.
-4. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
-5. Report what you checked and anything you could not check.
+3. Go through section 19.3 (failures seen before) and confirm none of them is present. Check every section for an eyebrow (the hero too), card fills (no gradients), icon files (SVG only), the logo marquee and the composition of content heavy sections.
+4. In the browser: read every heading and card at 1440, 768 and 375 and fix breaks that split a phrase (5.4); hover every card and confirm its arrow glides; scroll down then up and confirm the Ink header bar slides in with no line under it; scroll to the end and confirm the booking card overlaps the footer.
+5. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
+6. Report what you checked and anything you could not check.
 
 ---
 
@@ -418,6 +424,17 @@ Generate the content yourself, in this order:
 6. **Check:** voice (section 3), claims (section 4), no em dashes, approved labels.
 7. Share the content with the page design for review. Mark anything uncertain or invented as a placeholder.
 
+### 5.4 Copy wrapping
+
+Copy is read in a flow. When a line wraps because of the container or section width, the break must not cut the reader's thought.
+
+1. **Read every heading, sub and card text in place** at 1440, 768 and 375, as a reader would, not just as a box that fits.
+2. **Break at phrase boundaries.** A line ends after a complete phrase ("We design decisions," / "not just screens"), never between words that belong together: an adjective and its noun, a number and its unit ("50+ agencies"), a name ("UXTeam" and what follows it in a lockup), a verb and its short object, "and" or "of" left at the end of a line.
+3. **No lone last word** (an orphan) in a heading, a sub or a card title. Rebalance the line or tighten the copy.
+4. **How to fix it, in this order:** shorten or reorder the copy (within 5.3); then keep a pair together with `&nbsp;` or `<span class="ux-nowrap">`; then, for a heading only, a manual `<br>` at a phrase boundary, hidden at the breakpoints where it no longer helps (the hero titles already hide `br` on mobile). Never shrink the type, never widen a container past the grid to make a line fit.
+5. The CSS already balances headings (`text-wrap: balance`) and avoids lone words in body text (`text-wrap: pretty`). That helps, but it does not read the copy for you.
+6. Equal cards in a row: titles that wrap should wrap at similar points, so the row reads evenly. Rewrite a title that is far longer than its siblings.
+
 ### 5.3 Length limits that keep layouts intact
 
 | Element | Limit |
@@ -585,6 +602,7 @@ Three fonts only:
 | Stats | Besley Bold 60 + Regular "+", label Aeonik Regular 30 |
 | Quote | Besley Italic 28 |
 
+- **Every hero has an eyebrow above its H1,** on every page type. If the content gives none, write one: two to six words that name the page's topic or audience (for example "B2B SaaS and AI", "From the UXTeam studio", "Success story"), never a repeat of the H1. On article pages the category and date line above the H1 is the eyebrow.
 - **Every section header has an eyebrow** above its H2, on every page type except the long form body of detail pages (article and case study content blocks). If the content document gives none, write one: two to four words naming the topic or the reader's question (for example "How we work", "Built for SaaS", "Why UXTeam"), never a repeat of the heading.
 - Headings: sentence case, -2% tracking.
 - A **G4 gradient word** in a heading is optional, only for a word or short phrase that needs attention (`.ux-highlight`).
@@ -721,6 +739,7 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 - A prompt with an action in the middle of a page ("Need something else?") becomes a CTA band, not loose text and a button. See 13.9.
 - Label: "Book a Discovery Call". Audit offers: "Start with an audit".
 - Interaction: arrow glide 350ms ease out. Card hovers 300ms. Industry cards 450ms. FAQ 420ms height, 300ms fade and icon change.
+- **Cards play the CTA hover.** Any arrow in a card (topic tiles, service tiles, blog cards, story cards) is the Arrow Glide icon: `<span class="ux-btn ux-btn--icon" aria-hidden="true"><!-- @include components/button/_icon.html --></span>`, or a full Secondary button. Never draw a separate arrow, never a "→" character as a CTA. When the card is a link, hovering or focusing anywhere on the card plays the arrow glide (and the Secondary underline), through the card hover rule in `components/button/button.css`. A card that is not a link but holds one gets the class `ux-hover-host`.
 
 ---
 
@@ -1150,6 +1169,21 @@ Every page declares its type in a comment at the top of its file, for example `<
 
 **Standing rule:** every new section or element designed is added to the repo in the same piece of work, so the repo is always up to date.
 
+### 16.5 Global header and page end
+
+**Header** (`sections/site-header`): no bottom line on any page. At the top it sits over the hero and scrolls away with the page. When the reader scrolls up anywhere below it, a pinned Ink bar slides in (white logo, white nav, Glass CTA, soft shadow); scrolling down slides it out; at the very top the transparent bar returns. This is built into the header; never add your own sticky header, border or background.
+
+**Page end** (`sections/page-end/page-end.html`): the closing booking card and the footer as one global block, with fixed copy. Put it as the last thing on the page, **after `</main>`**:
+
+```html
+  </main>
+
+  <!-- FIXED: booking card and footer, do not edit -->
+  <!-- @include sections/page-end/page-end.html -->
+```
+
+The card (1204 x 610) overlaps the top of the footer by 42px, as in Figma. That only works when the two are direct neighbours, so never put the booking card inside `<main>` and the footer outside it. Params: `booking="booking-cta-home"` on home and hub pages (15.5), `mod="ux-booking--flush"` on detail pages. Pages that end with the footer only (Insights) include `sections/site-footer/site-footer.html` directly.
+
 ### 16.4 Stay inside the scope of the task
 
 A page task adds a page, and the new sections that page needs as reusable sections. It does not change the rest of the site.
@@ -1193,7 +1227,11 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] No orphan words in headings, intros or card titles
 - [ ] Group titles are stronger than their content; paired sides match
 - [ ] No decorative element looks like a CTA
-- [ ] Every section header has an eyebrow
+- [ ] Every section header has an eyebrow, and the hero has one above the H1
+- [ ] Copy read in place at 1440, 768 and 375: no break splits a phrase, no lone last word
+- [ ] Scrolling up brings back the Ink header bar; there is no line under the header
+- [ ] Hovering each card plays its arrow glide
+- [ ] The booking card overlaps the footer (page end after `</main>`)
 - [ ] No gradient filled content card, and no gradient surface on a gradient background
 - [ ] Every icon and graphic is SVG
 - [ ] The trusted-by logos are the logo marquee include, unchanged
@@ -1234,6 +1272,10 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Keep the repo updated with every new section.
 - Give every section header an eyebrow, writing one when the content has none.
 - Draw icons and graphics as SVG.
+- Put an eyebrow above every hero H1, written by you when the content has none.
+- Read copy in place and break lines at phrase boundaries.
+- Use the Arrow Glide icon for every arrow in a card, so the card hover plays its glide.
+- Close every page with `sections/page-end` after `</main>`.
 - Brainstorm two or three compositions for a content heavy section before building it.
 
 ### 19.2 Don't
@@ -1254,6 +1296,10 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Don't show a mockup or screenshot in a process or approach section.
 - Don't build a static logo row; the trusted-by strip is the logo marquee.
 - Don't use PNG, JPG, WebP or data images for icons or graphics.
+- Don't add a line under the header or build your own sticky header.
+- Don't draw a separate arrow in a card or use "→" as a CTA.
+- Don't put the booking card inside `<main>`, and don't edit its copy.
+- Don't leave a heading that breaks mid-phrase or ends on a lone word.
 - Don't pour every point of the content into one section.
 - Don't stack two dark bands or repeat the same layout back to back.
 - Don't use spacer elements or pick padding by eye.
@@ -1320,6 +1366,11 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 48 | Process step icons were embedded as PNG data images | Raster icons blur, cannot take the color tokens and add weight | Icons and graphics are SVG (8.6) |
 | 49 | "Built to fit your product team" stacked four text columns and the full process section in one block | Two ideas and every point of the content in one section; nothing was chosen | Brainstorm content heavy sections before building (12.7) |
 | 50 | "Why SaaS and AI teams choose UXTeam" used G6 gradient cards and had no eyebrow | Same rules as rows 46 and 47 | Sections 8.4, 8.5 |
+| 51 | The hero H1 had no eyebrow because the content document did not give one | The hero is a section header too; the eyebrow frames the page | Write an eyebrow above every H1 (8.4) |
+| 52 | Headings and card copy broke mid-phrase ("Product and app" / "design") or left a lone word | The reader loses the thought at the break | Read copy in place and break at phrase boundaries (5.4) |
+| 53 | The header had a line under it and stayed transparent, so it was lost once the page scrolled | The line is not in the design; readers need the nav back when they scroll up | Header without line, pinned Ink bar on scroll up (16.5) |
+| 54 | Hovering a "What we design" card did nothing to its arrow | The card arrow was a separate drawing, not the Arrow Glide icon | Arrow Glide icon in every card; the card hover plays the glide (11) |
+| 55 | The booking card sat above the footer with a gap instead of overlapping it | The card was inside `<main>` and the footer outside it, so the overlap rule never applied | `sections/page-end` after `</main>` (16.5) |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
 

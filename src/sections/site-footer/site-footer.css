@@ -1,7 +1,7 @@
 /* ==========================================================================
    SL-03 Footer
    G3 background, 593 high. Content starts 160 from the top (the booking
-   card overlaps the top by about 40). Brand column left, three office
+   card overlaps the top by 42). Brand column left, three office
    columns from x586 (gap 51). Bottom row: socials, hairline, links.
    Wordmark at 20% opacity, cropped by the bottom edge.
    ========================================================================== */
@@ -15,9 +15,13 @@
   color: var(--ux-white);
 }
 
-/* When the booking card sits above, the footer tucks under it */
-.ux-booking + .ux-footer {
-  margin-top: -40px;
+/* The booking card's bottom 42px sits over the footer (Figma: footer starts
+   568 below the 610 card's top). Use sections/page-end so the two are direct
+   neighbours; the :has() rule covers a page that still keeps the card as the
+   last child of <main>. */
+.ux-booking + .ux-footer,
+main:has(> .ux-booking:last-child) + .ux-footer {
+  margin-top: -42px;
 }
 
 .ux-footer__inner {

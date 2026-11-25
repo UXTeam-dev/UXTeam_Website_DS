@@ -1,0 +1,18 @@
+<!--
+  Page end: the closing booking card and the footer, as one global block.
+  Figma: "09 Booking CTA and footer" (About 2516:15192): card 1204 x 610, footer
+  starts 568 below the card top, so the card's bottom 42px sits over the footer.
+
+  Place it AFTER </main>, as the last thing on the page. Never put the booking
+  card inside <main> with the footer outside it: they must be direct neighbours
+  for the overlap to work. Do not edit the copy; it is fixed.
+
+  Params:
+    booking="booking-cta"        inner pages (default)
+    booking="booking-cta-home"   homepage and hub pages (page type decides, LLM.md 15.5)
+    mod="ux-booking--flush"      detail pages, where the article ends without a section gap
+  Pages that end with the footer only (Insights listing and detail) include
+  sections/site-footer/site-footer.html directly.
+-->
+<!-- @include sections/booking-cta/{{booking|booking-cta}}.html mod="{{mod|}}" -->
+<!-- @include sections/site-footer/site-footer.html -->

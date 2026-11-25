@@ -18,12 +18,14 @@
 <div class="ux-page">
 
   <!-- FIXED: do not edit -->
-  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" bordered="" -->
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" -->
 
   <main id="main">
     <!-- HERO (SL-10 display hero). One CTA only. Sub: about 30 words, 3 lines at most. -->
     <section class="ux-hero-home" aria-labelledby="page-title">
       <div class="ux-container ux-hero-home__inner">
+        <!-- Eyebrow: always. Write one if the content has none (LLM.md 8.4). -->
+        <span class="ux-eyebrow ux-eyebrow--on-dark">[Eyebrow, 2 to 6 words]</span>
         <h1 class="ux-h1-display ux-hero-home__title" id="page-title">[Short display headline]</h1>
         <p class="ux-hero-home__sub">[One or two sentences]</p>
         <div class="ux-hero-home__cta">
@@ -46,12 +48,10 @@
          components/faq/faq.html                              FAQ, "What we observe, think, and learn"
          See src/pages/index.html for how each is wrapped. -->
 
-    <!-- FIXED: homepage booking card version for hub pages (LLM.md 15.5). Do not edit. -->
-    <!-- @include sections/booking-cta/booking-cta-home.html -->
   </main>
 
-  <!-- FIXED: do not edit -->
-  <!-- @include sections/site-footer/site-footer.html -->
+  <!-- FIXED: booking card and footer, do not edit (LLM.md 16.5) -->
+  <!-- @include sections/page-end/page-end.html booking="booking-cta-home" -->
 </div>
 <!-- @include templates/_scripts.html -->
 </body>

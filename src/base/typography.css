@@ -21,6 +21,20 @@
   text-wrap: balance;
 }
 
+/* Copy wrapping (LLM.md 5.4): headings balance their lines, body text
+   avoids a lone last word. These help; they do not replace reading the copy
+   at 1440, 768 and 375 and fixing breaks that split a phrase. */
+p,
+li,
+figcaption,
+blockquote {
+  text-wrap: pretty;
+}
+
+.ux-nowrap {
+  white-space: nowrap;
+}
+
 /* Heading/H1/Regular. Homepage display H1 and the About hero. */
 .ux-h1-display {
   font-weight: var(--ux-weight-regular);

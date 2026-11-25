@@ -3,7 +3,7 @@
    Card 1204 x 610, radius 8, G5 gradient. Founder cut out bottom left
    (425 x 466) with a 45% soft light texture. Header centered 59 from the
    top. Body row from x435: founder block 188 | 59 | divider 340 | 59 | form 383.
-   Overlaps the top of the footer by about 40px.
+   Its bottom 42px sits over the footer (use sections/page-end).
    ========================================================================== */
 
 .ux-booking {

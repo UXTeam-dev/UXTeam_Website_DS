@@ -88,6 +88,29 @@
   transform: translate(24px, -50%);
 }
 
+/* ---- Card hover: a card that holds an Arrow Glide CTA plays the same
+   animation when the card itself is hovered or focused. Covers any card that
+   is a link (<a class="…card…">) and any card marked .ux-hover-host (a card
+   that is not a link but contains one). Never build a separate arrow for a
+   card: use components/button/_icon.html inside .ux-btn. ---- */
+:where(a, .ux-hover-host):hover .ux-btn__icon,
+:where(a, .ux-hover-host):focus-visible .ux-btn__icon,
+.ux-hover-host:focus-within .ux-btn__icon {
+  background: var(--icon-bg-hover);
+}
+
+:where(a, .ux-hover-host):hover .ux-btn__arrow,
+:where(a, .ux-hover-host):focus-visible .ux-btn__arrow,
+.ux-hover-host:focus-within .ux-btn__arrow {
+  transform: translate(24px, -50%);
+}
+
+:where(a, .ux-hover-host):hover :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after,
+:where(a, .ux-hover-host):focus-visible :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after,
+.ux-hover-host:focus-within :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after {
+  transform: translateX(0);
+}
+
 /* ==========================================================================
    Pill types (Primary, Glass): 50 high, radius 200, padding 12 12 12 20
    ========================================================================== */

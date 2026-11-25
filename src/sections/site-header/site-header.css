@@ -3,7 +3,11 @@
    1440 x 92 bar over the hero. Logo 156 x 38 at x120. Nav centered:
    Manrope 16, gap 28, caret 18 (gap 6). CTA at the right edge.
    Dark: white text, Glass CTA. Light: Navy text, Primary CTA.
-   Inner pages add a 1px white 12% bottom line (.ux-header--bordered).
+   No bottom line on any page.
+   Scroll: at the top the bar sits over the hero and scrolls away with the
+   page. Scrolling up anywhere below the header slides in a pinned Ink bar
+   (white logo, white nav, Glass CTA, soft shadow); scrolling down hides it
+   again; back at the very top it returns to the transparent bar.
    Tablet and mobile: 70 high, logo 123 x 30, hamburger. Mobile shows the
    compact "Book a Call" glass button next to the menu.
    ========================================================================== */
@@ -25,14 +29,21 @@
   height: var(--ux-header-height);
 }
 
-.ux-header--bordered::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: var(--ux-header-height);
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+.ux-header.is-pinned {
+  position: fixed;
+  background: var(--ux-ink);
+  color: var(--ux-white);
+  box-shadow: 0 8px 24px rgba(8, 18, 25, 0.18);
+  transform: translateY(-100%);
+  transition: transform var(--ux-motion-cta);
+}
+
+.ux-header.is-pinned.is-shown {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-header.is-pinned { transition: none; }
 }
 
 .ux-header__logo {
@@ -128,9 +139,8 @@
 .ux-header--light {
   color: var(--ux-navy);
 }
-.ux-header--light .ux-header__logo-light { display: none; }
-.ux-header--light .ux-header__logo-dark { display: block; }
-.ux-header--light.ux-header--bordered::after { background: rgba(111, 118, 128, 0.25); }
+.ux-header--light:not(.is-pinned) .ux-header__logo-light { display: none; }
+.ux-header--light:not(.is-pinned) .ux-header__logo-dark { display: block; }
 
 /* Mobile panel */
 .ux-mobile-nav {

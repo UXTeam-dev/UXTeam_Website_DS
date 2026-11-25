@@ -388,6 +388,20 @@ button {
   text-wrap: balance;
 }
 
+/* Copy wrapping (LLM.md 5.4): headings balance their lines, body text
+   avoids a lone last word. These help; they do not replace reading the copy
+   at 1440, 768 and 375 and fixing breaks that split a phrase. */
+p,
+li,
+figcaption,
+blockquote {
+  text-wrap: pretty;
+}
+
+.ux-nowrap {
+  white-space: nowrap;
+}
+
 /* Heading/H1/Regular. Homepage display H1 and the About hero. */
 .ux-h1-display {
   font-weight: var(--ux-weight-regular);
@@ -749,6 +763,29 @@ button {
 .ux-btn:hover .ux-btn__arrow,
 .ux-btn:focus-visible .ux-btn__arrow {
   transform: translate(24px, -50%);
+}
+
+/* ---- Card hover: a card that holds an Arrow Glide CTA plays the same
+   animation when the card itself is hovered or focused. Covers any card that
+   is a link (<a class="…card…">) and any card marked .ux-hover-host (a card
+   that is not a link but contains one). Never build a separate arrow for a
+   card: use components/button/_icon.html inside .ux-btn. ---- */
+:where(a, .ux-hover-host):hover .ux-btn__icon,
+:where(a, .ux-hover-host):focus-visible .ux-btn__icon,
+.ux-hover-host:focus-within .ux-btn__icon {
+  background: var(--icon-bg-hover);
+}
+
+:where(a, .ux-hover-host):hover .ux-btn__arrow,
+:where(a, .ux-hover-host):focus-visible .ux-btn__arrow,
+.ux-hover-host:focus-within .ux-btn__arrow {
+  transform: translate(24px, -50%);
+}
+
+:where(a, .ux-hover-host):hover :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after,
+:where(a, .ux-hover-host):focus-visible :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after,
+.ux-hover-host:focus-within :is(.ux-btn--secondary, .ux-btn--subtle) .ux-btn__label::after {
+  transform: translateX(0);
 }
 
 /* ==========================================================================
@@ -1595,24 +1632,12 @@ button {
 }
 
 .ux-blog-card__icon {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--ux-ink);
-  color: var(--ux-white);
+  /* The Arrow Glide icon (.ux-btn--icon). It fades in on card hover, and the
+     card hover rule in button.css plays its glide. */
+  --icon-bg: var(--ux-ink);
   opacity: 0;
   transform: scale(0.8);
   transition: opacity var(--ux-motion-card), transform var(--ux-motion-card);
-}
-
-.ux-blog-card__icon svg {
-  width: 14px;
-  height: 14px;
-  transform: rotate(-45deg);
 }
 
 .ux-blog-card__title {
@@ -3257,7 +3282,8 @@ button {
 }
 
 /* Topic tile: the card that carries a spot illustration (Figma 2638:22054).
-   380 x 350, white, 1px Steel, radius 8. Three across, gap 30. */
+   380 x 350, white, 1px Steel, radius 8. Three across, gap 30.
+   Hover: the drawing scales to 1.04 and the Arrow Glide icon glides. */
 .ux-topic-tile {
   display: flex;
   flex-direction: column;
@@ -3297,22 +3323,6 @@ button {
   color: var(--ux-navy);
 }
 
-.ux-topic-tile__arrow {
-  flex: none;
-  display: inline-grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: var(--ux-radius-round);
-  background: var(--ux-ink);
-  color: var(--ux-white);
-  transition: transform var(--ux-motion-card);
-}
-
-.ux-topic-tile__arrow svg {
-  width: 14px;
-  height: 14px;
-}
 
 .ux-topic-tile__text {
   margin: 0;
@@ -3329,10 +3339,8 @@ button {
   transform: scale(1.04);
 }
 
-.ux-topic-tile:hover .ux-topic-tile__arrow,
-.ux-topic-tile:focus-visible .ux-topic-tile__arrow {
-  transform: translateX(3px);
-}
+/* The arrow is the Arrow Glide icon (.ux-btn--icon); the card hover plays
+   its glide through the card hover rule in components/button/button.css. */
 
 .ux-topic-grid {
   display: grid;
@@ -3398,7 +3406,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ux-scene__pulse { animation: none; opacity: 0.35; }
-  .ux-spot > img, .ux-spot > svg, .ux-topic-tile__arrow { transition: none; }
+  .ux-spot > img, .ux-spot > svg { transition: none; }
 }
 
 /* ---- 6. Image box --------------------------------------------------------- */
@@ -3445,7 +3453,11 @@ button {
    1440 x 92 bar over the hero. Logo 156 x 38 at x120. Nav centered:
    Manrope 16, gap 28, caret 18 (gap 6). CTA at the right edge.
    Dark: white text, Glass CTA. Light: Navy text, Primary CTA.
-   Inner pages add a 1px white 12% bottom line (.ux-header--bordered).
+   No bottom line on any page.
+   Scroll: at the top the bar sits over the hero and scrolls away with the
+   page. Scrolling up anywhere below the header slides in a pinned Ink bar
+   (white logo, white nav, Glass CTA, soft shadow); scrolling down hides it
+   again; back at the very top it returns to the transparent bar.
    Tablet and mobile: 70 high, logo 123 x 30, hamburger. Mobile shows the
    compact "Book a Call" glass button next to the menu.
    ========================================================================== */
@@ -3467,14 +3479,21 @@ button {
   height: var(--ux-header-height);
 }
 
-.ux-header--bordered::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: var(--ux-header-height);
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+.ux-header.is-pinned {
+  position: fixed;
+  background: var(--ux-ink);
+  color: var(--ux-white);
+  box-shadow: 0 8px 24px rgba(8, 18, 25, 0.18);
+  transform: translateY(-100%);
+  transition: transform var(--ux-motion-cta);
+}
+
+.ux-header.is-pinned.is-shown {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-header.is-pinned { transition: none; }
 }
 
 .ux-header__logo {
@@ -3570,9 +3589,8 @@ button {
 .ux-header--light {
   color: var(--ux-navy);
 }
-.ux-header--light .ux-header__logo-light { display: none; }
-.ux-header--light .ux-header__logo-dark { display: block; }
-.ux-header--light.ux-header--bordered::after { background: rgba(111, 118, 128, 0.25); }
+.ux-header--light:not(.is-pinned) .ux-header__logo-light { display: none; }
+.ux-header--light:not(.is-pinned) .ux-header__logo-dark { display: block; }
 
 /* Mobile panel */
 .ux-mobile-nav {
@@ -3659,7 +3677,7 @@ button {
 /* ==========================================================================
    SL-03 Footer
    G3 background, 593 high. Content starts 160 from the top (the booking
-   card overlaps the top by about 40). Brand column left, three office
+   card overlaps the top by 42). Brand column left, three office
    columns from x586 (gap 51). Bottom row: socials, hairline, links.
    Wordmark at 20% opacity, cropped by the bottom edge.
    ========================================================================== */
@@ -3673,9 +3691,13 @@ button {
   color: var(--ux-white);
 }
 
-/* When the booking card sits above, the footer tucks under it */
-.ux-booking + .ux-footer {
-  margin-top: -40px;
+/* The booking card's bottom 42px sits over the footer (Figma: footer starts
+   568 below the 610 card's top). Use sections/page-end so the two are direct
+   neighbours; the :has() rule covers a page that still keeps the card as the
+   last child of <main>. */
+.ux-booking + .ux-footer,
+main:has(> .ux-booking:last-child) + .ux-footer {
+  margin-top: -42px;
 }
 
 .ux-footer__inner {
@@ -3835,7 +3857,7 @@ button {
    Card 1204 x 610, radius 8, G5 gradient. Founder cut out bottom left
    (425 x 466) with a 45% soft light texture. Header centered 59 from the
    top. Body row from x435: founder block 188 | 59 | divider 340 | 59 | form 383.
-   Overlaps the top of the footer by about 40px.
+   Its bottom 42px sits over the footer (use sections/page-end).
    ========================================================================== */
 
 .ux-booking {
@@ -4189,7 +4211,7 @@ button {
 /* ===== sections/hero-listing/hero-listing.css ===== */
 /* ==========================================================================
    SL-11 Listing hero
-   Optional eyebrow, H1 Aeonik Medium 64 (G4 highlight on a word only when
+   Eyebrow (always, LLM.md 8.4), H1 Aeonik Medium 64 (G4 highlight on a word only when
    it needs attention), sub Manrope 20 #E4F0FF 601 wide, optional Primary on
    dark. 732 wide, centered at y188. G1 Hero Dusk 810 to 895 high so the
    next block (featured story or filter chips) overlaps the fade.
@@ -4257,7 +4279,7 @@ button {
 /* ===== sections/hero-case-study/hero-case-study.css ===== */
 /* ==========================================================================
    SL-12 Case study hero (partnership lockup)
-   H1 centered (64, up to 1200) | 80 | lockup between two Steel rules:
+   Eyebrow (always) | 24 | H1 centered (64, up to 1200) | 80 | lockup between two Steel rules:
    uxteam x client mark (gap 70) | 72 | intro paragraph + person card.
    On G1 Hero Dusk, 1040 high; the content column starts below the fade.
    ========================================================================== */
@@ -4266,6 +4288,11 @@ button {
   padding: 192px 0 0;
   color: var(--ux-white);
   background: var(--ux-gradient-g1-hero-dusk) top / 100% 1040px no-repeat;
+}
+
+.ux-hero-case__eyebrow {
+  display: flex;
+  margin: 0 auto 24px;
 }
 
 .ux-hero-case__title {

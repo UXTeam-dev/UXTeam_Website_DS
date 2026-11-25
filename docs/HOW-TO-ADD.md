@@ -67,7 +67,7 @@ Add tablet and mobile rules at the bottom of the CSS file inside `@media (max-wi
 
 1. Copy the closest starter from `src/starters/` to `src/pages/<page-name>.html` (hub, dark hero, light hero or detail page). Keep its `ux-page-type` comment correct: it tells `npm run check` which hero and booking card the page must use (LLM.md 15.5).
 2. The header comment names the Figma frame and its tablet and mobile frames.
-3. Include `templates/_head.html` with a `title` and `description`, then the header, sections, booking card (if the page has one) and footer, then `templates/_scripts.html`.
+3. Include `templates/_head.html` with a `title` and `description`, then the header, the sections inside `<main>`, then after `</main>` the page end (`sections/page-end/page-end.html`: booking card plus footer; or the footer alone on pages without a booking card), then `templates/_scripts.html`.
 4. Put new images in `assets/images/<page or group>/` as WebP. Logos stay PNG or SVG.
 5. Add a link to the page in `src/index.html`.
 6. Do the "Finish" steps below.

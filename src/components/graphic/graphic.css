@@ -94,7 +94,8 @@
 }
 
 /* Topic tile: the card that carries a spot illustration (Figma 2638:22054).
-   380 x 350, white, 1px Steel, radius 8. Three across, gap 30. */
+   380 x 350, white, 1px Steel, radius 8. Three across, gap 30.
+   Hover: the drawing scales to 1.04 and the Arrow Glide icon glides. */
 .ux-topic-tile {
   display: flex;
   flex-direction: column;
@@ -134,22 +135,6 @@
   color: var(--ux-navy);
 }
 
-.ux-topic-tile__arrow {
-  flex: none;
-  display: inline-grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: var(--ux-radius-round);
-  background: var(--ux-ink);
-  color: var(--ux-white);
-  transition: transform var(--ux-motion-card);
-}
-
-.ux-topic-tile__arrow svg {
-  width: 14px;
-  height: 14px;
-}
 
 .ux-topic-tile__text {
   margin: 0;
@@ -166,10 +151,8 @@
   transform: scale(1.04);
 }
 
-.ux-topic-tile:hover .ux-topic-tile__arrow,
-.ux-topic-tile:focus-visible .ux-topic-tile__arrow {
-  transform: translateX(3px);
-}
+/* The arrow is the Arrow Glide icon (.ux-btn--icon); the card hover plays
+   its glide through the card hover rule in components/button/button.css. */
 
 .ux-topic-grid {
   display: grid;
@@ -235,7 +218,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ux-scene__pulse { animation: none; opacity: 0.35; }
-  .ux-spot > img, .ux-spot > svg, .ux-topic-tile__arrow { transition: none; }
+  .ux-spot > img, .ux-spot > svg { transition: none; }
 }
 
 /* ---- 6. Image box --------------------------------------------------------- */

@@ -75,7 +75,9 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 - Every approved section that appears (process, partnerships, outcomes, logo strip, FAQ) matches the approved version: same copy, labels, structure and layout (LLM.md 12.5). The trusted-by logos are the logo marquee include, never a static row.
 - Process and approach sections show the process (icons, numbers, steps, cards, a diagram), never a mockup or screenshot.
 - Every set of parallel items has one treatment; nothing is featured or split off on its own (LLM.md 12.6).
-- The hero and booking card match the page type (LLM.md 15.5).
+- The hero and booking card match the page type (LLM.md 15.5). The hero has an eyebrow above the H1.
+- Copy reads in flow at 1440, 768 and 375: no break splits a phrase, no lone last word (LLM.md 5.4).
+- Every card arrow is the Arrow Glide icon and glides on card hover; the header has no line and its Ink bar returns on scroll up; the booking card overlaps the footer (LLM.md 11, 16.5).
 - If an approved or live version of this page exists, compare section by section: order, emphasis, visuals, actions.
 - Only the files the task needed were changed; no shared files, new mechanisms, filled open items or outside deployments (LLM.md 16.4).
 - No AI generated imagery; section intros centered except on detail pages; no full Mist bands.

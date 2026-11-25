@@ -59,11 +59,13 @@ function checkSource(name, src, report) {
 
   // 3. Global sections come from includes
   if (!/@include\s+sections\/site-header\/site-header\.html/.test(src)) report.error('missing the header include (sections/site-header/site-header.html).');
-  if (!/@include\s+sections\/site-footer\/site-footer\.html/.test(src)) report.error('missing the footer include (sections/site-footer/site-footer.html).');
+  const pageEnd = src.match(/@include\s+sections\/page-end\/page-end\.html([^>]*?)-->/);
+  const footerOnly = /@include\s+sections\/site-footer\/site-footer\.html/.test(src);
   const noBooking = /ux-check:\s*no-booking/.test(src);
-  if (!noBooking && !/@include\s+sections\/booking-cta\/booking-cta(-home)?\.html/.test(src)) {
-    report.error('missing the booking card include (sections/booking-cta). Add it, or mark the page with <!-- ux-check: no-booking --> if it intentionally ends with the footer only.');
-  }
+  if (!pageEnd && !footerOnly) report.error('missing the page end. Close the page with <!-- @include sections/page-end/page-end.html --> after </main> (LLM.md 16.5).');
+  if (/@include\s+sections\/booking-cta\/booking-cta(-home)?\.html/.test(src)) report.error('the booking card is included on its own. Use sections/page-end/page-end.html after </main>, so the card overlaps the footer (LLM.md 16.5).');
+  if (pageEnd && src.indexOf(pageEnd[0]) < src.indexOf('</main>')) report.error('the page end is inside <main>. Put <!-- @include sections/page-end/page-end.html --> after </main> (LLM.md 16.5).');
+  if (!pageEnd && !noBooking) report.error('no booking card. End with sections/page-end/page-end.html, or mark the page with <!-- ux-check: no-booking --> if it intentionally ends with the footer only.');
   // 3b. Page type decides the hero and the booking card (LLM.md 15.5)
   const TYPES = {
     home: { hero: ['ux-hero-home'], booking: 'home' },
@@ -79,10 +81,10 @@ function checkSource(name, src, report) {
   else {
     const t = TYPES[typeMatch[1]];
     if (!t.hero.some((h) => new RegExp(`class="[^"]*\\b${h}\\b`).test(noComments))) report.error(`a ${typeMatch[1]} page uses the ${t.hero.join(' or ')} hero (LLM.md 15.5).`);
-    const usesHome = /@include\s+sections\/booking-cta\/booking-cta-home\.html/.test(src);
-    const usesInner = /@include\s+sections\/booking-cta\/booking-cta\.html/.test(src);
-    if (t.booking === 'home' && usesInner) report.error(`a ${typeMatch[1]} page uses the homepage booking card (booking-cta-home.html), not the inner one (LLM.md 15.5).`);
-    if (t.booking === 'inner' && usesHome) report.error(`a ${typeMatch[1]} page uses the inner booking card (booking-cta.html). The homepage version is for home and hub pages (LLM.md 15.5).`);
+    const usesHome = !!pageEnd && /booking="booking-cta-home"/.test(pageEnd[1]);
+    const usesInner = !!pageEnd && !usesHome;
+    if (t.booking === 'home' && usesInner) report.error(`a ${typeMatch[1]} page needs the homepage booking card: page-end.html booking="booking-cta-home" (LLM.md 15.5).`);
+    if (t.booking === 'inner' && usesHome) report.error(`a ${typeMatch[1]} page uses the inner booking card: drop booking="booking-cta-home" from page-end.html. The homepage version is for home and hub pages (LLM.md 15.5).`);
   }
 
   if (!/@include\s+templates\/_head\.html/.test(src)) report.error('missing templates/_head.html include.');
@@ -245,6 +247,32 @@ function checkBuilt(name, html, report) {
     const title = visibleText((body.match(/<h2\b[\s\S]*?<\/h2>/i) || [''])[0]).trim().slice(0, 50);
     if (blocks.length >= 2 && blocks.includes('ux-step')) report.warn(`"${title}" combines the process steps with other content. One idea per section; give the process its own section (LLM.md 12.7).`);
     else if (words > 150 && !/ux-services|ux-approach|ux-beliefs/.test(cls)) report.warn(`"${title}" holds ${words} words. Brainstorm the composition and cut to one idea (LLM.md 12.7).`);
+  }
+
+  // 9p. Every hero has an eyebrow above the H1 (LLM.md 8.4); on articles the meta line is the eyebrow
+  {
+    const h1 = html.search(/<h1\b/);
+    if (h1 > -1) {
+      const before = html.slice(0, h1);
+      const heroStart = before.lastIndexOf('<section');
+      const head = heroStart > -1 ? before.slice(heroStart) : before.slice(-1500);
+      if (!/class="[^"]*\b(ux-eyebrow|ux-hero-article__meta)\b/.test(head)) report.error('the hero has no eyebrow above the H1. Write one (2 to 6 words) if the content has none (LLM.md 8.4).');
+    }
+  }
+
+  // 9q. Card arrows are the Arrow Glide icon, so the card hover plays its glide (LLM.md 11)
+  for (const m of html.matchAll(/<svg\b([^>]*)>(?:(?!<\/svg>)[\s\S])*?M2\.5 8h11/g)) {
+    if (!/class="[^"]*\bux-btn__arrow\b/.test(m[1])) { report.error('an arrow drawn outside the Arrow Glide component. Use <span class="ux-btn ux-btn--icon" aria-hidden="true"><!-- @include components/button/_icon.html --></span> so the card hover plays the glide (LLM.md 11).'); break; }
+  }
+
+  // 9r. No line under the header (LLM.md 16.5)
+  if (/class="[^"]*\bux-header--bordered\b/.test(html)) report.error('ux-header--bordered: the header has no bottom line (LLM.md 16.5).');
+
+  // 9o. The booking card sits directly above the footer, overlapping it (LLM.md 16.5)
+  if (/<section\b[^>]*class="[^"]*\bux-booking\b/.test(html)) {
+    const end = html.lastIndexOf('</section>', html.indexOf('<footer'));
+    const between = html.slice(end + 10, html.indexOf('<footer')).replace(/<!--[\s\S]*?-->/g, '').trim();
+    if (between) report.error('the booking card is not directly followed by the footer (found "' + between.slice(0, 20) + '"), so it cannot overlap it. Use sections/page-end/page-end.html after </main> (LLM.md 16.5).');
   }
 
   // 9m. Scenes are images: white sections only (docs/GRAPHICS.md 9)

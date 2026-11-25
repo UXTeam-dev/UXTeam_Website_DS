@@ -89,7 +89,7 @@ Stay within the length limits in LLM.md 5.3. Reuse approved lines and facts exac
 - [ ] Claims: every number says what, baseline and period; nothing from the not-approved list (LLM.md 4).
 - [ ] Facts match the knowledge file and the other pages; anything missing is a visible `[confirm with Chintan]` placeholder.
 - [ ] Exactly three ways to work; service labels exactly as in LLM.md 2.3.
-- [ ] One CTA in the hero; booking card and footer standard.
+- [ ] One CTA in the hero, with an eyebrow above the H1 (written by you if the content has none); the page ends with `sections/page-end` after `</main>`.
 - [ ] Every section has an eyebrow.
 - [ ] Every content heavy section has its brainstorm (4A): one idea, what was cut, the composition picked.
 - [ ] No mockup planned for a process or approach section; the trusted-by strip is the logo marquee.
