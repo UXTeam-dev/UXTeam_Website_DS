@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Connected nodes around a central node">
+<!-- Curated: built from familiar icon shapes (Phosphor), recomposed in the UXTeam line style with one G4 accent. Figma: B2B SaaS & AI page, What we design. -->
+<path d="M100 70L50 40L70 112L100 70ZM100 70L150 34M100 70L146 106" stroke-width="1.5" stroke="#0A1B33"/>
+<path d="M100 86C108.837 86 116 78.8366 116 70C116 61.1634 108.837 54 100 54C91.1634 54 84 61.1634 84 70C84 78.8366 91.1634 86 100 86Z" fill="url(#ux-spot-ai-product-accent)" stroke-width="1.5" stroke="#0A1B33"/>
+<path d="M50 48C54.4183 48 58 44.4183 58 40C58 35.5817 54.4183 32 50 32C45.5817 32 42 35.5817 42 40C42 44.4183 45.5817 48 50 48Z" fill="#0A1B33"/>
+<path d="M158 34C158 38.4183 154.418 42 150 42C145.582 42 142 38.4183 142 34C142 29.5817 145.582 26 150 26C154.418 26 158 29.5817 158 34Z" stroke-width="1.5" stroke="#0A1B33"/>
+<path d="M78 112C78 116.418 74.4183 120 70 120C65.5817 120 62 116.418 62 112C62 107.582 65.5817 104 70 104C74.4183 104 78 107.582 78 112Z" stroke-width="1.5" stroke="#0A1B33"/>
+<path d="M146 114C150.418 114 154 110.418 154 106C154 101.582 150.418 98 146 98C141.582 98 138 101.582 138 106C138 110.418 141.582 114 146 114Z" fill="#0A1B33"/>
+<defs>
+<linearGradient id="ux-spot-ai-product-accent" x1="84" y1="54" x2="116" y2="86" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

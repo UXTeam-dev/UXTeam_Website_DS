@@ -1,6 +1,6 @@
 # Phosphor icons (Light)
 
-UXTeam's icon set. Every new UI icon on the site comes from here.
+UXTeam's base icon set. Utility icons (trust points, benefits, meta facts, lists, controls) come from here as they are. When a section needs icons with more character, curate custom ones from these shapes in the UXTeam line style: `docs/GRAPHICS.md` 4.5.
 
 - Source: `@phosphor-icons/core` 2.1.1 (https://github.com/phosphor-icons/core, site https://phosphoricons.com). MIT license, see `LICENSE`.
 - Weight: **Light only.** At 32px its stroke is 1.5px and at 24px about 1.1px, which matches the UXTeam line style. Do not mix in Thin, Regular, Bold, Fill or Duotone.

@@ -61,13 +61,16 @@ Scenes (families 4 and 5) are drawn UI, so they follow their own recipe in secti
 
 ## 4. Family 2: line icons (32px and 24px)
 
-**Every UI icon comes from Phosphor, Light weight** (`assets/icons/phosphor/`, 1,512 icons, MIT). Designers use the Phosphor Figma file or plugin in Light, so names match.
+**Phosphor, Light weight, is the base icon set** (`assets/icons/phosphor/`, 1,512 icons, MIT). Designers use the Phosphor Figma file or plugin in Light, so names match. It is the starting point, not a limit: when a section needs icons with more character, curate custom ones in the same line style (4.5).
+
+**Use Phosphor as it is** for utility icons, where quick recognition matters more than character: icons in tiles for trust points and benefits, meta icons beside facts, small lists, UI controls.
 
 1. Search: `npm run icon -- <word>` (for example `npm run icon -- shield`). Brand logos are hidden.
 2. Use it inline, so it takes the container's color: `<span class="ux-icon-tile"><!-- @icon shield-check size="32" --></span>`. Add `label="…"` only when the icon carries meaning on its own; otherwise it is hidden from screen readers.
 3. Sizes: 32 in tiles, 24 for meta icons and inline with text. Light only: never Thin, Regular, Bold, Fill or Duotone, and never another icon library.
-4. Never `<img src="…/phosphor/…">` (it renders black), never redraw a Phosphor icon, never edit its paths.
-5. Draw your own only when Phosphor truly has nothing for the idea (4.4), and say so in the plan.
+4. Never `<img src="…/phosphor/…">` (it renders black).
+
+**Curate custom icons** when the icon is the visual anchor of a card or tile, when the set must say something specific to the page, or when a stock glyph would look generic (4.5).
 
 The icons already in the repo from Figma (`assets/icons/line/`, `audience-*`, `industry-*`) are approved and stay where they are used.
 
@@ -91,20 +94,41 @@ The icons already in the repo from Figma (`assets/icons/line/`, `audience-*`, `i
 - **Markup:** `<ul class="ux-meta-list" role="list"><li><!-- @icon currency-circle-dollar size="24" class="ux-meta-icon" -->Fintech</li></ul>` (the class sets Steel)
 - **Look:** 24 x 24, Steel, 1.2 line; label Manrope 20 Charcoal, 10px gap, 30px between items. Files: `assets/icons/industry-*.svg`. Reference: `reference/graphics/meta-icons-client-about.webp`.
 
-### 4.4 Drawing a new line icon (only when Phosphor has none)
+### 4.4 Drawing a new line icon from scratch
 
-1. Search Phosphor with two or three synonyms first. If nothing fits, copy `assets/icons/line/_template.svg` (32 x 32).
+1. Search Phosphor with two or three synonyms first; if it has the idea, curate from it (4.5). If nothing fits, copy `assets/icons/line/_template.svg` (32 x 32).
 2. Pick the plainest metaphor for the word: person for "senior person", target for "one metric", line chart for "reports", shield for "NDA".
 3. Draw it in 2 to 4 strokes inside x 4 to 28, y 4 to 28. Navy, 1.5, round caps and joins. One small solid dot at most.
 4. No gradient in the icon; the tile carries the color. Save it in `assets/icons/line/<name>.svg` with an `aria-label`.
 5. Check it beside the four existing icons at 100%: same weight, same optical size.
+
+### 4.5 Curating custom icons
+
+Some sections need icons made for them, not picked from a set. Example: "What we design for SaaS and AI companies" on the B2B SaaS and AI page (`reference/graphics/curated-spots-what-we-design.webp`). Each service tile has its own drawing built from a familiar icon idea (a magnifier over a page for UX audit, an app window with a sidebar for product design, a browser for websites, a grid for design systems, rising bars for conversion), recomposed and given the UXTeam accent. They read as one family with Phosphor, but they say exactly what each service is.
+
+**When to curate**
+- The icon is the main visual of a card or tile (service tiles, topic tiles, a High weight set).
+- The set must carry the page's subject (SaaS, AI, events), and the stock glyphs would look generic or alike.
+- Phosphor has the idea only as part of what you need (a page, but not a page being audited).
+- Not for utility icons: trust points, meta facts, lists and controls stay stock Phosphor.
+
+**How to curate**
+1. **Start from the plainest familiar shape.** Find it in Phosphor (`npm run icon -- <word>`) or in the existing spot illustrations. Use it as a guide for proportions and metaphor.
+2. **Redraw it as strokes, do not edit the Phosphor file.** Phosphor files are outlined shapes; a curated icon is drawn fresh with Navy 1.5 strokes, round caps and joins, so the weight matches at its size.
+3. **Combine and simplify.** Join two ideas into one picture (page plus magnifier, window plus chart), cut every detail that does not help the idea, keep 3 to 9 shapes for a spot illustration and 2 to 5 strokes for a 32px icon.
+4. **Add exactly one G4 accent** on the part that is the point (the lens, the hero block, the selected tile, the centre node). Up to four small solid Navy fills for rhythm. White fill where shapes overlap.
+5. **Make the set consistent.** Same canvas, same optical size, same stroke, one accent each. Lay them side by side before you finish; none should look heavier, busier or larger than the rest.
+6. **Save them.** Spot illustrations: `assets/graphics/spot/<name>.svg` (200 x 140, template `_template.svg`). 32px icons: `assets/icons/custom/<name>.svg` (template `assets/icons/line/_template.svg`). Add a comment line saying what it was curated from, and an `aria-label`.
+7. **Use one approach per section.** Either every item in the set is stock Phosphor or every item is curated. Never mix the two in one row.
+
+Curated examples in the repo: `ux-audit`, `product-app`, `website`, `ai-product` (from the B2B SaaS and AI page), and the six topic spots below.
 
 ## 5. Family 3: spot illustrations (topic tiles)
 
 - **Where:** tiles that let the reader choose a direction: "Pick the problem you have today" (Insights topics), service areas on a hub page, categories. Always as a set of 3 or 6, one illustration per tile, all drawn the same way.
 - **Markup:** `@include components/graphic/_topic-tile.html art="cro" title="CRO" text="…" href="…"` inside `<ul class="ux-topic-grid" role="list"><li>…</li></ul>`.
 - **Look:** tile 380 x 350, white, 1px Steel, radius 8. Top 188px is a Mist panel (`.ux-spot`) with a hairline below it; the 200 x 140 drawing sits centered in it. Body: title Aeonik Medium 25 with a 24px Ink arrow circle on the right, one line of Manrope 18 below. Hover: the drawing scales to 1.04, the arrow nudges right. Reference: `reference/graphics/spot-illustrations-topic-tiles.webp`.
-- **Files:** `assets/graphics/spot/ux-strategy.svg` (target and arrow), `cro.svg` (rising bars, the last one G4, dashed trend), `design-systems.svg` (3 x 3 grid, four corners Navy, centre G4), `ai-and-ux.svg` (connected nodes, centre G4), `agency-growth.svg` (stacked cards, front one G4), `white-label.svg` (two overlapping circles, one G4). Template: `assets/graphics/spot/_template.svg`.
+- **Files:** curated for B2B SaaS and AI: `ux-audit.svg` (magnifier over a report), `product-app.svg` (app window, sidebar, cards, chart), `website.svg` (browser with a hero block), `ai-product.svg` (connected nodes). Topic set: `assets/graphics/spot/ux-strategy.svg` (target and arrow), `cro.svg` (rising bars, the last one G4, dashed trend), `design-systems.svg` (3 x 3 grid, four corners Navy, centre G4), `ai-and-ux.svg` (connected nodes, centre G4), `agency-growth.svg` (stacked cards, front one G4), `white-label.svg` (two overlapping circles, one G4). Template: `assets/graphics/spot/_template.svg`.
 
 ### Drawing a new spot illustration
 
@@ -200,7 +224,7 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 
 - [ ] The section's job decided the family (section 1). Process and approach sections have no scene or mockup.
 - [ ] One family, one size per section; all items in a set drawn the same way.
-- [ ] Every UI icon is Phosphor Light, inlined with `@icon` (none drawn unless Phosphor had nothing).
+- [ ] Utility icons are stock Phosphor Light inlined with `@icon`; anchor icons are curated in the same line style (4.5); one approach per section.
 - [ ] Every drawn graphic is SVG with Navy 1.5 lines, one G4 accent at most, no text in icons or spot illustrations.
 - [ ] New icons and spot illustrations sit beside the existing ones without standing out.
 - [ ] Scenes tell three beats, use invented names, say "Illustrative" in the label, and sit on a white section.
@@ -215,7 +239,8 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 | `assets/icons/process/*.svg` | Family 1 |
 | `assets/icons/phosphor/` | Family 2 source: Phosphor Light (1,512 icons), `catalog.json` for search, license, readme |
 | `scripts/icon.mjs` | `npm run icon -- <word>`: find a Phosphor icon |
-| `assets/icons/line/*.svg` | Family 2, the 32px icons from the Figma board, and the template for drawing one Phosphor lacks |
+| `assets/icons/line/*.svg` | Family 2, the 32px icons from the Figma board, and the template for drawing or curating an icon |
+| `assets/icons/custom/` | Curated 32px icons made for a section (4.5) |
 | `assets/icons/audience-*.svg` | Family 2, white icons for Navy tiles |
 | `assets/icons/industry-*.svg` | Family 2, 24px Steel meta icons |
 | `assets/graphics/spot/*.svg` | Family 3 spot illustrations and template |

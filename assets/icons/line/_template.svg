@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" role="img" aria-label="Name the icon">
 <!--
-  UXTeam line icon template. Use ONLY when Phosphor Light has nothing for the idea:
-  search first with npm run icon -- <word>. Full rules: docs/GRAPHICS.md, family 2.
+  UXTeam line icon template, for curating a custom icon (docs/GRAPHICS.md 4.5) or drawing
+  one Phosphor lacks. Start from a familiar Phosphor shape (npm run icon -- <word>) and
+  redraw it as strokes. Save curated icons in assets/icons/custom/.
   - Canvas 32 x 32, transparent. Draw inside x 4 to 28, y 4 to 28.
   - Outline only: stroke #0A1B33 (Navy) on light tiles, #FFFFFF on the Navy tile, 1.5, round caps and joins.
   - 2 to 4 strokes. One plain metaphor (person, target, shield, chart line, layers). No text, no fills,

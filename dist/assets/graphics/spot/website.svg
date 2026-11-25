@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Browser window with a hero block and two cards">
+<!-- Curated: built from familiar icon shapes (Phosphor), recomposed in the UXTeam line style with one G4 accent. Figma: B2B SaaS & AI page, What we design. -->
+<path d="M34 16H166C170.418 16 174 19.5817 174 24V116C174 120.418 170.418 124 166 124H34C29.5817 124 26 120.418 26 116V24C26 19.5817 29.5817 16 34 16Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26 32H174" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M36 26C37.1046 26 38 25.1046 38 24C38 22.8954 37.1046 22 36 22C34.8954 22 34 22.8954 34 24C34 25.1046 34.8954 26 36 26Z" fill="#0A1B33"/>
+<path d="M44 26C45.1046 26 46 25.1046 46 24C46 22.8954 45.1046 22 44 22C42.8954 22 42 22.8954 42 24C42 25.1046 42.8954 26 44 26Z" fill="#0A1B33"/>
+<path d="M52 26C53.1046 26 54 25.1046 54 24C54 22.8954 53.1046 22 52 22C50.8954 22 50 22.8954 50 24C50 25.1046 50.8954 26 52 26Z" fill="#0A1B33"/>
+<path d="M156 44H44C41.7909 44 40 45.7909 40 48V78C40 80.2091 41.7909 82 44 82H156C158.209 82 160 80.2091 160 78V48C160 45.7909 158.209 44 156 44Z" fill="url(#ux-spot-website-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52 56H116" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M76 66H56C53.7909 66 52 67.7909 52 70C52 72.2091 53.7909 74 56 74H76C78.2091 74 80 72.2091 80 70C80 67.7909 78.2091 66 76 66Z" fill="#0A1B33"/>
+<path d="M44 92H92C94.2091 92 96 93.7909 96 96V110C96 112.209 94.2091 114 92 114H44C41.7909 114 40 112.209 40 110V96C40 93.7909 41.7909 92 44 92Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M108 92H156C158.209 92 160 93.7909 160 96V110C160 112.209 158.209 114 156 114H108C105.791 114 104 112.209 104 110V96C104 93.7909 105.791 92 108 92Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="ux-spot-website-accent" x1="40" y1="44" x2="160" y2="82" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

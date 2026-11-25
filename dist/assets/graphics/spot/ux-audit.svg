@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="Magnifier over a report page">
+<!-- Curated: built from familiar icon shapes (Phosphor), recomposed in the UXTeam line style with one G4 accent. Figma: B2B SaaS & AI page, What we design. -->
+<path d="M58 16H118C121.314 16 124 18.6863 124 22V106C124 109.314 121.314 112 118 112H58C54.6863 112 52 109.314 52 106V22C52 18.6863 54.6863 16 58 16Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M64 36H110M64 50H100M64 64H104" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M124 111C138.912 111 151 98.9117 151 84C151 69.0883 138.912 57 124 57C109.088 57 97 69.0883 97 84C97 98.9117 109.088 111 124 111Z" fill="url(#ux-spot-ux-audit-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M143.5 103.5L161 121" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="ux-spot-ux-audit-accent" x1="97" y1="57" x2="151" y2="111" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>

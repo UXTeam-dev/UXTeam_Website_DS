@@ -38,7 +38,7 @@ Avoid repeating the composition of the section before or after it.
 - **Hierarchy:** section heading, group title, item title, body, meta (LLM.md 13.3).
 - **Surface:** white, Warm Glow or Deep Navy, within the band limits (section 10). Cards on any surface are white with a Steel border, or unfilled with a gradient stroke on Deep Navy. No gradient filled cards, and no gradient surface on a gradient (LLM.md 8.5).
 - **Eyebrow:** every section header has one (LLM.md 8.4).
-- **Visual anchor and icons:** what graphic carries the point (13.6). Pick the family with `docs/GRAPHICS.md`, draw it with that family's recipe, and compare it with `reference/graphics/`. SVG only; UI icons are Phosphor Light placed with `@icon`. No client mockup or screenshot was added: each one is a labeled image box.
+- **Visual anchor and icons:** what graphic carries the point (13.6). Pick the family with `docs/GRAPHICS.md`, draw it with that family's recipe, and compare it with `reference/graphics/`. SVG only. Utility icons are stock Phosphor Light placed with `@icon`; anchor icons (the main visual of a tile or card) are curated in the same line style with one G4 accent (docs/GRAPHICS.md 4.5). Would stock glyphs look generic here? Then curate. No client mockup or screenshot was added: each one is a labeled image box.
 - **Interaction:** hover, focus and tap states, and what moves (13.12).
 - **Tablet and mobile:** how it stacks, what stays visible.
 - **Action:** at most one text link per item, and the screen's one main CTA if it belongs here.

@@ -2,6 +2,11 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.11.0 · 25 Nov 2026
+
+- Phosphor is the base icon set, not the only option. Utility icons (trust points, benefits, meta facts, lists, controls) use stock Phosphor Light; when a section needs icons with more character (the main visual of a tile or card), curate custom ones in the same line style with one G4 accent. One approach per section. New docs/GRAPHICS.md 4.5 (when and how to curate); LLM.md (non-negotiable 17, 8.6), AGENTS.md, both skills, the Phosphor readme and the line icon template updated.
+- Four curated spot illustrations from the B2B SaaS and AI page ("What we design"): `ux-audit`, `product-app`, `website`, `ai-product` in `assets/graphics/spot/`. Reference: `reference/graphics/curated-spots-what-we-design.webp`. New folder `assets/icons/custom/` for curated 32px icons.
+
 ## 1.10.0 · 25 Nov 2026
 
 - Phosphor icons (Light weight, `@phosphor-icons/core` 2.1.1, MIT) are now the UI icon set: 1,512 icons in `assets/icons/phosphor/light/`, with `catalog.json` (names, tags, categories), license and readme.

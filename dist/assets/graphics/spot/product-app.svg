@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140" fill="none" role="img" aria-label="App window with a sidebar, cards and a chart">
+<!-- Curated: built from familiar icon shapes (Phosphor), recomposed in the UXTeam line style with one G4 accent. Figma: B2B SaaS & AI page, What we design. -->
+<path d="M38 16H162C166.418 16 170 19.5817 170 24V116C170 120.418 166.418 124 162 124H38C33.5817 124 30 120.418 30 116V24C30 19.5817 33.5817 16 38 16Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M62 16V124M40 36H52M40 48H52M40 60H52" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M110 30H78C75.7909 30 74 31.7909 74 34V62C74 64.2091 75.7909 66 78 66H110C112.209 66 114 64.2091 114 62V34C114 31.7909 112.209 30 110 30Z" fill="url(#ux-spot-product-app-accent)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M124 30H154C156.209 30 158 31.7909 158 34V62C158 64.2091 156.209 66 154 66H124C121.791 66 120 64.2091 120 62V34C120 31.7909 121.791 30 124 30Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M78 76H154C156.209 76 158 77.7909 158 80V108C158 110.209 156.209 112 154 112H78C75.7909 112 74 110.209 74 108V80C74 77.7909 75.7909 76 78 76Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M82 102L84 100.75M150 89L148.167 88.75M88 98.25L92 95.75M96 93.25L98 92L99.75 92.625M103.25 93.875L106.75 95.125M110.25 96.375L112 97L114 95.625M118 92.875L122 90.125M126 87.375L128 86L129.833 86.25M133.5 86.75L137.167 87.25M140.833 87.75L144.5 88.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="ux-spot-product-app-accent" x1="74" y1="30" x2="114" y2="66" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A9FBFF"/>
+<stop offset="1" stop-color="#FEDFBA"/>
+</linearGradient>
+</defs>
+</svg>
