@@ -12,11 +12,11 @@ If something here conflicts with a direct instruction from the person you are wo
 
 Breaking any of these means the page is wrong, however good it looks.
 
-1. **Build pages from the repo, never from scratch.** A page is an assembly of existing partials (`<!-- @include ... -->`). No `<style>` blocks, no inline styles, no new CSS in a page file, no hex colors outside `tokens.json`.
-2. **Global sections are fixed.** The header comes from `sections/site-header`; the closing booking card and the footer come together from `sections/page-end/page-end.html`, placed **after `</main>`** so the card's bottom 42px sits over the footer (16.5). Never redesign them, never change their navigation, links or copy for a page, never add a line under the header.
+1. **Only the developers' classes, only their stylesheet** ([docs/CSS-GUIDE.md](docs/CSS-GUIDE.md), mandatory). The live site runs one stylesheet, `src/css/uxteam-site.css`. A page uses only classes in [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md): no `<style>` blocks, no inline styles, no invented, Bootstrap, Salient or old `ux-` classes. When nothing fits, add a new PART in `src/css/parts/` the developers' way (CSS-GUIDE section 5), never CSS in a page. A page built here pastes into WordPress as it is. **Build from the repo, never from scratch:** a page is the wrapper `<div class="uxt-home uxt-<key>">` plus sections copied from `src/partials/` (`<!-- @include partials/... -->`), with only text, links and images changed.
+2. **Global sections are fixed and never in the page.** The header is Salient's own; the booking card and the footer are the footer global section (`src/global/footer-global.html`), on every page, with the card overlapping the footer. A page body never contains a header, a footer or a booking card; buttons that book a call link to `#book-call` (16.5).
 3. **Header navigation is the site navigation** (What We Do, UXAudit, Work, About, Insights, Contact), never anchor links to the current page's sections.
-4. **Every button is the Arrow Glide component** (`components/button/_button.html`): a pill or text link with an arrow circle. No plain pills, no underlined links as CTAs, no buttons without the arrow.
-5. **A hero uses one of the existing hero sections, is centered, has one CTA, and a dark hero fades to white** (Hero Dusk). No flat dark blocks, no glow blobs, no left aligned hero unless the design says so.
+4. **Every button is the developers' Arrow Glide button** (`uxt-button` + one type, `src/partials/elements/button.html`), always with the circle and its two arrow SVGs. No plain pills, no underlined links as CTAs, no buttons without the arrow.
+5. **A hero uses the existing hero section** (`partials/sections/hero.html`): centered, one CTA, the dark hero that fades to white. No flat dark blocks, no glow blobs, no left aligned hero unless the design says so.
 6. **Reuse the matching section first, whole.** Process or steps use the process section with icons. Ways to work use the engagement section. FAQ uses the FAQ component. Stories use story cards. Reuse approved sections with their approved copy, labels and layout, and never merge two of them (12.5). Only content with no matching section gets a new design.
 7. **Radius 8 on cards and boxes, 1px Steel borders, no square corners, no shadows.**
 8. **At most one Warm Glow band and one Deep Navy band per page.** Every other section is white.
@@ -24,16 +24,16 @@ Breaking any of these means the page is wrong, however good it looks.
 10. **High weight sections get a visual anchor** (graphic, mockup, icons, numbers, proof). A page made only of text rows is not finished. **A process or approach section shows the process, never the result:** icons, numbers, steps, simple cards or a diagram, never a mockup or screenshot (13.6).
 11. **Facts, offers and copy follow the business rules:** exactly three ways to work (Audit, Project, Partnership); the strategy workshop is a service, not a way to work; no invented claims.
 12. **Equal items get equal treatment.** In a set of parallel items (the seven services, the industries), every item gets the same layout and weight; none is featured, none is split off (12.6).
-13. **The page type decides the hero and the booking card** (15.5). Declare it at the top of the page file and the check verifies it.
+13. **The page wrapper decides which styles apply** (15.5). `uxt-home` first, then the page key; a class that only works inside another page's wrapper is never used.
 14. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
 15. **No gradient fills on content cards, and never a gradient on a gradient** (8.5). Content cards are white with a 1px Steel border (a gradient stroke on Deep Navy). Nothing with a gradient surface sits on a gradient band or hero.
 16. **Every section header has an eyebrow,** whether or not the content document gives one. Write one if it is missing (8.4).
-17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **Icons start from Phosphor Light** (`assets/icons/phosphor/`, find with `npm run icon -- <word>`, place with `<!-- @icon name size="32" -->`); when a section needs icons with more character, curate custom ones in the same line style (`docs/GRAPHICS.md` 4.5). **Pick and draw every other graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; **Never add a real client mockup or screenshot:** wherever one is needed, put a labeled placeholder (an image box); the team adds the image later (8.6).
-18. **The trusted-by logo strip is always the logo marquee include, as it is** (`sections/logo-marquee`, auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip (12.5).
+17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **Icons start from Phosphor Light** (`assets/icons/phosphor/`, find with `npm run icon -- <word>`, place with `<!-- @icon name size="32" class="uxt-…" -->`); when a section needs icons with more character, curate custom ones in the same line style (`docs/GRAPHICS.md` 4.5). **Pick and draw every other graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; **Never add a real client mockup or screenshot:** wherever one is needed, put a labeled placeholder (an image box); the team adds the image later (8.6).
+18. **The trusted-by logo strip is always `partials/sections/logos.html`, as it is** (auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip; the check compares it (12.5).
 19. **A content heavy section is brainstormed before it is built** (12.7). Never stack every point the content gives into columns plus another section's content.
 20. **Every hero has an eyebrow above the H1.** If the content gives none, write one (8.4).
 21. **Read every line of copy in place and fix breaks that split a phrase** (5.4).
-22. **Every arrow in a card is the Arrow Glide icon, and hovering the card plays its glide** (11).
+22. **Every arrow in a card is the Arrow Glide button as a `<span aria-hidden="true">`, and the card has `uxt-button-trigger`** so hovering the card plays the glide (11).
 
 
 ## 0. Start here
@@ -45,7 +45,7 @@ Breaking any of these means the page is wrong, however good it looks.
 Rules change often. An old copy of the repo means old rules.
 
 1. Work from the latest `main`: `git fetch origin`, `git checkout main`, `git pull`. If you must work on another branch, create it from the latest `main`.
-2. Confirm that `LLM.md`, `AGENTS.md`, `skills/` and `scripts/check.mjs` exist, and read the top of `CHANGELOG.md`. If any of them is missing, you are on an old copy: stop and update before doing anything else.
+2. Confirm that `LLM.md`, `AGENTS.md`, `docs/CSS-GUIDE.md`, `skills/` and `scripts/check.mjs` exist, and read the top of `CHANGELOG.md`. If any of them is missing, you are on an old copy: stop and update before doing anything else.
 3. If you cannot update (no network, read only access), say so before you start, and say which version you are working from.
 
 ### Step 1. Pick the approach
@@ -74,10 +74,11 @@ Read before you plan. At minimum:
 | This file, completely | Business, voice, rules, craft, process |
 | `docs/BRAND-GUIDE.md` | Full positioning, offer, page rules and claims |
 | `knowledge/uxteam-website-knowledge.txt` | Facts from the live ux.team site: company and contact details, services, clients, all success stories, testimonials, FAQs, numbers with their approval status |
-| `docs/COMPONENTS.md` | Every component and section with its fields |
+| `docs/CSS-GUIDE.md` and `docs/CLASS-REGISTRY.md` | The only classes you may use, the page structure, and how to add a class (mandatory) |
+| `docs/COMPONENTS.md` | Every section and element partial with its fields |
 | `docs/GRAPHICS.md` and `reference/graphics/` | Which icon, illustration, scene or image box goes where, and how to draw a new one |
-| The approved pages in `src/pages/` that are closest to your task | Tone, sentence length, spacing and composition already approved |
-| The section folders you might reuse, in `src/sections/` and `src/components/`, including any `reference/` folder | How each one looks, works and what content fits |
+| The developers' pages in `src/pages/` that are closest to your task | Tone, sentence length, markup and composition already live |
+| The partials you might reuse, in `src/partials/` | The exact markup to copy for each section and element |
 | `reference/pages/` and `reference/README.md` | Screenshots of every approved page, and approved live references |
 | `docs/OPEN-ITEMS.md` | What is still a placeholder or not approved |
 | `CHANGELOG.md` | What changed recently |
@@ -85,7 +86,7 @@ Read before you plan. At minimum:
 Also check, depending on the task:
 - **Designing in Figma:** the approved frames on Final Design Pages and the components on Assets & Components (section 17).
 - **Writing copy:** the copy on every approved page, so facts, numbers and repeated answers match.
-- **Building a new section:** `src/tokens/tokens.json`, `src/base/layout.css` and one similar section's CSS.
+- **Building a new section:** CSS-GUIDE section 5, PART B of `src/css/uxteam-site.css` (type, buttons, layout) and the PART of the closest existing section.
 
 ### Step 3. Share your plan, then start
 
@@ -93,7 +94,7 @@ Before any design or build, share a short plan in the conversation. For new page
 
 1. The page's job, its reader and its single main action
 2. The section list with business value weights and treatments (section 6.5)
-3. **For every section, the repo file you will use** (for example `sections/process/process.html`). "New" is allowed only for content no existing section can carry, with one line on why
+3. **For every section, the repo file you will use** (for example `partials/sections/process.html`), and any new class it needs with the PART it goes in. "New" is allowed only for content no existing section can carry, with one line on why
 4. **For every section with more than one idea or more than about 80 words of content, the composition brainstorm from 12.7:** two or three layout options, the one you picked and why, and what you cut, merged or moved
 5. Any content changes, open questions or placeholders
 
@@ -103,10 +104,10 @@ Start once the plan is clear. For small changes and fixes, the plan can be one o
 
 Before saying the work is done:
 
-1. Run `npm run build`, then `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix.
+1. Run `npm run classes` if you changed CSS, then `npm run build` and `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix. A page with a `<style>` block, an inline style or a class outside the registry is not done.
 2. Screenshot the page at 1440, 768 and 375 and put it beside the closest approved page (`reference/pages/` holds screenshots of every approved page). Look for anything that does not appear on an approved page: a new color, a new card style, a different header or footer, a plain button, a flat hero. Remove it or justify it.
 3. Go through section 19.3 (failures seen before) and confirm none of them is present. Check every section for an eyebrow (the hero too), card fills (no gradients), icon files (SVG only), the logo marquee and the composition of content heavy sections.
-4. In the browser: read every heading and card at 1440, 768 and 375 and fix breaks that split a phrase (5.4); hover every card and confirm its arrow glides; scroll down then up and confirm the Ink header bar slides in with no line under it; scroll to the end and confirm the booking card overlaps the footer.
+4. In the browser: read every heading and card at 1440, 768 and 375 and fix breaks that split a phrase (5.4); hover every card and confirm its arrow glides; scroll to the end of the preview and confirm the booking card and footer follow the page. (The header and its scroll behaviour are Salient's and show only on the live site.)
 5. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
 6. Report what you checked and anything you could not check.
 
@@ -137,7 +138,7 @@ How you reach this repo changes what you can do. Work out which case you are in 
 
 | How you are connected | What to do |
 |---|---|
-| **The repo is cloned on your machine, with a terminal** | Read files directly. Run `npm run build`, then `npm run serve` and look at pages at http://localhost:4321. Take screenshots at 1440, 768 and 375 to check your work. Commit and push when done |
+| **The repo is cloned on your machine, with a terminal** | Read files directly. Run `npm run build`, then `npm run serve` and look at pages at http://localhost:4321/preview/. Take screenshots at 1440, 768 and 375 to check your work. Commit and push when done |
 | **GitHub through an MCP server or the GitHub API (no terminal)** | Read files through the tool, starting with this file and the list in Step 2. Read source files in `src/`, never `dist/` (generated). You cannot build or preview: when you change files, change the source in `src/` only and tell the person the build and visual check still need to run. Use a branch and a pull request for changes unless told otherwise |
 | **Only web access to the repo** | Read raw files from GitHub. Treat the repo as read only knowledge and deliver your output as files or designs for the person to add |
 | **Figma through the Figma MCP** | File key `9JQFLWC1KBelhUEaEZ6I1C`. Read the approved frames and components before designing. Follow section 17. Share the frame link and a screenshot for review |
@@ -145,10 +146,10 @@ How you reach this repo changes what you can do. Work out which case you are in 
 
 General rules for every tool:
 - **Read before you write.** Never change a file you have not read in full.
-- **Source, not output.** Edit `src/`, `docs/` and `assets/`. Never edit `dist/` or `src/tokens/tokens.css` by hand.
-- **Keep the repo current.** Every new section or element goes in with its docs, library entry and changelog line (section 16.2).
+- **Source, not output.** Edit `src/`, `docs/` and `assets/`. Never edit `dist/`, `docs/CLASS-REGISTRY.md` or the developers' files (`src/css/uxteam-site.css`, `src/pages/homepage.html`, `src/pages/what-we-do.html`, `src/global/footer-global.html`).
+- **Keep the repo current.** Every new section or element goes in with its partial, its PART if any, its docs and a changelog line (section 16.2).
 - **Be honest about checks.** If you could not build, preview or compare with Figma, say so instead of saying the page is done.
-- **Large files.** Built pages and the CSS bundle are long. Read the section files you need, not the whole bundle.
+- **Large files.** `uxteam-site.css` is about 7,500 lines. Read the registry and the PART you need, not the whole file.
 
 ### 0A.4 Skills and outside guidance
 
@@ -183,43 +184,52 @@ Use them in this order on a new page: page strategy (Step 3 plan), then build, t
 | 13 | Craft rules | Hero, line breaks, hierarchy, icons, tables, CTA bands, web quality standards |
 | 14 | Section library | Every existing section and when to use it |
 | 15 | Page blueprints | Templates for each page type |
-| 16 | Building in the repo | Code structure and rules |
+| 16 | Building in the repo | Code structure and rules (with docs/CSS-GUIDE.md) |
 | 17 | Working in Figma | When the person asks for Figma |
 | 18 | Quality bar | What done looks like |
-| 19 | Do's and don'ts | The short list |
+| 19 | Do's and don'ts | The short list, and failures seen before (up to 56) |
 | 20 | Open items | What must not be published yet |
 
 ---
 
 ## 1. The repo
 
-Plain HTML, CSS and JavaScript. No framework, no dependencies. Pages will later move into WordPress with the same code.
+Plain HTML and CSS, built to match the live site exactly. The live site (new.ux.team) runs on the Salient WordPress theme: each page body is one Raw HTML element, the CSS is one file in Salient > Custom CSS, and the booking card and footer are a footer global section. This repo holds the developers' versions of those files and builds new pages the same way. **Rules for classes and CSS: [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md) (mandatory).**
 
 ```
-LLM.md                 This file (CLAUDE.md and AGENTS.md point here)
-AGENTS.md, CLAUDE.md   Short pointers and the non-negotiables, read automatically by AI tools
-README.md              Human readable overview and quick start
-CHANGELOG.md           Every change, newest first
-docs/                  BRAND-GUIDE, COMPONENTS, GRAPHICS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
-knowledge/             uxteam-website-knowledge.txt: facts from the live ux.team site
-skills/                uxteam-page-strategy and uxteam-creative-review, for any AI tool (section 0A.4)
-reference/             Screenshots of the approved pages (pages/), every graphic on the Figma Graphics board (graphics/), and approved live references (README.md)
-scripts/check.mjs      Automatic page check (npm run check)
-assets/                fonts, icons (SVG), graphics (SVG spot illustrations), images (WebP), logos (PNG or SVG)
-src/tokens/tokens.json Single source of truth for colors, type, spacing. tokens.css is generated
-src/base/              reset, fonts, typography classes, layout, grid, section spacing
-src/components/        small parts: button, cards, FAQ, chips, form field, person, TOC
-src/sections/          full width blocks: header, footer, heroes, services, process, booking card
-src/templates/         shared <head> and scripts
-src/starters/          starter files for each page type (hub, dark hero, light hero, detail). Copy one to start a new page
-src/pages/             the pages, assembled from includes
-src/library/           component library page (shows everything)
-dist/                  build output, do not edit
+LLM.md                     This file (CLAUDE.md and AGENTS.md point here)
+AGENTS.md, CLAUDE.md       Short pointers and the non-negotiables, read automatically by AI tools
+README.md                  Human readable overview and quick start
+CHANGELOG.md               Every change, newest first
+docs/CSS-GUIDE.md          Mandatory class and CSS rules: existing elements, new classes, handover
+docs/CLASS-REGISTRY.md     Every class a page may use (generated by npm run classes, never edited)
+docs/                      also BRAND-GUIDE, GRAPHICS, COMPONENTS, FIGMA-MAP, HOW-TO-ADD, WORDPRESS, OPEN-ITEMS
+knowledge/                 uxteam-website-knowledge.txt: facts from the live ux.team site
+skills/                    uxteam-page-strategy and uxteam-creative-review, for any AI tool (section 0A.4)
+reference/                 Screenshots of the approved pages (pages/), every graphic on the Figma Graphics board (graphics/), approved live references (README.md)
+assets/                    fonts, icons (SVG, Phosphor and custom), graphics (SVG), images, logos
+
+src/css/uxteam-site.css    The developers' live Custom CSS, PART A to R. Never edited (fingerprinted)
+src/css/parts/             New PARTs written here, the developers' way (CSS-GUIDE section 5)
+src/css/uxteam-site-additions.css  Imports the new PARTs in order
+src/css/hooks.json         Classes needed by markup or scripts that have no CSS
+src/pages/                 Page bodies. homepage.html and what-we-do.html are the developers' files (never edited)
+src/global/                footer-global.html: booking card and footer, the developers' file
+src/partials/sections/     Every section of the developers' pages, ready to copy (hero, logos, outcomes, stories, services…)
+src/partials/elements/     Button, heading, FAQ item: the developers' exact markup with fill-in fields
+src/starters/page.html     Start every new page from this
+
+scripts/build.mjs          npm run build
+scripts/classes.mjs        npm run classes (writes the registry)
+scripts/check.mjs          npm run check: the mandatory gate for pages and CSS
+dist/wordpress/            Paste-ready page bodies and the footer global section
+dist/preview/              Full pages to review in a browser (stand-in header, images from new.ux.team)
+dist/css/                  uxteam-site.css and uxteam-site-additions.css
+
+legacy/                    The old ux- system (before the developers' CSS). Not used for new pages; kept as a visual reference while its designs are converted
 ```
 
-Commands: `npm run build`, `npm run check` (page rules check, run after every build), `npm run serve` (http://localhost:4321), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon), `npm run bundle -- demos/<page>.html` (one self-contained HTML file in `bundles/`, for sharing).
-
-`src/demos/` holds demo pages: built and checked like `src/pages`, but not approved pages. Use them as worked examples, never as a source of truth over the approved pages.
+Commands: `npm run build`, `npm run classes` (after any CSS change), `npm run check` (run after every build; must pass), `npm run serve` (http://localhost:4321/preview/<page>.html), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon). Legacy: `npm run legacy:build`, `legacy:check`, `legacy:bundle`.
 
 Figma file: **UXTeam Website 2026**, key `9JQFLWC1KBelhUEaEZ6I1C`.
 - Final Design Pages `1231:508` (approved pages, the only design source of truth)
@@ -433,7 +443,7 @@ Copy is read in a flow. When a line wraps because of the container or section wi
 1. **Read every heading, sub and card text in place** at 1440, 768 and 375, as a reader would, not just as a box that fits.
 2. **Break at phrase boundaries.** A line ends after a complete phrase ("We design decisions," / "not just screens"), never between words that belong together: an adjective and its noun, a number and its unit ("50+ agencies"), a name ("UXTeam" and what follows it in a lockup), a verb and its short object, "and" or "of" left at the end of a line.
 3. **No lone last word** (an orphan) in a heading, a sub or a card title. Rebalance the line or tighten the copy.
-4. **How to fix it, in this order:** shorten or reorder the copy (within 5.3); then keep a pair together with `&nbsp;` or `<span class="ux-nowrap">`; then, for a heading only, a manual `<br>` at a phrase boundary, hidden at the breakpoints where it no longer helps (the hero titles already hide `br` on mobile). Never shrink the type, never widen a container past the grid to make a line fit.
+4. **How to fix it, in this order:** shorten or reorder the copy (within 5.3); then keep a pair together with `&nbsp;` or `<span class="uxt-nowrap">`; then, for a heading only, a manual `<br>` at a phrase boundary, hidden at the breakpoints where it no longer helps (the hero titles already hide `br` on mobile). Never shrink the type, never widen a container past the grid to make a line fit.
 5. The CSS already balances headings (`text-wrap: balance`) and avoids lone words in body text (`text-wrap: pretty`). That helps, but it does not read the copy for you.
 6. Equal cards in a row: titles that wrap should wrap at similar points, so the row reads evenly. Rewrite a title that is far longer than its siblings.
 
@@ -548,22 +558,24 @@ The look is **restrained and refined: senior, calm, exact.** Hairlines, generous
 - Booking card and industries row are 1204 wide (2px outside the grid, intentional).
 - Tablet: 768 frame, 30 side margin. Mobile: 375 frame, 15 side margin. Header 70 high on both.
 
-### 8.2 Colors (tokens only, `var(--ux-*)`)
+### 8.2 Colors
 
-| Token | Hex | Use |
-|---|---|---|
-| navy | #0A1B33 | Headings, primary button on light, navy cards |
-| ink | #0D1315 | Darkest stop of dark gradients, social circles, "Other ..." headings |
-| slate | #5C6D85 | Middle stop of hero and footer gradients |
-| charcoal | #081219 | Body text |
-| steel | #6F7680 | 1px card borders, dividers, key labels |
-| mist | #F2F3F8 | Soft panels (author box) |
-| white | #FFFFFF | Page background, cards, text on dark |
-| sky | #A5ECFF | 2px eyebrow underline |
-| aqua | #A9FBFF | Gradient start, labels on navy |
-| peach | #FEDFBA | Gradient end, numerals on navy |
+In new CSS, use the developers' variables where one exists, otherwise the hex below (CSS-GUIDE 5.5). In a page, colours come only from the classes.
 
-Support tokens for specific uses: hero-sub #E4F0FF, stroke-soft #ACB5C2, stroke-tag #516076, stroke-menu #D8DADD, photo-bg #C1CCDE, author-bg #F6DBA0, toc-active #111111, logo-underline #919C9F.
+| Name | Hex | In CSS | Use |
+|---|---|---|---|
+| navy | #0A1B33 | `var(--uxt-color-navy)` | Headings, primary button on light, navy cards |
+| ink | #0D1315 | `var(--uxt-color-heading)` | Heading colour, darkest stop of dark gradients, social circles |
+| slate | #5C6D85 | hex | Middle stop of hero and footer gradients |
+| charcoal | #081219 | `var(--uxt-color-body)` | Body text |
+| steel | #6F7680 | `var(--uxt-color-border)` | 1px card borders, dividers, key labels |
+| mist | #F2F3F8 | hex | Soft panels (author box) |
+| white | #FFFFFF | hex | Page background, cards, text on dark |
+| sky | #A5ECFF | hex | 2px eyebrow underline (`underline-sky-blue`) |
+| aqua | #A9FBFF | hex | Gradient start, labels on navy |
+| peach | #FEDFBA | `var(--uxt-color-peach)` | Gradient end, numerals on navy |
+
+Support colours for specific uses: hero-sub #E4F0FF, stroke-soft #ACB5C2, stroke-tag #516076, stroke-menu #D8DADD, photo-bg #C1CCDE, author-bg #F6DBA0, toc-active #111111, logo-underline #919C9F.
 
 **Never** flat black, never new background colors. Dark surfaces are always gradients built from ink, navy and slate.
 
@@ -607,7 +619,7 @@ Three fonts only:
 - **Every hero has an eyebrow above its H1,** on every page type. If the content gives none, write one: two to six words that name the page's topic or audience (for example "B2B SaaS and AI", "From the UXTeam studio", "Success story"), never a repeat of the H1. On article pages the category and date line above the H1 is the eyebrow.
 - **Every section header has an eyebrow** above its H2, on every page type except the long form body of detail pages (article and case study content blocks). If the content document gives none, write one: two to four words naming the topic or the reader's question (for example "How we work", "Built for SaaS", "Why UXTeam"), never a repeat of the heading.
 - Headings: sentence case, -2% tracking.
-- A **G4 gradient word** in a heading is optional, only for a word or short phrase that needs attention (`.ux-highlight`).
+- A **G4 gradient word** in a heading is optional, only for a word or short phrase that needs attention (`uxt-accent-strong` where the developers use it; otherwise a new class in a PART).
 - Numbers may go bigger than the text styles in Besley for balance.
 
 ### 8.5 Shape and depth
@@ -632,9 +644,9 @@ Three fonts only:
 | 5 Mini scenes, 257 x 200 | A row of four parts of one capability | Dark base, two glows in one hue, one white card |
 | 6 Image boxes | Anywhere a client mockup, screenshot, photo or cover is needed | Mist box, dashed Steel border, a label that names the image |
 
-**Real client mockups and screenshots are never added to a page.** Wherever a section needs one (a service scene showing client work, an outcome card, an industry card, a case study visual), put a labeled image box (`.ux-image-box`, `docs/GRAPHICS.md` section 8) at the exact size. The team adds the real image later. This does not change approved sections reused whole: their existing images stay as they are.
+**Real client mockups and screenshots are never added to a page.** Wherever a section needs one (a service scene showing client work, an outcome card, an industry card, a case study visual), put a labeled placeholder (`partials/elements/placeholder.html`, class `uxt-placeholder`, `docs/GRAPHICS.md` section 8) at the exact size, and list it in `docs/OPEN-ITEMS.md`. The team adds the real image later. This does not change approved sections reused whole: their existing images stay as they are.
 
-- Icons: **Phosphor, Light weight, is the base set** (`assets/icons/phosphor/light/`). For utility icons (trust points, benefits, meta facts, lists, controls) use it as it is: find one with `npm run icon -- <word>` and place it with `<!-- @icon name size="32" -->`; the build inlines it so it takes the container's color. 32px in tiles, 24px beside text. Never another weight or library, never an `<img>` of a Phosphor icon.
+- Icons: **Phosphor, Light weight, is the base set** (`assets/icons/phosphor/light/`). For utility icons (trust points, benefits, meta facts, lists, controls) use it as it is: find one with `npm run icon -- <word>` and place it with `<!-- @icon name size="32" class="uxt-…" -->`; the build inlines it so it takes the container's color. 32px in tiles, 24px beside text. Never another weight or library, never an `<img>` of a Phosphor icon.
 - **Curate custom icons when a section needs them:** when the icon is the main visual of a card or tile, or the set must carry the page's subject (example: the six service tiles in "What we design" on the B2B SaaS and AI page). Start from a familiar Phosphor shape, redraw it as Navy 1.5 strokes, combine and simplify, add one G4 accent, and keep the set consistent. One approach per section: all stock or all curated (`docs/GRAPHICS.md` 4.5). Process icons are provided in `assets/icons/process/` as SVG.
 - **Icons, graphics, diagrams and illustrations are always SVG:** inline `<svg>` or an `.svg` file in `assets/`. Never a PNG, JPG, WebP or base64 data image of an icon or graphic, and never a screenshot of one. Raster files are only for photos, client logos supplied as raster, and real product screenshots. A missing icon is drawn as SVG in the house style or taken from Figma as SVG.
 - Imagery: real, client-approved work over stock. One crop, one radius, one overlay per image set.
@@ -667,9 +679,9 @@ Sections touch each other (0 gap). Space comes from each section's own top and b
 | Related items row | 120 | 120 | |
 | Booking card into footer | card overlaps the footer top by 40, footer padding top 160 | | |
 
-Responsive: 120 becomes 90 on tablet and 60 on mobile; 100 becomes 80 and 56; 80 becomes 64 and 48. The tokens handle this.
+Responsive: the developers' CSS handles it.
 
-In code: `.ux-section--pt-0/40/80/100/120/160` and `.ux-section--pb-0/80/100/120/180`. 160 and 180 are only for the Deep Navy band and the section after it.
+In code: every band is `uxt-full uxt-section` (110px top and bottom, set by the developers to match these values on the live site). Never add your own section padding; where a section needs different spacing, the developers' PART for it already sets it, and a new section's PART follows the closest existing one.
 
 ### 9.2 Hero
 
@@ -722,7 +734,7 @@ Only use: 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 100, 120.
 
 ## 11. Buttons and calls to action
 
-Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pill with an arrow circle, or a text link with an arrow circle. No square or outline buttons.
+Only from the **CTA / 01 Arrow Glide** button (`uxt-button` + a type, CSS-GUIDE 4.3). Every CTA is a pill with an arrow circle, or a text link with an arrow circle. No square or outline buttons.
 
 | Type | Where |
 |---|---|
@@ -741,7 +753,7 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 - A prompt with an action in the middle of a page ("Need something else?") becomes a CTA band, not loose text and a button. See 13.9.
 - Label: "Book a Discovery Call". Audit offers: "Start with an audit".
 - Interaction: arrow glide 350ms ease out. Card hovers 300ms. Industry cards 450ms. FAQ 420ms height, 300ms fade and icon change.
-- **Cards play the CTA hover.** Any arrow in a card (topic tiles, service tiles, blog cards, story cards) is the Arrow Glide icon: `<span class="ux-btn ux-btn--icon" aria-hidden="true"><!-- @include components/button/_icon.html --></span>`, or a full Secondary button. Never draw a separate arrow, never a "→" character as a CTA. When the card is a link, hovering or focusing anywhere on the card plays the arrow glide (and the Secondary underline), through the card hover rule in `components/button/button.css`. A card that is not a link but holds one gets the class `ux-hover-host`.
+- **Cards play the CTA hover.** Any arrow in a card (story cards, insight cards, industry rows, service cards) is the Arrow Glide button as a `<span aria-hidden="true">`: `partials/elements/button-icon.html` (circle only) or `button-in-card.html` (Secondary). Never draw a separate arrow, never a "→" character as a CTA. The card gets `uxt-button-trigger`, so hovering it plays the arrow glide and the Secondary underline. The card itself is the link.
 
 ---
 
@@ -764,7 +776,7 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 3. **Look for an existing creative section** that fits (outcome cards, services list, industry cards, featured story). If one fits well, use it.
 4. **If not, design new:**
    - Start from the content, then the composition, then the visual design.
-   - Use the existing foundation only: tokens, type roles, grid, radius, CTA component.
+   - Use the existing foundation only: PART B classes, the colours in 8.2, grid, radius, the button.
    - You may experiment with existing gradients, compositions and visual elements (bands, mockups, gradient strokes, navy cards, expanding tiles, hairline grids, number-led layouts).
    - Give it one clear focal point. Avoid three ideas in one section.
    - Design hover, focus and tap states, and the tablet and mobile layout.
@@ -782,28 +794,16 @@ Only from the **CTA / 01 Arrow Glide** component (`.ux-btn`). Every CTA is a pil
 
 ### 12.4 Creative references
 
-Every creative (High weight) section in the repo keeps its reference next to its code:
+Full page screenshots of every approved page are in `reference/pages/` (see `reference/README.md`), and the live pages at new.ux.team are the coded reference. The creative sections to study before designing a new one: outcomes, featured story, services and industries (`src/partials/sections/`), and their screenshots. The old system's reference folders (`legacy/src/sections/*/reference/`) still hold the design notes for those sections.
 
-```
-src/sections/<name>/
-  <name>.css, <name>.html, <name>.js
-  reference/
-    desktop.webp    Export of the approved design
-    tablet.webp     (if designed)
-    mobile.webp     (if designed)
-    NOTES.md        business point, why it looks this way, what can vary, what must not
-```
-
-Creative sections with references today: `src/sections/outcomes`, `src/sections/featured-story`, `src/sections/services`, `src/components/industry-card`. Full page screenshots of every approved page are in `reference/pages/` (see `reference/README.md`).
-
-Study these before designing a new creative section. They show the level and the kind of creativity expected. When you add a new creative section, add its reference folder too.
+When you add a new creative section, put its Figma export in `reference/sections/<name>/` with a short `NOTES.md`: the business point, why it looks this way, what can vary and what must not.
 
 ### 12.5 Reuse approved sections exactly
 
 When a page needs content that already exists as an approved section (the process, the partnerships stories, the outcomes, the logo strip, the FAQ), use that section **as it is, with its approved copy and labels**:
 
 - Keep the approved wording. The process steps are "1. Audit" with the story line "We walk your product as your buyers do.", not "Step 1 / Audit" with new copy. The logo strip label is "Trusted by B2B companies worldwide".
-- **The trusted-by logo strip is always `sections/logo-marquee/logo-marquee.html`,** the auto scrolling marquee with its approved logos, wherever a page shows trusted partners (under a hero or as a trust row). Never a static row of four or five logos, never a new logo layout, never a hand picked subset. The About page's "Our clients" logo grid is a different approved section and stays on About. The homepage FAQ heading is "What we observe, think, and learn".
+- **The trusted-by logo strip is always `partials/sections/logos.html`,** the auto scrolling strip with its approved logos, wherever a page shows trusted partners (under a hero or as a trust row). Never a static row of four or five logos, never a new logo layout, never a hand picked subset. The About page's "Our clients" logo grid is a different approved section and stays on About. The homepage FAQ heading is "What we observe, think, and learn".
 - Keep the approved structure. The partnerships section is the featured video story plus three story cards; the outcomes section is two outcome cards. Never merge two approved sections into one new section, and never add a sub heading inside one to make room for another.
 - Keep the approved layout. Story cards are always three across on desktop. A two across story grid does not exist.
 - Change copy only where the page's content document says so.
@@ -907,7 +907,7 @@ A High weight section is ready only when all of these are true:
 - [ ] Its composition differs from the sections around it.
 - [ ] It gets more space and more emphasis than Low sections: a band, gradient stroke cards on Deep Navy, or larger scale with visuals and interaction (the capability stack), within the band limits in section 10.
 - [ ] It has clear hierarchy (13.3) and one main action at most.
-- [ ] It is still fully on brand: tokens, type roles, radius, the CTA component, an eyebrow, white cards without gradient fills, SVG icons.
+- [ ] It is still fully on brand: registry classes only, PART B type, radius, the button, an eyebrow, white cards without gradient fills, SVG icons.
 
 ### 13.11 Besley for labels
 
@@ -945,7 +945,7 @@ Accessibility, performance and interaction basics every page meets. Most are bui
 
 **Motion**
 - Animate only `transform` and `opacity`, never width, height or position properties (the FAQ height animation is the one deliberate exception).
-- Use the motion tokens (`--ux-motion-*`). Micro interactions 150 to 350 ms; nothing longer than 450 ms.
+- Use the developers' motion timings (300ms ease-out for movement, 200ms for colour, as in PART N). Micro interactions 150 to 350 ms; nothing longer than 450 ms.
 - Motion explains a change (open, close, move). No decorative animation, at most one or two moving things per screen.
 - Animations never block clicks or scrolling.
 
@@ -963,88 +963,56 @@ Accessibility, performance and interaction basics every page meets. Most are bui
 
 ## 14. Section library
 
-Code: `src/sections/<name>/` or `src/components/<name>/`. Figma refs are node IDs in the Figma file. Weight is the typical weight from section 6.
+Each section is either **live** (the developers built it; copy its partial from `src/partials/` and change only text, links and images) or **design only** (approved in Figma or in the old system, no `uxt-` code yet). A design only section is built the first time a page needs it: markup in `src/partials/sections/`, styles in a new PART (CSS-GUIDE section 5). The old system's version in `legacy/src/` is the visual reference, never code to copy. Weight is the typical weight from section 6.
 
-### Global
+### Global (never in a page)
 
-| Code | Section | Use | Content fit | Path |
-|---|---|---|---|---|
-| SL-01 | Site header | Every page. Dark or light theme | Logo, nav, CTA | `sections/site-header` |
-| SL-02 | Booking card | Every page except Insights listing and detail | Fixed copy: homepage version with 3 stats, inner version with a paragraph | `sections/booking-cta` |
-| SL-03 | Footer | Every page | Fixed | `sections/site-footer` |
-| SL-04 | Section header | Opens every section on homepage and listing pages | Eyebrow, H2, optional intro | `components/section-header` |
-
-### Heroes (always High importance, reuse a type)
-
-| Code | Section | Use | Path |
-|---|---|---|---|
-| SL-10 | Display hero + logo marquee | Homepage and hub pages (What we do). Starter: `src/starters/hub-page.html` | `sections/hero-home`, `logo-marquee` |
-| SL-11 | Listing hero | Index pages (work, insights, services overview) | `sections/hero-listing` |
-| SL-12 | Case study hero (partnership lockup, intro, person) | Success story and partner details | `sections/hero-case-study` |
-| SL-13 | Article hero (meta, title, cover) | Insights, guides, long reads | `sections/hero-article` |
-| Light hero | Light header and hero with stats | About and pages that should feel lighter | `sections/hero-light` |
-
-### Proof and story
-
-| Code | Section | Weight | Content fit | Path |
-|---|---|---|---|---|
-| SL-20 | Outcome cards (2 up, client band, mockup) | High | 2 measured results with before/after metric | `sections/outcomes` |
-| SL-21 | Featured video story | High | 1 client story with video, logo, title, link | `sections/featured-story` |
-| SL-22 | Story card grid (3 up) | Medium | Logo, title up to ~14 words, 2 meta lines, link | `components/story-card` |
-| SL-23 | Client quote | Medium | Quote, person, logo | `components/detail-blocks` |
-
-### Value and services
-
-| Code | Section | Weight | Content fit | Path |
-|---|---|---|---|---|
-| SL-30 | Three column principles with hairlines | Low | 3 differentiators or beliefs: label, title, body | `sections/approach` |
-| SL-31 | Stats row | Medium | 3 numbers with labels | `components/stat` |
-| SL-32 | Grouped service list (dark band) | High | Services grouped under buyer questions | `sections/services` |
-| SL-33 | Process steps (5) | Medium | 4 to 5 steps: icon, number label, title, body | `sections/process` |
-| SL-34 | Industry cards (expanding) | High | 4 industries with image, description, project count | `components/industry-card` |
-| SL-35 | Engagement models (3 columns) | Low | 3 offers: label, title, description, link | `sections/engagement` |
-| Beliefs grid | 6 principles on Warm Glow | Low | 6 short beliefs (About) | `sections/beliefs` |
-| Capability stack | Sticky tabs + stacked capability cards with deliverable visuals + closing CTA band | High | 5 to 8 capabilities, each with intro, included list, where it fits, one action, one visual | Not in the repo yet. Reference: new.ux.team/what-we-do (15.4) |
-| Why grid with icons | 4 columns with hairlines, outline icon, title, one sentence | Medium | 4 reasons | Live What we do page; build from `sections/approach` styles with `.ux-icon-tile` (docs/GRAPHICS.md family 2) |
-| Expectations row | 4 columns, Steel hairline on top, 56px tint icon tile, title, two lines | Low to Medium | 4 promises, trust points or requirements | `sections/expectations` (`.ux-expect`), Figma `2638:22316`. Example: `src/demos/ux-audit.html` |
-| Topic tiles | 3 or 6 tiles, Mist spot illustration, title with arrow circle, one line | Medium | Topics, service areas or paths to choose from | `components/graphic/_topic-tile.html` with `.ux-topic-grid` (Figma `2638:22054`) |
-| Service row with scene | 1200 card: eyebrow, title, intro, checklist with arrow bullets, one Primary plus one link; 518 product scene | High | One service or deliverable: intro, 5 included items, actions, one scene | `sections/service-row` (`.ux-service-row`), Figma `2638:17149` to `2638:19804`. Scenes: `components/graphic/_scene-*.html` |
-| Numbers band | Up to 4 Besley numerals with a unit and a one line label, split by hairlines, on the Deep Navy band | Medium | Facts about an offer or the company (safe numbers only, knowledge section 10) | `sections/numbers-band` (`.ux-numbers`). Example: `src/demos/ux-audit.html` |
-| Capability with mini scenes | Section header, four mini scenes with titles and two lines | Medium to High | Four parts of one capability, or four sample results | `.ux-scene-row` in `components/graphic`, Figma `2638:20489`. Example: sample findings in `src/demos/ux-audit.html` |
-
-### Content and listing
-
-| Code | Section | Weight | Path |
-|---|---|---|---|
-| SL-40 | Blog card grid | Medium | `components/blog-card` |
-| SL-41 | Filter chips | Low | `sections/filter-bar`, `components/chip` |
-| SL-42 | FAQ (two groups or single column) | Low | `components/faq` |
-
-### Detail pages
-
-| Code | Section | Path |
+| Code | Section | Where it comes from |
 |---|---|---|
-| SL-50 | Table of contents rail (sticky; floating bottom menu on tablet and mobile) | `components/toc` |
-| SL-51 | Content section shell | `components/detail-blocks` |
-| SL-52 | Key value table | `components/detail-blocks` |
-| SL-53 | Navy stat strip | `components/detail-blocks` |
-| SL-54 | Gradient list rows | `components/detail-blocks` |
-| SL-55 | Numbered outcome list | `components/detail-blocks` |
-| SL-56 | Q&A cards | `components/detail-blocks` |
-| SL-57 | About block with logo tile | `components/detail-blocks` |
-| SL-58 | Article body kit | `sections/article-body` |
-| SL-59 | Author and share | `components/detail-blocks` |
-| SL-60 | Related items row | `sections/related-row` |
+| SL-01 | Site header | Salient's header (PART O hides it on scroll down) |
+| SL-02, SL-03 | Booking card and footer | Footer global section, `src/global/footer-global.html` (PART E, L, D). Buttons link to `#book-call` |
+| SL-04 | Section heading (eyebrow, H2, optional intro) | `partials/elements/heading.html`, `heading-intro.html` (PART B) |
 
-### About page
+### Live sections
 
-| Section | Weight | Path |
-|---|---|---|
-| Logo grid + global presence | Medium | `sections/logo-grid` |
-| Story split with founder quote card | Medium | `sections/story-split` |
-| Team photo + leadership | Medium | `sections/team` |
+| Code | Section | Weight | Content fit | Partial | Works inside |
+|---|---|---|---|---|---|
+| SL-10 | Display hero + logo strip | High | Eyebrow, H1, one or two sentences, one CTA | `sections/hero.html` + `sections/logos.html` | `.uxt-home` |
+| SL-20 | Outcome cards (2 up) | High | 2 measured results with a metric | `sections/outcomes.html` | `.uxt-home` |
+| SL-21, SL-22 | Featured video story + 3 story cards | High | 1 story with video, then 3 cards: logo, title up to ~14 words, meta | `sections/stories.html` | `.uxt-home` |
+| SL-30, SL-31 | Approach columns + stats row | Low to Medium | 3 differentiators, 3 numbers | `sections/approach-stats.html` | `.uxt-home` |
+| SL-32 | Grouped service list (dark band) | High | Services grouped under buyer questions | `sections/services.html` | `.uxt-home` |
+| SL-33 | Process steps | Medium | 4 to 5 steps: icon, number label, title, body | `sections/process.html` | `.uxt-home` |
+| SL-34 | Industries (expanding rows) | High | 4 industries with image, description, count | `sections/industries.html` | `.uxt-home` |
+| SL-35 | Ways to work (3 columns) | Low | Audit, Project, Partnership | `sections/engage.html` | `.uxt-home` |
+| SL-40 | Insight cards | Medium | 3 articles: image, meta, title | `sections/insights.html` | `.uxt-home` |
+| SL-42 | FAQ (two columns) | Low | 6 to 8 questions | `sections/faq.html`, `elements/faq-item.html` | `.uxt-home` |
+| Capability stack | Sticky tabs + stacked capability cards + closing CTA | High | 5 to 8 capabilities | `sections/capabilities.html` + `capabilities-script.html` | `.uxt-wwd` only |
+| Why grid with icons | 4 columns, outline icon, title, one sentence | Medium | 4 reasons | `sections/why.html` | `.uxt-wwd` only |
+| About sections | Hero, logos, beliefs, leaders, team, stories, FAQ | Medium | About page | PART R is live; markup to come from the developers | `.uxt-about` only |
 
-Partial parameters for every component are listed in `docs/COMPONENTS.md`. See everything rendered at `/library/` after a build.
+"`.uxt-wwd` only" means the styles are scoped to What we do. To use that section on another page, move its styles into a shared PART first (CSS-GUIDE 5.4), and agree it with the developers.
+
+### Design only (build with a new PART when first needed)
+
+| Code | Section | Weight | Content fit | Visual reference |
+|---|---|---|---|---|
+| SL-11 | Listing hero | High | Index pages (work, insights, services overview) | `legacy/src/sections/hero-listing`, `reference/pages/` |
+| SL-12 | Case study hero (partnership lockup, intro, person) | High | Success story details | `legacy/src/sections/hero-case-study` |
+| SL-13 | Article hero (meta, title, cover) | High | Insights articles | `legacy/src/sections/hero-article` |
+| Light hero | Light hero with stats | High | About and lighter pages | `legacy/src/sections/hero-light` |
+| SL-23 | Client quote | Medium | Quote, person, logo | `legacy/src/components/detail-blocks` |
+| Beliefs grid | 6 principles on Warm Glow | Low | 6 short beliefs | PART R (About) has one: reuse it there |
+| Expectations row | 4 columns, Steel hairline, 56px tint icon tile, title, two lines | Low to Medium | 4 promises or requirements | Figma `2638:22316`, `legacy/src/sections/expectations` |
+| Topic tiles | 3 or 6 tiles, Mist spot illustration, title with arrow circle | Medium | Topics or paths to choose from | Figma `2638:22054` |
+| Service row with scene | 1200 card: eyebrow, title, intro, checklist, actions; 518 product scene | High | One service: intro, 5 items, actions, one scene | Figma `2638:17149` to `2638:19804` |
+| Numbers band | Up to 4 Besley numerals with unit and label on Deep Navy | Medium | Safe numbers only (knowledge section 10) | `legacy/src/sections/numbers-band` |
+| Capability with mini scenes | Four mini scenes with titles and two lines | Medium to High | Four parts of one capability | Figma `2638:20489` |
+| SL-41 | Filter chips | Low | Listing pages | `legacy/src/sections/filter-bar` |
+| SL-50 to SL-60 | Detail page kit: TOC rail, content shell, key value table, navy stat strip, list rows, numbered outcomes, Q&A cards, about block, article body, author and share, related row | Low to Medium | Success story and article pages | `legacy/src/components/detail-blocks`, `reference/pages/` |
+| About (old) | Logo grid, story split, team | Medium | About | Replaced by PART R |
+
+Fields for every partial are in `docs/COMPONENTS.md`. Every class with where it works is in `docs/CLASS-REGISTRY.md`.
 
 ---
 
@@ -1086,7 +1054,7 @@ Every page shares the same shell: **header → hero → body → booking card �
 
 The approved direction for a page that sells the whole offer. Use it for What we do, and as the model for any page that presents all services or capabilities.
 
-1. Header + **display hero** (the homepage style): H1 at the display size, one short sub (about 30 words at most, 3 lines), one Primary CTA, the logo strip labeled "Trusted by B2B companies worldwide". No eyebrow needed.
+1. Header + **display hero** (the homepage style): eyebrow, H1 at the display size, one short sub (about 30 words at most, 3 lines), one Primary CTA, the logo strip labeled "Trusted by B2B companies worldwide". (The live page has no eyebrow yet; rule 20 applies, and this is raised with the developers in `docs/OPEN-ITEMS.md`.)
 2. **Capabilities, the High section.** Section header ("Our capabilities at a glance"), then:
    - a sticky tab bar with one tab per capability, the active one underlined as you scroll;
    - one large white card per capability (radius 8, 1px Steel border, roughly 40 by 56 padding), stacked so each card slides over the previous one on desktop: text on the left (title at about 40, a short intro, an arrow list of what is included, a Besley "Where it fits" line, one Primary action for that service plus at most one text link), and a deliverable visual on the right (about 518 square: an audit report, a product screen, a website);
@@ -1099,22 +1067,24 @@ The approved direction for a page that sells the whole offer. Use it for What we
 6. Outcomes we've delivered: the two outcome cards, unchanged.
 7. Insights: three blog cards and one Primary link to the blog.
 8. FAQ: two groups, heading "What we observe, think, and learn".
-9. Booking card, **homepage version** ("Skip the layers, talk to the founder.") + footer.
+9. Booking card and footer: the footer global section, not part of the page.
 
-Notes: the capability stack is not in the repo yet (see section 20). The live page uses 110 section padding; in this repo keep the fixed scale in section 9.
+Code: the whole page is `src/pages/what-we-do.html` (the developers' file); its sections are in `src/partials/sections/` (`capabilities.html`, `why.html` and the shared homepage sections).
 
-### 15.5 Which hero and booking card a page uses
+### 15.5 Wrapper, hero and page end for each page type
 
-Every page declares its type in a comment at the top of its file, for example `<!-- ux-page-type: hub -->`. `npm run check` then checks the hero and booking card against this table.
+The booking card and footer are the same on every page (the footer global section). What changes per page is the wrapper and the hero.
 
-| Type key | Page type | Hero | Booking card |
+| Page type | Example | Wrapper | Hero |
 |---|---|---|---|
-| `home` | Homepage | Display hero with logo marquee (`ux-hero-home`) | Homepage version (`booking-cta-home.html`) |
-| `hub` | Hub pages that present the whole offer (What we do) | Display hero, dark, with logo strip (`ux-hero-home`) | Homepage version |
-| `company` | Company page (About) | Light hero, display H1 (`ux-hero-light`) | Inner version (`booking-cta.html`) |
-| `listing` | Listing pages (Success Stories, Insights) | Listing hero, 64 H1 (`ux-hero-listing`) | Inner version (Insights: footer only) |
-| `detail` | Detail pages (case study, article) | Case study or article hero (`ux-hero-case`, `ux-hero-article`) | Inner version, flush (Insights articles: footer only) |
-| `inner` | Other inner pages (UXAudit, How we work, White label, Contact) | Listing or light hero (`ux-hero-listing`, `ux-hero-light`) | Inner version |
+| Homepage | Homepage | `uxt-home` | Display hero + logo strip (`sections/hero.html`) |
+| Hub (whole offer) | What we do | `uxt-home uxt-wwd` | Display hero + logo strip |
+| Company | About | `uxt-home uxt-about` | About hero (PART R) |
+| Listing | Success Stories, Insights | `uxt-home uxt-<key>` | Listing hero (design only, section 14) |
+| Detail | Case study, article | `uxt-home uxt-<key>` | Case study or article hero (design only) |
+| Inner | UXAudit, How we work, White label, industry pages | `uxt-home uxt-<key>` | Display hero, or a listing or light hero once built |
+
+Pages that should end with the footer only (the Insights listing and articles) need the booking card switched off for that page in WordPress. That is a developer setting, listed in `docs/OPEN-ITEMS.md`.
 
 ### 15.6 Page rules for pages still to come
 
@@ -1137,66 +1107,54 @@ Every page declares its type in a comment at the top of its file, for example `<
 
 ## 16. Building in the repo
 
+**The full rules are in [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md). They are mandatory, and `npm run check` enforces them.** This section is the short version.
+
 ### 16.1 Rules
 
-- **Reuse before you build.** Check the library page and `docs/COMPONENTS.md` first.
-- **Pages are assembled from includes.** `<!-- @include sections/... key="value" -->`, paths from `src/`. Hand-written HTML in a page is limited to content inside a section. No new classes inside page files.
-- **Tokens only.** Colors, type and spacing come from `var(--ux-*)`. A new reusable value goes into `src/tokens/tokens.json` first, then `npm run build`. Never edit `tokens.css`.
-- **Naming.** Classes start with `ux-` (BEM: `ux-block__part--variant`). States: `is-open`, `is-active`, `is-visible`. JS hooks use `data-ux-*` attributes.
-- **JavaScript.** Register with `UXTeam.register('name', fn)` and add the file to `src/js/manifest.json`.
-- **Responsive.** Breakpoints 1199px (tablet) and 767px (mobile). Section specific rules at the bottom of each section's CSS.
-- **Accessibility.** Semantic HTML, one H1, headings in order, alt text, focus styles, keyboard support, `prefers-reduced-motion`.
-- **Images.** WebP for photos (2x size), PNG or SVG for logos. Lazy load below the fold.
+- **One stylesheet.** Pages use only `src/css/uxteam-site.css` (the developers' live CSS) and new PARTs in `src/css/parts/`. No `<style>`, no `style=""`, no linked stylesheets.
+- **Registry classes only.** Every class on a page is in `docs/CLASS-REGISTRY.md`. Never PART A classes (old Salient CSS), never Salient element classes (`nectar-*`, `wpb_*`), never the old `ux-` classes, never invented ones.
+- **Copy, then change content.** A section is copied from `src/partials/sections/` or built from `src/partials/elements/` (`<!-- @include partials/... key="value" -->`). Change text, links and images; keep classes and structure.
+- **Wrapper first.** The page body is `<div class="uxt-home uxt-<key>">` and everything is inside it.
+- **New classes the developers' way:** `uxt-<page key>-<part>`, flat hyphens, variants as a second class, states `is-*`/`has-*`, one PART file with the header, scoped to the page wrapper (CSS-GUIDE section 5).
+- **Never edit the developers' files** (`uxteam-site.css`, `homepage.html`, `what-we-do.html`, `footer-global.html`). The check fingerprints them.
+- **Scripts** only from the approved `*-script.html` partials. New behaviour is a request to the developers.
+- **Accessibility.** Semantic HTML, one H1, headings in order, alt on every image, buttons with labels, keyboard support.
+- **Images** from the WordPress media library (`/wp-content/uploads/…`). Icons and graphics are SVG.
 - **Copy.** Paste from the approved content. Never retype from memory.
 
-### 16.2 Adding something new
+### 16.2 Adding a new section or element
 
-1. Create `src/components/<name>/` or `src/sections/<name>/` with CSS (header comment naming the Figma node), a partial with `{{param|default}}` fields, JS if needed, and responsive rules.
-2. Import the CSS in `src/uxteam.css`.
-3. Add a demo to `src/library/index.html`.
-4. For creative sections, add the `reference/` folder (section 12.4).
-5. Update `docs/COMPONENTS.md`, `docs/FIGMA-MAP.md`, `docs/OPEN-ITEMS.md` (placeholders) and `CHANGELOG.md`.
-6. `npm run build`, `npm run check`, compare (section 18), commit with the Figma node in the message, push.
+1. Check the registry and the partials once more. Most sections exist.
+2. Write the markup as a partial in `src/partials/sections/<name>.html` with a doc comment at the top (what it is, where it works, fields as `{{key|default}}`), using registry classes wherever they fit.
+3. For what does not fit, write a new PART in `src/css/parts/` (CSS-GUIDE section 5) and import it in `src/css/uxteam-site-additions.css`.
+4. `npm run classes`, `npm run build`, `npm run check`. Look at it in the preview at 1440, 768 and 375.
+5. Update `docs/COMPONENTS.md`, `docs/FIGMA-MAP.md`, `docs/OPEN-ITEMS.md` (placeholders) and `CHANGELOG.md` (with the PART for the handover), commit with the Figma node in the message, push.
 
 ### 16.3 Starting a new page
 
-1. Copy the closest starter from `src/starters/` into `src/pages/<page-name>.html`:
-   - `hub-page.html`: page that presents the whole offer (What we do): display hero, homepage booking card
-   - `dark-hero-page.html`: inner page with the dark Hero Dusk header and hero (most pages)
-   - `light-hero-page.html`: inner page with the light header and hero (About style)
-   - `detail-page.html`: two column detail page with table of contents (case study or article)
-2. Keep the header, booking card and footer includes exactly as they are, and keep the `ux-page-type` comment correct (15.5).
-3. Replace the placeholder sections with includes of existing sections, following your plan (Step 3).
-4. Add the page to `src/index.html`.
-5. `npm run build`, `npm run check`, then compare with `reference/pages/`.
+1. Copy `src/starters/page.html` to `src/pages/<page-name>.html` and set the wrapper (`uxt-home uxt-<key>`).
+2. Fill it with section partials, following your plan (Step 3).
+3. `npm run build`, `npm run check`, open `dist/preview/<page-name>.html`, compare with `reference/pages/`.
+4. Hand over `dist/wordpress/<page-name>.html` and, if any, `dist/css/uxteam-site-additions.css` (CSS-GUIDE section 7).
 
 **Standing rule:** every new section or element designed is added to the repo in the same piece of work, so the repo is always up to date.
-
-### 16.5 Global header and page end
-
-**Header** (`sections/site-header`): no bottom line on any page. At the top it sits over the hero and scrolls away with the page. When the reader scrolls up anywhere below it, a pinned Ink bar slides in (white logo, white nav, Glass CTA, soft shadow); scrolling down slides it out; at the very top the transparent bar returns. This is built into the header; never add your own sticky header, border or background.
-
-**Page end** (`sections/page-end/page-end.html`): the closing booking card and the footer as one global block, with fixed copy. Put it as the last thing on the page, **after `</main>`**:
-
-```html
-  </main>
-
-  <!-- FIXED: booking card and footer, do not edit -->
-  <!-- @include sections/page-end/page-end.html -->
-```
-
-The card (1204 x 610) overlaps the top of the footer by 42px, as in Figma. That only works when the two are direct neighbours, so never put the booking card inside `<main>` and the footer outside it. Params: `booking="booking-cta-home"` on home and hub pages (15.5), `mod="ux-booking--flush"` on detail pages. Pages that end with the footer only (Insights) include `sections/site-footer/site-footer.html` directly.
 
 ### 16.4 Stay inside the scope of the task
 
 A page task adds a page, and the new sections that page needs as reusable sections. It does not change the rest of the site.
 
-- **Do not edit shared files as part of a page task:** the header, footer, booking card, shared components and their JavaScript, `scripts/`, tokens, or other pages (their copy, metadata, dates or links). If the page needs one of these changed, stop and propose the change separately with the reason.
+- **Do not edit shared files as part of a page task:** the developers' files, other pages, shared partials, `scripts/`. If the page needs one of these changed, stop and propose the change separately with the reason.
 - **Do not add new mechanisms** (content catalogs, build steps, data files, new directives) without asking. Use the existing includes.
-- **New sections are reusable sections, not page styles.** Put them in `src/sections/<name>/` with a partial and a library entry, named for what they are (`capability-stack`), not for the page (`what-we-do-*`). Page specific CSS files do not exist in this system.
+- **New sections are reusable sections.** Name the partial for what it is (`numbers-band`), and its classes with the page key of the page that first uses it, as the developers do (`uxt-wwd-cap`). When a second page needs it, its styles move to a shared PART.
 - **Do not fill open items yourself.** Links, booking URLs, social links, article titles and dates listed as open (section 20) stay open until the person supplies them. Finding a value on the old site is a suggestion to raise, not a fact to ship.
 - **Do not publish anything** (preview hosts, external sites, public links) unless the person asks. Deliver in the repo, and share screenshots for review.
-- **Do not use component classes for something else.** `ux-btn` is only for real CTAs; a card or tile never carries button classes.
+- **Do not use button classes for something else.** `uxt-button` is only for real CTAs, or the arrow inside a card that is a link.
+
+### 16.5 Global header and page end
+
+**Header:** Salient's own header, not part of any page. PART O hides it on scroll down and shows it on scroll up. Never add a header, a sticky bar, a border or a background to a page.
+
+**Booking card and footer:** the footer global section (`src/global/footer-global.html`, PART E, L and D), with fixed copy, on every page. The card overlaps the top of the footer, as in Figma. A page never contains either one; a button that books a call links to `#book-call`, which scrolls to the card.
 
 ---
 
@@ -1219,7 +1177,7 @@ A page or section is done when it matches the approved design **at least 95%** a
 
 - [ ] Spacing follows section 9 exactly
 - [ ] Type styles, sizes and weights match
-- [ ] Colors and gradients are tokens and match
+- [ ] Colors and gradients come from registry classes or the 8.2 palette, and match
 - [ ] Copy is identical to the approved content
 - [ ] Images are correctly cropped and sharp
 - [ ] No sideways scroll at any width; no console errors
@@ -1245,11 +1203,11 @@ A page or section is done when it matches the approved design **at least 95%** a
 - [ ] Web quality standards in 13.12 are met (focus, contrast, tap targets, image sizes, motion, forms)
 - [ ] Every section maps to a repo partial, or is a documented new section
 - [ ] Header, booking card and footer are the standard includes, unchanged
-- [ ] The page file contains no `<style>`, inline styles or hex colors
+- [ ] The page file contains no `<style>`, inline styles, hex colors or classes outside the registry, and `npm run check` passes
 - [ ] Nothing on the page appears that does not exist on an approved page, unless it is a planned new section
 - [ ] Treatment matches the approved direction: the right sections are emphasized, approved sections are reused whole, equal items are treated equally
 - [ ] Only the files the task needed were changed (16.4); nothing was published outside the repo
-- [ ] Repo updated (library, docs, changelog) and pushed
+- [ ] Repo updated (partials, PARTs, registry, docs, changelog) and pushed
 
 Check by screenshotting the built page at the three widths and comparing side by side with the Figma frames. List any accepted difference with a reason.
 
@@ -1278,7 +1236,7 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Put an eyebrow above every hero H1, written by you when the content has none.
 - Read copy in place and break lines at phrase boundaries.
 - Use the Arrow Glide icon for every arrow in a card, so the card hover plays its glide.
-- Close every page with `sections/page-end` after `</main>`.
+- Leave the header, booking card and footer out of the page: they are global.
 - Brainstorm two or three compositions for a content heavy section before building it.
 
 ### 19.2 Don't
@@ -1311,7 +1269,8 @@ Check by screenshotting the built page at the three widths and comparing side by
 - Don't merge approved sections, rewrite their labels, or feature one item of a set over the others.
 - Don't write "Contact us", "Get a quote", "in UX" (for the 20+ years), or "450+ B2B projects".
 - Don't publish anything listed in section 20.
-- Don't edit `dist/` or `tokens.css` by hand.
+- Don't edit `dist/`, the registry or the developers' files by hand.
+- Don't add a `<style>` block or a class that is not in the registry. Write a PART (docs/CSS-GUIDE.md section 5).
 
 ### 19.3 Failures seen before
 
@@ -1373,7 +1332,8 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 52 | Headings and card copy broke mid-phrase ("Product and app" / "design") or left a lone word | The reader loses the thought at the break | Read copy in place and break at phrase boundaries (5.4) |
 | 53 | The header had a line under it and stayed transparent, so it was lost once the page scrolled | The line is not in the design; readers need the nav back when they scroll up | Header without line, pinned Ink bar on scroll up (16.5) |
 | 54 | Hovering a "What we design" card did nothing to its arrow | The card arrow was a separate drawing, not the Arrow Glide icon | Arrow Glide icon in every card; the card hover plays the glide (11) |
-| 55 | The booking card sat above the footer with a gap instead of overlapping it | The card was inside `<main>` and the footer outside it, so the overlap rule never applied | `sections/page-end` after `</main>` (16.5) |
+| 55 | The booking card sat above the footer with a gap instead of overlapping it | The card was inside `<main>` and the footer outside it, so the overlap rule never applied | The booking card and footer are global, never in the page (16.5) |
+| 56 | Pages came with their own `<style>` blocks and classes the AI invented, so the developers rewrote every page before it could go into WordPress | The live site has one stylesheet and one class system; anything else is rework | Registry classes only, new CSS as a PART the developers' way (rule 1, docs/CSS-GUIDE.md) |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
 
@@ -1394,6 +1354,6 @@ Rows 17 to 30 come from a What we do page that used the repo correctly at code l
 - Most FAQ answers are "Add answer here." placeholders
 - Featured story video file; Aeonik font files; Calendly link; LinkedIn URLs
 - Tablet and mobile designs exist only for the homepage and Success Stories pages; About and Insights follow the rules
-- Not built in the repo yet: the CTA band (13.9), a comparison table section (13.8), the capability stack and the why grid with icons from the live What we do page (15.4). Build each once, following those rules, and add it to the library before reusing it
+- Not built as uxt- sections yet: the CTA band (13.9), a comparison table section (13.8) and the design only sections in section 14. Build each once, as a partial with a PART, before reusing it
 
 When any of these is resolved, update this file and `docs/OPEN-ITEMS.md`.

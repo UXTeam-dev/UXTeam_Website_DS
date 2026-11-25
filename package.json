@@ -1,16 +1,19 @@
 {
   "name": "uxteam-website-ds",
-  "version": "1.0.0",
-  "description": "UXTeam Website 2026 design system: tokens, components, sections and coded pages in plain HTML, CSS and JS.",
+  "version": "2.0.0",
+  "description": "UXTeam website: the developers' uxt- stylesheet, page bodies ready to paste into Salient, the class registry and the checks that keep new pages on it.",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "classes": "node scripts/classes.mjs",
+    "check": "node scripts/check.mjs",
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/build.mjs && node scripts/check.mjs; node scripts/serve.mjs",
-    "check": "node scripts/check.mjs",
     "icon": "node scripts/icon.mjs",
-    "bundle": "node scripts/bundle.mjs"
+    "legacy:build": "node legacy/scripts/build.mjs",
+    "legacy:check": "node legacy/scripts/check.mjs",
+    "legacy:bundle": "node legacy/scripts/bundle.mjs"
   },
   "engines": {
     "node": ">=18"

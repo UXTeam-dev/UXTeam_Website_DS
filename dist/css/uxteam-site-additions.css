@@ -1,0 +1,56 @@
+/* =====================================================================
+   UXTEAM WEBSITE  |  ADDITIONS TO uxteam-site.css
+   New PARTs written in this repo for sections the live CSS does not have
+   yet. Each part is one file in src/css/parts/, imported here in order.
+   The build joins them into dist/css/uxteam-site-additions.css.
+
+   To go live: the developers paste the additions file at the END of
+   Salient > Custom CSS (after PART R), then move each part into
+   uxteam-site.css and delete it here (docs/CSS-GUIDE.md section 7).
+
+   Rules for every part: docs/CSS-GUIDE.md section 5 and 6.
+   ===================================================================== */
+
+/* =====================================================================
+   PART S | SHARED HELPERS  (Figma Graphics 2638:6786, family 6 image boxes)
+   HTML: src/partials/elements/placeholder.html and nowrap spans in page copy.
+   Scope: global
+   Two small helpers every page may need. Only new classes, nothing in
+   PART A to R is restyled.
+
+   uxt-placeholder   Labeled image box where a client mockup, screenshot,
+                     photo or cover will go (never a real mockup that was
+                     not supplied). Default 3:2. Add uxt-placeholder-square,
+                     uxt-placeholder-wide (16:9) or uxt-placeholder-tall (4:5).
+   uxt-nowrap        Keeps a short phrase on one line (LLM.md 5.4).
+   ===================================================================== */
+
+.uxt-placeholder {
+    position: relative;
+    display: grid !important;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px dashed var(--uxt-color-border) !important;
+    border-radius: 8px !important;
+    background: #f2f3f8 !important;
+    text-align: center;
+}
+
+.uxt-placeholder.uxt-placeholder-square { aspect-ratio: 1 / 1; }
+.uxt-placeholder.uxt-placeholder-wide { aspect-ratio: 16 / 9; }
+.uxt-placeholder.uxt-placeholder-tall { aspect-ratio: 4 / 5; }
+
+/* The label is a PART B text class (uxt-p uxt-p-xs); this only sets
+   its width and the Steel colour. */
+.uxt-placeholder .uxt-placeholder-label {
+    max-width: 32ch;
+    color: var(--uxt-color-border) !important;
+}
+
+.uxt-nowrap {
+    white-space: nowrap;
+}
+

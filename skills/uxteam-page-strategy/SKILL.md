@@ -44,7 +44,7 @@ Answer each in one or two lines:
 2. Every belief from step 3 is earned by at least one section. Every objection is answered somewhere (often the FAQ).
 3. Score each section with the four questions in LLM.md 6.1. Assign Low, Medium or High and the treatment (6.2).
 4. Keep 2 to 3 High sections at most, never two heavy High sections back to back, and the main action right after the strongest one (6.4).
-5. For each section, name the repo file you will use, or "new" with one line on why nothing existing fits.
+5. For each section, name the repo file you will use (a partial in `src/partials/`), or "new" with one line on why nothing existing fits and the PART its new classes will go in (docs/CSS-GUIDE.md section 5).
 6. Where the content matches an approved section (process, partnerships, outcomes, logo strip, FAQ), plan to reuse it whole with its approved copy and labels (LLM.md 12.5). Never merge two approved sections.
 7. For a set of parallel items (services, industries, ways to work), plan one treatment for all of them (LLM.md 12.6).
 8. Where the page shows trusted partners, plan the logo marquee include as it is (`sections/logo-marquee`). Never a static logo row.

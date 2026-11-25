@@ -4,7 +4,10 @@ How UXTeam uses icons, illustrations and product scenes, where each kind goes, a
 
 Source: Figma file "UXTeam Website 2026", **Graphics** board (node `2638:6786`). Screenshots of every graphic on that board are in `reference/graphics/`. Open the matching one before you draw.
 
-Live examples of every family: `dist/library/index.html#graphics` (after `npm run build`). A full page that uses one family per section, in the section it belongs to: `src/demos/ux-audit.html` (logos, spot illustrations, numerals, product scene, mini scenes, process icons, Phosphor icon tiles).
+> **Code note.** The drawing rules, families, sizes and colours in this guide are current. The markup examples (classes starting `ux-`, partials in `components/graphic/`) are from the old system in `legacy/`, which still shows every family live (`npm run legacy:build`, then `legacy/dist/library/index.html#graphics` and `legacy/dist/demos/ux-audit.html`). On a page today:
+> - **Icons:** `<!-- @icon name size="32" class="uxt-…" -->` (the build inlines the SVG); the class comes from the registry or the page's PART.
+> - **Image placeholders:** `<!-- @include partials/elements/placeholder.html label="…" ratio="uxt-placeholder-wide" -->` (PART S).
+> - **Icon tiles, spot panels, topic tiles, scenes:** the first page that needs one builds it as a partial with a PART, using the look described here and the SVG files in `assets/` ([CSS-GUIDE.md](CSS-GUIDE.md) section 5). Copy the SVG drawings as they are; write new `uxt-` classes for the boxes around them.
 
 ---
 
@@ -198,8 +201,10 @@ Numbers in a drawn scene are illustrative. Never use a real client name, logo or
 
 
 ```html
-<div class="ux-image-box ux-image-box--blog"><span class="ux-image-box__label">Blog cover, 336 x 216: editorial 3D still life, one object, soft studio light</span></div>
+<!-- @include partials/elements/placeholder.html label="Blog cover, 336 x 216: editorial 3D still life, one object, soft studio light" -->
 ```
+
+(In the old system this was `.ux-image-box`. The ratio column below maps to `uxt-placeholder-square`, `-wide` (16:9), `-tall` (4:5) or the default 3:2; any other exact size goes in the page's PART.)
 
 | Where | Size and ratio class | What the label describes | Reference |
 |---|---|---|---|

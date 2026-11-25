@@ -1,171 +1,167 @@
 #!/usr/bin/env node
-/**
- * UXTeam Design System build. No dependencies, Node 18+.
+/*
+ * UXTeam website build (uxt- system).
  *
- *  1. src/tokens/tokens.json      -> src/tokens/tokens.css      (CSS custom properties)
- *  2. src/uxteam.css (@imports)   -> dist/css/uxteam.css         (one stylesheet)
- *  3. src/js/*.js + components    -> dist/js/uxteam.js           (one script)
- *  4. src/pages/*.html            -> dist/pages/*.html           (includes resolved)
- *     src/library/*.html          -> dist/library/*.html
- *     src/demos/*.html            -> dist/demos/*.html (demo pages, not approved)
- *  5. assets/                     -> dist/assets/                (copied)
+ *   src/pages/<page>.html        -> dist/wordpress/<page>.html   paste into one Salient "Raw HTML" element
+ *                                -> dist/preview/<page>.html     full page for review (not for WordPress)
+ *   src/global/footer-global.html-> dist/wordpress/footer-global.html (the footer global section)
+ *   src/css/uxteam-site.css      -> dist/css/uxteam-site.css     copied byte for byte (the live Custom CSS)
+ *   src/css/uxteam-site-additions.css + src/css/parts/*.css
+ *                                -> dist/css/uxteam-site-additions.css (new PARTs, appended after PART R)
  *
- * Include syntax inside any HTML file:
- *   <!-- @include sections/site-header/site-header.html theme="dark" -->
- * Paths are relative to src/. Inside the partial, {{name}} is replaced by the
- * attribute value and {{name|fallback}} uses "fallback" when it is not passed.
+ * Includes: <!-- @include partials/sections/faq.html key="value" -->
+ *   Paths are relative to src/. {{key|default}} placeholders are filled from the
+ *   attributes. The doc comment at the top of a partial is not copied into the output.
  *
- * Icon syntax (Phosphor Light, inlined, takes the text color):
- *   <!-- @icon shield-check size="32" -->
+ * The preview is the only place this build adds anything that is not in the
+ * page: a stand-in header, the footer global section, the two stylesheets and
+ * a stand-in FAQ script (the live site has its own). Nothing from the preview
+ * shell goes to WordPress.
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync, existsSync, rmSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, rmSync, copyFileSync, statSync } from 'node:fs';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'src');
 const DIST = join(ROOT, 'dist');
+const LIVE = 'https://new.ux.team';
 
-/* ---------- 1. tokens ---------- */
-function buildTokens() {
-  const t = JSON.parse(readFileSync(join(SRC, 'tokens/tokens.json'), 'utf8'));
-  const root = [], tablet = [], mobile = [];
-  const skip = (k) => k.startsWith('$');
-  const leaves = (obj, path = []) => Object.entries(obj).filter(([k]) => !skip(k)).flatMap(([k, v]) =>
-    v && typeof v === 'object' && !('$value' in v) ? leaves(v, [...path, k]) : [[[...path, k], v]]);
-  const push = (name, value) => {
-    if (Array.isArray(value)) {
-      root.push(`  ${name}: ${value[0]};`);
-      if (value[1] !== value[0]) tablet.push(`    ${name}: ${value[1]};`);
-      if (value[2] !== value[1]) mobile.push(`    ${name}: ${value[2]};`);
-    } else root.push(`  ${name}: ${value};`);
-  };
-  root.push('  /* Colors */');
-  for (const [p, v] of leaves(t.color)) push(`--ux-${p[p.length - 1]}`, v.$value);
-  root.push('  /* Gradients */');
-  for (const [p, v] of leaves(t.gradient)) push(`--ux-gradient-${p.at(-1)}`, v.$value);
-  root.push('  /* Font families and weights */');
-  for (const [p, v] of leaves(t.font.family)) push(`--ux-font-${p.at(-1)}`, v.$value);
-  for (const [p, v] of leaves(t.font.weight)) push(`--ux-weight-${p.at(-1)}`, v.$value);
-  root.push('  /* Type scale (size, line height, letter spacing) */');
-  for (const [p, v] of leaves(t.type)) {
-    const n = p.at(-1);
-    push(`--ux-fs-${n}`, v.$value);
-    push(`--ux-lh-${n}`, v.$lh);
-    if (v.$ls) push(`--ux-ls-${n}`, v.$ls);
-  }
-  root.push('  /* Spacing */');
-  for (const [p, v] of leaves(t.space)) push(`--ux-space-${p.at(-1)}`, v.$value);
-  root.push('  /* Layout */');
-  for (const [p, v] of leaves(t.layout)) push(`--ux-${p.at(-1)}`, v.$value);
-  root.push('  /* Radius, borders, shadows, motion */');
-  for (const [p, v] of leaves(t.radius)) push(`--ux-radius-${p.at(-1)}`, v.$value);
-  for (const [p, v] of leaves(t.border)) push(`--ux-border-${p.at(-1)}`, v.$value);
-  for (const [p, v] of leaves(t.shadow)) push(`--ux-shadow-${p.at(-1)}`, v.$value);
-  for (const [p, v] of leaves(t.motion)) push(`--ux-motion-${p.at(-1)}`, v.$value);
+/* ---------- includes ---------- */
+const INCLUDE = /<!--\s*@include\s+([^\s]+)((?:\s+[\w-]+="[^"]*")*)\s*-->/g;
+const DOC_COMMENT = /^\s*<!--(?![\s\S]*?@include)[\s\S]*?-->\s*\n?/;
 
-  const css = `/* GENERATED FILE. Do not edit by hand.
-   Edit src/tokens/tokens.json and run "npm run build". */
-
-:root {
-${root.join('\n')}
+function parseAttrs(s) {
+  const out = {};
+  for (const m of s.matchAll(/([\w-]+)="([^"]*)"/g)) out[m[1]] = m[2];
+  return out;
 }
 
-/* Tablet (design frame 768) */
-@media (max-width: ${t.breakpoint.tablet.$value}) {
-  :root {
-${tablet.join('\n')}
-  }
+export function expand(html, from = 'page', depth = 0) {
+  if (depth > 10) throw new Error(`Includes nested too deep near ${from}`);
+  return html.replace(INCLUDE, (_, path, attrs) => {
+    const file = join(SRC, path);
+    if (!existsSync(file)) throw new Error(`${from}: @include ${path} not found`);
+    const params = parseAttrs(attrs);
+    let body = readFileSync(file, 'utf8').replace(DOC_COMMENT, '');
+    body = body.replace(/\{\{([\w-]+)(?:\|([^}]*))?\}\}/g, (m, k, d) => {
+      if (k in params) return params[k];
+      if (d !== undefined) return d;
+      throw new Error(`${from}: ${path} needs ${k}="…"`);
+    });
+    // empty modifier slots leave a trailing space inside class=""; tidy it
+    body = body.replace(/class="([^"]*)"/g, (m, c) => `class="${c.replace(/\s+/g, ' ').trim()}"`);
+    return expand(body, path, depth + 1).trimEnd();
+  }).replace(/<!--\s*@icon\b[^>]*-->/g, (m) => icons(m));
 }
 
-/* Mobile (design frame 375) */
-@media (max-width: ${t.breakpoint.mobile.$value}) {
-  :root {
-${mobile.join('\n')}
-  }
-}
-`;
-  writeFileSync(join(SRC, 'tokens/tokens.css'), css);
-}
-
-/* ---------- 2. css ---------- */
-function bundleCss(file, seen = new Set()) {
-  const abs = join(SRC, file);
-  if (seen.has(abs)) return '';
-  seen.add(abs);
-  const text = readFileSync(abs, 'utf8');
-  return text.replace(/@import\s+(?:url\()?["']([^"')]+)["']\)?\s*;/g, (_, p) =>
-    `\n/* ===== ${join(dirname(file), p)} ===== */\n` + bundleCss(join(dirname(file), p), seen));
-}
-
-/* ---------- 3. js ---------- */
-function bundleJs() {
-  const order = JSON.parse(readFileSync(join(SRC, 'js/manifest.json'), 'utf8'));
-  return `/* UXTeam Design System JS. Generated by scripts/build.mjs */\n` +
-    order.map((f) => `\n/* ===== ${f} ===== */\n` + readFileSync(join(SRC, f), 'utf8')).join('\n');
-}
-
-/* ---------- 4. html includes ---------- */
-function resolveIncludes(html, depth = 0) {
-  if (depth > 10) throw new Error('Include depth limit hit (circular include?)');
-  return html.replace(/<!--\s*@include\s+([^\s]+)((?:\s+[\w-]+="[^"]*")*)\s*-->/g, (_, path, attrs) => {
-    const params = Object.fromEntries([...attrs.matchAll(/([\w-]+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
-    let part = readFileSync(join(SRC, path), 'utf8');
-    part = part.replace(/^<!--[\s\S]*?-->\s*/, ''); // drop the doc comment at the top of a partial
-    part = part.replace(/\{\{\s*([\w-]+)\s*(?:\|([^}]*))?\}\}/g, (m, k, fb) => (k in params ? params[k] : fb ?? ''));
-    return resolveIncludes(part, depth + 1);
-  });
-}
-
-/* ---------- 5. Phosphor icons ----------
- * <!-- @icon shield-check size="32" class="ux-meta-icon" label="NDA" -->
- * Inlines assets/icons/phosphor/light/<name>.svg. The icon takes the text color
- * (fill="currentColor"), so the container sets it. Without label it is hidden
- * from screen readers; with label it gets role="img" and that label.
- * Find names with: npm run icon -- <word>. Rules: docs/GRAPHICS.md, family 2.
+/* ---------- icons ----------
+ * <!-- @icon shield-check size="32" class="uxt-industry-icon" label="NDA" -->
+ * Inlines assets/icons/phosphor/light/<name>.svg (or assets/icons/custom/<name>.svg
+ * with set="custom"). The icon takes the text colour (currentColor). Without
+ * label it is hidden from screen readers. Find names: npm run icon -- <word>.
+ * Rules: docs/GRAPHICS.md, family 2. The class must be in the registry.
  */
-const PHOSPHOR = join(ROOT, 'assets', 'icons', 'phosphor', 'light');
-function resolveIcons(html) {
+export function icons(html) {
   return html.replace(/<!--\s*@icon\s+([a-z0-9-]+)((?:\s+[\w-]+="[^"]*")*)\s*-->/g, (_, name, attrs) => {
-    const p = Object.fromEntries([...attrs.matchAll(/([\w-]+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
-    const file = join(PHOSPHOR, `${name}.svg`);
-    if (!existsSync(file)) throw new Error(`@icon "${name}" is not a Phosphor icon. Search with: npm run icon -- ${name}`);
+    const p = parseAttrs(attrs);
+    const dir = p.set === 'custom' ? join(ROOT, 'assets', 'icons', 'custom') : join(ROOT, 'assets', 'icons', 'phosphor', 'light');
+    const file = join(dir, `${name}.svg`);
+    if (!existsSync(file)) throw new Error(`@icon "${name}" not found in ${dir.slice(ROOT.length + 1)}. Search with: npm run icon -- ${name}`);
     const size = p.size || '24';
     const a11y = p.label ? `role="img" aria-label="${p.label}"` : 'aria-hidden="true" focusable="false"';
     const cls = p.class ? ` class="${p.class}"` : '';
-    return readFileSync(file, 'utf8').trim().replace('<svg ', `<svg${cls} width="${size}" height="${size}" ${a11y} `);
+    return readFileSync(file, 'utf8').trim().replace(/<\?xml[^>]*>\s*/, '').replace('<svg ', `<svg${cls} width="${size}" height="${size}" ${a11y} `);
   });
 }
 
-function buildHtml(dir) {
-  const from = join(SRC, dir);
-  if (!existsSync(from)) return;
-  for (const f of readdirSync(from)) {
-    if (!f.endsWith('.html')) continue;
-    const out = join(DIST, dir, f);
-    mkdirSync(dirname(out), { recursive: true });
-    writeFileSync(out, resolveIcons(resolveIncludes(readFileSync(join(from, f), 'utf8'))));
-  }
+/* ---------- additions css ---------- */
+function additions() {
+  const manifest = readFileSync(join(SRC, 'css', 'uxteam-site-additions.css'), 'utf8');
+  return manifest.replace(/@import\s+["']([^"']+)["'];?/g, (_, p) => {
+    const f = join(SRC, 'css', p);
+    if (!existsSync(f)) throw new Error(`uxteam-site-additions.css imports ${p}, which does not exist`);
+    return readFileSync(f, 'utf8').trim();
+  });
 }
 
-/* ---------- 5. assets ---------- */
-function copyDir(from, to) {
-  mkdirSync(to, { recursive: true });
-  for (const f of readdirSync(from)) {
-    const s = join(from, f), d = join(to, f);
-    statSync(s).isDirectory() ? copyDir(s, d) : copyFileSync(s, d);
-  }
+/* ---------- preview shell ---------- */
+const forPreview = (html) => html.replace(/(["'(])\/wp-content\//g, `$1${LIVE}/wp-content/`);
+
+const STANDIN_HEADER = `<!-- PREVIEW ONLY: stand-in for Salient's native header. Not part of the page. -->
+<header class="preview-header"><a href="#" class="preview-logo">UXTeam</a><nav><a href="#">What We Do</a><a href="#">Success Stories</a><a href="#">Insights</a><a href="#">About</a></nav></header>`;
+
+const STANDIN_CSS = `/* PREVIEW ONLY. Not part of uxteam-site.css. */
+body{margin:0}
+.preview-header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 120px;background:#0a1b33;font:500 16px/1 'Manrope',sans-serif}
+.preview-header a{color:#fff;text-decoration:none;margin-left:28px}.preview-logo{margin-left:0!important;font-weight:600;font-size:20px}
+.preview-note{font:13px/1.4 'Manrope',sans-serif;background:#fedfba;color:#0a1b33;padding:8px 120px}
+@media (max-width:999px){.preview-header,.preview-note{padding-left:24px;padding-right:24px}.preview-header nav{display:none}}`;
+
+const STANDIN_JS = `<!-- PREVIEW ONLY: stand-in FAQ toggle. The live site uses its own global script. -->
+<script>
+document.querySelectorAll('.uxt-faq-question').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var item = b.closest('.uxt-faq-item'), panel = document.getElementById(b.getAttribute('aria-controls'));
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    item.classList.toggle('is-expanded', !open);
+    if (panel) { if (open) panel.setAttribute('inert', ''); else panel.removeAttribute('inert'); }
+  });
+});
+</script>`;
+
+function previewDoc(title, body, footer) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title} | UXTeam preview</title>
+<link rel="stylesheet" href="../css/uxteam-site.css">
+<link rel="stylesheet" href="../css/uxteam-site-additions.css">
+<style>${STANDIN_CSS}</style>
+</head>
+<body>
+${STANDIN_HEADER}
+<p class="preview-note">Preview. Images load from ${LIVE}. Aeonik shows only where it is installed. Header and FAQ script are stand-ins.</p>
+${forPreview(body)}
+${forPreview(footer)}
+${STANDIN_JS}
+</body>
+</html>
+`;
 }
 
-buildTokens();
-rmSync(DIST, { recursive: true, force: true });
-mkdirSync(join(DIST, 'css'), { recursive: true });
-mkdirSync(join(DIST, 'js'), { recursive: true });
-writeFileSync(join(DIST, 'css/uxteam.css'), `/* UXTeam Design System CSS. Generated by scripts/build.mjs */\n` + bundleCss('uxteam.css'));
-writeFileSync(join(DIST, 'js/uxteam.js'), bundleJs());
-buildHtml('pages');
-buildHtml('demos');
-buildHtml('library');
-copyDir(join(ROOT, 'assets'), join(DIST, 'assets'));
-writeFileSync(join(DIST, 'index.html'), readFileSync(join(SRC, 'index.html'), 'utf8'));
-console.log('Built dist/ from', relative(process.cwd(), SRC) || 'src');
+/* ---------- build ---------- */
+export function build({ quiet = false } = {}) {
+  rmSync(DIST, { recursive: true, force: true });
+  for (const d of ['wordpress', 'preview', 'css']) mkdirSync(join(DIST, d), { recursive: true });
+
+  copyFileSync(join(SRC, 'css', 'uxteam-site.css'), join(DIST, 'css', 'uxteam-site.css'));
+  writeFileSync(join(DIST, 'css', 'uxteam-site-additions.css'), additions() + '\n');
+
+  const footer = expand(readFileSync(join(SRC, 'global', 'footer-global.html'), 'utf8'), 'footer-global.html');
+  writeFileSync(join(DIST, 'wordpress', 'footer-global.html'), footer.trim() + '\n');
+
+  const pages = readdirSync(join(SRC, 'pages')).filter((f) => f.endsWith('.html'));
+  for (const f of pages) {
+    const body = expand(readFileSync(join(SRC, 'pages', f), 'utf8'), f).trim() + '\n';
+    writeFileSync(join(DIST, 'wordpress', f), body);
+    const title = basename(f, '.html').replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
+    writeFileSync(join(DIST, 'preview', f), previewDoc(title, body, footer));
+  }
+
+  // starters build too, so a broken include in a starter is caught early
+  const starters = join(SRC, 'starters');
+  if (existsSync(starters)) {
+    mkdirSync(join(DIST, 'starters'), { recursive: true });
+    for (const f of readdirSync(starters).filter((x) => x.endsWith('.html'))) {
+      writeFileSync(join(DIST, 'starters', f), expand(readFileSync(join(starters, f), 'utf8'), f).trim() + '\n');
+    }
+  }
+  if (!quiet) console.log(`Built ${pages.length} pages into dist/wordpress and dist/preview, plus dist/css.`);
+  return pages;
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) build();

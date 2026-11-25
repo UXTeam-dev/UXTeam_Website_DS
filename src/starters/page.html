@@ -1,0 +1,45 @@
+<!-- ============================================================
+     UXTEAM: [PAGE NAME] PAGE  (Figma [node id])
+     Paste into one Salient "Raw HTML" element (page body only).
+     Header, "Book a Discovery Call" and footer come from the global
+     sections, so they are not in this file.
+     Classes: only those in docs/CLASS-REGISTRY.md (uxteam-site.css and
+     src/css/parts). New classes follow docs/CSS-GUIDE.md section 5 and go
+     into a new PART in src/css/parts, never into a <style> block here.
+     ============================================================ -->
+<!--
+  STARTER. Copy to src/pages/<page-key>.html, then:
+  1. Set the wrapper: "uxt-home" (so the shared homepage section styles work)
+     plus "uxt-<page-key>" for this page's own styles.
+  2. Build each section from a partial in src/partials/sections (copy it and
+     change only text, links and images) or from the elements below.
+  3. npm run build && npm run check. Fix every error.
+-->
+<div class="uxt-home uxt-[page-key]">
+
+  <!-- ================= 1. HERO ================= -->
+  <div class="uxt-full uxt-section uxt-hero">
+    <div class="uxt-container">
+      <div class="uxt-hero-content">
+        <p class="uxt-subheading underline-sky-blue uxt-white">[Eyebrow, always]</p>
+        <h1 class="uxt-h1 uxt-white">[Page title]</h1>
+        <p class="uxt-p uxt-p-lg uxt-white">[One or two sentences, about 30 words]</p>
+        <!-- @include partials/elements/button.html type="primary" mod="uxt-button-dark" label="Book a Discovery Call" href="#book-call" -->
+      </div>
+    </div>
+    <!-- @include partials/sections/logos.html -->
+  </div>
+
+  <!-- ================= 2. [SECTION NAME] ================= -->
+  <div class="uxt-full uxt-section uxt-[section-key]">
+    <div class="uxt-container">
+      <!-- @include partials/elements/heading.html sub="[Eyebrow]" title="[Section title]" -->
+      <!-- Section content: copy an existing section from src/partials/sections,
+           or build it from registry classes. New layout classes go in a new PART. -->
+    </div>
+  </div>
+
+  <!-- Book a Discovery Call and the footer come from the footer global section
+       (src/global/footer-global.html). Buttons with href="#book-call" scroll to it. -->
+
+</div>

@@ -1,0 +1,16 @@
+<!--
+  Button (Figma CTA / 01 Arrow Glide). PART B of uxteam-site.css. Exact developer markup.
+  Params:
+    type   primary | secondary | subtle | glass        (subtle and glass: dark backgrounds only)
+    mod    uxt-button-dark  when it sits on a dark background (primary, secondary)
+    label  the button text (Title Case, as on the live site)
+    href   link
+  Inside a card that is a link, use button-in-card.html instead (a <span>, no nested link).
+-->
+<a href="{{href|#book-call}}" class="uxt-button uxt-button-{{type|primary}} {{mod|}}">
+  <span class="uxt-button-label">{{label|Book a Discovery Call}}</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>

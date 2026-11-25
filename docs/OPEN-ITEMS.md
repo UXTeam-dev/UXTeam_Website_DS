@@ -2,15 +2,26 @@
 
 Things that are placeholders, pending a decision, or waiting for a file. Remove a line when it is done.
 
+## Needed from the developers
+
+| Item | Why | Until then |
+|---|---|---|
+| `uxteam-about-us.html` (the About page body) | PART R (About) is live in the CSS, but its markup is not in the repo, so About sections cannot be reused | `uxt-about-*` classes are in the registry; build nothing on them until the markup arrives |
+| The site wide scripts (FAQ toggle, header hide on scroll, anything else in the theme) | So previews behave like the live site and new pages rely only on what exists | The preview uses a stand-in FAQ script |
+| Confirm the image paths in the footer global section (`UX-Team-Gray-logo.svg`, `UX-Team-bg-shape.svg`, `chintan_bhatt_founder_uxteam-web.webp`) | They came from a saved copy of the live page, so the folder `/wp-content/uploads/2026/10/` is a guess | Confirm in the WordPress media library |
+| Aeonik font files, or confirmation the theme path `/wp-content/themes/salient/fonts/Aeonik/` stays | Previews outside WordPress fall back to Manrope | Headings show in Manrope in previews |
+| What we do hero has no eyebrow above the H1 | LLM.md rule 20 (every hero has an eyebrow); `npm run check` warns on the developers' file | Raise with the developers; new pages must have one |
+| Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
+| Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
+
 ## Waiting for files
 
 | Item | Where it goes | Until then |
 |---|---|---|
-| Aeonik font files (Regular and Medium, woff2) | `assets/fonts/aeonik/Aeonik-Regular.woff2`, `Aeonik-Medium.woff2` | Headings fall back to Helvetica Neue or Arial |
-| Featured story video (Brent Weaver, E2M) | `data-video` (MP4 URL) or `data-embed` (YouTube or Vimeo URL) in `sections/featured-story/featured-story.html` | The play button shows the still only |
-| Calendly booking link | `data-calendly` on the booking form, `sections/booking-cta/_form.html` | Submitting shows a short confirmation message |
-| LinkedIn URLs for people | `linkedin` param on the person partial, author box on the article | Links point to `#` |
-| Real links for cards and nav | `href` params | Links point to `#` |
+| Featured story video (Brent Weaver, E2M) | The featured story in `src/partials/sections/stories.html` (the developers' markup) | The play button shows the still only |
+| Calendly booking link | The booking form in the footer global section (developers) | As on the live site |
+| LinkedIn URLs for people | Story and author links | Links point to `#` |
+| Real links for cards | `href` on cards and buttons | Links point to `#` |
 
 ## Placeholder copy (as in Figma)
 
@@ -18,29 +29,27 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 - Homepage outcomes: both cards carry the same headline and numbers in Figma, and the 3motionAI name is still waiting for approval.
 - Article "Mapping User Flows" reuses the landing page audit image in Figma; the Google Analytics screen capture is still to come.
 
-## Not built yet
+## Not built as uxt- sections yet
 
-- A CTA band for mid-page prompts with an action (rules in LLM.md 13.9).
-- A comparison table section (rules in LLM.md 13.8).
-- The capability stack from the live What we do page (sticky tabs, stacked capability cards with deliverable visuals, AI design card with four sub areas, closing CTA band). Spec in LLM.md 15.4.
-- The why grid with icons from the live What we do page (four hairline columns with outline icons).
-- A What we do page in this repo, built from the two sections above and the existing ones.
-- From the Figma Graphics board (`2638:6786`): the service row, the mini scene row, the expectations row, the numbers band and the topic tiles are built and used in `src/demos/ux-audit.html`. The capability row's intro and single action above the mini scenes is not.
-- Drawn scenes coded so far: Conversion Optimization, UX Audit, the Trust and Transparency mini scene and four sample finding mini scenes. UX Audit, Design Systems, UX Strategy Workshop and the other three AI mini scenes are references only (`reference/graphics/`); code them from the recipe in docs/GRAPHICS.md when a page needs them.
+Each is built as a partial with a new PART the first time a page needs it (LLM.md section 14, CSS-GUIDE section 5). Their designs live in Figma and in `legacy/` (the old ux- system).
+
+- Listing, case study, article and light heroes; the detail page kit (TOC rail, content blocks, related row); filter chips.
+- From the Figma Graphics board (`2638:6786`): service row with scene, mini scene row, expectations row, numbers band, topic tiles, icon tiles. Old versions in `legacy/src/demos/ux-audit.html`.
+- A CTA band for mid-page prompts with an action (LLM.md 13.9) and a comparison table section (LLM.md 13.8).
+- Pages from the old system still to convert: Success Stories listing and detail, Insights listing and article, About (waiting for the developers' markup), the UX Audit demo, the B2B SaaS and AI industry page.
 
 ## Images
 
-- New sections never get real client mockups or screenshots, only labeled image boxes (docs/GRAPHICS.md section 8). The team adds images later.
+- New sections never get real client mockups or screenshots, only labeled placeholders (`partials/elements/placeholder.html`, docs/GRAPHICS.md section 8). The team adds images later.
 
 ## To confirm
 
-- Hub pages (What we do) use the homepage booking card ("Skip the layers, talk to the founder."), as on the live page. LLM.md 15.5 now says so.
 - The no gradient cards rule (LLM.md 8.5) keeps the G6 rows on the approved Success Story detail page as they are. Confirm, or switch them to white cards.
 - The eyebrow rule (LLM.md 8.4) does not apply to detail pages, whose body blocks and "Other success stories" / "Other insights" rows have no eyebrow in Figma. Confirm, or add eyebrows there too.
 
 ## Copy to review
 
-`npm run check` warns about avoided words in approved Figma copy: "synergy" and "solutions" on the Insights article, "solutions" on the Squaircle success story. Confirm with Chintan whether to keep or change them.
+"Synergy" and "solutions" appear in approved Figma copy on the Insights article and the Squaircle success story (old system pages). Confirm with Chintan whether to keep or change them before those pages are converted.
 
 ## Not designed yet
 
@@ -48,7 +57,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 - Header navigation dropdowns (carets are ready as buttons).
 - Nav will change later; it is built as designed for now.
 
-## Decisions made while building
+## Decisions made while building (old system pages, carry over when converting)
 
 - Success Story detail, tablet and mobile: the TOC moves to a floating menu at the bottom of the screen (Figma shows it at the top, to be updated).
 - Success Story detail hero, tablet and mobile: in Figma the person's role text fades into the white end of the gradient. In code the gradient is stretched to the hero so the text stays on Slate and readable.

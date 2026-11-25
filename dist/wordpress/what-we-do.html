@@ -1,0 +1,1008 @@
+<!-- ============================================================
+     UXTEAM: WHAT WE DO PAGE  (Figma 1852:10874, animation 1857:781)
+     Paste into one Salient "Raw HTML" element (page body only).
+     Header, "Book a Discovery Call" and footer come from your
+     global sections, so they are not in this file.
+     Shared classes: uxt-h1, uxt-h2, uxt-h3, uxt-h3-sm, uxt-p,
+     uxt-subheading, uxt-button. Hero, How we work, Partnerships,
+     Outcomes, Blog and FAQ use the exact homepage markup and classes.
+     CSS: uxteam-site.css (homepage + PART M for the new sections). The script at the end runs the sticky capability cards.
+     Images in /wp-content/uploads/2026/11/: the 4 icons from before plus
+     the 16 new webp files (uxteam-what-we-do-images.zip). Each card uses
+     *-square.webp on desktop and mobile and *-tablet.webp on tablet.
+     ============================================================ -->
+<div class="uxt-home uxt-wwd">
+
+  <!-- ================= 1. HERO ================= -->
+  <div class="uxt-full uxt-section uxt-hero">
+    <div class="uxt-container">
+      <div class="uxt-hero-content">
+        <h1 class="uxt-h1 uxt-white">Strategic B2B Design,<br> From Audit to Launch.</h1>
+        <p class="uxt-p uxt-p-lg uxt-white">UXTeam helps B2B companies drive results through product, web, design systems, and conversion, led by experienced designers who prioritize business goals.</p>
+        <a href="#book-call" class="uxt-button uxt-button-primary uxt-button-dark">
+          <span class="uxt-button-label">Book a Discovery Call</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+            <div class="uxt-logos">
+        <p class="uxt-p uxt-p-sm uxt-logos-title">Trusted by B2B companies worldwide</p>
+
+        <div class="uxt-logos-track">
+            <div class="uxt-logos-list">
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt="SLAPS"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt="RBBi"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt="Section"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt="DS Live"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt="FWD"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt="Trescon"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt="The Squaircle"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt="Terrapinn"></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt="Client logo"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt="Alta DX"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt="Atomic North"></div>
+            </div>
+
+            <!-- Duplicate list for seamless scrolling -->
+            <div class="uxt-logos-list" aria-hidden="true">
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt=""></div>
+            </div>
+        </div>
+        </div>
+  </div>
+
+  <!-- ================= 2. CAPABILITIES (sticky tabs + stacked cards) ================= -->
+  <div class="uxt-full uxt-section uxt-wwd-cap" id="capabilities">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Our capabilities</p>
+        <h2 class="uxt-h2">Our capabilities at a glance</h2>
+        <p class="uxt-p uxt-p-sm">Pick where you want to start. Each card takes you to its section below.</p>
+      </div>
+
+      <!-- Tabs and cards: the tab bar only sticks inside this block, so it
+           stops sticking after the last card -->
+      <div class="uxt-cap-sticky-area">
+      <div class="uxt-cap-tabs">
+        <div class="uxt-cap-rail" role="tablist" aria-label="Capabilities">
+          <button type="button" class="uxt-cap-tab is-active" role="tab" aria-selected="true" aria-controls="cap-ux-audit" data-cap="0">UX Audit</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-ux-strategy-workshop" data-cap="1">UX Strategy Workshop</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-product-app-design" data-cap="2">Product &amp; App Design</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-web-marketing-design" data-cap="3">Web &amp; Marketing Design</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-cro" data-cap="4">CRO</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-design-systems" data-cap="5">Design Systems</button>
+          <button type="button" class="uxt-cap-tab" role="tab" aria-selected="false" aria-controls="cap-ai-design" data-cap="6">AI Design</button>
+        </div>
+      </div>
+
+      <div class="uxt-cap-stack">
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-ux-audit" role="tabpanel" data-cap="0">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">UX Audit</h3>
+                <p class="uxt-p uxt-p-sm">Clarity before the commitment. A UX Audit pinpoints where your product or website is losing users, slowing growth, or creating friction, before you invest in design or development.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UX and Conversion Audit report</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Prioritized improvement roadmap</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Key friction point analysis</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Actionable recommendations</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-ctas">
+                <a href="#book-call" class="uxt-button uxt-button-primary">
+                  <span class="uxt-button-label">Book an Audit</span>
+                  <span class="uxt-button-circle">
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+                <a href="#" class="uxt-button uxt-button-secondary">
+                  <span class="uxt-button-label">See How the Audit Works</span>
+                  <span class="uxt-button-circle">
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/ux-audit-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/ux-audit-square.webp" alt="UX Audit work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-ux-strategy-workshop" role="tabpanel" data-cap="1">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text has-fit">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">UX Strategy Workshop</h3>
+                <p class="uxt-p uxt-p-sm">Clarity before the commitment. A UX Audit pinpoints where your product or website is losing users, slowing growth, or creating friction, before you invest in design or development.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">A facilitated session with your key stakeholders</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">A clear problem statement and success metrics</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Mapped user journeys and priority opportunities</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Prioritized roadmap of what to design first</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">A workshop summary with recommendations</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-fit">
+                <p class="uxt-accent">Where it fits:</p>
+                <p class="uxt-p uxt-p-xs">Teams about to start a redesign or a new product who need everyone pointed in the same direction first</p>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/ux-strategy-workshop-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/ux-strategy-workshop-square.webp" alt="UX Strategy Workshop work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-product-app-design" role="tabpanel" data-cap="2">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text has-fit">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">Product &amp; App Design</h3>
+                <p class="uxt-p uxt-p-sm">Complex products made clear. We design SaaS platforms, dashboards, and mobile apps your users can actually use, from the first flows through to polished, shipped interfaces. The work is grounded in how real users move through a product, not just how it looks in a mockup.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Product discovery and user flows</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UI design for web and mobile apps</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Interaction design and prototyping</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Usability testing and iteration</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Developer-ready handoff files</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-fit">
+                <p class="uxt-accent">Where it fits:</p>
+                <p class="uxt-p uxt-p-xs">B2B SaaS and technology companies launching a new product, redesigning a complex one, or adding features without adding friction.</p>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/product-app-design-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/product-app-design-square.webp" alt="Product &amp; App Design work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-web-marketing-design" role="tabpanel" data-cap="3">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text has-fit">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">Web &amp; Marketing Design</h3>
+                <p class="uxt-p uxt-p-sm">Your website is often the first sales conversation. We design responsive sites and campaign pages around the action they're meant to drive, ready to build in Webflow, WordPress, or your stack of choice.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Marketing website design</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Landing pages and campaign pages</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Conversion-focused layout and messaging structure</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Responsive design across devices</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">CMS-ready design for Webflow and WordPress</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-fit">
+                <p class="uxt-accent">Where it fits:</p>
+                <p class="uxt-p uxt-p-xs">B2B companies whose website isn't pulling its weight in the pipeline, or who are preparing for a rebrand, launch, or funding round.</p>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/web-marketing-design-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/web-marketing-design-square.webp" alt="Web &amp; Marketing Design work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-cro" role="tabpanel" data-cap="4">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text has-fit">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">Conversion Optimization</h3>
+                <p class="uxt-p uxt-p-sm">Design tied to the numbers. We find where users drop off and redesign the moments that matter, turning more of the traffic you already pay for into signups, demos, and revenue.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Funnel and user-flow analysis</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Landing-page and signup-flow optimization</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">A/B test design and hypotheses</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UX improvements tied to metrics</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-fit">
+                <p class="uxt-accent">Where it fits:</p>
+                <p class="uxt-p uxt-p-xs">Teams under pressure to get more from existing traffic before spending more on acquisition.</p>
+              </div>
+              <div class="uxt-cap-ctas">
+                <a href="#" class="uxt-button uxt-button-primary">
+                  <span class="uxt-button-label">See How CRO works</span>
+                  <span class="uxt-button-circle">
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+                <a href="#" class="uxt-button uxt-button-secondary">
+                  <span class="uxt-button-label">Get Our Free Funnel Template</span>
+                  <span class="uxt-button-circle">
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/cro-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/cro-square.webp" alt="Conversion Optimization work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card" id="cap-design-systems" role="tabpanel" data-cap="5">
+          <div class="uxt-cap-inner">
+            <div class="uxt-cap-text has-fit">
+              <div class="uxt-cap-main">
+                <h3 class="uxt-h3 uxt-cap-title">Design Systems</h3>
+                <p class="uxt-p uxt-p-sm">Consistency that survives scale. We build design systems that keep every screen, product, and team aligned, so quality holds as your product grows and more people touch the work.</p>
+                <ul class="uxt-cap-points">
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Component libraries</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Design tokens and style foundations</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Reusable UI kits</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Documentation and usage guidelines</span></li>
+                  <li><svg class="uxt-cap-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Governance and maintenance support</span></li>
+                </ul>
+              </div>
+              <div class="uxt-cap-fit">
+                <p class="uxt-accent">Where it fits:</p>
+                <p class="uxt-p uxt-p-xs">Companies scaling across products, platforms, or teams that need design to stay consistent.</p>
+              </div>
+            </div>
+            <div class="uxt-cap-visual">
+              <picture>
+                <!-- Tablet only: wide image 1024 x 517 -->
+                <source media="(min-width: 768px) and (max-width: 1024px)" srcset="/wp-content/uploads/2026/11/design-systems-tablet.webp" width="1024" height="517">
+                <!-- Desktop and mobile: square image 518 x 518 -->
+                <img src="/wp-content/uploads/2026/11/design-systems-square.webp" alt="Design Systems work by UXTeam" width="518" height="518" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </article>
+
+        <div class="uxt-cap-anchor" aria-hidden="true"></div>
+        <article class="uxt-cap-card uxt-cap-card-ai" id="cap-ai-design" role="tabpanel" data-cap="6">
+          <div class="uxt-cap-ai">
+            <div class="uxt-cap-main">
+              <h3 class="uxt-h3 uxt-cap-title">AI Design for B2B</h3>
+              <p class="uxt-p uxt-p-sm">AI only works if people understand it and trust it. We design AI features, agents, and assistants that are clear about what they're doing, easy to steer, and honest about their limits.</p>
+            </div>
+            <div class="uxt-ai-grid">
+              <div class="uxt-ai-item">
+                <h4 class="uxt-h3-sm uxt-ai-title">AI Design</h4>
+                <div class="uxt-ai-img"><img src="/wp-content/uploads/2026/11/ai-agent-experience.webp" alt="AI Design example by UXTeam" width="257" height="152" loading="lazy"></div>
+                <p class="uxt-p uxt-p-sm">Design for agents that act on a user's behalf, with clear handoffs, approvals, and the right level of control.</p>
+                <a href="#" class="uxt-button uxt-button-secondary">
+                  <span class="uxt-button-label">See AI Agent Experience</span>
+                  <span class="uxt-button-circle">
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+              <div class="uxt-ai-item">
+                <h4 class="uxt-h3-sm uxt-ai-title">AI Interface Design</h4>
+                <div class="uxt-ai-img"><img src="/wp-content/uploads/2026/11/ai-interface-design.webp" alt="AI Interface Design example by UXTeam" width="257" height="152" loading="lazy"></div>
+                <p class="uxt-p uxt-p-sm">Interfaces for AI-powered features, from copilots to smart dashboards, built so outputs are easy to read, check, and act on.</p>
+              </div>
+              <div class="uxt-ai-item">
+                <h4 class="uxt-h3-sm uxt-ai-title">AI Conversational Design</h4>
+                <div class="uxt-ai-img"><img src="/wp-content/uploads/2026/11/ai-conversational-design.webp" alt="AI Conversational Design example by UXTeam" width="257" height="152" loading="lazy"></div>
+                <p class="uxt-p uxt-p-sm">Chat and voice experiences with clear flows, sensible fallbacks, and a tone that fits your brand.</p>
+              </div>
+              <div class="uxt-ai-item">
+                <h4 class="uxt-h3-sm uxt-ai-title">Trust and Transparency</h4>
+                <div class="uxt-ai-img"><img src="/wp-content/uploads/2026/11/ai-trust-transparency.webp" alt="Trust and Transparency example by UXTeam" width="257" height="152" loading="lazy"></div>
+                <p class="uxt-p uxt-p-sm">Design that shows users what the AI did, why it did it, and how confident it is, so they can rely on it and correct it.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      </div>
+
+      <!-- Closing card -->
+      <div class="uxt-cap-closing">
+        <div class="uxt-cap-closing-text">
+          <h3 class="uxt-h3">Don't see exactly what you need?</h3>
+          <p class="uxt-p uxt-p-sm">Design is what we do best. Tell us what you're working on, and we'll let you know if we can help.</p>
+        </div>
+        <a href="#book-call" class="uxt-button uxt-button-primary">
+          <span class="uxt-button-label">Book a Discovery Call</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. HOW WE WORK (same as homepage) ================= -->
+  <div class="uxt-full uxt-section uxt-process" id="how-we-work">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Process</p>
+        <h2 class="uxt-h2">How we work</h2>
+        <p class="uxt-p">Every engagement follows the same story, from finding the problem to proving the result.</p>
+      </div>
+
+      <div class="uxt-steps">
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Audit.svg" alt="Audit icon" width="64" height="64"></div>
+          <span class="uxt-accent">1.&nbsp; Audit</span>
+          <h3 class="uxt-h3">We walk your product as your buyers do.</h3>
+          <p class="uxt-p">A UX audit first, to find what's really holding growth back.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Evidence.svg" alt="Evidence icon" width="64" height="64"></div>
+          <span class="uxt-accent">2.&nbsp; Evidence</span>
+          <h3 class="uxt-h3">We check it against your data.</h3>
+          <p class="uxt-p">Analytics, behavior data, and category research. One agreed metric.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Journey.svg" alt="Journey icon" width="64" height="64"></div>
+          <span class="uxt-accent">3.&nbsp; Journey</span>
+          <h3 class="uxt-h3">We redesign the path around their questions.</h3>
+          <p class="uxt-p">Story, routes, and content built around how your buyers decide.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Build.svg" alt="Build icon" width="64" height="64"></div>
+          <span class="uxt-accent">4.&nbsp; Build</span>
+          <h3 class="uxt-h3">We design and build together.</h3>
+          <p class="uxt-p">One team, so nothing waits on a long handover.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Proof.svg" alt="Proof icon" width="64" height="64"></div>
+          <span class="uxt-accent">5.&nbsp; Proof</span>
+          <h3 class="uxt-h3">We test, measure, and keep refining.</h3>
+          <p class="uxt-p">A/B tests against the metric we agreed at the start.</p>
+        </div>
+      </div>
+
+      <div class="uxt-wwd-center">
+        <a href="#" class="uxt-button uxt-button-primary">
+          <span class="uxt-button-label">Learn How We Work</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 4. WHY CHOOSE UXTEAM ================= -->
+  <div class="uxt-full uxt-section uxt-wwd-why">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Why choose UXTeam</p>
+        <h2 class="uxt-h2">Why B2B teams choose UXTeam</h2>
+        <p class="uxt-p">What makes us a dependable partner for the experience your customers see.</p>
+      </div>
+
+      <div class="uxt-why-grid">
+        <div class="uxt-why-item">
+          <img class="uxt-why-icon" src="/wp-content/uploads/2026/11/icon-compass.svg" alt="" width="40" height="40">
+          <h3 class="uxt-h3-sm">Design specialists</h3>
+          <p class="uxt-p">Design is all we do, not one service buried in a long list.</p>
+        </div>
+        <div class="uxt-why-item">
+          <img class="uxt-why-icon" src="/wp-content/uploads/2026/11/icon-target.svg" alt="" width="40" height="40">
+          <h3 class="uxt-h3-sm">Outcome driven</h3>
+          <p class="uxt-p">Every decision ties back to a business result, not just how it looks.</p>
+        </div>
+        <div class="uxt-why-item">
+          <img class="uxt-why-icon" src="/wp-content/uploads/2026/11/icon-clock.svg" alt="" width="40" height="40">
+          <h3 class="uxt-h3-sm">Predictable delivery</h3>
+          <p class="uxt-p">Timelines you can plan around, and we hold them.</p>
+        </div>
+        <div class="uxt-why-item">
+          <img class="uxt-why-icon" src="/wp-content/uploads/2026/11/icon-users.svg" alt="" width="40" height="40">
+          <h3 class="uxt-h3-sm">An extension of your team</h3>
+          <p class="uxt-p">We work inside your tools and process, alongside your product and marketing teams.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 5. PARTNERSHIPS (same as homepage) ================= -->
+<div class="uxt-full uxt-section uxt-stories">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Agency owners voices</p>
+        <h2 class="uxt-h2">The partnerships behind the results</h2>
+      </div>
+
+      <div class="uxt-story-feature">
+        <div class="uxt-story-video">
+          <img decoding="async" src="/wp-content/uploads/2026/10/Brent-Weaver-CEO-Founder-img1.webp" alt="Brent Weaver">
+          <div class="uxt-story-person">
+            <p class="uxt-h3 uxt-white">Brent Weaver</p>
+            <span class="uxt-accent uxt-white">CEO</span>
+          </div>
+          <a href="/wp-content/uploads/2026/10/E2M-Brent-Weaver-CEO-Founder.mp4" class="uxt-play" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"></path></svg>
+          </a>
+        </div>
+        <a href="/success-story/transforming-brand-identity-into-a-high-performance-website-experience/" class="uxt-story-body uxt-button-trigger uxt-story-link" aria-label="Read story">
+          <div class="uxt-story-top">
+            <img decoding="async" class="uxt-story-logo" src="/wp-content/uploads/2026/10/e2m-homepage.svg" alt="E2M">
+            <span class="uxt-accent uxt-text-right">Digital Agency<br>USA · India</span>
+          </div>
+          <h3 class="uxt-h3 uxt-story-title">Transforming a Strong Brand Identity into a High-Performance Website Experience</h3>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="uxt-story-grid">
+        <a href="/success-story/premium-ux-strategy-partnership-for-a-digital-product-studio/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img decoding="async" class="uxt-story-card-logo" src="/wp-content/uploads/2026/10/sqc-homepage.svg" alt="SQC">
+          <h3 class="uxt-h3">Premium UX Strategy Partnership for a Digital Product Studio</h3>
+          <span class="uxt-accent">AI Transformation Studio<br>USA · India</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </span>
+        </a>
+        <a href="/success-story/helping-a-digital-transformation-company-scale-design-delivery/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img decoding="async" class="uxt-story-card-logo uxt-logo-wide" src="/wp-content/uploads/2026/10/section-homepage.svg" alt="Section">
+          <h3 class="uxt-h3">Helping a digital transformation company scale design delivery</h3>
+          <span class="uxt-accent">Digital Experience Agency<br>Singapore</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </span>
+        </a>
+        <a href="/success-story/helping-a-creative-agency-scale-design-delivery-through-ux-ui-partnership/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img decoding="async" class="uxt-story-card-logo" src="/wp-content/uploads/2026/10/rbbi-homepage.svg" alt="RBBi">
+          <h3 class="uxt-h3">Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership</h3>
+          <span class="uxt-accent">Digital Experience Agency<br>Dubai</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <!-- ================= 2. OUTCOMES ================= -->
+  <div class="uxt-full uxt-section uxt-outcomes">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Measured results</p>
+        <h2 class="uxt-h2">Outcomes we've delivered</h2>
+      </div>
+
+      <div class="uxt-case-grid">
+        <div class="uxt-case-card uxt-case-green">
+          <div class="uxt-case-top">
+            <img class="uxt-case-logo" src="/wp-content/uploads/2026/10/3motionAI-homepage.svg" alt="3motionAI">
+            <span class="uxt-accent">HealthTech &nbsp;·&nbsp; AI motion analysis</span>
+          </div>
+          <h3 class="uxt-h3 uxt-case-title">Redesigned the website and app. The new homepage lifted agent sign-ups.</h3>
+          <div class="uxt-case-visual">
+            <img class="uxt-case-img" src="/wp-content/uploads/2026/10/Redesigned-the-website-and-app-img.webp" alt="3motionAI app screens">
+            <div class="uxt-case-stat">
+              <p class="uxt-h3 uxt-white uxt-case-metric">4.0%<span class="uxt-case-arrow"><img src="https://new.ux.team/wp-content/uploads/2026/10/after-launch-arrow-icon.svg" alt="to" width="32" height="32"></span>5.4%</p>
+              <p class="uxt-p uxt-white uxt-case-suffix">after launch</p>
+              <a href="#" class="uxt-button uxt-button-secondary uxt-button-dark">
+                <span class="uxt-button-label">Read Case</span>
+                <span class="uxt-button-circle">
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="uxt-case-card uxt-case-purple">
+          <div class="uxt-case-top">
+            <img class="uxt-case-logo" src="/wp-content/uploads/2026/10/voro-homepage.svg" alt="VORO">
+            <span class="uxt-accent">PropTech &nbsp;·&nbsp; Brokerage platform</span>
+          </div>
+          <h3 class="uxt-h3 uxt-case-title">Redesigned the website and app. The new homepage lifted agent sign-ups.</h3>
+          <div class="uxt-case-visual">
+            <img class="uxt-case-img" src="/wp-content/uploads/2026/10/Redesigned-the-website-and-app-img2.webp" alt="VORO website on a laptop">
+            <div class="uxt-case-stat">
+              <p class="uxt-h3 uxt-white uxt-case-metric">4.0%<span class="uxt-case-arrow"><img src="https://new.ux.team/wp-content/uploads/2026/10/after-launch-arrow-icon.svg" alt="to" width="32" height="32"></span>5.4%</p>
+              <p class="uxt-p uxt-white uxt-case-suffix">after launch</p>
+              <a href="#" class="uxt-button uxt-button-secondary uxt-button-dark">
+                <span class="uxt-button-label">Read Case</span>
+                <span class="uxt-button-circle">
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 7. FROM THE BLOG (same as homepage Insights) ================= -->
+  <div class="uxt-full uxt-section uxt-insights">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">From the blog</p>
+        <h2 class="uxt-h2">Notes on design, conversion, and building <br> better B2B experiences</h2>
+      </div>
+
+      <div class="uxt-insight-grid">
+        <a href="#" class="uxt-insight-card uxt-button-trigger">
+          <div class="uxt-insight-top">
+            <div class="uxt-insight-meta">
+              <span class="uxt-accent">AI and UX</span><span class="uxt-dot">•</span><span class="uxt-accent">18 Sep 26</span>
+              <span class="uxt-button uxt-button-icon uxt-button-diagonal uxt-insight-arrow" aria-hidden="true"><span class="uxt-button-circle"><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+            <h3 class="uxt-h3-sm">Where AI fits in a real UX workflow, and where it does not useful for you</h3>
+          </div>
+          <div class="uxt-insight-img"><img src="/wp-content/uploads/2026/10/Where-AI-fits-in-a-real-UX-workflow-and-where-it-does-not-useful-for-you-img.webp" alt=""></div>
+        </a>
+        <a href="#" class="uxt-insight-card uxt-button-trigger">
+          <div class="uxt-insight-top">
+            <div class="uxt-insight-meta">
+              <span class="uxt-accent">Agency Growth</span><span class="uxt-dot">•</span><span class="uxt-accent">18 Sep 26</span>
+              <span class="uxt-button uxt-button-icon uxt-button-diagonal uxt-insight-arrow" aria-hidden="true"><span class="uxt-button-circle"><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+            <h3 class="uxt-h3-sm">Why white label design works best for your business growth</h3>
+          </div>
+          <div class="uxt-insight-img"><img src="/wp-content/uploads/2026/10/Why-white-label-design-works-best-for-your-business-growth-img.webp" alt=""></div>
+        </a>
+        <a href="#" class="uxt-insight-card uxt-button-trigger">
+          <div class="uxt-insight-top">
+            <div class="uxt-insight-meta">
+              <span class="uxt-accent">Design Systems</span><span class="uxt-dot">•</span><span class="uxt-accent">18 Sep 26</span>
+              <span class="uxt-button uxt-button-icon uxt-button-diagonal uxt-insight-arrow" aria-hidden="true"><span class="uxt-button-circle"><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+            <h3 class="uxt-h3-sm">Building a design system your client can actually maintain</h3>
+          </div>
+          <div class="uxt-insight-img"><img src="/wp-content/uploads/2026/10/Building-a-design-system-your-client-can-actually-maintain-img.webp" alt=""></div>
+        </a>
+      </div>
+
+      <div class="uxt-wwd-center">
+        <a href="/insights/" class="uxt-button uxt-button-primary">
+          <span class="uxt-button-label">Read Other Blogs</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ================= 8. FAQ ================= -->
+<div class="uxt-full uxt-section uxt-faq">
+  <div class="uxt-container">
+    <div class="uxt-heading">
+      <p class="uxt-subheading underline-sky-blue">FAQs</p>
+      <h2 class="uxt-h2">What we observe, think, and learn</h2>
+    </div>
+
+    <div class="uxt-faq-grid">
+
+      <!-- Our approach -->
+      <div class="uxt-faq-col">
+        <span class="uxt-accent uxt-accent-strong">Our approach</span>
+
+        <div class="uxt-faq-list">
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-1" aria-expanded="false">
+              <h3 class="uxt-h3-sm">What does a B2B design agency do?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-1" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">A B2B design agency designs the products, websites, and experiences that business buyers use to evaluate, buy, and adopt a product. For us, that means UX audits, strategy workshops, product and app design, web and marketing design, conversion optimization, design systems, and AI design.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-2" aria-expanded="false">
+              <h3 class="uxt-h3-sm">Do you design AI products and agents?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-2" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">Yes. We design AI agents, AI-powered interfaces, and conversational experiences, with a focus on making them clear, controllable, and trustworthy for the people using them.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-3" aria-expanded="false">
+              <h3 class="uxt-h3-sm">What happens in a UX strategy workshop?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-3" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">We bring your key stakeholders together to agree on the problem, the users, and the priorities. You leave with a clear roadmap of what to design first.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-4" aria-expanded="false">
+              <h3 class="uxt-h3-sm">Can you cover more than one discipline on the same project?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-4" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">Yes. One team can handle audits, product, web, conversion, design systems, and AI design, so you're not coordinating separate vendors.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-5" aria-expanded="false">
+              <h3 class="uxt-h3-sm">Do you build what you design?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-5" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">We design and hand off clean, production-ready files. Where a build is needed, we design CMS-ready for Webflow and WordPress, and work with your developers or ours.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Working together -->
+      <div class="uxt-faq-col">
+        <span class="uxt-accent uxt-accent-strong">Working together</span>
+
+        <div class="uxt-faq-list">
+
+          <div class="uxt-faq-item is-expanded">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-6" aria-expanded="true">
+              <h3 class="uxt-h3-sm">Where do most engagements start?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-6">
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">Usually with a UX Audit or a strategy workshop. Both scope the work and surface the priorities before you commit to a larger project.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-7" aria-expanded="false">
+              <h3 class="uxt-h3-sm">Do you work with in-house design and product teams?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-7" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">Yes, often. We can lead a project end to end or work alongside your team to add capacity and an outside perspective.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-8" aria-expanded="false">
+              <h3 class="uxt-h3-sm">How do you price?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-8" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">By engagement: project-based, ongoing partnership, or team extension. Engagement lengths, terms, and pricing are covered on our How We Work page, and we'll recommend the right fit on a discovery call.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="uxt-faq-item">
+            <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-9" aria-expanded="false">
+              <h3 class="uxt-h3-sm">Do you work with agencies?</h3>
+              <span class="uxt-faq-icon"></span>
+            </button>
+            <div class="uxt-faq-panel" id="uxt-faq-answer-9" inert>
+              <div class="uxt-faq-panel-inner">
+                <p class="uxt-p uxt-p-sm">Yes. Alongside our direct clients, we partner with agencies and work under their brand when needed.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+(function () {
+  var page = document.querySelector('.uxt-wwd');
+  if (!page) return;
+
+  /* ---------- 1. Capabilities ---------- */
+  var section = page.querySelector('.uxt-wwd-cap');
+  var area = section && section.querySelector('.uxt-cap-sticky-area');
+  var tabsBar = section && section.querySelector('.uxt-cap-tabs');
+  var rail = section && section.querySelector('.uxt-cap-rail');
+  var tabs = section ? [].slice.call(section.querySelectorAll('.uxt-cap-tab')) : [];
+  var cards = section ? [].slice.call(section.querySelectorAll('.uxt-cap-card')) : [];
+  var anchors = section ? [].slice.call(section.querySelectorAll('.uxt-cap-anchor')) : [];
+  var GAP = 24;         /* space between the tab bar and a card */
+  var STACK_MIN = 1025; /* desktop: sticky tabs + stacked cards. Below: pinned tabs, normal cards */
+  var lastWidth = window.innerWidth;
+  var active = -1;
+  var ticking = false;
+  var spacer = null;    /* keeps the space of the tab bar while it is pinned */
+
+  function adminBar() {
+    var bar = document.getElementById('wpadminbar');
+    if (!bar) return 0;
+    return getComputedStyle(bar).position === 'fixed' ? bar.offsetHeight : 0;
+  }
+
+  /* Height of the site header while it is on screen (0 when it has slid away) */
+  function headerOffset(full) {
+    var h = document.getElementById('header-outer');
+    var bar = adminBar();
+    if (!h) return bar;
+    var cs = getComputedStyle(h);
+    if (cs.position !== 'fixed' && cs.position !== 'sticky') return bar;
+    if (!full && h.classList.contains('uxt-header-hidden')) return bar;
+    return Math.round((parseFloat(cs.top) || 0) + h.offsetHeight);
+  }
+
+  /* Desktop only: Salient hides overflow on some wrappers, which stops
+     position: sticky. Switch those to "clip" (same look, sticky works). */
+  function freeSticky(el) {
+    if (!(window.CSS && CSS.supports && CSS.supports('overflow-x', 'clip'))) return;
+    var bad = /(hidden|auto|scroll)/;
+    var node = el.parentElement;
+    while (node) {
+      var cs = getComputedStyle(node);
+      var root = (node === document.body || node === document.documentElement);
+      if (root) {
+        if (bad.test(cs.overflowX)) node.style.setProperty('overflow-x', 'clip', 'important');
+      } else {
+        var scrollsY = /(auto|scroll)/.test(cs.overflowY) && node.scrollHeight > node.clientHeight + 1;
+        var scrollsX = /(auto|scroll)/.test(cs.overflowX) && node.scrollWidth > node.clientWidth + 1;
+        if (!scrollsY && !scrollsX) {
+          if (bad.test(cs.overflowX)) node.style.setProperty('overflow-x', 'clip', 'important');
+          if (bad.test(cs.overflowY)) node.style.setProperty('overflow-y', 'clip', 'important');
+        }
+      }
+      node = node.parentElement;
+    }
+  }
+
+  function isStack() {
+    return window.innerWidth >= STACK_MIN;
+  }
+
+  /* ---------- Tablet and mobile: pin the tab bar with position: fixed ----------
+     Fixed does not depend on the overflow of Salient's wrappers, so it
+     works on every phone and tablet. A spacer keeps the page from jumping.
+     If a parent uses transform (fixed would break), we move the bar
+     with translateY instead. */
+  var fixedOk = null;
+  function canUseFixed() {
+    if (fixedOk !== null) return fixedOk;
+    fixedOk = true;
+    var node = tabsBar.parentElement;
+    while (node && node !== document.documentElement) {
+      var cs = getComputedStyle(node);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          /(transform|filter)/.test(cs.willChange || '') ||
+          /(paint|layout|strict|content)/.test(cs.contain || '')) { fixedOk = false; break; }
+      node = node.parentElement;
+    }
+    return fixedOk;
+  }
+
+  function unpin() {
+    tabsBar.classList.remove('is-pinned', 'is-leaving', 'is-moved');
+    tabsBar.style.removeProperty('top');
+    tabsBar.style.removeProperty('left');
+    tabsBar.style.removeProperty('width');
+    tabsBar.style.removeProperty('transform');
+    if (spacer) spacer.style.height = '0px';
+  }
+
+  function pinMobile(head) {
+    if (!spacer) {
+      spacer = document.createElement('div');
+      spacer.className = 'uxt-cap-tabs-spacer';
+      spacer.setAttribute('aria-hidden', 'true');
+      tabsBar.parentNode.insertBefore(spacer, tabsBar);
+    }
+    var a = area.getBoundingClientRect();
+    var h = tabsBar.offsetHeight;
+    /* Natural top of the tab bar = top of the area (the spacer sits there) */
+    if (a.top >= head || a.bottom <= 0) { unpin(); return h; }
+    /* Bar slides up with the end of the section after the last card */
+    var top = Math.min(head, a.bottom - h);
+    if (canUseFixed()) {
+      spacer.style.height = h + 'px';
+      tabsBar.classList.add('is-pinned');
+      tabsBar.classList.toggle('is-leaving', top < head);
+      /* "important" so no theme rule can override the position */
+      tabsBar.style.setProperty('top', top + 'px', 'important');
+      tabsBar.style.setProperty('left', a.left + 'px', 'important');
+      tabsBar.style.setProperty('width', a.width + 'px', 'important');
+    } else {
+      tabsBar.classList.add('is-moved');
+      tabsBar.style.setProperty('transform', 'translate3d(0,' + Math.round(top - a.top) + 'px,0)', 'important');
+    }
+    return h;
+  }
+
+  function equalHeights() {
+    cards.forEach(function (c) { c.style.minHeight = ''; });
+    if (!isStack()) return;
+    var max = 0;
+    cards.forEach(function (c) { max = Math.max(max, c.offsetHeight); });
+    cards.forEach(function (c) { c.style.minHeight = max + 'px'; });
+  }
+
+  function stickyTop(i, head) {
+    var top = head + tabsBar.offsetHeight + GAP;
+    if (!isStack()) return top;
+    return Math.min(top, window.innerHeight - cards[i].offsetHeight - 16);
+  }
+
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    tabs.forEach(function (t, j) {
+      t.classList.toggle('is-active', j === i);
+      t.setAttribute('aria-selected', j === i ? 'true' : 'false');
+    });
+    queueRail();
+  }
+
+  /* Move the tab row sideways to show the active tab, after the page
+     has stopped scrolling (moving it during a swipe can stop iOS scrolling) */
+  var railTimer = null;
+  function queueRail() {
+    clearTimeout(railTimer);
+    railTimer = setTimeout(moveRail, 180);
+  }
+
+  function moveRail() {
+    railTimer = null;
+    var btn = tabs[active];
+    if (btn && rail.scrollWidth > rail.clientWidth) {
+      var left = btn.offsetLeft - rail.clientWidth / 2 + btn.offsetWidth / 2;
+      left = Math.max(0, Math.min(left, rail.scrollWidth - rail.clientWidth));
+      if (isStack() && rail.scrollTo) { rail.scrollTo({ left: left, behavior: 'smooth' }); } else { rail.scrollLeft = left; }
+    }
+  }
+
+  function update() {
+    ticking = false;
+    var head = headerOffset();
+    var limit;
+    if (isStack()) {
+      if (tabsBar.classList.contains('is-pinned') || tabsBar.style.transform) unpin();
+      section.style.setProperty('--uxt-cap-head', head + 'px');
+      cards.forEach(function (c, i) { c.style.top = stickyTop(i, head) + 'px'; });
+      limit = tabsBar.getBoundingClientRect().bottom + GAP + 80;
+    } else {
+      if (cards[0].style.top) cards.forEach(function (c) { c.style.top = ''; });
+      var h = pinMobile(head);
+      limit = head + h + GAP + 80;
+    }
+    var next = 0;
+    cards.forEach(function (c, i) { if (c.getBoundingClientRect().top <= limit) next = i; });
+    setActive(next);
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    if (railTimer) queueRail();
+  }
+
+  if (section && area && tabsBar && cards.length) {
+    /* Lets the CSS undo Salient's "body { overflow: hidden }" on this page,
+       which stops sticky on desktop (see PART Q in the CSS) */
+    document.body.classList.add('uxt-wwd-page');
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        var y = anchors[i].getBoundingClientRect().top + window.pageYOffset;
+        var h = headerOffset(true);
+        var goingDown = y - stickyTop(i, h) > window.pageYOffset;
+        /* Scrolling down hides the header, scrolling up shows it again */
+        var head = goingDown ? adminBar() : h;
+        window.scrollTo({ top: Math.max(0, y - stickyTop(i, head) + 2), behavior: 'smooth' });
+      });
+    });
+    if (isStack()) freeSticky(tabsBar);
+    equalHeights();
+    update();
+    var hdr = document.getElementById('header-outer');
+    if (hdr && window.MutationObserver) {
+      new MutationObserver(onScroll).observe(hdr, { attributes: true, attributeFilter: ['class'] });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    /* Phones fire "resize" when the address bar shows or hides.
+       Only re-measure when the width really changes. */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      fixedOk = null;
+      if (isStack()) freeSticky(tabsBar);
+      equalHeights();
+      onScroll();
+    });
+    window.addEventListener('orientationchange', function () { setTimeout(onScroll, 300); });
+    window.addEventListener('load', function () { if (isStack()) freeSticky(tabsBar); equalHeights(); update(); });
+  }
+
+})();
+</script>
+
+
+</div>

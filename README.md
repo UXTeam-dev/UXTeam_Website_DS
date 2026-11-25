@@ -1,12 +1,12 @@
-# UXTeam Website Design System
+# UXTeam Website
 
-The coded version of the **UXTeam Website 2026** Figma file. It holds the design tokens, components, sections and finished pages. Everything is plain **HTML, CSS and JavaScript**: no framework and no dependencies, so it moves straight into WordPress.
+Pages and styles for the UXTeam website (new.ux.team), built the way the live site is built. The live site runs on the Salient WordPress theme; this repo holds the developers' stylesheet and page bodies, and builds new pages that paste straight into WordPress with no clean up.
 
-- Figma file: [UXTeam Website 2026](https://www.figma.com/design/9JQFLWC1KBelhUEaEZ6I1C)
-- Sources used: **Final Design Pages** (1231:508) and **Assets & Components** (1231:897)
-- Rules followed: **Design System Guideline** (2351:577)
+- Figma file: [UXTeam Website 2026](https://www.figma.com/design/9JQFLWC1KBelhUEaEZ6I1C) (Final Design Pages 1231:508)
+- **Class and CSS rules (mandatory): [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md)**
+- Every class a page may use: [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md)
 
-> **Working with an AI tool (Claude, Codex, Cursor, Copilot)?** It must read [LLM.md](LLM.md) first. [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) point tools there automatically.
+> **Working with an AI tool (Claude, Codex, Cursor, Copilot)?** It must read [LLM.md](LLM.md) and [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md) first. [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) point tools there automatically.
 
 ---
 
@@ -15,146 +15,84 @@ The coded version of the **UXTeam Website 2026** Figma file. It holds the design
 You need [Node.js](https://nodejs.org) 18 or newer. Nothing else is installed.
 
 ```bash
-npm run build     # builds everything into dist/
-npm run check     # checks every page against the system rules (run after build)
-npm run serve     # opens dist/ at http://localhost:4321
+npm run build     # builds dist/
+npm run classes   # rebuilds the class registry (after any CSS change)
+npm run check     # the mandatory check for pages and CSS (run after build)
+npm run serve     # http://localhost:4321/preview/homepage.html
 npm run dev       # build, check, then serve
 ```
 
-Then open:
+## How the live site is put together
 
-| URL | What it is |
-|---|---|
-| `http://localhost:4321/` | Start page with links to everything |
-| `/library/` | Component library: tokens, components and sections |
-| `/pages/index.html` | Homepage (desktop, tablet, mobile) |
-| `/pages/success-stories.html` | Success Stories listing (desktop, tablet, mobile) |
-| `/pages/success-story-squaircle.html` | Success Story detail (desktop, tablet, mobile) |
-| `/pages/insights.html` | Insights listing |
-| `/pages/insight-content-strategy.html` | Insights detail (article) |
-| `/pages/about.html` | About Us |
+| On the site | In WordPress | In this repo |
+|---|---|---|
+| Header | Salient's header | not in the repo |
+| Page body | one Raw HTML element | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
+| Booking card and footer | footer global section | `src/global/footer-global.html` |
+| CSS | Salient > Custom CSS (PART A to R) | `src/css/uxteam-site.css`, a byte for byte copy |
+| New CSS | added after PART R | `src/css/parts/` → `dist/css/uxteam-site-additions.css` |
 
-> **Developers:** take the files in `dist/`. They are complete, ready pages with one CSS file and one JS file.
-
----
-
-## How it is organised
-
-The system is built in layers. Each layer only uses the layers above it.
+## Folders
 
 ```
-tokens  →  base  →  components  →  sections  →  pages
-(values)   (reset,   (small parts:  (full width   (sections
-            type,     button, card,  blocks:       put in
-            grid)     FAQ item)      hero, footer) order)
-```
-
-```
-UXTeam_Website_DS/
-├── README.md               You are here
-├── LLM.md                  ★ Full brief for AI tools: business, voice, rules, process
-├── AGENTS.md, CLAUDE.md    Short pointers to LLM.md that AI tools read automatically
-├── CHANGELOG.md            What changed and when
-├── package.json            npm run build / check / serve / dev
-├── docs/                   How to work with the system (start with HOW-TO-ADD.md)
-├── skills/                 Skills for any AI tool: page strategy and creative review
-├── knowledge/              uxteam-website-knowledge.txt: everything the live ux.team site says
-├── reference/              Screenshots of the approved Figma pages, for comparison
-├── scripts/
-│   ├── build.mjs           Builds dist/ (tokens, CSS, JS, HTML includes, assets)
-│   ├── check.mjs           Checks pages against the system rules (npm run check)
-│   └── serve.mjs           Tiny local server for dist/
-├── assets/                 Shared files used by every page
-│   ├── fonts/              Aeonik (licensed, add files), Manrope, Besley
-│   ├── icons/              SVG and PNG icons
-│   ├── images/             WebP photos and covers, grouped by page or use
-│   └── logos/              UXTeam logos and clients/ logos
+├── LLM.md, AGENTS.md, CLAUDE.md   Brief and rules for AI tools
+├── CHANGELOG.md                   Every change, newest first
+├── docs/                          CSS-GUIDE (mandatory), CLASS-REGISTRY (generated), BRAND-GUIDE, GRAPHICS, COMPONENTS, HOW-TO-ADD, WORDPRESS, FIGMA-MAP, OPEN-ITEMS
+├── knowledge/                     Facts from the live ux.team site
+├── skills/                        Page strategy and creative review, for any AI tool
+├── reference/                     Screenshots of approved pages and graphics
+├── assets/                        Icons (Phosphor and custom SVG), graphics, fonts, logos
 ├── src/
-│   ├── tokens/
-│   │   ├── tokens.json     ★ Single source of truth for colors, type, spacing
-│   │   └── tokens.css      Generated from tokens.json. Do not edit
-│   ├── base/               Fonts, reset, typography classes, layout and grid
-│   ├── components/         One folder per component (CSS, JS, HTML partials)
-│   ├── sections/           One folder per section (CSS, JS, HTML partials)
-│   ├── templates/          <head> and <script> partials shared by all pages
-│   ├── starters/           Starter files for new pages (hub, dark hero, light hero, detail)
-│   ├── pages/              The pages, built from includes
-│   ├── library/            The component library page
-│   ├── js/
-│   │   ├── core.js         Tiny loader: UXTeam.register(name, init)
-│   │   └── manifest.json   Order in which JS files are bundled
-│   ├── uxteam.css          Lists every CSS file in order (@import)
-│   └── index.html          Start page of dist/
-└── dist/                   Build output. Generated, do not edit
+│   ├── css/uxteam-site.css        The developers' live CSS. Never edited
+│   ├── css/parts/                 New PARTs, written the developers' way
+│   ├── css/hooks.json             Classes needed by markup or scripts that have no CSS
+│   ├── css/source.lock.json       Fingerprints of the developers' files
+│   ├── pages/                     Page bodies (homepage and what-we-do are the developers')
+│   ├── global/footer-global.html  Booking card and footer
+│   ├── partials/sections/         Every section of the developers' pages, ready to copy
+│   ├── partials/elements/         Button, heading, FAQ item, placeholder
+│   └── starters/page.html         Start every new page here
+├── scripts/                       build, classes, check, serve, icon
+├── dist/
+│   ├── wordpress/                 Paste-ready page bodies and the footer global section
+│   ├── preview/                   Full pages to review in a browser
+│   └── css/                       uxteam-site.css and uxteam-site-additions.css
+└── legacy/                        The old ux- system, kept as a visual reference only
 ```
 
-### Inside a component or section folder
+## Building a page
 
-```
-src/components/faq/
-├── faq.css        Styles. The header comment says what it is and its Figma node
-├── faq.js         Behaviour (only if it needs any)
-├── faq.html       Ready demo markup you can copy
-└── _item.html     Partial (starts with _) that pages include with parameters
-```
+1. Copy `src/starters/page.html` to `src/pages/<page>.html` and set the wrapper: `<div class="uxt-home uxt-<key>">`.
+2. Add sections with includes, then change only text, links and images:
 
----
+   ```html
+   <!-- @include partials/sections/process.html -->
+   <!-- @include partials/elements/button.html type="primary" label="Book a Discovery Call" href="#book-call" -->
+   ```
 
-## Building a page with includes
+   Paths are relative to `src/`. `{{name|default}}` in a partial is filled from the attributes.
+3. Need something no class covers? Write a new PART (CSS-GUIDE section 5), then `npm run classes`.
+4. `npm run build && npm run check`, then review `dist/preview/<page>.html` at 1440, 768 and 375.
+5. Hand over `dist/wordpress/<page>.html` and, if it has any, `dist/css/uxteam-site-additions.css` (CSS-GUIDE section 7).
 
-Pages are short because they include partials. The build replaces each include with the partial's HTML.
+## Naming (the developers' convention)
 
-```html
-<!-- @include sections/site-header/site-header.html theme="light" cta="ux-btn--primary" -->
-
-<!-- @include components/story-card/_story-card.html
-     logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi"
-     title="Helping a Creative Agency Scale Design Delivery"
-     meta="Digital Experience Agency" place="Dubai" -->
-```
-
-- Paths are relative to `src/`.
-- Inside a partial, `{{name}}` is replaced by the value you pass, and `{{name|default}}` falls back to `default`.
-- Partials can include other partials.
-
-Full parameter lists for every partial are in [docs/COMPONENTS.md](docs/COMPONENTS.md).
-
----
-
-## Naming
-
-- Every class starts with `ux-` so nothing clashes with WordPress themes or plugins.
-- BEM style: `ux-block`, `ux-block__part`, `ux-block--variant`. State classes: `is-open`, `is-active`, `is-visible`.
-- Every token is a CSS variable starting with `--ux-`, for example `var(--ux-navy)`, `var(--ux-fs-h2)`.
-- JS hooks use `data-ux-*` attributes, never style classes.
-
-## Responsive
-
-| Breakpoint | Width | Design frame | Side margin |
-|---|---|---|---|
-| Desktop | 1200 and up | 1440 | 120 (content 1200) |
-| Tablet | 768 to 1199 | 768 | 30 |
-| Mobile | up to 767 | 375 | 15 |
-
-Font sizes and the page margin change automatically through the tokens. Section specific changes sit at the bottom of each section's CSS.
-
----
+- `uxt-` prefix, lowercase, hyphens: `uxt-<block>-<part>` (`uxt-story-card`, `uxt-faq-item`).
+- Page classes start with the page key: `uxt-wwd-cap`, `uxt-about-hero`.
+- Variants are a second class (`uxt-case-card uxt-case-green`); states are `is-*` and `has-*`.
+- No BEM, no camelCase. Full rules: CSS-GUIDE section 5.
 
 ## Docs
 
 | File | Read it when |
 |---|---|
-| [LLM.md](LLM.md) | You (or an AI tool) plan, write, design or build anything. The full brief |
-| [reference/README.md](reference/README.md) | You compare a built page with the approved design |
-| [knowledge/uxteam-website-knowledge.txt](knowledge/uxteam-website-knowledge.txt) | You need facts for a page: company details, services, clients, success stories, testimonials, FAQs, numbers (collected from the live ux.team site) |
-| [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) | You write or plan copy for a page, especially one with no content file (positioning, audience, offer, voice, page rules, claims) |
-| [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a component, section or page (step by step checklist) |
-| [docs/COMPONENTS.md](docs/COMPONENTS.md) | You need a partial's parameters or a class name |
-| [docs/FIGMA-MAP.md](docs/FIGMA-MAP.md) | You want to find the Figma node behind a file, or the file behind a node |
-| [docs/WORDPRESS.md](docs/WORDPRESS.md) | You move pages into WordPress |
-| [docs/OPEN-ITEMS.md](docs/OPEN-ITEMS.md) | You want to know what is still a placeholder or pending |
-| [CHANGELOG.md](CHANGELOG.md) | You want to see what changed and when |
-
-## The one rule for keeping this repo alive
-
-**Every new section or element designed in Figma is added here, in the same change.** Build it as a component or section folder, add it to the library page, list it in `docs/COMPONENTS.md` and `docs/FIGMA-MAP.md`, note it in `CHANGELOG.md`, run `npm run build` and `npm run check`, then commit and push. The checklist is in [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md).
+| [LLM.md](LLM.md) | You (or an AI tool) plan, write, design or build anything |
+| [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md) | You write any markup or CSS (mandatory) |
+| [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md) | You need a class, or want to know where it works |
+| [docs/COMPONENTS.md](docs/COMPONENTS.md) | You need a partial and its fields |
+| [docs/HOW-TO-ADD.md](docs/HOW-TO-ADD.md) | You add a section, element or page (checklist) |
+| [docs/WORDPRESS.md](docs/WORDPRESS.md) | You hand a page to the developers |
+| [docs/BRAND-GUIDE.md](docs/BRAND-GUIDE.md) and [knowledge/](knowledge/uxteam-website-knowledge.txt) | You write copy |
+| [docs/GRAPHICS.md](docs/GRAPHICS.md) | You choose or draw an icon or graphic |
+| [docs/OPEN-ITEMS.md](docs/OPEN-ITEMS.md) | You want to know what is pending |
+| [CHANGELOG.md](CHANGELOG.md) | You want to see what changed |

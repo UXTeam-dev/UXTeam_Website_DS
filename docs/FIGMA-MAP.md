@@ -1,5 +1,7 @@
 # Figma map
 
+> The coded pages and paths below are from the old system in `legacy/` (paths relative to `legacy/src/`). The Figma nodes are current. Live uxt- code: homepage (`src/pages/homepage.html`, Figma 1968:7235) and What we do (`src/pages/what-we-do.html`, Figma 1852:10874). New PARTs name their Figma node in their header.
+
 Where each coded piece comes from in the Figma file **UXTeam Website 2026** (file key `9JQFLWC1KBelhUEaEZ6I1C`). Open a node with:
 
 `https://www.figma.com/design/9JQFLWC1KBelhUEaEZ6I1C/?node-id=<id with - instead of :>`

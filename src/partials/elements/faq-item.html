@@ -1,0 +1,9 @@
+<!--
+  One FAQ question (PART C/G/H). Use inside <div class="uxt-faq-list">.
+  Params: n (a number unique on the page), q, a
+  For the one item that starts open, use faq-item-open.html.
+-->
+<div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-{{n}}" aria-expanded="false"><h3 class="uxt-h3-sm">{{q}}</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-{{n}}" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">{{a}}</p></div></div>
+</div>

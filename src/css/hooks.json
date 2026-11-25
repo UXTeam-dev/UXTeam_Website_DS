@@ -1,0 +1,21 @@
+{
+  "note": "Classes the developers' markup or scripts need that no PART styles. Add one only when a script or a parent selector needs it, with the reason.",
+  "hooks": {
+    "uxt-insights": "Section name on the homepage Insights section. Kept so the section can be targeted; no styles yet.",
+    "uxt-logo-dark": "Marks the dark version of a client logo in the logo strip.",
+    "uxt-cta-again": "\"Send another\" button in the booking form; the footer script finds it with this class.",
+    "uxt-wwd-page": "Added to <body> by the What we do script while the page is open.",
+    "is-invalid": "Added to a booking form field by the footer script when it fails validation.",
+    "is-leaving": "Added by the What we do capabilities script during the card animation.",
+    "is-moved": "Added by the What we do capabilities script during the card animation.",
+    "is-pinned": "Added by the What we do capabilities script when the tab bar is pinned."
+  },
+  "developerNames": {
+    "underline-sky-blue": "With uxt-subheading: the sky blue line under the eyebrow (light sections).",
+    "underline-white": "With uxt-subheading: the white line under the eyebrow (dark sections).",
+    "cta-top": "Booking card layout (footer global section, PART E and L).",
+    "cta-bottom": "Booking card layout (footer global section, PART E and L).",
+    "cta-bottom-left": "Booking card layout (footer global section, PART E and L).",
+    "cta-bottom-right": "Booking card layout (footer global section, PART E and L)."
+  }
+}

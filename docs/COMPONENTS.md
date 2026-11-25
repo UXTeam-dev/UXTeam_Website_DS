@@ -1,141 +1,58 @@
-# Components and sections
+# Sections and elements
 
-Every reusable piece, where it lives, and how to use it. See them all rendered at `/library/` after `npm run build`.
+Every reusable piece of markup, where it works and how to use it. All of it is the developers' markup from the live site. Copy a section and change only text, links and images; keep every class and the structure. Class rules: [CSS-GUIDE.md](CSS-GUIDE.md). Every class: [CLASS-REGISTRY.md](CLASS-REGISTRY.md).
 
-Include a partial with `<!-- @include path key="value" -->` (paths from `src/`). Parameters with a default are optional.
+Include a partial with `<!-- @include partials/… key="value" -->` (paths from `src/`). Fields with a default are optional. Section partials have no fields: include them to get the exact live section, or copy the file's markup into the page and edit the content.
+
+"Works inside" is the wrapper the styles need. Every page wrapper starts with `uxt-home`, so `.uxt-home` sections work on every page.
 
 ---
 
-## Base classes (src/base)
+## Elements (`src/partials/elements/`)
 
-| Class | What it does |
+| Partial | What it is | Fields |
+|---|---|---|
+| `button.html` | Arrow Glide button as a link | `type` primary, secondary, subtle, glass (default primary) · `mod` `uxt-button-dark` on dark backgrounds · `label` · `href` (default `#book-call`) |
+| `button-in-card.html` | The same button as a `<span>` inside a card that is a link. The card gets `uxt-button-trigger` | `type` (default secondary) · `mod` · `label` |
+| `button-icon.html` | Round arrow only, inside a card that is a link | `mod` `uxt-button-dark` or `uxt-button-diagonal` |
+| `heading.html` | Section heading: eyebrow + H2 | `sub` · `title` · `underline` sky-blue or white · `white` `uxt-white` on dark |
+| `heading-intro.html` | Section heading with an intro line | as above + `intro` · `size` `uxt-p-sm` for 18px |
+| `faq-item.html`, `faq-item-open.html` | One FAQ question (closed, or the one that starts open) | `n` unique number · `q` · `a` |
+| `center-cta.html` | Centered button under a section (What we do) | `label` · `href` |
+| `placeholder.html` | Labeled image box where a client image will go (PART S) | `label` · `ratio` empty (3:2), `uxt-placeholder-square`, `-wide`, `-tall` |
+
+Icons: `<!-- @icon name size="32" class="uxt-…" -->` inlines a Phosphor Light icon (`set="custom"` for `assets/icons/custom/`). Find names with `npm run icon -- <word>`.
+
+## Sections (`src/partials/sections/`)
+
+| Partial | Section | Works inside | Classes to know |
+|---|---|---|---|
+| `hero.html` | Dark display hero: H1, sub, one CTA, logo strip | `.uxt-home` | `uxt-hero`, `uxt-hero-content` |
+| `logos.html` | Trusted by logo strip, auto scrolling. **Never edit** | `.uxt-home` | `uxt-logos`, `uxt-logos-track` |
+| `outcomes.html` | Two outcome cards with metrics | `.uxt-home` | `uxt-case-card` + `uxt-case-green` or `uxt-case-purple` |
+| `stories.html` | Featured video story + three story cards | `.uxt-home` | `uxt-story-feature`, `uxt-story-card` (a link, with `uxt-button-trigger`) |
+| `approach-stats.html` | Three approach columns + stats row | `.uxt-home` | `uxt-approach-item`, `uxt-stat-item` |
+| `services.html` | Grouped service list on the dark band | `.uxt-home` | `uxt-service-row`, `uxt-service-card`, `uxt-service-featured` |
+| `process.html` | Process steps with icons | `.uxt-home` | `uxt-step`, `uxt-step-icon` |
+| `industries.html` | Expanding industry rows | `.uxt-home` | `uxt-industry`, `uxt-industry-img` |
+| `engage.html` | Three ways to work | `.uxt-home` | `uxt-engage-item` |
+| `insights.html` | Three insight cards | `.uxt-home` | `uxt-insight-card` |
+| `faq.html` | FAQ, two columns | `.uxt-home` | `uxt-faq-col`, `uxt-faq-item` (use `elements/faq-item.html`) |
+| `capabilities.html` | Sticky tabs + stacked capability cards | `.uxt-wwd` only | `uxt-cap-tab`, `uxt-cap-card`. Needs `capabilities-script.html` once at the end of the page |
+| `why.html` | Why choose UXTeam, four icon columns | `.uxt-wwd` only | `uxt-why-item`, `uxt-why-icon` |
+
+A section that works only inside `.uxt-wwd` or `.uxt-about` is used on another page only after its styles move to a shared PART (CSS-GUIDE 5.4).
+
+## Global (`src/global/`)
+
+| File | What it is |
 |---|---|
-| `.ux-container` | 1200 content width with the page margin (120 / 30 / 15) |
-| `.ux-container--narrow` | Narrower column for text heavy blocks |
-| `.ux-section` + `--pt-80/100/120/160/40/0`, `--pb-80/100/120/180/40/0` | Section with top and bottom padding |
-| `.ux-section__head`, `--40`, `--60` | Space between a section header and its content (50 by default) |
-| `.ux-grid` + `--2`, `--3`, `--4`, `--gap-24`, `--gap-32` | Card grids, gap 30 by default, collapse on tablet and mobile |
-| `.ux-stack` (set `--ux-stack-gap`) | Vertical stack with an even gap |
-| `.ux-center`, `.ux-hairline` | Center a row, 1px divider |
-| `.ux-mt-40`, `.ux-mt-48` | Space above a closing row under a grid (a button row, a second grid) |
-| `.ux-bg-warm-glow`, `.ux-bg-deep-navy`, `.ux-bg-hero-light` | Section backgrounds |
-| `.ux-h1-display`, `.ux-h1`, `.ux-h2`, `.ux-h2-related`, `.ux-h3`, `.ux-h3-small` | Headings |
-| `.ux-body-26/20/18/16`, `.ux-label`, `.ux-accent`, `.ux-prose` | Body text, labels, Besley accent, long form text |
-| `.ux-highlight` | G4 gradient on a word inside a heading |
-| `.ux-sr-only` | Visually hidden, read by screen readers |
+| `footer-global.html` | Booking card (`#book-call`, form and founder card) and the main footer. The developers' footer global section; never part of a page |
 
----
+## Starter
 
-## Components (src/components)
+`src/starters/page.html`: wrapper, hero with eyebrow, one section shell. Copy it to start a page.
 
-### Button: `button/`
-Figma "CTA / 01 Arrow Glide" (1271:70). All variants: `button/button.html`.
+## Not built as uxt- yet
 
-```html
-<!-- @include components/button/_button.html class="ux-btn--primary" label="Book a Discovery Call" href="#book" -->
-```
-| Param | Default | Notes |
-|---|---|---|
-| `class` | none | `ux-btn--primary`, `--secondary`, `--glass`, `--subtle`, `--icon`, add `ux-btn--on-dark` on dark surfaces |
-| `label` | Book a Discovery Call | |
-| `href` | #book | |
-
-### Eyebrow: `eyebrow/`
-`<span class="ux-eyebrow">Measured results</span>`. Add `ux-eyebrow--on-dark` on dark backgrounds.
-
-### Section header: `section-header/`
-`.ux-section-header` with `.ux-eyebrow`, `.ux-h2.ux-section-header__title` and optional `.ux-section-header__intro`. Variants `--on-dark`, `--start` (left aligned), `--gap-16`. Intro variants `__intro--narrow` (760 wide), `__intro--flush` (no top margin).
-
-### Story card: `story-card/`
-```html
-<!-- @include components/story-card/_story-card.html logo="rbbi.png" logo-w="57" logo-h="57" logo-alt="RBBi" title="…" meta="Digital Experience Agency" place="Dubai" href="success-story-squaircle.html" -->
-```
-| Param | Default | Notes |
-|---|---|---|
-| `logo` | required | File in `assets/logos/clients/` |
-| `logo-w`, `logo-h`, `logo-alt` | required | Logo size and alt text |
-| `title`, `meta`, `place` | required | |
-| `href` | # | |
-| `mod` | none | `ux-story-card--compact` for the 25px title (D2C list) |
-
-### Blog card: `blog-card/`
-```html
-<!-- @include components/blog-card/_blog-card.html category="CRO" date="18 Sep 26" title="…" image="ux-audit-findings" -->
-```
-`image` is a WebP file name (no extension) in `assets/images/insights/`. `category` also feeds the filter bar. `href` defaults to `#`.
-
-### FAQ: `faq/`
-Wrap items in `<div class="ux-faq" data-ux-faq>`. One item open at a time. Two column homepage layout: `faq/faq.html`. Single column: add `ux-faq--single`.
-```html
-<!-- @include components/faq/_item.html q="What is UXTeam?" a="A UX-led design studio for B2B teams." open="is-open" -->
-```
-`a` defaults to "Add answer here." (the Figma placeholder). `open="is-open"` opens it on load.
-
-### Person: `person/`
-```html
-<!-- @include components/person/_person.html name="Saravanan Vijayakumar" photo="saravanan-vijayakumar" linkedin="https://…" role1="Founder and CEO," role2="…" role3="USA · India" mod="ux-person--on-dark" -->
-```
-`photo` is a WebP name in `assets/images/people/`.
-
-### Q&A card: `detail-blocks/`
-`<!-- @include components/detail-blocks/_qa-card.html q="…" a="…" -->`. The same folder holds the detail page blocks: key value list (`.ux-kv`), stat strip, gradient cards (`.ux-g-card`), numbered rows, quote, about block, author and share.
-
-### Other components
-
-| Folder | Classes | Notes |
-|---|---|---|
-| `stat/` | `.ux-stats`, `.ux-stat` | `stat/stat.html` is the 08+ / 50+ / 450+ row |
-| `chip/` | `.ux-chip-row`, `.ux-chip`, `.ux-tag`, `.ux-icon-tag` | Active: `.is-active` or `aria-pressed="true"` |
-| `form-field/` | `.ux-field`, `__label`, `__input`, `__error` | Used in the booking form |
-| `logo-tile/` | `.ux-logo-tile` | White tile for client logos |
-| `social-link/` | `.ux-social` | 40px circles in the footer |
-| `outcome-card/` | `.ux-outcome-card` | Set `--band` (brand gradient) and `--mock-*` (mockup position) |
-| `video-card/` | `.ux-video-card`, `.ux-play` | `data-video` (MP4 URL) or `data-embed` (YouTube or Vimeo embed URL) |
-| `service-card/` | `.ux-service-card`, `.ux-service-stack` | Dark service rows |
-| `industry-card/` | `.ux-industry` | `industry-card/industry-card.html`, opens on hover or focus |
-| `toc/` | `.ux-toc`, `.ux-section-menu` | Sticky rail on desktop, floating bottom menu on tablet and mobile |
-| `graphic/` | `.ux-icon-tile` (`--navy`), `.ux-meta-list`, `.ux-meta-icon`, `.ux-spot`, `.ux-topic-tile`, `.ux-topic-grid`, `.ux-scene` (`--mini`), `.ux-image-box` (`--scene`, `--blog`, `--industry`, `--industry-narrow`, `--outcome`, `--portrait`, `--wide`) | Partials `_topic-tile.html` (params art, title, text, href), `_scene-cro.html`, `_scene-mini-trust.html`. Icons inside tiles and meta lists: `<!-- @icon name size="32" -->` (Phosphor Light, build inlines it). Which to use where: `docs/GRAPHICS.md` |
-
----
-
-## Sections (src/sections)
-
-| Section | Include or class | Params |
-|---|---|---|
-| Site header | `sections/site-header/site-header.html` | `theme` dark or light, `cta` ux-btn--glass or ux-btn--primary, `bordered` (pass empty on the homepage) |
-| Site footer | `sections/site-footer/site-footer.html` | none |
-| Service row | `sections/service-row` (`.ux-service-row`, `__text`, `__title`, `__intro`, `__list`, `__actions`, `__scene`) | Markup in `src/demos/ux-audit.html`. Scene from `components/graphic/_scene-*.html`. White sections only |
-| Numbers band | `sections/numbers-band` (`.ux-numbers`, `.ux-number`, `__figure`, `__value`, `__unit`, `__label`) | Deep Navy band. Up to 4 (`--ux-numbers-cols`). Safe numbers only |
-| Expectations row | `sections/expectations` (`.ux-expect`, `__item`, `__title`, `__text`) | `.ux-icon-tile` with `@icon`. 4 columns (`--ux-expect-cols`) |
-| Mini scene row | `.ux-scene-row` (`__title`, `__text`) in `components/graphic` | Four `_scene-mini-*.html` with a title and two lines |
-| Listing hero with trusted strip | `.ux-hero-listing--trusted` + `.ux-hero-listing__trusted` + the logo marquee include after the container | Extends the Hero Dusk so the white label stays readable |
-| Page end (booking card + footer) | `sections/page-end/page-end.html` | After `</main>`. `booking` (`booking-cta` default, `booking-cta-home` for home and hub), `mod` (`ux-booking--flush` on detail pages). The card overlaps the footer by 42px. Pages never include the booking card directly |
-| Booking card, inner pages | `sections/booking-cta/booking-cta.html` | Used through page-end. `mod` (ux-booking--flush removes the top padding) |
-| Booking card, homepage and hub pages | `sections/booking-cta/booking-cta-home.html` | `mod`. Which version a page uses: LLM.md 15.5 |
-| Featured story (video) | `sections/featured-story/featured-story.html` | none |
-| Outcomes | `sections/outcomes/outcomes.html` | none |
-| Services | `sections/services/services.html` | none |
-| Process | `sections/process/process.html` | none |
-| Engagement models | `sections/engagement/engagement.html` | none |
-| Logo marquee | `sections/logo-marquee/logo-marquee.html` | none |
-| Home hero | `.ux-hero-home` | see `pages/index.html` |
-| Listing hero | `.ux-hero-listing` | set `--ux-hero-bg-height` for the gradient height |
-| Case study hero | `.ux-hero-case` | see `pages/success-story-squaircle.html` |
-| Article hero | `.ux-hero-article` | see `pages/insight-content-strategy.html` |
-| Light hero | `.ux-hero-light` | see `pages/about.html` |
-| Filter bar | `.ux-filter-bar` + chips with `data-filter` | see `pages/insights.html` |
-| Approach (principles) | `.ux-principles`, `.ux-principle` | `--home` for homepage offsets |
-| Detail layout | `.ux-detail-section`, `.ux-detail` | TOC rail + 810 content column |
-| Article body | `.ux-article`, `__block`, `__text`, `__list`, `__figure`, `--framed` | |
-| Related row | `.ux-related__title` + `.ux-grid--3` | |
-| Logo grid + presence | `.ux-logo-grid`, `.ux-presence` | About |
-| Story split | `.ux-story-split`, `.ux-founder-card` | About |
-| Team | `.ux-team`, `.ux-leaders` | About |
-| Beliefs | `.ux-beliefs` + `.ux-principles` | About |
-
-## Templates (src/templates)
-
-| File | Params |
-|---|---|
-| `_head.html` | `title`, `description` |
-| `_scripts.html` | none |
+Listing, case study, article and light heroes, the detail page kit, numbers band, expectations row, topic tiles, service row with scene, mini scenes, filter chips. Their designs and the old markup are in `legacy/` (old field list: `legacy/docs/COMPONENTS.md`). Each is built as a partial with a new PART the first time a page needs it (LLM.md section 14).

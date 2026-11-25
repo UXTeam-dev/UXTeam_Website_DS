@@ -1,0 +1,87 @@
+<!-- ============================================================
+     UXTEAM: [PAGE NAME] PAGE  (Figma [node id])
+     Paste into one Salient "Raw HTML" element (page body only).
+     Header, "Book a Discovery Call" and footer come from the global
+     sections, so they are not in this file.
+     Classes: only those in docs/CLASS-REGISTRY.md (uxteam-site.css and
+     src/css/parts). New classes follow docs/CSS-GUIDE.md section 5 and go
+     into a new PART in src/css/parts, never into a <style> block here.
+     ============================================================ -->
+<!--
+  STARTER. Copy to src/pages/<page-key>.html, then:
+  1. Set the wrapper: "uxt-home" (so the shared homepage section styles work)
+     plus "uxt-<page-key>" for this page's own styles.
+  2. Build each section from a partial in src/partials/sections (copy it and
+     change only text, links and images) or from the elements below.
+  3. npm run build && npm run check. Fix every error.
+-->
+<div class="uxt-home uxt-[page-key]">
+
+  <!-- ================= 1. HERO ================= -->
+  <div class="uxt-full uxt-section uxt-hero">
+    <div class="uxt-container">
+      <div class="uxt-hero-content">
+        <p class="uxt-subheading underline-sky-blue uxt-white">[Eyebrow, always]</p>
+        <h1 class="uxt-h1 uxt-white">[Page title]</h1>
+        <p class="uxt-p uxt-p-lg uxt-white">[One or two sentences, about 30 words]</p>
+        <a href="#book-call" class="uxt-button uxt-button-primary uxt-button-dark">
+  <span class="uxt-button-label">Book a Discovery Call</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+      </div>
+    </div>
+    <div class="uxt-logos">
+        <p class="uxt-p uxt-p-sm uxt-logos-title">Trusted by B2B companies worldwide</p>
+
+        <div class="uxt-logos-track">
+            <div class="uxt-logos-list">
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt="SLAPS"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt="RBBi"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt="Section"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt="DS Live"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt="FWD"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt="Trescon"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt="The Squaircle"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt="Terrapinn"></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt="Client logo"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt="Alta DX"></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt="Atomic North"></div>
+            </div>
+
+            <!-- Duplicate list for seamless scrolling -->
+            <div class="uxt-logos-list" aria-hidden="true">
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt=""></div>
+            </div>
+        </div>
+        </div>
+  </div>
+
+  <!-- ================= 2. [SECTION NAME] ================= -->
+  <div class="uxt-full uxt-section uxt-[section-key]">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">[Eyebrow]</p>
+  <h2 class="uxt-h2">[Section title]</h2>
+</div>
+      <!-- Section content: copy an existing section from src/partials/sections,
+           or build it from registry classes. New layout classes go in a new PART. -->
+    </div>
+  </div>
+
+  <!-- Book a Discovery Call and the footer come from the footer global section
+       (src/global/footer-global.html). Buttons with href="#book-call" scroll to it. -->
+
+</div>

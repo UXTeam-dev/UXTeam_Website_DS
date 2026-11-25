@@ -2,6 +2,23 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.0.0 · 25 Nov 2026
+
+**The repo now uses the developers' class system (`uxt-`), the same CSS that runs on new.ux.team.** Pages built here paste into a Salient Raw HTML element as they are, with no `<style>` block to remove.
+
+- **Developers' files in, byte for byte:** `src/css/uxteam-site.css` (Salient Custom CSS, PART A to R), `src/pages/homepage.html`, `src/pages/what-we-do.html`, `src/global/footer-global.html`. Fingerprinted in `src/css/source.lock.json`; the check fails if any is edited.
+- **Partials from their markup:** every homepage and What we do section in `src/partials/sections/`, and button, heading, FAQ item and centered CTA in `src/partials/elements/`. Verified: the homepage rebuilt from the section partials, and the button and FAQ partials, match the developers' markup exactly.
+- **Starter:** `src/starters/page.html` (wrapper, hero with eyebrow, section shell).
+- **New build:** `dist/wordpress/` (paste-ready bodies and the footer global section), `dist/preview/` (full pages for review), `dist/css/` (the live CSS and the additions). `@include` and `@icon` work as before.
+- **Class registry:** `npm run classes` writes `docs/CLASS-REGISTRY.md` and `docs/classes.json` from the stylesheet: 241 `uxt-` classes with where each one works, the developers' unprefixed names, hooks (`src/css/hooks.json`), Salient element classes and 317 old PART A classes that are not allowed.
+- **Mandatory guideline:** new `docs/CSS-GUIDE.md`: one stylesheet, page structure, every existing element and its classes, the developers' naming and PART conventions for new classes, handover and sync.
+- **New `npm run check`:** fails on `<style>`, inline styles, linked stylesheets, unapproved scripts, classes outside the registry (with the reason: old ux-, PART A, Salient, unknown), scoped classes outside their wrapper, a missing or wrong wrapper, header, footer or booking card in a page, buttons without a type or the two arrows, headings without a text class, a missing eyebrow above an H1 or H2, eyebrows without an underline class, a changed logo strip, images without alt, duplicate ids, banned CTAs and dashes. For new PARTs: file name, letter, header (Figma, HTML, Scope), scope on every selector, naming (no BEM), page key prefix, palette colours, fonts and breakpoints. For the repo: developers' files unchanged, registry and build current, no ux- classes outside `legacy/`.
+- **PART S (new, global, for the developers to agree):** `uxt-placeholder` image boxes (`partials/elements/placeholder.html`) and `uxt-nowrap`.
+- **Old ux- system moved to `legacy/`** (src, dist, bundles, build, check and bundle scripts, COMPONENTS field list). It still builds with `npm run legacy:build` and stays a visual reference until its designs are converted.
+- **Docs rewritten for the new system:** LLM.md (non-negotiables 1, 2, 4, 5, 13, 18, 22; sections 0, 1, 8.2, 9, 11, 12.4, 14, 15.4, 15.5, 16, 18, 19; failure 56), AGENTS.md, CLAUDE.md, README, COMPONENTS, HOW-TO-ADD, WORDPRESS, GRAPHICS (code note), FIGMA-MAP, OPEN-ITEMS (items needed from the developers), both skills.
+
+Handover: `dist/css/uxteam-site-additions.css` holds PART S.
+
 ## 1.13.0 · 25 Nov 2026
 
 UX Audit demo page, with one graphic family per section:

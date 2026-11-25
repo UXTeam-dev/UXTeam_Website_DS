@@ -1,0 +1,232 @@
+<!--
+  Script for the capabilities section (sticky tab bar and stacked cards), copied
+  exactly from src/pages/what-we-do.html. Put it once, at the end of the page,
+  inside the page wrapper. It only runs inside .uxt-wwd.
+-->
+<script>
+(function () {
+  var page = document.querySelector('.uxt-wwd');
+  if (!page) return;
+
+  /* ---------- 1. Capabilities ---------- */
+  var section = page.querySelector('.uxt-wwd-cap');
+  var area = section && section.querySelector('.uxt-cap-sticky-area');
+  var tabsBar = section && section.querySelector('.uxt-cap-tabs');
+  var rail = section && section.querySelector('.uxt-cap-rail');
+  var tabs = section ? [].slice.call(section.querySelectorAll('.uxt-cap-tab')) : [];
+  var cards = section ? [].slice.call(section.querySelectorAll('.uxt-cap-card')) : [];
+  var anchors = section ? [].slice.call(section.querySelectorAll('.uxt-cap-anchor')) : [];
+  var GAP = 24;         /* space between the tab bar and a card */
+  var STACK_MIN = 1025; /* desktop: sticky tabs + stacked cards. Below: pinned tabs, normal cards */
+  var lastWidth = window.innerWidth;
+  var active = -1;
+  var ticking = false;
+  var spacer = null;    /* keeps the space of the tab bar while it is pinned */
+
+  function adminBar() {
+    var bar = document.getElementById('wpadminbar');
+    if (!bar) return 0;
+    return getComputedStyle(bar).position === 'fixed' ? bar.offsetHeight : 0;
+  }
+
+  /* Height of the site header while it is on screen (0 when it has slid away) */
+  function headerOffset(full) {
+    var h = document.getElementById('header-outer');
+    var bar = adminBar();
+    if (!h) return bar;
+    var cs = getComputedStyle(h);
+    if (cs.position !== 'fixed' && cs.position !== 'sticky') return bar;
+    if (!full && h.classList.contains('uxt-header-hidden')) return bar;
+    return Math.round((parseFloat(cs.top) || 0) + h.offsetHeight);
+  }
+
+  /* Desktop only: Salient hides overflow on some wrappers, which stops
+     position: sticky. Switch those to "clip" (same look, sticky works). */
+  function freeSticky(el) {
+    if (!(window.CSS && CSS.supports && CSS.supports('overflow-x', 'clip'))) return;
+    var bad = /(hidden|auto|scroll)/;
+    var node = el.parentElement;
+    while (node) {
+      var cs = getComputedStyle(node);
+      var root = (node === document.body || node === document.documentElement);
+      if (root) {
+        if (bad.test(cs.overflowX)) node.style.setProperty('overflow-x', 'clip', 'important');
+      } else {
+        var scrollsY = /(auto|scroll)/.test(cs.overflowY) && node.scrollHeight > node.clientHeight + 1;
+        var scrollsX = /(auto|scroll)/.test(cs.overflowX) && node.scrollWidth > node.clientWidth + 1;
+        if (!scrollsY && !scrollsX) {
+          if (bad.test(cs.overflowX)) node.style.setProperty('overflow-x', 'clip', 'important');
+          if (bad.test(cs.overflowY)) node.style.setProperty('overflow-y', 'clip', 'important');
+        }
+      }
+      node = node.parentElement;
+    }
+  }
+
+  function isStack() {
+    return window.innerWidth >= STACK_MIN;
+  }
+
+  /* ---------- Tablet and mobile: pin the tab bar with position: fixed ----------
+     Fixed does not depend on the overflow of Salient's wrappers, so it
+     works on every phone and tablet. A spacer keeps the page from jumping.
+     If a parent uses transform (fixed would break), we move the bar
+     with translateY instead. */
+  var fixedOk = null;
+  function canUseFixed() {
+    if (fixedOk !== null) return fixedOk;
+    fixedOk = true;
+    var node = tabsBar.parentElement;
+    while (node && node !== document.documentElement) {
+      var cs = getComputedStyle(node);
+      if ((cs.transform && cs.transform !== 'none') ||
+          (cs.filter && cs.filter !== 'none') ||
+          (cs.perspective && cs.perspective !== 'none') ||
+          /(transform|filter)/.test(cs.willChange || '') ||
+          /(paint|layout|strict|content)/.test(cs.contain || '')) { fixedOk = false; break; }
+      node = node.parentElement;
+    }
+    return fixedOk;
+  }
+
+  function unpin() {
+    tabsBar.classList.remove('is-pinned', 'is-leaving', 'is-moved');
+    tabsBar.style.removeProperty('top');
+    tabsBar.style.removeProperty('left');
+    tabsBar.style.removeProperty('width');
+    tabsBar.style.removeProperty('transform');
+    if (spacer) spacer.style.height = '0px';
+  }
+
+  function pinMobile(head) {
+    if (!spacer) {
+      spacer = document.createElement('div');
+      spacer.className = 'uxt-cap-tabs-spacer';
+      spacer.setAttribute('aria-hidden', 'true');
+      tabsBar.parentNode.insertBefore(spacer, tabsBar);
+    }
+    var a = area.getBoundingClientRect();
+    var h = tabsBar.offsetHeight;
+    /* Natural top of the tab bar = top of the area (the spacer sits there) */
+    if (a.top >= head || a.bottom <= 0) { unpin(); return h; }
+    /* Bar slides up with the end of the section after the last card */
+    var top = Math.min(head, a.bottom - h);
+    if (canUseFixed()) {
+      spacer.style.height = h + 'px';
+      tabsBar.classList.add('is-pinned');
+      tabsBar.classList.toggle('is-leaving', top < head);
+      /* "important" so no theme rule can override the position */
+      tabsBar.style.setProperty('top', top + 'px', 'important');
+      tabsBar.style.setProperty('left', a.left + 'px', 'important');
+      tabsBar.style.setProperty('width', a.width + 'px', 'important');
+    } else {
+      tabsBar.classList.add('is-moved');
+      tabsBar.style.setProperty('transform', 'translate3d(0,' + Math.round(top - a.top) + 'px,0)', 'important');
+    }
+    return h;
+  }
+
+  function equalHeights() {
+    cards.forEach(function (c) { c.style.minHeight = ''; });
+    if (!isStack()) return;
+    var max = 0;
+    cards.forEach(function (c) { max = Math.max(max, c.offsetHeight); });
+    cards.forEach(function (c) { c.style.minHeight = max + 'px'; });
+  }
+
+  function stickyTop(i, head) {
+    var top = head + tabsBar.offsetHeight + GAP;
+    if (!isStack()) return top;
+    return Math.min(top, window.innerHeight - cards[i].offsetHeight - 16);
+  }
+
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    tabs.forEach(function (t, j) {
+      t.classList.toggle('is-active', j === i);
+      t.setAttribute('aria-selected', j === i ? 'true' : 'false');
+    });
+    queueRail();
+  }
+
+  /* Move the tab row sideways to show the active tab, after the page
+     has stopped scrolling (moving it during a swipe can stop iOS scrolling) */
+  var railTimer = null;
+  function queueRail() {
+    clearTimeout(railTimer);
+    railTimer = setTimeout(moveRail, 180);
+  }
+
+  function moveRail() {
+    railTimer = null;
+    var btn = tabs[active];
+    if (btn && rail.scrollWidth > rail.clientWidth) {
+      var left = btn.offsetLeft - rail.clientWidth / 2 + btn.offsetWidth / 2;
+      left = Math.max(0, Math.min(left, rail.scrollWidth - rail.clientWidth));
+      if (isStack() && rail.scrollTo) { rail.scrollTo({ left: left, behavior: 'smooth' }); } else { rail.scrollLeft = left; }
+    }
+  }
+
+  function update() {
+    ticking = false;
+    var head = headerOffset();
+    var limit;
+    if (isStack()) {
+      if (tabsBar.classList.contains('is-pinned') || tabsBar.style.transform) unpin();
+      section.style.setProperty('--uxt-cap-head', head + 'px');
+      cards.forEach(function (c, i) { c.style.top = stickyTop(i, head) + 'px'; });
+      limit = tabsBar.getBoundingClientRect().bottom + GAP + 80;
+    } else {
+      if (cards[0].style.top) cards.forEach(function (c) { c.style.top = ''; });
+      var h = pinMobile(head);
+      limit = head + h + GAP + 80;
+    }
+    var next = 0;
+    cards.forEach(function (c, i) { if (c.getBoundingClientRect().top <= limit) next = i; });
+    setActive(next);
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    if (railTimer) queueRail();
+  }
+
+  if (section && area && tabsBar && cards.length) {
+    /* Lets the CSS undo Salient's "body { overflow: hidden }" on this page,
+       which stops sticky on desktop (see PART Q in the CSS) */
+    document.body.classList.add('uxt-wwd-page');
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        var y = anchors[i].getBoundingClientRect().top + window.pageYOffset;
+        var h = headerOffset(true);
+        var goingDown = y - stickyTop(i, h) > window.pageYOffset;
+        /* Scrolling down hides the header, scrolling up shows it again */
+        var head = goingDown ? adminBar() : h;
+        window.scrollTo({ top: Math.max(0, y - stickyTop(i, head) + 2), behavior: 'smooth' });
+      });
+    });
+    if (isStack()) freeSticky(tabsBar);
+    equalHeights();
+    update();
+    var hdr = document.getElementById('header-outer');
+    if (hdr && window.MutationObserver) {
+      new MutationObserver(onScroll).observe(hdr, { attributes: true, attributeFilter: ['class'] });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    /* Phones fire "resize" when the address bar shows or hides.
+       Only re-measure when the width really changes. */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      fixedOk = null;
+      if (isStack()) freeSticky(tabsBar);
+      equalHeights();
+      onScroll();
+    });
+    window.addEventListener('orientationchange', function () { setTimeout(onScroll, 300); });
+    window.addEventListener('load', function () { if (isStack()) freeSticky(tabsBar); equalHeights(); update(); });
+  }
+
+})();
+</script>

@@ -60,7 +60,7 @@ Review as a strict senior design director. No praise padding. Every issue gets a
 | Area | What a 5 looks like |
 |---|---|
 | Business clarity | The page's job, reader and action are obvious; proof sits next to claims |
-| Brand fit | Only tokens, the three fonts in their roles, Arrow Glide buttons, radius 8, no shadows, no gradient filled cards, an eyebrow on every section, SVG icons, fixed header, booking card and footer |
+| Brand fit | Only registry classes and the stylesheet (docs/CSS-GUIDE.md: no `<style>`, no inline styles, no invented classes), the three fonts in their roles, Arrow Glide buttons, radius 8, no shadows, no gradient filled cards, an eyebrow on every section, SVG icons, header, booking card and footer left global |
 | Emphasis by weight | High sections are the most designed and visual; Low sections are quiet |
 | Hierarchy and readability | Group titles beat their content; no orphans; comfortable line lengths; one idea per section, nothing dumped |
 | Rhythm and variety | No two neighbouring sections share a layout; bands within limits; smooth gradient transitions |

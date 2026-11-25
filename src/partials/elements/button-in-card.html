@@ -1,0 +1,13 @@
+<!--
+  Button shown inside a card that is itself a link (story cards, story body).
+  A <span>, hidden from screen readers; the card link carries the action.
+  The card needs class "uxt-button-trigger" so hovering the card plays the arrow glide.
+  Params: type (secondary | primary), mod (uxt-button-dark on dark), label
+-->
+<span class="uxt-button uxt-button-{{type|secondary}} {{mod|}}" aria-hidden="true">
+  <span class="uxt-button-label">{{label|Read Story}}</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</span>
