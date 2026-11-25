@@ -11,6 +11,8 @@
      5  Mini scene        .ux-scene--mini (257 x 200 inline SVG)
      6  Image box         .ux-image-box (an empty, labeled box for a real image)
    Process icons (family 1) live in sections/process.
+   Icons in tiles and meta lists are Phosphor Light, inlined with
+   <!-- @icon name size="32" --> so they take the color set here.
    ========================================================================== */
 
 /* ---- 2. Icon tiles ------------------------------------------------------ */
@@ -25,6 +27,7 @@
   height: 56px;
   border-radius: var(--ux-radius-card);
   background: var(--ux-gradient-g6-icon-tile);
+  color: var(--ux-navy); /* Phosphor icons inlined with @icon take this color */
 }
 
 .ux-icon-tile > img,
@@ -39,6 +42,7 @@
   height: 60px;
   border-radius: 7px;
   background: var(--ux-navy);
+  color: var(--ux-white);
 }
 
 /* Meta icons: 24px Steel line icons beside a short label (a client's
@@ -66,6 +70,7 @@
   flex: none;
   width: 24px;
   height: 24px;
+  color: var(--ux-steel);
 }
 
 /* ---- 3. Spot illustration panel ----------------------------------------- */

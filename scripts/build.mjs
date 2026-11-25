@@ -13,6 +13,9 @@
  *   <!-- @include sections/site-header/site-header.html theme="dark" -->
  * Paths are relative to src/. Inside the partial, {{name}} is replaced by the
  * attribute value and {{name|fallback}} uses "fallback" when it is not passed.
+ *
+ * Icon syntax (Phosphor Light, inlined, takes the text color):
+ *   <!-- @icon shield-check size="32" -->
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, copyFileSync, existsSync, rmSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
@@ -113,6 +116,26 @@ function resolveIncludes(html, depth = 0) {
   });
 }
 
+/* ---------- 5. Phosphor icons ----------
+ * <!-- @icon shield-check size="32" class="ux-meta-icon" label="NDA" -->
+ * Inlines assets/icons/phosphor/light/<name>.svg. The icon takes the text color
+ * (fill="currentColor"), so the container sets it. Without label it is hidden
+ * from screen readers; with label it gets role="img" and that label.
+ * Find names with: npm run icon -- <word>. Rules: docs/GRAPHICS.md, family 2.
+ */
+const PHOSPHOR = join(ROOT, 'assets', 'icons', 'phosphor', 'light');
+function resolveIcons(html) {
+  return html.replace(/<!--\s*@icon\s+([a-z0-9-]+)((?:\s+[\w-]+="[^"]*")*)\s*-->/g, (_, name, attrs) => {
+    const p = Object.fromEntries([...attrs.matchAll(/([\w-]+)="([^"]*)"/g)].map((m) => [m[1], m[2]]));
+    const file = join(PHOSPHOR, `${name}.svg`);
+    if (!existsSync(file)) throw new Error(`@icon "${name}" is not a Phosphor icon. Search with: npm run icon -- ${name}`);
+    const size = p.size || '24';
+    const a11y = p.label ? `role="img" aria-label="${p.label}"` : 'aria-hidden="true" focusable="false"';
+    const cls = p.class ? ` class="${p.class}"` : '';
+    return readFileSync(file, 'utf8').trim().replace('<svg ', `<svg${cls} width="${size}" height="${size}" ${a11y} `);
+  });
+}
+
 function buildHtml(dir) {
   const from = join(SRC, dir);
   if (!existsSync(from)) return;
@@ -120,7 +143,7 @@ function buildHtml(dir) {
     if (!f.endsWith('.html')) continue;
     const out = join(DIST, dir, f);
     mkdirSync(dirname(out), { recursive: true });
-    writeFileSync(out, resolveIncludes(readFileSync(join(from, f), 'utf8')));
+    writeFileSync(out, resolveIcons(resolveIncludes(readFileSync(join(from, f), 'utf8'))));
   }
 }
 

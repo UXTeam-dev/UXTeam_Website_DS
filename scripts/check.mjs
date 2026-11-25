@@ -219,6 +219,10 @@ function checkBuilt(name, html, report) {
     if (isIconContext && !isSvg) report.error(`icon or graphic that is not SVG: ${tag.slice(0, 90)}… Icons and graphics are SVG (LLM.md 8.6).`);
   }
 
+  // 9j2. Phosphor icons are inlined with @icon, never <img> (an image renders black)
+  if (/<img\b[^>]*src="[^"]*icons\/phosphor\//i.test(html)) report.error('Phosphor icon used as <img>. Place it with <!-- @icon name size="32" --> so it takes the container color (docs/GRAPHICS.md family 2).');
+  if (/<!--\s*@icon\b/.test(html)) report.error('unresolved @icon directive. Run npm run build.');
+
   // 9k. Process and approach sections show the process, not a mockup (LLM.md 13.6)
   for (const m of pageType === 'detail' ? [] : html.matchAll(/<section\b[^>]*>([\s\S]*?)<\/section>/gi)) {
     const head = (m[1].match(/<header\b[^>]*ux-section-header[\s\S]*?<\/header>/i) || [''])[0];
@@ -289,7 +293,7 @@ async function walk(dir) {
 async function checkRepo(report) {
   for (const dir of [join(ROOT, 'assets', 'icons'), join(ROOT, 'assets', 'graphics')]) {
     if (!existsSync(dir)) continue;
-    for (const p of await walk(dir)) if (!/\.svg$/i.test(p)) report.error(`${p.slice(ROOT.length + 1)} is not SVG. Icons and graphics are SVG (LLM.md 8.6, docs/GRAPHICS.md).`);
+    for (const p of await walk(dir)) if (/\.(png|jpe?g|webp|gif|avif)$/i.test(p)) report.error(`${p.slice(ROOT.length + 1)} is not SVG. Icons and graphics are SVG (LLM.md 8.6, docs/GRAPHICS.md).`);
   }
   for (const p of (await walk(join(ROOT, 'src'))).filter((x) => x.endsWith('.css'))) {
     const rel = p.slice(join(ROOT, 'src').length + 1);

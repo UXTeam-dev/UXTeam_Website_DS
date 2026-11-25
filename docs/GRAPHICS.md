@@ -61,29 +61,39 @@ Scenes (families 4 and 5) are drawn UI, so they follow their own recipe in secti
 
 ## 4. Family 2: line icons (32px and 24px)
 
+**Every UI icon comes from Phosphor, Light weight** (`assets/icons/phosphor/`, 1,512 icons, MIT). Designers use the Phosphor Figma file or plugin in Light, so names match.
+
+1. Search: `npm run icon -- <word>` (for example `npm run icon -- shield`). Brand logos are hidden.
+2. Use it inline, so it takes the container's color: `<span class="ux-icon-tile"><!-- @icon shield-check size="32" --></span>`. Add `label="…"` only when the icon carries meaning on its own; otherwise it is hidden from screen readers.
+3. Sizes: 32 in tiles, 24 for meta icons and inline with text. Light only: never Thin, Regular, Bold, Fill or Duotone, and never another icon library.
+4. Never `<img src="…/phosphor/…">` (it renders black), never redraw a Phosphor icon, never edit its paths.
+5. Draw your own only when Phosphor truly has nothing for the idea (4.4), and say so in the plan.
+
+The icons already in the repo from Figma (`assets/icons/line/`, `audience-*`, `industry-*`) are approved and stay where they are used.
+
 ### 4.1 Soft tint tile (light sections)
 
 - **Where:** trust points, expectations ("How we treat every engagement"), benefits, reasons to choose UXTeam, what is included. Columns of 3 or 4 with a Steel hairline on top, or a short list.
-- **Markup:** `<span class="ux-icon-tile"><img src="../assets/icons/line/target.svg" width="32" height="32" alt=""></span>`
+- **Markup:** `<span class="ux-icon-tile"><!-- @icon target size="32" --></span>` (the tile sets Navy)
 - **Look:** tile 56 x 56, radius 8, G6 tint (`--ux-gradient-g6-icon-tile`, `#B9F9FC` to `#FFEED9`); icon 32 Navy line, no fill. Tile sits 29px below the column's top hairline; title (Aeonik Medium 25) 16px below the tile; body Manrope 18.
-- **Files:** `assets/icons/line/person.svg`, `target.svg`, `trend-up.svg`, `shield-check.svg`, and `_template.svg` for new ones. Reference: `reference/graphics/icon-tiles-tint-expectations.webp`.
+- **Icons:** Phosphor Light. The four on the Figma board are also kept as files in `assets/icons/line/`. Reference: `reference/graphics/icon-tiles-tint-expectations.webp`.
 - The tint tile is a small accent, not a card. It is the only tinted square allowed in a light section, and it is never larger than 60px.
 
 ### 4.2 Navy tile (audience lists on detail pages)
 
 - **Where:** "Who this is for" on Success Story detail pages.
-- **Markup:** `<span class="ux-icon-tile ux-icon-tile--navy"><img src="../assets/icons/audience-agencies.svg" width="32" height="32" alt=""></span>`
+- **Markup:** `<span class="ux-icon-tile ux-icon-tile--navy"><!-- @icon buildings size="32" --></span>` (the tile sets white). The approved detail page keeps its `audience-*.svg` files.
 - **Look:** 60 x 60, radius 7, Navy fill, white 32 line icon. Files: `assets/icons/audience-*.svg`. Reference: `reference/graphics/icon-tiles-navy-who-this-is-for.webp`.
 
 ### 4.3 Meta icons (24px)
 
 - **Where:** beside short facts in a sentence row: a client's industries ("Healthcare, Fintech, Manufacturing"), a location, a format. Never in a tile, never as a feature list.
-- **Markup:** `<ul class="ux-meta-list" role="list"><li><img class="ux-meta-icon" src="../assets/icons/industry-fintech.svg" width="24" height="24" alt="">Fintech</li></ul>`
+- **Markup:** `<ul class="ux-meta-list" role="list"><li><!-- @icon currency-circle-dollar size="24" class="ux-meta-icon" -->Fintech</li></ul>` (the class sets Steel)
 - **Look:** 24 x 24, Steel, 1.2 line; label Manrope 20 Charcoal, 10px gap, 30px between items. Files: `assets/icons/industry-*.svg`. Reference: `reference/graphics/meta-icons-client-about.webp`.
 
-### 4.4 Drawing a new line icon
+### 4.4 Drawing a new line icon (only when Phosphor has none)
 
-1. Copy `assets/icons/line/_template.svg` (32 x 32).
+1. Search Phosphor with two or three synonyms first. If nothing fits, copy `assets/icons/line/_template.svg` (32 x 32).
 2. Pick the plainest metaphor for the word: person for "senior person", target for "one metric", line chart for "reports", shield for "NDA".
 3. Draw it in 2 to 4 strokes inside x 4 to 28, y 4 to 28. Navy, 1.5, round caps and joins. One small solid dot at most.
 4. No gradient in the icon; the tile carries the color. Save it in `assets/icons/line/<name>.svg` with an `aria-label`.
@@ -190,6 +200,7 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 
 - [ ] The section's job decided the family (section 1). Process and approach sections have no scene or mockup.
 - [ ] One family, one size per section; all items in a set drawn the same way.
+- [ ] Every UI icon is Phosphor Light, inlined with `@icon` (none drawn unless Phosphor had nothing).
 - [ ] Every drawn graphic is SVG with Navy 1.5 lines, one G4 accent at most, no text in icons or spot illustrations.
 - [ ] New icons and spot illustrations sit beside the existing ones without standing out.
 - [ ] Scenes tell three beats, use invented names, say "Illustrative" in the label, and sit on a white section.
@@ -202,7 +213,9 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 |---|---|
 | `reference/graphics/*.webp` | Figma screenshots of every graphic on the board |
 | `assets/icons/process/*.svg` | Family 1 |
-| `assets/icons/line/*.svg` | Family 2, 32px Navy line icons and template |
+| `assets/icons/phosphor/` | Family 2 source: Phosphor Light (1,512 icons), `catalog.json` for search, license, readme |
+| `scripts/icon.mjs` | `npm run icon -- <word>`: find a Phosphor icon |
+| `assets/icons/line/*.svg` | Family 2, the 32px icons from the Figma board, and the template for drawing one Phosphor lacks |
 | `assets/icons/audience-*.svg` | Family 2, white icons for Navy tiles |
 | `assets/icons/industry-*.svg` | Family 2, 24px Steel meta icons |
 | `assets/graphics/spot/*.svg` | Family 3 spot illustrations and template |

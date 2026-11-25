@@ -8,7 +8,8 @@
     "build": "node scripts/build.mjs",
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/build.mjs && node scripts/check.mjs; node scripts/serve.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "icon": "node scripts/icon.mjs"
   },
   "engines": {
     "node": ">=18"

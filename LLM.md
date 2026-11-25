@@ -26,7 +26,7 @@ Breaking any of these means the page is wrong, however good it looks.
 14. **Check your work against the approved pages** before saying it is done (section 18). If you cannot build or preview, say so.
 15. **No gradient fills on content cards, and never a gradient on a gradient** (8.5). Content cards are white with a 1px Steel border (a gradient stroke on Deep Navy). Nothing with a gradient surface sits on a gradient band or hero.
 16. **Every section header has an eyebrow,** whether or not the content document gives one. Write one if it is missing (8.4).
-17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **Pick and draw every graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; **Never add a real client mockup or screenshot:** wherever one is needed, put a labeled placeholder (an image box); the team adds the image later (8.6).
+17. **Icons and graphics are SVG,** inline or an `.svg` file. Never a PNG, JPG, WebP or data URI image of an icon or graphic. **UI icons are Phosphor Light only** (`assets/icons/phosphor/`, find with `npm run icon -- <word>`, place with `<!-- @icon name size="32" -->`). **Pick and draw every other graphic with `docs/GRAPHICS.md`:** the section's job decides the graphic family, and real images (client work, people, blog covers) are never generated; **Never add a real client mockup or screenshot:** wherever one is needed, put a labeled placeholder (an image box); the team adds the image later (8.6).
 18. **The trusted-by logo strip is always the logo marquee include, as it is** (`sections/logo-marquee`, auto scrolling, label "Trusted by B2B companies worldwide"). Never a static row of logos, never a new strip (12.5).
 19. **A content heavy section is brainstormed before it is built** (12.7). Never stack every point the content gives into columns plus another section's content.
 
@@ -211,7 +211,7 @@ src/library/           component library page (shows everything)
 dist/                  build output, do not edit
 ```
 
-Commands: `npm run build`, `npm run check` (page rules check, run after every build), `npm run serve` (http://localhost:4321), `npm run dev`.
+Commands: `npm run build`, `npm run check` (page rules check, run after every build), `npm run serve` (http://localhost:4321), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon).
 
 Figma file: **UXTeam Website 2026**, key `9JQFLWC1KBelhUEaEZ6I1C`.
 - Final Design Pages `1231:508` (approved pages, the only design source of truth)
@@ -606,7 +606,7 @@ Three fonts only:
 | Family | Where | Look |
 |---|---|---|
 | 1 Process icons, 64px | The process section | Navy 1.5 outline, one G4 filled shape |
-| 2 Line icons, 32px on a tile; 24px meta icons | Trust points, expectations, benefits (tint tile); audiences (Navy tile); client facts (24px Steel, no tile) | Navy 1.5 outline, no fill |
+| 2 Phosphor Light icons, 32px on a tile; 24px meta icons | Trust points, expectations, benefits (tint tile); audiences (Navy tile); client facts (24px Steel, no tile) | Navy 1.5 outline, no fill |
 | 3 Spot illustrations, 200 x 140 | Topic or path tiles, on a Mist panel | 3 to 9 shapes, Navy 1.5, exactly one G4 shape |
 | 4 Product scenes, 518 x 518 | Service rows and other High sections that show what the client gets | Navy panel, two soft glows, simplified UI, one flagged problem, white floating cards |
 | 5 Mini scenes, 257 x 200 | A row of four parts of one capability | Dark base, two glows in one hue, one white card |
@@ -614,7 +614,7 @@ Three fonts only:
 
 **Real client mockups and screenshots are never added to a page.** Wherever a section needs one (a service scene showing client work, an outcome card, an industry card, a case study visual), put a labeled image box (`.ux-image-box`, `docs/GRAPHICS.md` section 8) at the exact size. The team adds the real image later. This does not change approved sections reused whole: their existing images stay as they are.
 
-- Icons: outline style, 24px grid, 1.5px stroke, current text color (Phosphor style). Process icons are provided in `assets/icons/process/` as SVG.
+- Icons: **Phosphor, Light weight, only.** The full set is in `assets/icons/phosphor/light/`. Find one with `npm run icon -- <word>` and place it with `<!-- @icon name size="32" -->`; the build inlines it so it takes the container's color. 32px in tiles, 24px beside text. Never another weight or library, never an `<img>` of a Phosphor icon. Draw your own only when Phosphor has nothing for the idea. Process icons are provided in `assets/icons/process/` as SVG.
 - **Icons, graphics, diagrams and illustrations are always SVG:** inline `<svg>` or an `.svg` file in `assets/`. Never a PNG, JPG, WebP or base64 data image of an icon or graphic, and never a screenshot of one. Raster files are only for photos, client logos supplied as raster, and real product screenshots. A missing icon is drawn as SVG in the house style or taken from Figma as SVG.
 - Imagery: real, client-approved work over stock. One crop, one radius, one overlay per image set.
 - Founder photo and name appear **only in the booking section**. Team pages use real photos with names.

@@ -2,6 +2,15 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.10.0 · 25 Nov 2026
+
+- Phosphor icons (Light weight, `@phosphor-icons/core` 2.1.1, MIT) are now the UI icon set: 1,512 icons in `assets/icons/phosphor/light/`, with `catalog.json` (names, tags, categories), license and readme.
+- `npm run icon -- <word>` finds an icon by name or tag (brand logos hidden unless `--brands`).
+- New build directive `<!-- @icon name size="32" class="…" label="…" -->` inlines the icon so it takes its container's color. `.ux-icon-tile` sets Navy, `.ux-icon-tile--navy` white, `.ux-meta-icon` Steel. The build stops on an unknown icon name.
+- Rule in LLM.md (non-negotiable 17, sections 1 and 8.6), AGENTS.md, docs/GRAPHICS.md (family 2), both skills and COMPONENTS: UI icons are Phosphor Light only; draw one only when Phosphor has nothing. The approved icons from Figma stay.
+- `npm run check` flags Phosphor icons used as `<img>`; the asset check now flags raster files in `assets/icons` and `assets/graphics` (so the license, readme and catalog can live beside the icons).
+- Library: Phosphor examples in the three icon containers.
+
 ## 1.9.1 · 24 Nov 2026
 
 - New rule: never add real client mockups or screenshots to a page. Wherever one is needed, put a labeled image box placeholder; the team adds the image later. Approved sections reused whole keep their images. In LLM.md (non-negotiable 17, 8.6), AGENTS.md, docs/GRAPHICS.md (sections 1, 6, 8, 10), both skills and OPEN-ITEMS. The check's placeholder message now says this is expected.
