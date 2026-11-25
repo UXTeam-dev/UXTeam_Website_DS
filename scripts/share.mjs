@@ -42,6 +42,7 @@ const IMAGES = {
   '2026/10/homepage_banner_logo10_2x.webp': 'assets/share/altadx.webp',
   '2026/10/homepage_banner_logo11_2x.webp': 'assets/share/atomicnorth.webp',
   '2026/10/Brent-Weaver-CEO-Founder-img1.webp': 'assets/share/brent-weaver.webp',
+  // Cropped to the Figma photo frame (425 x 466, head to waist), as the live image is.
   '2026/10/chintan_bhatt_founder_uxteam-web.webp': 'assets/share/chintan-bhatt.webp',
   '2026/10/e2m-homepage.svg': 'assets/logos/clients/e2m.svg',
   '2026/10/sqc-homepage.svg': 'assets/share/squaircle.webp',

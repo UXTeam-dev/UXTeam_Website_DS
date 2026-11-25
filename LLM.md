@@ -188,7 +188,7 @@ Use them in this order on a new page: page strategy (Step 3 plan), then build, t
 | 16 | Building in the repo | Code structure and rules (with docs/CSS-GUIDE.md) |
 | 17 | Working in Figma | When the person asks for Figma |
 | 18 | Quality bar | What done looks like |
-| 19 | Do's and don'ts | The short list, and failures seen before (up to 60) |
+| 19 | Do's and don'ts | The short list, and failures seen before (up to 61) |
 | 20 | Open items | What must not be published yet |
 
 ---
@@ -1162,7 +1162,7 @@ A page task adds a page, and the new sections that page needs as reusable sectio
 A page is reviewed and shared the way it will look live: header, page, booking card and footer together.
 
 - `npm run build` writes `dist/preview/<page>.html` with the real site header and the booking card version for the page type (`scripts/preview-shell.mjs`: homepage and What we do use "Skip the layers, talk to the founder."; every other page uses "Let's talk about what you're building."), and the card overlapping the footer by 40px. These are preview only; WordPress gets `dist/wordpress/`.
-- **When the person wants a file to view or send, run `npm run share -- <page>` and hand over `dist/share/<page>.html`.** Never assemble a file by hand. It embeds the repo's images (live image to repo copy table in `scripts/share.mjs`), sets every trusted-by logo to its approved size, keeps only the CSS the page uses and puts the fonts at the end, so it opens offline and is not cut off by file viewers. If it lists images it could not embed, add them to the table.
+- **When the person wants a file to view or send, run `npm run share -- <page>` and hand over `dist/share/<page>.html`.** Never assemble a file by hand. It embeds the repo's images (live image to repo copy table in `scripts/share.mjs`), sets every trusted-by logo to its approved size, keeps only the CSS the page uses and puts the fonts at the end, so it opens offline and is not cut off by file viewers. If it lists images it could not embed, add them to the table. A repo copy that stands in for a live image must have the live image's crop and proportions (the founder photo is cropped to the 425 x 466 frame), or the developers' CSS will size it wrongly.
 - Before handing a shared file over, open it and compare its header, logo strip, booking card and footer with an approved page or demo, at 1440, 768 and 375.
 
 ---
@@ -1347,6 +1347,7 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 58 | The shared preview showed the homepage booking card ("Skip the layers…") on an inner page, with a gap above the footer instead of the overlap | Inner pages use "Let's talk about what you're building."; the card overlaps the footer by 40px | The preview shell picks the booking version by page type and adds the overlap (15.5, 16.5) |
 | 59 | In the shared file the trusted-by logos had different sizes | The repo's logo files were dropped into tiles sized for the live site's padded 2x images, so each logo scaled freely | Shared files come from `npm run share`, which sets every logo to its approved size in the tile (16.6) |
 | 60 | The shared file was 1.2 MB with fonts and images first, so a file viewer cut the page off at the stories section | Viewers often read only the start of a large file | `npm run share` keeps only used CSS, resizes images and puts fonts at the end (16.6) |
+| 61 | The founder photo in the shared file's booking card showed his whole body, small | The booking card CSS fits a photo already cropped to the Figma frame (425 x 466, head to waist); the repo's full-length photo was swapped in uncropped | Shared files use `assets/share/chintan-bhatt.webp`, cropped to that frame. Any image swapped in for a live one must match the live image's crop and size (16.6) |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
 
