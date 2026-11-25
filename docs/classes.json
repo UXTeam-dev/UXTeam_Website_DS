@@ -14,6 +14,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/hero.html",
     "starters/page.html"
    ]
@@ -34,6 +35,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/heading-intro.html",
     "partials/elements/heading.html",
     "partials/sections/approach-stats.html",
@@ -55,7 +57,8 @@
     "PART B",
     "PART C",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -63,6 +66,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -70,7 +74,8 @@
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
-    "partials/sections/stories.html"
+    "partials/sections/stories.html",
+    "partials/sections/wl-services.html"
    ]
   },
   "uxt-h3-sm": {
@@ -78,7 +83,8 @@
    "sources": [
     "PART B",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -86,12 +92,15 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/faq-item-open.html",
     "partials/elements/faq-item.html",
     "partials/sections/capabilities.html",
     "partials/sections/faq.html",
     "partials/sections/insights.html",
-    "partials/sections/why.html"
+    "partials/sections/why.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-win.html"
    ]
   },
   "uxt-p": {
@@ -103,7 +112,8 @@
     "PART M",
     "PART N",
     "PART P",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -111,6 +121,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/faq-item-open.html",
     "partials/elements/faq-item.html",
     "partials/elements/heading-intro.html",
@@ -126,6 +137,10 @@
     "partials/sections/process.html",
     "partials/sections/services.html",
     "partials/sections/why.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html",
+    "partials/sections/wl-win.html",
     "starters/page.html"
    ]
   },
@@ -149,7 +164,8 @@
     "PART C",
     "PART D",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -158,6 +174,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -166,7 +183,10 @@
     "partials/sections/insights.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
-    "partials/sections/stories.html"
+    "partials/sections/stories.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html"
    ]
   },
   "uxt-subheading": {
@@ -183,6 +203,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/heading-intro.html",
     "partials/elements/heading.html",
     "partials/sections/approach-stats.html",
@@ -222,6 +243,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -236,6 +258,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/hero.html",
     "starters/page.html"
    ]
@@ -251,13 +274,17 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/faq-item-open.html",
     "partials/elements/faq-item.html",
     "partials/sections/capabilities.html",
     "partials/sections/faq.html",
     "partials/sections/hero.html",
     "partials/sections/industries.html",
-    "partials/sections/logos.html"
+    "partials/sections/logos.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html"
    ]
   },
   "uxt-p-xs": {
@@ -270,8 +297,10 @@
    "example": ".uxt-p.uxt-p-xs",
    "usedIn": [
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/placeholder.html",
-    "partials/sections/capabilities.html"
+    "partials/sections/capabilities.html",
+    "partials/sections/wl-services.html"
    ]
   },
   "underline-sky-blue": {
@@ -285,6 +314,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -326,6 +356,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/hero.html",
     "partials/sections/outcomes.html",
     "partials/sections/services.html",
@@ -356,6 +387,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -368,6 +400,10 @@
     "partials/sections/services.html",
     "partials/sections/stories.html",
     "partials/sections/why.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html",
+    "partials/sections/wl-win.html",
     "starters/page.html"
    ]
   },
@@ -387,6 +423,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "starters/page.html"
    ]
   },
@@ -402,6 +439,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -414,6 +452,10 @@
     "partials/sections/services.html",
     "partials/sections/stories.html",
     "partials/sections/why.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html",
+    "partials/sections/wl-win.html",
     "starters/page.html"
    ]
   },
@@ -439,6 +481,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
@@ -451,6 +494,10 @@
     "partials/sections/services.html",
     "partials/sections/stories.html",
     "partials/sections/why.html",
+    "partials/sections/wl-compare.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html",
+    "partials/sections/wl-win.html",
     "starters/page.html"
    ]
   },
@@ -461,7 +508,8 @@
     "PART C",
     "PART L",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -470,6 +518,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/heading-intro.html",
     "partials/elements/heading.html",
     "partials/sections/approach-stats.html",
@@ -574,7 +623,8 @@
     "PART F",
     "PART G",
     "PART P",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -583,6 +633,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/button-icon.html",
     "partials/elements/button-in-card.html",
     "partials/elements/button.html",
@@ -609,6 +660,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/button-in-card.html",
     "partials/elements/button.html",
     "partials/sections/capabilities.html",
@@ -647,6 +699,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/button-icon.html",
     "partials/elements/button-in-card.html",
     "partials/elements/button.html",
@@ -673,6 +726,7 @@
     "global/footer-global.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/elements/button-icon.html",
     "partials/elements/button-in-card.html",
     "partials/elements/button.html",
@@ -697,6 +751,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
     "partials/sections/stories.html"
@@ -739,6 +794,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/capabilities.html",
     "partials/sections/engage.html",
     "partials/sections/outcomes.html",
@@ -801,25 +857,31 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/approach-stats.html",
     "partials/sections/engage.html",
-    "partials/sections/faq.html"
+    "partials/sections/faq.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-services.html"
    ]
   },
   "uxt-hero": {
    "kind": "styled",
    "sources": [
     "PART C",
-    "PART F"
+    "PART F",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
-    ".uxt-home"
+    ".uxt-home",
+    ".uxt-wl"
    ],
    "example": ".uxt-home .uxt-hero",
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/hero.html",
     "starters/page.html"
    ]
@@ -837,6 +899,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/hero.html",
     "starters/page.html"
    ]
@@ -1183,6 +1246,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1200,6 +1264,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1216,6 +1281,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1233,6 +1299,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1251,6 +1318,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1267,6 +1335,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1283,6 +1352,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1299,6 +1369,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1315,6 +1386,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1331,6 +1403,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1350,6 +1423,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1366,6 +1440,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1382,6 +1457,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -1605,6 +1681,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/process.html"
    ]
   },
@@ -1621,22 +1698,26 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/process.html"
    ]
   },
   "uxt-step-icon": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
-    ".uxt-home"
+    ".uxt-home",
+    ".uxt-wl"
    ],
    "example": ".uxt-home .uxt-step-icon",
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/process.html"
    ]
   },
@@ -1653,6 +1734,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/process.html"
    ]
   },
@@ -1807,36 +1889,43 @@
    "example": ".uxt-home .uxt-engage .uxt-heading",
    "usedIn": [
     "pages/homepage.html",
+    "pages/white-label.html",
     "partials/sections/engage.html"
    ]
   },
   "uxt-engage-grid": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
+    ".uxt-wl",
     ".uxt-home"
    ],
    "example": ".uxt-home .uxt-engage-grid",
    "usedIn": [
     "pages/homepage.html",
+    "pages/white-label.html",
     "partials/sections/engage.html"
    ]
   },
   "uxt-engage-item": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
+    ".uxt-wl",
     ".uxt-home"
    ],
    "example": ".uxt-home .uxt-engage-item",
    "usedIn": [
     "pages/homepage.html",
+    "pages/white-label.html",
     "partials/sections/engage.html"
    ]
   },
@@ -1965,6 +2054,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/faq.html"
    ]
   },
@@ -1981,6 +2071,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/faq.html"
    ]
   },
@@ -1997,6 +2088,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/faq.html"
    ]
   },
@@ -2015,6 +2107,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/faq.html"
    ]
   },
@@ -2571,6 +2664,7 @@
    "usedIn": [
     "pages/homepage.html",
     "pages/what-we-do.html",
+    "pages/white-label.html",
     "partials/sections/stories.html"
    ]
   },
@@ -3826,6 +3920,493 @@
    "scopes": [],
    "example": ".uxt-nowrap",
    "usedIn": []
+  },
+  "uxt-wl": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": "global",
+   "scopes": [],
+   "example": ".uxt-wl .uxt-hero .uxt-p.uxt-wl-hero-trust",
+   "usedIn": [
+    "pages/white-label.html"
+   ]
+  },
+  "uxt-wl-hero-trust": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-hero .uxt-p.uxt-wl-hero-trust",
+   "usedIn": [
+    "pages/white-label.html"
+   ]
+  },
+  "uxt-wl-fixes": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fixes .uxt-heading",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-head": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-head",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-row": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-row",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-list": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-list",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-problem": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-problem .uxt-h3-sm",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-arrow": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-arrow",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-fix-answer": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fix-answer",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html"
+   ]
+  },
+  "uxt-wl-icon-tile": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-icon-tile",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-fixes.html",
+    "partials/sections/wl-win.html"
+   ]
+  },
+  "uxt-wl-services": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-services .uxt-heading",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-list": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-list",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-card": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-card",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-text": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-text",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-main": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-main",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-title": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-title",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-points": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-points",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-bullet": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-bullet",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-aside": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-main > .uxt-p.uxt-wl-service-aside",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-fit": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-fit",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-service-visual": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-service-visual",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-band": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-band",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-band-text": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-band-text",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-services.html"
+   ]
+  },
+  "uxt-wl-step-svg": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-step-icon .uxt-wl-step-svg",
+   "usedIn": []
+  },
+  "uxt-wl-process-note": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-process-note",
+   "usedIn": [
+    "pages/white-label.html"
+   ]
+  },
+  "uxt-wl-win": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-win",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-win.html"
+   ]
+  },
+  "uxt-wl-win-grid": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-win-grid",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-win.html"
+   ]
+  },
+  "uxt-wl-win-item": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-win-item",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-win.html"
+   ]
+  },
+  "uxt-wl-center": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-center",
+   "usedIn": [
+    "pages/white-label.html"
+   ]
+  },
+  "uxt-wl-compare": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-compare .uxt-heading",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
+  },
+  "uxt-wl-table-wrap": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-table-wrap",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
+  },
+  "uxt-wl-table": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-table",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
+  },
+  "uxt-wl-us": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-table .uxt-wl-us",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
   },
   "uxt-insights": {
    "kind": "hook",

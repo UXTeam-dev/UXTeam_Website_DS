@@ -14,6 +14,23 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
 | Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
 
+## White label page (`src/pages/white-label.html`)
+
+| Item | Where | Until then |
+|---|---|---|
+| Typical start time for a new partnership | Fix row 2, comparison table (Time to start), FAQ "How fast can you start?" | Visible `[confirm X] days` |
+| Design only, or design and build? | FAQ "Do you build websites, or design only?" | Visible `[confirm with Chintan: …]` at the end of the answer |
+| Review of every comparison table cell | Comparison table (draft positioning in the page copy) | Shown as written in the copy; not final |
+| White label UX audit sample report | "See a Sample Report" link in the UX audits card | `href="#"` |
+| Agency partner count: copy says [75]+, approved fact is 50+ | Hero trust line | "The design team behind 50+ agencies." |
+| Agency partner logos that agreed to be shown, and their label | Under the hero | The standard trusted-by marquee and label, unchanged (LLM.md 12.5) |
+| Testimonials 1 and 2 and the partnership story card (placeholders in the copy) | Partnership stories | Not on the page; the approved stories section (E2M video, Squaircle, Section, RBBI) carries the proof |
+| Four ways to partner vs the three ways to work rule | Ways to partner | Built as four, as the copy says (agency channel); confirm |
+| Three service visuals, 518 x 518 | Service cards | Labeled placeholders; a drawn UX audit scene could replace the third (GRAPHICS.md 6) |
+| Five process icons `wl-*.svg` to upload, or keep inline | Process | Inlined SVG in the page body |
+| Links: `/how-we-work/`, `/success-story/` | Closing buttons | As written; confirm the URLs |
+| Agree PART T (`part-t-white-label.css`) | `dist/css/uxteam-site-additions.css` | Not live yet |
+
 ## Waiting for files
 
 | Item | Where it goes | Until then |

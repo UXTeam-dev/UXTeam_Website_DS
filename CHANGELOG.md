@@ -2,6 +2,17 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.1.0 · 25 Nov 2026
+
+**New page: White label** (`src/pages/white-label.html`, wrapper `uxt-home uxt-wl`, URL /white-label), built from "UX.team White Label Page Copy v1.1". No Figma frame yet.
+
+- Sections: display hero + trusted-by marquee (one CTA, trust line), what gets in the way (new problem and fix rows), white label services (new service cards with 518 square placeholders + CTA band), how the partnership works (process section with five new steps and curated 64px icons, confidentiality row), we help you win the work (Warm Glow band, three icon columns), ways to partner (engage section as four columns, one closing button), partnership stories (approved stories section, heading from the copy, one closing button), comparison table (new, UXTeam column highlighted), agency FAQ (approved FAQ, two groups).
+- **PART T (new, scope `.uxt-wl`):** `src/css/parts/part-t-white-label.css`, imported in `uxteam-site-additions.css`. New partials `sections/wl-fixes.html`, `wl-services.html`, `wl-win.html`, `wl-compare.html`. Curated process icons `assets/icons/custom/wl-scope.svg`, `wl-design.svg`, `wl-review.svg`, `wl-handoff.svg`, `wl-support.svg`.
+- Copy changes from the document: headings in sentence case without full stops, "UX.team" written UXTeam, hero secondary CTA dropped, [75]+ agencies written as the approved 50+, [X] placeholders shown as `[confirm …]`, footer CTA and footer left to the global section. Open questions in `docs/OPEN-ITEMS.md`.
+- Docs: COMPONENTS, OPEN-ITEMS; registry regenerated.
+
+Handover: `dist/wordpress/white-label.html`, `dist/css/uxteam-site-additions.css` (PART S and PART T), the five `wl-*.svg` icons if the developers prefer files.
+
 ## 2.0.0 · 25 Nov 2026
 
 **The repo now uses the developers' class system (`uxt-`), the same CSS that runs on new.ux.team.** Pages built here paste into a Salient Raw HTML element as they are, with no `<style>` block to remove.
