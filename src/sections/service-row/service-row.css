@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Service row with a product scene (Figma 2638:17149, What we do service rows)
+   1200 white card, 1px Steel, radius 8. Text column from x57 (528 wide):
+   eyebrow, title, intro, checklist with arrow bullets, actions at the bottom
+   (one Primary plus one text link). Scene 518 x 518 on the right, 48 from the
+   top, right and bottom. High weight. White sections only (docs/GRAPHICS.md).
+   Stacks below 1024: text first, scene after at full width (max 518).
+   ========================================================================== */
+
+.ux-service-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 518px;
+  gap: 56px;
+  padding: 48px 48px 48px 57px;
+  border: var(--ux-border-hairline);
+  border-radius: var(--ux-radius-card);
+  background: var(--ux-white);
+}
+
+.ux-service-row__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
+.ux-service-row__title {
+  margin: 14px 0 0;
+}
+
+.ux-service-row__intro {
+  margin: 20px 0 0;
+  max-width: 528px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-charcoal);
+}
+
+.ux-service-row__list {
+  display: grid;
+  gap: 14px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-service-row__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--ux-fs-body-20);
+  line-height: 1.4;
+  color: var(--ux-navy);
+}
+
+.ux-service-row__list svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--ux-navy);
+}
+
+.ux-service-row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+  margin-top: auto;
+  padding-top: 48px;
+}
+
+@media (max-width: 1199px) {
+  .ux-service-row { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px; padding: 40px; }
+}
+
+@media (max-width: 1023px) {
+  .ux-service-row { grid-template-columns: 1fr; gap: 40px; }
+  .ux-service-row__scene { width: 100%; max-width: 518px; }
+}
+
+@media (max-width: 767px) {
+  .ux-service-row { padding: 28px 20px 20px; }
+  .ux-service-row__list li { font-size: 18px; }
+  .ux-service-row__actions { padding-top: 36px; }
+}

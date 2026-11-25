@@ -63,3 +63,35 @@
 @media (max-width: 1199px) { .ux-hero-listing__overlap--chips { margin-top: 64px; } }
 @media (max-width: 767px) { .ux-hero-listing__overlap--chips { margin-top: 48px; } }
 .ux-hero-listing__overlap--chips .ux-grid { text-align: left; }
+
+/* Trusted-by strip inside a listing hero, as on the homepage: the label and
+   the logo marquee include (full bleed, after the container). Use it on inner
+   pages that show trusted partners (LLM.md 12.5), with .ux-hero-listing--trusted
+   on the section: it extends the Hero Dusk so the white label sits on the
+   dark part (above 65% of the gradient) and the tiles on the fade. */
+.ux-hero-listing--trusted {
+  --ux-hero-bg-height: 1010px;
+  --ux-hero-bg-height-tablet: 850px;
+  --ux-hero-bg-height-mobile: 890px;
+}
+
+.ux-hero-listing__trusted {
+  margin: 96px 0 0;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ux-white);
+}
+
+.ux-hero-listing .ux-marquee {
+  margin-top: 21px;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-listing__trusted { margin-top: 72px; font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-listing__trusted { margin-top: 56px; font-size: 17px; }
+}

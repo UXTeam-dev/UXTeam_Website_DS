@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- ux-page-type: inner -->
+<!--
+  DEMO · UX Audit page, built to show each graphic family in the section it
+  belongs to (docs/GRAPHICS.md). Not an approved page.
+
+  Plan (LLM.md Step 3). Job: make the audit tangible and low risk (BRAND-GUIDE
+  page rules). Main action: Start with an audit. Facts only from knowledge
+  section 10 and the brand guide (report in about 3 days, fixed fee quoted
+  after one call, 450+ projects).
+
+  Section                     Weight   Graphic family                Repo file
+  1 Hero + trusted by         High     Logo marquee                  sections/hero-listing, sections/logo-marquee
+  2 What we audit             Medium   Spot illustrations (curated)  components/graphic/_topic-tile.html
+  3 At a glance (Deep Navy)   Medium   Numerals                      sections/numbers-band
+  4 Inside the report         High     Product scene                 sections/service-row, components/graphic/_scene-ux-audit.html
+  5 Sample findings           Medium   Mini scenes                   components/graphic/_scene-mini-finding-*.html
+  6 How we work               Medium   Process icons                 sections/process (approved, as is)
+  7 What we need from you     Low      Phosphor icons on tint tiles  sections/expectations
+  8 FAQ                       Low      None                          components/faq
+  9 Page end                  Fixed    Booking card + footer         sections/page-end
+-->
+<html lang="en">
+<head>
+  <!-- @include templates/_head.html title="UX audit | UXTeam" description="A fixed fee UX audit of your website, product or app, with a ranked report in about 3 days." -->
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <!-- @include sections/site-header/site-header.html theme="dark" cta="ux-btn--glass" -->
+
+  <main id="main">
+    <!-- 1 Hero (SL-11) + trusted by (logo marquee) -->
+    <section class="ux-hero-listing ux-hero-listing--trusted" aria-labelledby="page-title">
+      <div class="ux-container">
+        <div class="ux-hero-listing__inner">
+          <div class="ux-hero-listing__text">
+            <span class="ux-eyebrow ux-eyebrow--on-dark">UX audit</span>
+            <h1 class="ux-h1 ux-hero-listing__title" id="page-title">See where growth <span class="ux-highlight">leaks</span></h1>
+            <p class="ux-hero-listing__sub">A fixed fee audit of your website, product or app. Senior designers find where users get stuck and rank every fix by impact, with your report in about 3&nbsp;days.</p>
+          </div>
+          <!-- @include components/button/_button.html class="ux-btn--primary ux-btn--on-dark" label="Start with an audit" href="#book" -->
+        </div>
+        <p class="ux-hero-listing__trusted">Trusted by B2B companies worldwide</p>
+      </div>
+      <!-- @include sections/logo-marquee/logo-marquee.html -->
+    </section>
+
+    <!-- 2 What we audit: spot illustrations in topic tiles -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-what-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">What we audit</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-what-title">One audit, wherever users get&nbsp;stuck</h2>
+          <p class="ux-section-header__intro">Pick the part that matters most right now. One audit can cover more than&nbsp;one.</p>
+        </header>
+        <ul class="ux-topic-grid" role="list">
+          <li><!-- @include components/graphic/_topic-tile.html art="website" title="Websites" text="Marketing sites, pricing and landing pages that should turn visits into demos and trials." href="#book" --></li>
+          <li><!-- @include components/graphic/_topic-tile.html art="product-app" title="Products and apps" text="Onboarding, dashboards and key workflows where trials stall or users quietly give up." href="#book" --></li>
+          <li><!-- @include components/graphic/_topic-tile.html art="cro" title="Conversion paths" text="Sign up, checkout and trial to paid steps, measured against the one metric you care about." href="#book" --></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 At a glance: numerals on the Deep Navy band -->
+    <section class="ux-section ux-bg-deep-navy ux-section--pt-160 ux-section--pb-180" aria-labelledby="audit-glance-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section-header--on-dark ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow ux-eyebrow--on-dark">At a glance</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-glance-title">A small first step with clear&nbsp;answers</h2>
+        </header>
+        <ul class="ux-numbers" role="list">
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">3</span><span class="ux-number__unit">days</span></p>
+            <p class="ux-number__label">About three days from analytics access to your finished report.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">1</span><span class="ux-number__unit">call</span></p>
+            <p class="ux-number__label">To agree the scope and quote one fixed fee. No surprises later.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">4</span><span class="ux-number__unit">layers</span></p>
+            <p class="ux-number__label">Surface, journey, behavior and business, checked in every audit.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">450+</span><span class="ux-number__unit">projects</span></p>
+            <p class="ux-number__label">Designed by the team that will run your audit.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4 Inside the report: service row with the UX audit product scene -->
+    <section class="ux-section ux-section--pt-160 ux-section--pb-120" aria-labelledby="audit-report-title">
+      <div class="ux-container">
+        <article class="ux-service-row">
+          <div class="ux-service-row__text">
+            <span class="ux-eyebrow">Inside the report</span>
+            <h2 class="ux-h2 ux-service-row__title" id="audit-report-title">What you get&nbsp;back</h2>
+            <p class="ux-service-row__intro">Clarity before the commitment. The report shows where your product or website loses users, slows growth or creates friction, before you invest in design or development.</p>
+            <ul class="ux-service-row__list" role="list">
+              <li><!-- @icon arrow-right size="18" -->UX and conversion audit report</li>
+              <li><!-- @icon arrow-right size="18" -->Prioritized improvement roadmap</li>
+              <li><!-- @icon arrow-right size="18" -->Key friction point analysis</li>
+              <li><!-- @icon arrow-right size="18" -->Actionable recommendations</li>
+              <li><!-- @icon arrow-right size="18" -->Stakeholder walkthrough and discussion</li>
+            </ul>
+            <div class="ux-service-row__actions">
+              <!-- @include components/button/_button.html class="ux-btn--primary" label="Start with an audit" href="#book" -->
+              <!-- @include components/button/_button.html class="ux-btn--secondary" label="See how it works" href="#how" -->
+            </div>
+          </div>
+          <div class="ux-service-row__scene">
+            <!-- @include components/graphic/_scene-ux-audit.html -->
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5 Sample findings: mini scenes -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-findings-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">Sample findings</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-findings-title">The problems an audit brings to&nbsp;light</h2>
+          <p class="ux-section-header__intro">Each finding comes with evidence and a clear fix. These examples are&nbsp;illustrative.</p>
+        </header>
+        <ul class="ux-scene-row" role="list">
+          <li>
+            <!-- @include components/graphic/_scene-mini-finding-checkout.html -->
+            <h3 class="ux-h3-small ux-scene-row__title">Hidden costs at checkout</h3>
+            <p class="ux-scene-row__text">Shipping shows up only at the last step, so buyers who felt ready walk away.</p>
+          </li>
+          <li>
+            <!-- @include components/graphic/_scene-mini-finding-signup.html -->
+            <h3 class="ux-h3-small ux-scene-row__title">A sign up that asks too much</h3>
+            <p class="ux-scene-row__text">Six fields before any value is shown. Trials that never start never convert.</p>
+          </li>
+          <li>
+            <!-- @include components/graphic/_scene-mini-finding-pricing.html -->
+            <h3 class="ux-h3-small ux-scene-row__title">Pricing that makes people guess</h3>
+            <p class="ux-scene-row__text">Three similar plans and no clear default, so people stall instead of choosing.</p>
+          </li>
+          <li>
+            <!-- @include components/graphic/_scene-mini-finding-ai-source.html -->
+            <h3 class="ux-h3-small ux-scene-row__title">AI answers without a source</h3>
+            <p class="ux-scene-row__text">Users can't tell where an answer came from, so they stop trusting it.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6 How we work: the approved process section, as it is -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" id="how" aria-labelledby="process-title">
+      <div class="ux-container">
+        <header class="ux-section-header">
+          <span class="ux-eyebrow">How we work</span>
+          <h2 class="ux-h2 ux-section-header__title" id="process-title">From first audit to final result</h2>
+        </header>
+        <!-- @include sections/process/process.html -->
+      </div>
+    </section>
+
+    <!-- 7 What we need from you: Phosphor icons on tint tiles -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-need-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">What we need</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-need-title">Four things to get&nbsp;started</h2>
+        </header>
+        <ul class="ux-expect" role="list">
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><!-- @icon chart-line-up size="32" --></span>
+            <h3 class="ux-h3-small ux-expect__title">Analytics access</h3>
+            <p class="ux-expect__text">Read access to your analytics, so every finding rests on real behavior, not opinion.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><!-- @icon target size="32" --></span>
+            <h3 class="ux-h3-small ux-expect__title">One goal to move</h3>
+            <p class="ux-expect__text">The metric that matters most right now, such as demos, trials or activation.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><!-- @icon video-camera size="32" --></span>
+            <h3 class="ux-h3-small ux-expect__title">A short kickoff call</h3>
+            <p class="ux-expect__text">Walk us through the product, the audience and what you've already tried.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><!-- @icon lock-key size="32" --></span>
+            <h3 class="ux-h3-small ux-expect__title">An NDA, if&nbsp;needed</h3>
+            <p class="ux-expect__text">We sign before we get access. Client work stays confidential by default.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8 FAQ -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-0" aria-labelledby="audit-faq-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">FAQ</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-faq-title">Questions about the audit</h2>
+        </header>
+        <div class="ux-faq-groups">
+          <div class="ux-faq" data-ux-faq>
+            <p class="ux-faq__label">The audit</p>
+            <div class="ux-faq__rule" aria-hidden="true"></div>
+            <!-- @include components/faq/_item.html q="How much does an audit cost?" open="is-open" a="It is a fixed fee, quoted after one call. The price depends on what we review, so we agree the scope first and you know the full cost before we start." -->
+            <!-- @include components/faq/_item.html q="How long does it take?" a="You get the report in about three days after we have access to your analytics." -->
+            <!-- @include components/faq/_item.html q="What do you review?" a="Websites, products, apps and stores. We combine an interface review with behavioral signals such as navigation patterns, discovery friction and drop off points." -->
+          </div>
+          <div class="ux-faq" data-ux-faq>
+            <p class="ux-faq__label">After the audit</p>
+            <div class="ux-faq__rule" aria-hidden="true"></div>
+            <!-- @include components/faq/_item.html q="What happens after the report?" a="We walk your team through it and agree what to fix first. You can take the roadmap to your own team, or we can design the fixes with you." -->
+            <!-- @include components/faq/_item.html q="Do you use AI in the audit?" a="Yes, to speed up first pass analysis. Our people frame the problem, set the priorities and own every recommendation. We use AI. We don't outsource the decision." -->
+            <!-- @include components/faq/_item.html q="Can we start with a project instead?" a="Yes. Every project opens with a small audit of the product or app, and that audit is part of the project." -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FIXED: booking card and footer, do not edit (LLM.md 16.5) -->
+  <!-- @include sections/page-end/page-end.html -->
+</div>
+<!-- @include templates/_scripts.html -->
+</body>
+</html>

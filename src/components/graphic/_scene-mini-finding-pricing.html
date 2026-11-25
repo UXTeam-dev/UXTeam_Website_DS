@@ -1,0 +1,45 @@
+<!--
+  Mini scene: sample finding, Pricing that makes people guess (violet).
+  Family 5 in docs/GRAPHICS.md (257 x 200): dark base, two glows in one hue
+  family, one white card showing the finding in a single moment, flagged
+  with the red dashed outline and marker. Illustrative.
+-->
+<div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative pricing table with three similar plans and no recommended option, flagged as a finding.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mf-pricing-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mf-pricing-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mf-pricing-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mf-pricing-clip)">
+    <rect width="257" height="200" fill="url(#ux-mf-pricing-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#6D5BF5" fill-opacity="0.7" filter="url(#ux-mf-pricing-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#3B82F6" fill-opacity="0.5" filter="url(#ux-mf-pricing-blur)"/>
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="37" y="48" font-size="11" fill="#0A1B33">Pick a plan</text>
+    <rect x="37" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="43" y="73" font-size="7" fill="#6F7680">Starter</text>
+    <text class="ux-scene__h" x="43" y="91" font-size="12" fill="#0A1B33">$29</text>
+    <rect x="43" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="43" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="43" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="66" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="99.5" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="105.5" y="73" font-size="7" fill="#6F7680">Team</text>
+    <text class="ux-scene__h" x="105.5" y="91" font-size="12" fill="#0A1B33">$39</text>
+    <rect x="105.5" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="105.5" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="105.5" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="128.5" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="162" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="168" y="73" font-size="7" fill="#6F7680">Growth</text>
+    <text class="ux-scene__h" x="168" y="91" font-size="12" fill="#0A1B33">$49</text>
+    <rect x="168" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="168" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="168" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="191" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="31" y="52.5" width="195" height="88" rx="6" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1" stroke-dasharray="3.5 2.5"/>
+    <text class="ux-scene__b" x="37" y="158" font-size="7.5" fill="#C62F35">No plan marked as the right fit</text>
+    <circle class="ux-scene__pulse" cx="226" cy="52.5" r="11" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="226" cy="52.5" r="6.5" fill="#C62F35" stroke="#FFFFFF" stroke-width="1"/>
+    <text class="ux-scene__bb" x="226" y="55.2" font-size="7.5" fill="#FFFFFF" text-anchor="middle">?</text>
+  </g>
+</svg>
+</div>

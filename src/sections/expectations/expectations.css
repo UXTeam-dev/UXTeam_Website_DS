@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Expectations row (Figma 2638:22316 "How we treat every engagement")
+   Four columns, gap 30. Each: Steel hairline on top, 56 tint icon tile 29
+   below it (Phosphor Light 32, Navy), title Aeonik Medium 25 16 below,
+   body Manrope 18 10 below. Low to Medium weight. White sections.
+   ========================================================================== */
+
+.ux-expect {
+  display: grid;
+  grid-template-columns: repeat(var(--ux-expect-cols, 4), minmax(0, 1fr));
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-expect) {
+  margin: 0;
+}
+
+.ux-expect__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 29px;
+  border-top: var(--ux-border-hairline);
+}
+
+.ux-expect__title {
+  margin: 16px 0 0;
+}
+
+.ux-expect__text {
+  margin: 10px 0 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+}
+
+@media (max-width: 1023px) {
+  .ux-expect { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+}
+
+@media (max-width: 559px) {
+  .ux-expect { grid-template-columns: 1fr; row-gap: 40px; }
+}

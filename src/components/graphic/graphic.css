@@ -158,13 +158,22 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
-  margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-topic-grid) {
+  margin: 0;
+}
+
 @media (max-width: 1199px) {
   .ux-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+
+/* A set of three stays in one row on tablet, so no tile is left alone */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .ux-topic-grid:has(> li:nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 767px) {
@@ -219,6 +228,40 @@
 @media (prefers-reduced-motion: reduce) {
   .ux-scene__pulse { animation: none; opacity: 0.35; }
   .ux-spot > img, .ux-spot > svg { transition: none; }
+}
+
+/* Row of mini scenes: up to four, each with a title and two or three lines
+   (Figma 2638:20489). Same base, card size and type in every item. */
+.ux-scene-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-scene-row) {
+  margin: 0;
+}
+
+.ux-scene-row__title {
+  margin: 24px 0 0;
+}
+
+.ux-scene-row__text {
+  margin: 10px 0 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+}
+
+@media (max-width: 1023px) {
+  .ux-scene-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+}
+
+@media (max-width: 559px) {
+  .ux-scene-row { grid-template-columns: 1fr; }
 }
 
 /* ---- 6. Image box --------------------------------------------------------- */

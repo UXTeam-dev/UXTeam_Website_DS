@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Numbers band (numerics as the visual anchor)
+   On the Deep Navy band. Up to four numbers in columns split by white 16%
+   hairlines. Number: Besley Regular 96 white, unit Aeonik Medium 24 Sky,
+   label Manrope 18 Hero Sub, 260 max. Medium weight.
+   Only numbers from knowledge/uxteam-website-knowledge.txt section 10 (safe
+   to use). Facts about the offer (days, calls, layers) count when the brand
+   guide states them.
+   ========================================================================== */
+
+.ux-numbers {
+  display: grid;
+  grid-template-columns: repeat(var(--ux-numbers-cols, 4), minmax(0, 1fr));
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-numbers) {
+  margin: 0;
+}
+
+.ux-number {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.ux-number:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ux-number__figure {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  color: var(--ux-white);
+}
+
+.ux-number__value {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-regular);
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ux-number__unit {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ux-sky);
+}
+
+.ux-number__label {
+  max-width: 260px;
+  margin: 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-hero-sub);
+}
+
+@media (max-width: 1199px) {
+  .ux-number__value { font-size: 80px; }
+  .ux-number { padding-inline: 24px; }
+}
+
+@media (max-width: 1023px) {
+  .ux-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+  .ux-number:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
+
+@media (max-width: 559px) {
+  .ux-numbers { grid-template-columns: 1fr; row-gap: 0; }
+  .ux-number { padding: 28px 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .ux-number:first-child { padding-top: 0; border-top: 0; }
+  .ux-number__value { font-size: 72px; }
+}

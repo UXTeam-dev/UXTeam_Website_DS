@@ -4,7 +4,7 @@ How UXTeam uses icons, illustrations and product scenes, where each kind goes, a
 
 Source: Figma file "UXTeam Website 2026", **Graphics** board (node `2638:6786`). Screenshots of every graphic on that board are in `reference/graphics/`. Open the matching one before you draw.
 
-Live examples of every family: `dist/library/index.html#graphics` (after `npm run build`).
+Live examples of every family: `dist/library/index.html#graphics` (after `npm run build`). A full page that uses one family per section, in the section it belongs to: `src/demos/ux-audit.html` (logos, spot illustrations, numerals, product scene, mini scenes, process icons, Phosphor icon tiles).
 
 ---
 
@@ -20,7 +20,8 @@ Ask one question first: **is this section explaining how we work, or showing wha
 | Gives facts about a client (industries, location) | 24px Steel meta icons beside the words | 2 |
 | Lets the reader pick a topic, service area or path (navigation tiles) | Spot illustrations on a Mist panel | 3 |
 | Presents a service and what the client gets (High weight) | A drawn product scene, or an image box where client work is wanted | 4 or 6 |
-| Shows the parts of one capability side by side (for example the four parts of AI design) | Mini scenes | 5 |
+| Shows the parts of one capability side by side (for example the four parts of AI design), or sample results | Mini scenes | 5 |
+| States a few facts about the offer (days, steps, projects) | Numerals: Besley numbers with a unit and one line, no tile or icon (`sections/numbers-band`) | none |
 | Shows client work, a result, an industry, a person or an article | An image box (placeholder) | 6 |
 
 Then the hard limits:
@@ -248,4 +249,6 @@ The page rules (no gradient filled content cards, never a gradient on a gradient
 | `src/components/graphic/_topic-tile.html` | Topic tile partial |
 | `src/components/graphic/_scene-cro.html` | Drawn product scene example |
 | `src/components/graphic/_scene-mini-trust.html` | Mini scene example |
+| `src/components/graphic/_scene-ux-audit.html` | Product scene: UX Audit (score, flagged product page, findings from surface to business), from Figma `2638:17184`, photos redrawn |
+| `src/components/graphic/_scene-mini-finding-*.html` | Mini scenes: four sample findings (checkout, sign up, pricing, AI source), one hue pair each |
 | `src/tokens/tokens.json` (`color.graphic`, `shadow.scene-*`, `gradient.g6-icon-tile`, `gradient.scene-mini`) | Graphic only tokens |

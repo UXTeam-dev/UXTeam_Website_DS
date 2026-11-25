@@ -7,17 +7,18 @@
    Paths are relative to dist/css/uxteam.css.
    ========================================================================== */
 
-/* Aeonik. Drop the licensed web files into assets/fonts/aeonik/ with these names. */
+/* Aeonik. Drop the licensed web files into assets/fonts/aeonik/ with these names.
+   Until then, local() uses Aeonik when it is installed on the viewer's computer. */
 @font-face {
   font-family: 'Aeonik';
-  src: url('../assets/fonts/aeonik/Aeonik-Regular.woff2') format('woff2');
+  src: local('Aeonik Regular'), local('Aeonik-Regular'), url('../assets/fonts/aeonik/Aeonik-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Aeonik';
-  src: url('../assets/fonts/aeonik/Aeonik-Medium.woff2') format('woff2');
+  src: local('Aeonik Medium'), local('Aeonik-Medium'), url('../assets/fonts/aeonik/Aeonik-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;

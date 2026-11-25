@@ -1,0 +1,100 @@
+<!--
+  Product scene: UX Audit (Figma 2638:17184, "UX Audit, finding depth").
+  Family 4 in docs/GRAPHICS.md. Three beats: the score (where it stands), the
+  product page with the hidden cost flagged (where it hurts), the findings
+  card from surface to business (why it matters). Product photos from the
+  Figma frame are replaced by drawn watches (no raster images in scenes).
+  Usage: @include components/graphic/_scene-ux-audit.html
+-->
+<div class="ux-scene" role="img" aria-label="Illustrative UX audit: a score of 62 out of 100, a product page where the shipping cost is hidden until checkout is flagged, and findings that trace it from the interface to fewer completed orders.">
+<svg viewBox="0 0 518 518" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-aud-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="ux-aud-frame" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="11" stdDeviation="15" flood-color="#000" flood-opacity="0.32"/></filter>
+    <filter id="ux-aud-chip" x="-20%" y="-40%" width="140%" height="220%"><feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#000" flood-opacity="0.25"/></filter>
+    <filter id="ux-aud-card" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.32"/></filter>
+    <linearGradient id="ux-aud-glass" x1="76" y1="27" x2="90" y2="102" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF" stop-opacity="0.26"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.08"/></linearGradient>
+    <linearGradient id="ux-aud-rail" x1="327" y1="338.5" x2="327" y2="473.5" gradientUnits="userSpaceOnUse"><stop stop-color="#0A1B33" stop-opacity="0.15"/><stop offset="1" stop-color="#00739A" stop-opacity="0.9"/></linearGradient>
+    <clipPath id="ux-aud-clip"><rect width="518" height="518" rx="8"/></clipPath>
+    <clipPath id="ux-aud-photo"><rect x="39" y="153.6" width="184" height="159.6" rx="7.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-aud-clip)">
+    <rect width="518" height="518" fill="#0A1B33"/>
+    <circle cx="50" cy="30" r="160" fill="#A5ECFF" fill-opacity="0.16" filter="url(#ux-aud-blur)"/>
+    <circle cx="490" cy="439.5" r="150" fill="#00BFF2" fill-opacity="0.16" filter="url(#ux-aud-blur)"/>
+
+    <!-- Browser frame: product page -->
+    <g filter="url(#ux-aud-frame)"><rect x="24" y="92.1" width="400" height="357.8" rx="9.4" fill="#FFFFFF"/></g>
+    <circle cx="35.7" cy="102.9" r="2.35" fill="#E6EAEE"/><circle cx="44.2" cy="102.9" r="2.35" fill="#E6EAEE"/><circle cx="52.6" cy="102.9" r="2.35" fill="#E6EAEE"/>
+    <rect x="69" y="98.2" width="206.6" height="9.4" rx="4.7" fill="#F2F3F8"/>
+    <rect x="24" y="114.2" width="400" height="0.94" fill="#E6EAEE"/>
+    <text class="ux-scene__h" x="40" y="133" font-size="10.5" fill="#0A1B33" letter-spacing="2.4">HALDEN</text>
+    <g class="ux-scene__b" font-size="7" fill="#6F7680"><text x="170" y="132">Shop</text><text x="198" y="132">Watches</text><text x="236" y="132">Journal</text></g>
+    <g stroke="#0A1B33" stroke-width="1" stroke-linecap="round"><circle cx="381" cy="129.3" r="3.3"/><path d="M383.4 131.7l2.2 2.2"/><path d="M397 127.3h9l-1 7.4h-7z"/><path d="M399.4 127.3a2.2 2.2 0 0 1 4.3 0"/></g>
+    <circle cx="406.6" cy="125" r="4.2" fill="#0A1B33"/><text class="ux-scene__bb" x="406.6" y="127.1" font-size="5.5" fill="#FFFFFF" text-anchor="middle">1</text>
+    <rect x="24" y="144.2" width="400" height="0.94" fill="#EEF0F3"/>
+
+    <!-- Product photo (drawn) -->
+    <g clip-path="url(#ux-aud-photo)">
+      <rect x="39" y="153.6" width="184" height="159.6" fill="#E9E2D8"/>
+      <rect x="117" y="153.6" width="28" height="159.6" fill="#9A6A43"/>
+      <circle cx="131" cy="233" r="34" fill="#C9CDD2"/><circle cx="131" cy="233" r="29" fill="#1F2A3D"/>
+      <g stroke="#E9E2D8" stroke-width="1.6" stroke-linecap="round"><path d="M131 233v-17"/><path d="M131 233l11 7"/></g>
+      <rect x="164" y="229" width="5" height="8" rx="1.5" fill="#C9CDD2"/>
+    </g>
+    <circle cx="121.2" cy="306.2" r="2.35" fill="#FFFFFF"/><circle cx="129.6" cy="306.2" r="2.35" fill="#FFFFFF" fill-opacity="0.55"/><circle cx="138.1" cy="306.2" r="2.35" fill="#FFFFFF" fill-opacity="0.55"/>
+
+    <!-- Product details -->
+    <text class="ux-scene__h" x="238" y="171" font-size="13" fill="#0A1B33">Field Watch</text>
+    <text class="ux-scene__bb" x="238" y="189" font-size="10" fill="#0A1B33">$249</text>
+    <path d="M267.9 182.3l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.2-2.3 1.2.4-2.6-1.9-1.8 2.6-.4z" fill="#F2A93B"/>
+    <text class="ux-scene__b" x="274" y="188.6" font-size="7" fill="#6F7680">4.8 (128)</text>
+    <circle cx="247.5" cy="209.8" r="6.6" fill="#9A6A43"/><circle cx="268.1" cy="209.8" r="6.6" fill="#1D1F24"/><circle cx="288.8" cy="209.8" r="6.6" fill="#5D6B4A"/>
+    <circle cx="247.5" cy="209.8" r="8.8" stroke="#0A1B33" stroke-width="1.1"/>
+    <rect x="238.1" y="225.8" width="170.9" height="26.3" rx="5.6" fill="#0A1B33"/>
+    <text class="ux-scene__bb" x="323.5" y="241.6" font-size="8" fill="#FFFFFF" text-anchor="middle">Add to cart</text>
+    <rect x="230.6" y="254.9" width="185.9" height="22.5" rx="7.5" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1.1" stroke-dasharray="3.5 2.5"/>
+    <text class="ux-scene__b" x="238" y="268.6" font-size="7" fill="#6F7680">Shipping calculated at checkout</text>
+
+    <!-- Related products -->
+    <text class="ux-scene__bb" x="39" y="336" font-size="8.5" fill="#0A1B33">You may also like</text>
+    <rect x="39" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#E7E9EC"/>
+    <rect x="106.6" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#E9E2D8"/>
+    <rect x="174.2" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#EEF0F3"/>
+    <g><rect x="65.5" y="345.2" width="7" height="60.1" fill="#2B2F36"/><circle cx="69" cy="375.2" r="13" fill="#1D1F24"/><circle cx="69" cy="375.2" r="9.5" fill="#24456B"/></g>
+    <g><rect x="133.2" y="345.2" width="7" height="60.1" fill="#5D6B4A"/><circle cx="136.7" cy="375.2" r="13" fill="#C9CDD2"/><circle cx="136.7" cy="375.2" r="9.5" fill="#F4F1EA"/></g>
+    <g><rect x="200.8" y="345.2" width="7" height="60.1" fill="#9A6A43"/><circle cx="204.3" cy="375.2" r="12" fill="#D8B06A"/><circle cx="204.3" cy="375.2" r="9" fill="#FBF8F1"/></g>
+    <g class="ux-scene__b" font-size="7" fill="#0A1B33"><text x="39" y="417">Dive 40</text><text x="106.6" y="417">Pilot 42</text><text x="174.2" y="417">Dress 36</text></g>
+    <g class="ux-scene__b" font-size="6.5" fill="#6F7680"><text x="39" y="427.5">$319</text><text x="106.6" y="427.5">$289</text><text x="174.2" y="427.5">$229</text></g>
+
+    <!-- Score chip (glass) -->
+    <g filter="url(#ux-aud-chip)"><rect x="23" y="20.5" width="267" height="62" rx="16" fill="url(#ux-aud-glass)"/></g>
+    <rect x="23.5" y="21" width="266" height="61" rx="15.5" stroke="#FFFFFF" stroke-opacity="0.32"/>
+    <circle cx="60" cy="51.5" r="19" stroke="#E8ECF0" stroke-opacity="0.4" stroke-width="5"/>
+    <path d="M60 32.5a19 19 0 1 1-13.02 32.84" stroke="#F2A93B" stroke-width="5" stroke-linecap="round"/>
+    <text class="ux-scene__h" x="60" y="56.5" font-size="14" fill="#FFFFFF" text-anchor="middle">62</text>
+    <text class="ux-scene__a" x="100" y="45" font-size="9" fill="#FFFFFF" fill-opacity="0.75">UX AUDIT SCORE</text>
+    <text class="ux-scene__h" x="100" y="66" font-size="13.5" fill="#FFFFFF">Needs work</text>
+    <text class="ux-scene__b" x="182" y="65.5" font-size="8" fill="#FF8A8E">(Product page lowest)</text>
+
+    <!-- Findings card: surface to business -->
+    <g filter="url(#ux-aud-card)"><rect x="301" y="284.5" width="204" height="221" rx="12" fill="#FFFFFF"/></g>
+    <text class="ux-scene__h" x="317" y="312" font-size="13" fill="#0A1B33">UX findings</text>
+    <rect x="326.25" y="338.5" width="1.5" height="135" fill="url(#ux-aud-rail)"/>
+    <circle cx="327" cy="340.5" r="3" fill="#0A1B33" fill-opacity="0.27"/>
+    <circle cx="327" cy="382.5" r="3" fill="#0A1B33" fill-opacity="0.37"/>
+    <circle cx="327" cy="424.5" r="3" fill="#0A1B33" fill-opacity="0.49"/>
+    <g class="ux-scene__a" font-size="6.5" fill="#6F7680"><text x="340" y="335">SURFACE</text><text x="340" y="377">JOURNEY</text><text x="340" y="419">BEHAVIOR</text></g>
+    <g class="ux-scene__b" font-size="10" fill="#0A1B33" fill-opacity="0.75"><text x="340" y="349.5">Shipping cost hidden</text><text x="340" y="391.5">Drop off at checkout</text><text x="340" y="433.5">Late costs break trust</text></g>
+    <rect x="315" y="447.5" width="176" height="44" rx="8" fill="#0A1B33"/>
+    <circle cx="327" cy="469.5" r="4" fill="#A5ECFF"/>
+    <text class="ux-scene__a" x="340" y="463" font-size="6.5" fill="#A5ECFF">BUSINESS</text>
+    <text class="ux-scene__bb" x="340" y="478" font-size="10" fill="#FFFFFF">Fewer completed orders</text>
+
+    <!-- Friction marker (drawn last so it sits on top) -->
+    <circle class="ux-scene__pulse" cx="416.5" cy="254.9" r="15" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="416.5" cy="254.9" r="8.45" fill="#C62F35" stroke="#FFFFFF" stroke-width="1.2"/>
+    <text class="ux-scene__bb" x="416.5" y="258.3" font-size="9.5" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+</svg>
+</div>

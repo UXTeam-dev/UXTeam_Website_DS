@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<!-- ux-page-type: inner -->
+<!--
+  DEMO · UX Audit page, built to show each graphic family in the section it
+  belongs to (docs/GRAPHICS.md). Not an approved page.
+
+  Plan (LLM.md Step 3). Job: make the audit tangible and low risk (BRAND-GUIDE
+  page rules). Main action: Start with an audit. Facts only from knowledge
+  section 10 and the brand guide (report in about 3 days, fixed fee quoted
+  after one call, 450+ projects).
+
+  Section                     Weight   Graphic family                Repo file
+  1 Hero + trusted by         High     Logo marquee                  sections/hero-listing, sections/logo-marquee
+  2 What we audit             Medium   Spot illustrations (curated)  components/graphic/_topic-tile.html
+  3 At a glance (Deep Navy)   Medium   Numerals                      sections/numbers-band
+  4 Inside the report         High     Product scene                 sections/service-row, components/graphic/_scene-ux-audit.html
+  5 Sample findings           Medium   Mini scenes                   components/graphic/_scene-mini-finding-*.html
+  6 How we work               Medium   Process icons                 sections/process (approved, as is)
+  7 What we need from you     Low      Phosphor icons on tint tiles  sections/expectations
+  8 FAQ                       Low      None                          components/faq
+  9 Page end                  Fixed    Booking card + footer         sections/page-end
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX audit | UXTeam</title>
+<meta name="description" content="A fixed fee UX audit of your website, product or app, with a ranked report in about 3 days.">
+<link rel="preload" href="../assets/fonts/manrope/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/besley/besley-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/uxteam.css">
+
+</head>
+<body>
+<div class="ux-page">
+
+  <!-- FIXED: do not edit -->
+  <a class="ux-skip-link" href="#main">Skip to content</a>
+<header class="ux-header ux-header--dark" data-ux-header data-ux-cta="ux-btn--glass">
+  <div class="ux-header__bar ux-container">
+    <a class="ux-header__logo" href="index.html" aria-label="UXTeam home">
+      <img class="ux-header__logo-light" src="../assets/logos/uxteam-logo-white.svg" width="156" height="38" alt="UXTeam">
+      <img class="ux-header__logo-dark" src="../assets/logos/uxteam-logo-navy.svg" width="156" height="38" alt="UXTeam">
+    </a>
+
+    <nav class="ux-nav" aria-label="Main">
+      <ul class="ux-nav__list" role="list">
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">What We Do<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><a class="ux-nav__link" href="#">UXAudit</a></li>
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">Work<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button class="ux-nav__link ux-nav__link--menu" type="button" aria-expanded="false">About<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><a class="ux-nav__link" href="insights.html">Insights</a></li>
+        <li><a class="ux-nav__link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="ux-header__actions">
+      <a class="ux-btn ux-btn--glass ux-header__cta" href="#book"><span class="ux-btn__label"><span class="ux-header__cta-full">Book a Discovery Call</span><span class="ux-header__cta-short">Book a Call</span></span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a>
+      <button class="ux-header__toggle" type="button" aria-expanded="false" aria-controls="ux-mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="ux-mobile-nav" id="ux-mobile-nav" hidden>
+    <ul class="ux-mobile-nav__list" role="list">
+      <li><a href="#">What We Do</a></li>
+      <li><a href="#">UXAudit</a></li>
+      <li><a href="success-stories.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a class="ux-btn ux-btn--primary ux-btn--on-dark" href="#book"><span class="ux-btn__label">Book a Discovery Call</span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a>
+
+  </div>
+</header>
+
+
+  <main id="main">
+    <!-- 1 Hero (SL-11) + trusted by (logo marquee) -->
+    <section class="ux-hero-listing ux-hero-listing--trusted" aria-labelledby="page-title">
+      <div class="ux-container">
+        <div class="ux-hero-listing__inner">
+          <div class="ux-hero-listing__text">
+            <span class="ux-eyebrow ux-eyebrow--on-dark">UX audit</span>
+            <h1 class="ux-h1 ux-hero-listing__title" id="page-title">See where growth <span class="ux-highlight">leaks</span></h1>
+            <p class="ux-hero-listing__sub">A fixed fee audit of your website, product or app. Senior designers find where users get stuck and rank every fix by impact, with your report in about 3&nbsp;days.</p>
+          </div>
+          <a class="ux-btn ux-btn--primary ux-btn--on-dark" href="#book"><span class="ux-btn__label">Start with an audit</span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a>
+
+        </div>
+        <p class="ux-hero-listing__trusted">Trusted by B2B companies worldwide</p>
+      </div>
+      <div class="ux-marquee" data-ux-marquee>
+  <div class="ux-marquee__track">
+    <ul class="ux-marquee__group" role="list">
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/slaps.svg" width="103" height="20" alt="SLAPS"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/rbbi.png" width="48" height="48" alt="RBBi"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/section.svg" width="107" height="36" alt="Section"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/dxlive.svg" width="41" height="35" alt="DX Live"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/fwd.svg" width="69" height="24" alt="FWD"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/trescon.svg" width="110" height="24" alt="Trescon"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/squaircle.png" width="52" height="52" alt="The Squaircle"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/terrapinn.png" width="148" height="24" alt="Terrapinn"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/e2m-mark.svg" width="44" height="44" alt="E2M"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/altadx.png" width="113" height="27" alt="Alta DX"></li>
+      <li class="ux-logo-tile"><img src="../assets/logos/clients/atomicnorth.png" width="148" height="22" alt="Atomic North"></li>
+    </ul>
+  </div>
+</div>
+
+    </section>
+
+    <!-- 2 What we audit: spot illustrations in topic tiles -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-what-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">What we audit</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-what-title">One audit, wherever users get&nbsp;stuck</h2>
+          <p class="ux-section-header__intro">Pick the part that matters most right now. One audit can cover more than&nbsp;one.</p>
+        </header>
+        <ul class="ux-topic-grid" role="list">
+          <li><a class="ux-topic-tile" href="#book">
+  <div class="ux-spot"><img src="../assets/graphics/spot/website.svg" width="200" height="140" alt="" loading="lazy"></div>
+  <div class="ux-topic-tile__body">
+    <div class="ux-topic-tile__head">
+      <h3 class="ux-topic-tile__title">Websites</h3>
+      <span class="ux-btn ux-btn--icon" aria-hidden="true"><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</span>
+    </div>
+    <p class="ux-topic-tile__text">Marketing sites, pricing and landing pages that should turn visits into demos and trials.</p>
+  </div>
+</a>
+</li>
+          <li><a class="ux-topic-tile" href="#book">
+  <div class="ux-spot"><img src="../assets/graphics/spot/product-app.svg" width="200" height="140" alt="" loading="lazy"></div>
+  <div class="ux-topic-tile__body">
+    <div class="ux-topic-tile__head">
+      <h3 class="ux-topic-tile__title">Products and apps</h3>
+      <span class="ux-btn ux-btn--icon" aria-hidden="true"><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</span>
+    </div>
+    <p class="ux-topic-tile__text">Onboarding, dashboards and key workflows where trials stall or users quietly give up.</p>
+  </div>
+</a>
+</li>
+          <li><a class="ux-topic-tile" href="#book">
+  <div class="ux-spot"><img src="../assets/graphics/spot/cro.svg" width="200" height="140" alt="" loading="lazy"></div>
+  <div class="ux-topic-tile__body">
+    <div class="ux-topic-tile__head">
+      <h3 class="ux-topic-tile__title">Conversion paths</h3>
+      <span class="ux-btn ux-btn--icon" aria-hidden="true"><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</span>
+    </div>
+    <p class="ux-topic-tile__text">Sign up, checkout and trial to paid steps, measured against the one metric you care about.</p>
+  </div>
+</a>
+</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 At a glance: numerals on the Deep Navy band -->
+    <section class="ux-section ux-bg-deep-navy ux-section--pt-160 ux-section--pb-180" aria-labelledby="audit-glance-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section-header--on-dark ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow ux-eyebrow--on-dark">At a glance</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-glance-title">A small first step with clear&nbsp;answers</h2>
+        </header>
+        <ul class="ux-numbers" role="list">
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">3</span><span class="ux-number__unit">days</span></p>
+            <p class="ux-number__label">About three days from analytics access to your finished report.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">1</span><span class="ux-number__unit">call</span></p>
+            <p class="ux-number__label">To agree the scope and quote one fixed fee. No surprises later.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">4</span><span class="ux-number__unit">layers</span></p>
+            <p class="ux-number__label">Surface, journey, behavior and business, checked in every audit.</p>
+          </li>
+          <li class="ux-number">
+            <p class="ux-number__figure"><span class="ux-number__value">450+</span><span class="ux-number__unit">projects</span></p>
+            <p class="ux-number__label">Designed by the team that will run your audit.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4 Inside the report: service row with the UX audit product scene -->
+    <section class="ux-section ux-section--pt-160 ux-section--pb-120" aria-labelledby="audit-report-title">
+      <div class="ux-container">
+        <article class="ux-service-row">
+          <div class="ux-service-row__text">
+            <span class="ux-eyebrow">Inside the report</span>
+            <h2 class="ux-h2 ux-service-row__title" id="audit-report-title">What you get&nbsp;back</h2>
+            <p class="ux-service-row__intro">Clarity before the commitment. The report shows where your product or website loses users, slows growth or creates friction, before you invest in design or development.</p>
+            <ul class="ux-service-row__list" role="list">
+              <li><svg width="18" height="18" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg>UX and conversion audit report</li>
+              <li><svg width="18" height="18" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg>Prioritized improvement roadmap</li>
+              <li><svg width="18" height="18" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg>Key friction point analysis</li>
+              <li><svg width="18" height="18" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg>Actionable recommendations</li>
+              <li><svg width="18" height="18" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg>Stakeholder walkthrough and discussion</li>
+            </ul>
+            <div class="ux-service-row__actions">
+              <a class="ux-btn ux-btn--primary" href="#book"><span class="ux-btn__label">Start with an audit</span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a>
+
+              <a class="ux-btn ux-btn--secondary" href="#how"><span class="ux-btn__label">See how it works</span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a>
+
+            </div>
+          </div>
+          <div class="ux-service-row__scene">
+            <div class="ux-scene" role="img" aria-label="Illustrative UX audit: a score of 62 out of 100, a product page where the shipping cost is hidden until checkout is flagged, and findings that trace it from the interface to fewer completed orders.">
+<svg viewBox="0 0 518 518" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-aud-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="ux-aud-frame" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="11" stdDeviation="15" flood-color="#000" flood-opacity="0.32"/></filter>
+    <filter id="ux-aud-chip" x="-20%" y="-40%" width="140%" height="220%"><feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#000" flood-opacity="0.25"/></filter>
+    <filter id="ux-aud-card" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.32"/></filter>
+    <linearGradient id="ux-aud-glass" x1="76" y1="27" x2="90" y2="102" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF" stop-opacity="0.26"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0.08"/></linearGradient>
+    <linearGradient id="ux-aud-rail" x1="327" y1="338.5" x2="327" y2="473.5" gradientUnits="userSpaceOnUse"><stop stop-color="#0A1B33" stop-opacity="0.15"/><stop offset="1" stop-color="#00739A" stop-opacity="0.9"/></linearGradient>
+    <clipPath id="ux-aud-clip"><rect width="518" height="518" rx="8"/></clipPath>
+    <clipPath id="ux-aud-photo"><rect x="39" y="153.6" width="184" height="159.6" rx="7.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-aud-clip)">
+    <rect width="518" height="518" fill="#0A1B33"/>
+    <circle cx="50" cy="30" r="160" fill="#A5ECFF" fill-opacity="0.16" filter="url(#ux-aud-blur)"/>
+    <circle cx="490" cy="439.5" r="150" fill="#00BFF2" fill-opacity="0.16" filter="url(#ux-aud-blur)"/>
+
+    <!-- Browser frame: product page -->
+    <g filter="url(#ux-aud-frame)"><rect x="24" y="92.1" width="400" height="357.8" rx="9.4" fill="#FFFFFF"/></g>
+    <circle cx="35.7" cy="102.9" r="2.35" fill="#E6EAEE"/><circle cx="44.2" cy="102.9" r="2.35" fill="#E6EAEE"/><circle cx="52.6" cy="102.9" r="2.35" fill="#E6EAEE"/>
+    <rect x="69" y="98.2" width="206.6" height="9.4" rx="4.7" fill="#F2F3F8"/>
+    <rect x="24" y="114.2" width="400" height="0.94" fill="#E6EAEE"/>
+    <text class="ux-scene__h" x="40" y="133" font-size="10.5" fill="#0A1B33" letter-spacing="2.4">HALDEN</text>
+    <g class="ux-scene__b" font-size="7" fill="#6F7680"><text x="170" y="132">Shop</text><text x="198" y="132">Watches</text><text x="236" y="132">Journal</text></g>
+    <g stroke="#0A1B33" stroke-width="1" stroke-linecap="round"><circle cx="381" cy="129.3" r="3.3"/><path d="M383.4 131.7l2.2 2.2"/><path d="M397 127.3h9l-1 7.4h-7z"/><path d="M399.4 127.3a2.2 2.2 0 0 1 4.3 0"/></g>
+    <circle cx="406.6" cy="125" r="4.2" fill="#0A1B33"/><text class="ux-scene__bb" x="406.6" y="127.1" font-size="5.5" fill="#FFFFFF" text-anchor="middle">1</text>
+    <rect x="24" y="144.2" width="400" height="0.94" fill="#EEF0F3"/>
+
+    <!-- Product photo (drawn) -->
+    <g clip-path="url(#ux-aud-photo)">
+      <rect x="39" y="153.6" width="184" height="159.6" fill="#E9E2D8"/>
+      <rect x="117" y="153.6" width="28" height="159.6" fill="#9A6A43"/>
+      <circle cx="131" cy="233" r="34" fill="#C9CDD2"/><circle cx="131" cy="233" r="29" fill="#1F2A3D"/>
+      <g stroke="#E9E2D8" stroke-width="1.6" stroke-linecap="round"><path d="M131 233v-17"/><path d="M131 233l11 7"/></g>
+      <rect x="164" y="229" width="5" height="8" rx="1.5" fill="#C9CDD2"/>
+    </g>
+    <circle cx="121.2" cy="306.2" r="2.35" fill="#FFFFFF"/><circle cx="129.6" cy="306.2" r="2.35" fill="#FFFFFF" fill-opacity="0.55"/><circle cx="138.1" cy="306.2" r="2.35" fill="#FFFFFF" fill-opacity="0.55"/>
+
+    <!-- Product details -->
+    <text class="ux-scene__h" x="238" y="171" font-size="13" fill="#0A1B33">Field Watch</text>
+    <text class="ux-scene__bb" x="238" y="189" font-size="10" fill="#0A1B33">$249</text>
+    <path d="M267.9 182.3l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.2-2.3 1.2.4-2.6-1.9-1.8 2.6-.4z" fill="#F2A93B"/>
+    <text class="ux-scene__b" x="274" y="188.6" font-size="7" fill="#6F7680">4.8 (128)</text>
+    <circle cx="247.5" cy="209.8" r="6.6" fill="#9A6A43"/><circle cx="268.1" cy="209.8" r="6.6" fill="#1D1F24"/><circle cx="288.8" cy="209.8" r="6.6" fill="#5D6B4A"/>
+    <circle cx="247.5" cy="209.8" r="8.8" stroke="#0A1B33" stroke-width="1.1"/>
+    <rect x="238.1" y="225.8" width="170.9" height="26.3" rx="5.6" fill="#0A1B33"/>
+    <text class="ux-scene__bb" x="323.5" y="241.6" font-size="8" fill="#FFFFFF" text-anchor="middle">Add to cart</text>
+    <rect x="230.6" y="254.9" width="185.9" height="22.5" rx="7.5" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1.1" stroke-dasharray="3.5 2.5"/>
+    <text class="ux-scene__b" x="238" y="268.6" font-size="7" fill="#6F7680">Shipping calculated at checkout</text>
+
+    <!-- Related products -->
+    <text class="ux-scene__bb" x="39" y="336" font-size="8.5" fill="#0A1B33">You may also like</text>
+    <rect x="39" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#E7E9EC"/>
+    <rect x="106.6" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#E9E2D8"/>
+    <rect x="174.2" y="345.2" width="60.1" height="60.1" rx="7.5" fill="#EEF0F3"/>
+    <g><rect x="65.5" y="345.2" width="7" height="60.1" fill="#2B2F36"/><circle cx="69" cy="375.2" r="13" fill="#1D1F24"/><circle cx="69" cy="375.2" r="9.5" fill="#24456B"/></g>
+    <g><rect x="133.2" y="345.2" width="7" height="60.1" fill="#5D6B4A"/><circle cx="136.7" cy="375.2" r="13" fill="#C9CDD2"/><circle cx="136.7" cy="375.2" r="9.5" fill="#F4F1EA"/></g>
+    <g><rect x="200.8" y="345.2" width="7" height="60.1" fill="#9A6A43"/><circle cx="204.3" cy="375.2" r="12" fill="#D8B06A"/><circle cx="204.3" cy="375.2" r="9" fill="#FBF8F1"/></g>
+    <g class="ux-scene__b" font-size="7" fill="#0A1B33"><text x="39" y="417">Dive 40</text><text x="106.6" y="417">Pilot 42</text><text x="174.2" y="417">Dress 36</text></g>
+    <g class="ux-scene__b" font-size="6.5" fill="#6F7680"><text x="39" y="427.5">$319</text><text x="106.6" y="427.5">$289</text><text x="174.2" y="427.5">$229</text></g>
+
+    <!-- Score chip (glass) -->
+    <g filter="url(#ux-aud-chip)"><rect x="23" y="20.5" width="267" height="62" rx="16" fill="url(#ux-aud-glass)"/></g>
+    <rect x="23.5" y="21" width="266" height="61" rx="15.5" stroke="#FFFFFF" stroke-opacity="0.32"/>
+    <circle cx="60" cy="51.5" r="19" stroke="#E8ECF0" stroke-opacity="0.4" stroke-width="5"/>
+    <path d="M60 32.5a19 19 0 1 1-13.02 32.84" stroke="#F2A93B" stroke-width="5" stroke-linecap="round"/>
+    <text class="ux-scene__h" x="60" y="56.5" font-size="14" fill="#FFFFFF" text-anchor="middle">62</text>
+    <text class="ux-scene__a" x="100" y="45" font-size="9" fill="#FFFFFF" fill-opacity="0.75">UX AUDIT SCORE</text>
+    <text class="ux-scene__h" x="100" y="66" font-size="13.5" fill="#FFFFFF">Needs work</text>
+    <text class="ux-scene__b" x="182" y="65.5" font-size="8" fill="#FF8A8E">(Product page lowest)</text>
+
+    <!-- Findings card: surface to business -->
+    <g filter="url(#ux-aud-card)"><rect x="301" y="284.5" width="204" height="221" rx="12" fill="#FFFFFF"/></g>
+    <text class="ux-scene__h" x="317" y="312" font-size="13" fill="#0A1B33">UX findings</text>
+    <rect x="326.25" y="338.5" width="1.5" height="135" fill="url(#ux-aud-rail)"/>
+    <circle cx="327" cy="340.5" r="3" fill="#0A1B33" fill-opacity="0.27"/>
+    <circle cx="327" cy="382.5" r="3" fill="#0A1B33" fill-opacity="0.37"/>
+    <circle cx="327" cy="424.5" r="3" fill="#0A1B33" fill-opacity="0.49"/>
+    <g class="ux-scene__a" font-size="6.5" fill="#6F7680"><text x="340" y="335">SURFACE</text><text x="340" y="377">JOURNEY</text><text x="340" y="419">BEHAVIOR</text></g>
+    <g class="ux-scene__b" font-size="10" fill="#0A1B33" fill-opacity="0.75"><text x="340" y="349.5">Shipping cost hidden</text><text x="340" y="391.5">Drop off at checkout</text><text x="340" y="433.5">Late costs break trust</text></g>
+    <rect x="315" y="447.5" width="176" height="44" rx="8" fill="#0A1B33"/>
+    <circle cx="327" cy="469.5" r="4" fill="#A5ECFF"/>
+    <text class="ux-scene__a" x="340" y="463" font-size="6.5" fill="#A5ECFF">BUSINESS</text>
+    <text class="ux-scene__bb" x="340" y="478" font-size="10" fill="#FFFFFF">Fewer completed orders</text>
+
+    <!-- Friction marker (drawn last so it sits on top) -->
+    <circle class="ux-scene__pulse" cx="416.5" cy="254.9" r="15" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="416.5" cy="254.9" r="8.45" fill="#C62F35" stroke="#FFFFFF" stroke-width="1.2"/>
+    <text class="ux-scene__bb" x="416.5" y="258.3" font-size="9.5" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+</svg>
+</div>
+
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5 Sample findings: mini scenes -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-findings-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">Sample findings</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-findings-title">The problems an audit brings to&nbsp;light</h2>
+          <p class="ux-section-header__intro">Each finding comes with evidence and a clear fix. These examples are&nbsp;illustrative.</p>
+        </header>
+        <ul class="ux-scene-row" role="list">
+          <li>
+            <div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative checkout summary where an 18 dollar shipping fee appears only at the last step, flagged as a finding.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mf-checkout-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mf-checkout-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mf-checkout-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mf-checkout-clip)">
+    <rect width="257" height="200" fill="url(#ux-mf-checkout-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#0F9A96" fill-opacity="0.75" filter="url(#ux-mf-checkout-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#14B8A6" fill-opacity="0.4" filter="url(#ux-mf-checkout-blur)"/>
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="37" y="48" font-size="11" fill="#0A1B33">Order summary</text>
+    <text class="ux-scene__b" x="207" y="48" font-size="7" fill="#6F7680" text-anchor="end">Step 3 of 3</text>
+    <g class="ux-scene__b" font-size="8.5" fill="#374151"><text x="37" y="72">Subtotal</text><text x="37" y="96">Shipping</text></g>
+    <g class="ux-scene__b" font-size="8.5" fill="#374151" text-anchor="end"><text x="220" y="72">$249.00</text></g>
+    <text class="ux-scene__bb" x="220" y="96" font-size="8.5" fill="#C62F35" text-anchor="end">+ $18.00</text>
+    <rect x="31" y="84" width="195" height="18" rx="6" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1" stroke-dasharray="3.5 2.5"/>
+    <rect x="37" y="110" width="183" height="0.8" fill="#E6EAEE"/>
+    <text class="ux-scene__bb" x="37" y="127" font-size="9" fill="#0A1B33">Total</text>
+    <text class="ux-scene__bb" x="220" y="127" font-size="9" fill="#0A1B33" text-anchor="end">$267.00</text>
+    <rect x="37" y="140" width="183" height="22" rx="5.6" fill="#0A1B33"/>
+    <text class="ux-scene__bb" x="128.5" y="154" font-size="8" fill="#FFFFFF" text-anchor="middle">Pay now</text>
+    <circle class="ux-scene__pulse" cx="226" cy="84" r="11" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="226" cy="84" r="6.5" fill="#C62F35" stroke="#FFFFFF" stroke-width="1"/>
+    <text class="ux-scene__bb" x="226" y="86.7" font-size="7.5" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+</svg>
+</div>
+
+            <h3 class="ux-h3-small ux-scene-row__title">Hidden costs at checkout</h3>
+            <p class="ux-scene-row__text">Shipping shows up only at the last step, so buyers who felt ready walk away.</p>
+          </li>
+          <li>
+            <div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative sign up form with six required fields before any value is shown, flagged as a finding.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mf-signup-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mf-signup-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mf-signup-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mf-signup-clip)">
+    <rect width="257" height="200" fill="url(#ux-mf-signup-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#2E6BD8" fill-opacity="0.7" filter="url(#ux-mf-signup-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#00BFF2" fill-opacity="0.45" filter="url(#ux-mf-signup-blur)"/>
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="37" y="48" font-size="11" fill="#0A1B33">Start your free trial</text>
+    <text class="ux-scene__b" x="37" y="60" font-size="7" fill="#6F7680">All fields required</text>
+    <rect x="31" y="67" width="195" height="66" rx="6" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1" stroke-dasharray="3.5 2.5"/>
+    <g fill="#FFFFFF" stroke="#C9D3DC" stroke-width="0.8">
+      <rect x="37.4" y="72.4" width="88" height="15.5" rx="3.5"/><rect x="131.4" y="72.4" width="88" height="15.5" rx="3.5"/>
+      <rect x="37.4" y="92.4" width="88" height="15.5" rx="3.5"/><rect x="131.4" y="92.4" width="88" height="15.5" rx="3.5"/>
+      <rect x="37.4" y="112.4" width="88" height="15.5" rx="3.5"/><rect x="131.4" y="112.4" width="88" height="15.5" rx="3.5"/>
+    </g>
+    <g class="ux-scene__b" font-size="6.5" fill="#6F7680">
+      <text x="43" y="82.6">Full name</text><text x="137" y="82.6">Work email</text>
+      <text x="43" y="102.6">Company</text><text x="137" y="102.6">Job title</text>
+      <text x="43" y="122.6">Team size</text><text x="137" y="122.6">Phone</text>
+    </g>
+    <rect x="37" y="143" width="80" height="20" rx="5.6" fill="#0A1B33"/>
+    <text class="ux-scene__bb" x="77" y="155.8" font-size="7.5" fill="#FFFFFF" text-anchor="middle">Create account</text>
+    <circle class="ux-scene__pulse" cx="226" cy="67" r="11" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="226" cy="67" r="6.5" fill="#C62F35" stroke="#FFFFFF" stroke-width="1"/>
+    <text class="ux-scene__bb" x="226" y="69.7" font-size="7.5" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+</svg>
+</div>
+
+            <h3 class="ux-h3-small ux-scene-row__title">A sign up that asks too much</h3>
+            <p class="ux-scene-row__text">Six fields before any value is shown. Trials that never start never convert.</p>
+          </li>
+          <li>
+            <div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative pricing table with three similar plans and no recommended option, flagged as a finding.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mf-pricing-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mf-pricing-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mf-pricing-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mf-pricing-clip)">
+    <rect width="257" height="200" fill="url(#ux-mf-pricing-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#6D5BF5" fill-opacity="0.7" filter="url(#ux-mf-pricing-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#3B82F6" fill-opacity="0.5" filter="url(#ux-mf-pricing-blur)"/>
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="37" y="48" font-size="11" fill="#0A1B33">Pick a plan</text>
+    <rect x="37" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="43" y="73" font-size="7" fill="#6F7680">Starter</text>
+    <text class="ux-scene__h" x="43" y="91" font-size="12" fill="#0A1B33">$29</text>
+    <rect x="43" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="43" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="43" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="66" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="99.5" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="105.5" y="73" font-size="7" fill="#6F7680">Team</text>
+    <text class="ux-scene__h" x="105.5" y="91" font-size="12" fill="#0A1B33">$39</text>
+    <rect x="105.5" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="105.5" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="105.5" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="128.5" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="162" y="58.5" width="58" height="76" rx="6" fill="#FFFFFF" stroke="#E6EAEE" stroke-width="0.8"/>
+    <text class="ux-scene__b" x="168" y="73" font-size="7" fill="#6F7680">Growth</text>
+    <text class="ux-scene__h" x="168" y="91" font-size="12" fill="#0A1B33">$49</text>
+    <rect x="168" y="101" width="40" height="3" rx="1.5" fill="#E6EAEE"/><rect x="168" y="109" width="32" height="3" rx="1.5" fill="#E6EAEE"/>
+    <rect x="168" y="119" width="46" height="10" rx="3" fill="#F2F3F8"/>
+    <text class="ux-scene__bb" x="191" y="126.4" font-size="5.5" fill="#0A1B33" text-anchor="middle">Choose</text>
+    <rect x="31" y="52.5" width="195" height="88" rx="6" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1" stroke-dasharray="3.5 2.5"/>
+    <text class="ux-scene__b" x="37" y="158" font-size="7.5" fill="#C62F35">No plan marked as the right fit</text>
+    <circle class="ux-scene__pulse" cx="226" cy="52.5" r="11" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="226" cy="52.5" r="6.5" fill="#C62F35" stroke="#FFFFFF" stroke-width="1"/>
+    <text class="ux-scene__bb" x="226" y="55.2" font-size="7.5" fill="#FFFFFF" text-anchor="middle">?</text>
+  </g>
+</svg>
+</div>
+
+            <h3 class="ux-h3-small ux-scene-row__title">Pricing that makes people guess</h3>
+            <p class="ux-scene-row__text">Three similar plans and no clear default, so people stall instead of choosing.</p>
+          </li>
+          <li>
+            <div class="ux-scene ux-scene--mini" role="img" aria-label="Illustrative AI assistant answer with no source shown, flagged as a finding.">
+<svg viewBox="0 0 257 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="ux-mf-ai-source-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="24"/></filter>
+    <linearGradient id="ux-mf-ai-source-bg" x1="58" y1="-3" x2="147" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#0F1F3D"/><stop offset="1" stop-color="#070D1C"/></linearGradient>
+    <clipPath id="ux-mf-ai-source-clip"><rect width="257" height="200" rx="8"/></clipPath>
+  </defs>
+  <g clip-path="url(#ux-mf-ai-source-clip)">
+    <rect width="257" height="200" fill="url(#ux-mf-ai-source-bg)"/>
+    <ellipse cx="60" cy="175" rx="100" ry="75" fill="#B23FD0" fill-opacity="0.7" filter="url(#ux-mf-ai-source-blur)"/>
+    <ellipse cx="240" cy="5" rx="70" ry="55" fill="#6D28D9" fill-opacity="0.55" filter="url(#ux-mf-ai-source-blur)"/>
+    <rect x="23" y="24.8" width="211" height="150.1" rx="12" fill="#FFFFFF"/>
+    <circle cx="44" cy="44" r="7" fill="#5B4BDB"/>
+    <path d="M44 39.8l1 3.2 3.2 1-3.2 1-1 3.2-1-3.2-3.2-1 3.2-1z" fill="#FFFFFF"/>
+    <text class="ux-scene__h" x="56" y="47.5" font-size="10.5" fill="#0A1B33">Assistant</text>
+    <rect x="98" y="58" width="122" height="22" rx="8" fill="#F2F3F8"/>
+    <text class="ux-scene__b" x="106" y="72" font-size="7" fill="#374151">Which plan fits a 12 person team?</text>
+    <rect x="31" y="88" width="195" height="50" rx="6" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1" stroke-dasharray="3.5 2.5"/>
+    <g class="ux-scene__b" font-size="7.5" fill="#0A1B33">
+      <text x="39" y="102">The Team plan at $39 per seat is the</text>
+      <text x="39" y="114">best fit for 12 people, and it includes</text>
+      <text x="39" y="126">priority support.</text>
+    </g>
+    <rect x="37" y="146" width="80" height="15" rx="7.5" fill="#E5484D" fill-opacity="0.12"/>
+    <text class="ux-scene__bb" x="77" y="156.2" font-size="6.5" fill="#C62F35" text-anchor="middle">No source shown</text>
+    <circle class="ux-scene__pulse" cx="226" cy="88" r="11" fill="#C62F35" fill-opacity="0.3"/>
+    <circle cx="226" cy="88" r="6.5" fill="#C62F35" stroke="#FFFFFF" stroke-width="1"/>
+    <text class="ux-scene__bb" x="226" y="90.7" font-size="7.5" fill="#FFFFFF" text-anchor="middle">!</text>
+  </g>
+</svg>
+</div>
+
+            <h3 class="ux-h3-small ux-scene-row__title">AI answers without a source</h3>
+            <p class="ux-scene-row__text">Users can't tell where an answer came from, so they stop trusting it.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6 How we work: the approved process section, as it is -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" id="how" aria-labelledby="process-title">
+      <div class="ux-container">
+        <header class="ux-section-header">
+          <span class="ux-eyebrow">How we work</span>
+          <h2 class="ux-h2 ux-section-header__title" id="process-title">From first audit to final result</h2>
+        </header>
+        <ol class="ux-process" role="list">
+  <li class="ux-step">
+    <img class="ux-step__icon" src="../assets/icons/process/audit.svg" width="64" height="64" alt="" aria-hidden="true">
+    <p class="ux-step__label">1. Audit</p>
+    <h3 class="ux-step__title">We walk your product as your buyers do.</h3>
+    <p class="ux-step__body">A UX audit first, to find what's really holding growth back.</p>
+  </li>
+  <li class="ux-step">
+    <img class="ux-step__icon" src="../assets/icons/process/evidence.svg" width="64" height="64" alt="" aria-hidden="true">
+    <p class="ux-step__label">2. Evidence</p>
+    <h3 class="ux-step__title">We check it against your data.</h3>
+    <p class="ux-step__body">Analytics, behavior data, and category research. One agreed metric.</p>
+  </li>
+  <li class="ux-step">
+    <img class="ux-step__icon" src="../assets/icons/process/journey.svg" width="64" height="64" alt="" aria-hidden="true">
+    <p class="ux-step__label">3. Journey</p>
+    <h3 class="ux-step__title">We redesign the path around their questions.</h3>
+    <p class="ux-step__body">Story, routes, and content built around how your buyers decide.</p>
+  </li>
+  <li class="ux-step">
+    <img class="ux-step__icon" src="../assets/icons/process/build.svg" width="64" height="64" alt="" aria-hidden="true">
+    <p class="ux-step__label">4. Build</p>
+    <h3 class="ux-step__title">We design and build together.</h3>
+    <p class="ux-step__body">One team, so nothing waits on a long handover.</p>
+  </li>
+  <li class="ux-step">
+    <img class="ux-step__icon" src="../assets/icons/process/proof.svg" width="64" height="64" alt="" aria-hidden="true">
+    <p class="ux-step__label">5. Proof</p>
+    <h3 class="ux-step__title">We test, measure, and keep refining.</h3>
+    <p class="ux-step__body">A/B tests against the metric we agreed at the start.</p>
+  </li>
+</ol>
+
+      </div>
+    </section>
+
+    <!-- 7 What we need from you: Phosphor icons on tint tiles -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-120" aria-labelledby="audit-need-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">What we need</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-need-title">Four things to get&nbsp;started</h2>
+        </header>
+        <ul class="ux-expect" role="list">
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M230,208a6,6,0,0,1-6,6H32a6,6,0,0,1-6-6V48a6,6,0,0,1,12,0V161.52l53.76-53.76a6,6,0,0,1,8.48,0L128,135.51,185.52,78H160a6,6,0,0,1,0-12h40a6,6,0,0,1,6,6v40a6,6,0,0,1-12,0V86.48l-61.76,61.76a6,6,0,0,1-8.48,0L96,120.49l-58,58V202H224A6,6,0,0,1,230,208Z"/></svg></span>
+            <h3 class="ux-h3-small ux-expect__title">Analytics access</h3>
+            <p class="ux-expect__text">Read access to your analytics, so every finding rests on real behavior, not opinion.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.06,84a102.06,102.06,0,1,1-24.31-32.27l24-24a6,6,0,0,1,8.48,8.49l-96,96a6,6,0,1,1-8.48-8.49l29.39-29.4a42,42,0,1,0,16.78,31.24,6,6,0,1,1,12-.68A54,54,0,1,1,161.7,85.83l25.54-25.55a89.91,89.91,0,1,0,22,28.93A6,6,0,1,1,220.06,84Z"/></svg></span>
+            <h3 class="ux-h3-small ux-expect__title">One goal to move</h3>
+            <p class="ux-expect__text">The metric that matters most right now, such as demos, trials or activation.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M250.83,74.71a6,6,0,0,0-6.16.3L206,100.79V72a14,14,0,0,0-14-14H32A14,14,0,0,0,18,72V184a14,14,0,0,0,14,14H192a14,14,0,0,0,14-14V155.21L244.67,181a6,6,0,0,0,9.33-5V80A6,6,0,0,0,250.83,74.71ZM194,184a2,2,0,0,1-2,2H32a2,2,0,0,1-2-2V72a2,2,0,0,1,2-2H192a2,2,0,0,1,2,2Zm48-19.21-36-24V115.21l36-24Z"/></svg></span>
+            <h3 class="ux-h3-small ux-expect__title">A short kickoff call</h3>
+            <p class="ux-expect__text">Walk us through the product, the audience and what you've already tried.</p>
+          </li>
+          <li class="ux-expect__item">
+            <span class="ux-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,82H174V56a46,46,0,0,0-92,0V82H48A14,14,0,0,0,34,96V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V96A14,14,0,0,0,208,82ZM94,56a34,34,0,0,1,68,0V82H94ZM210,208a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V96a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Zm-82-94a26,26,0,0,0-6,51.29V184a6,6,0,0,0,12,0V165.29A26,26,0,0,0,128,114Zm0,40a14,14,0,1,1,14-14A14,14,0,0,1,128,154Z"/></svg></span>
+            <h3 class="ux-h3-small ux-expect__title">An NDA, if&nbsp;needed</h3>
+            <p class="ux-expect__text">We sign before we get access. Client work stays confidential by default.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8 FAQ -->
+    <section class="ux-section ux-section--pt-100 ux-section--pb-0" aria-labelledby="audit-faq-title">
+      <div class="ux-container">
+        <header class="ux-section-header ux-section__head ux-section__head--60">
+          <span class="ux-eyebrow">FAQ</span>
+          <h2 class="ux-h2 ux-section-header__title" id="audit-faq-title">Questions about the audit</h2>
+        </header>
+        <div class="ux-faq-groups">
+          <div class="ux-faq" data-ux-faq>
+            <p class="ux-faq__label">The audit</p>
+            <div class="ux-faq__rule" aria-hidden="true"></div>
+            <div class="ux-faq__item is-open">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">How much does an audit cost?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">It is a fixed fee, quoted after one call. The price depends on what we review, so we agree the scope first and you know the full cost before we start.</p></div>
+</div>
+
+            <div class="ux-faq__item ">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">How long does it take?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">You get the report in about three days after we have access to your analytics.</p></div>
+</div>
+
+            <div class="ux-faq__item ">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">What do you review?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">Websites, products, apps and stores. We combine an interface review with behavioral signals such as navigation patterns, discovery friction and drop off points.</p></div>
+</div>
+
+          </div>
+          <div class="ux-faq" data-ux-faq>
+            <p class="ux-faq__label">After the audit</p>
+            <div class="ux-faq__rule" aria-hidden="true"></div>
+            <div class="ux-faq__item ">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">What happens after the report?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">We walk your team through it and agree what to fix first. You can take the roadmap to your own team, or we can design the fixes with you.</p></div>
+</div>
+
+            <div class="ux-faq__item ">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">Do you use AI in the audit?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">Yes, to speed up first pass analysis. Our people frame the problem, set the priorities and own every recommendation. We use AI. We don't outsource the decision.</p></div>
+</div>
+
+            <div class="ux-faq__item ">
+  <h3 class="ux-faq__heading"><button class="ux-faq__question" type="button">Can we start with a project instead?<span class="ux-faq__icon" aria-hidden="true"></span></button></h3>
+  <div class="ux-faq__panel"><p class="ux-faq__answer">Yes. Every project opens with a small audit of the product or app, and that audit is part of the project.</p></div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FIXED: booking card and footer, do not edit (LLM.md 16.5) -->
+  <section class="ux-booking " id="book" aria-labelledby="book-title">
+  <div class="ux-booking__wrap">
+    <div class="ux-booking__card">
+      <div class="ux-booking__photo" aria-hidden="true">
+  <img class="ux-booking__photo-base" src="../assets/images/people/chintan-bhatt.webp" alt="" width="535" height="802" loading="lazy">
+  <img class="ux-booking__photo-texture" src="../assets/images/people/chintan-bhatt-texture.webp" alt="" width="535" height="802" loading="lazy">
+</div>
+
+      <div class="ux-booking__head">
+        <span class="ux-eyebrow">Book a discovery call</span>
+        <h2 class="ux-h2" id="book-title">Let's talk about what you're building.</h2>
+      </div>
+      <div class="ux-booking__body">
+        <div class="ux-booking__founder">
+          <p class="ux-booking__name">Chintan Bhatt <span>Founder, UXTeam</span></p>
+          <span class="ux-booking__rule" aria-hidden="true"></span>
+          <p class="ux-booking__text">Tell us about your product, your website, or the experience you want to improve, and we'll recommend the right place to start.</p>
+        </div>
+        <span class="ux-booking__divider" aria-hidden="true"></span>
+        <form class="ux-booking__form ux-form" action="#" method="post" novalidate data-ux-booking data-calendly="">
+  <div class="ux-field">
+    <label class="ux-field__label" for="book-name-inner">Full name</label>
+    <input class="ux-field__input" id="book-name-inner" name="name" type="text" autocomplete="name" placeholder="John Anderson">
+  </div>
+  <div class="ux-field">
+    <label class="ux-field__label" for="book-email-inner">Work email*</label>
+    <input class="ux-field__input" id="book-email-inner" name="email" type="email" autocomplete="email" placeholder="johna@agencywebsite.com" required>
+    <p class="ux-field__error">Please enter a valid work email.</p>
+  </div>
+  <div class="ux-field ux-field--full">
+    <label class="ux-field__label" for="book-site-inner">Company website</label>
+    <input class="ux-field__input" id="book-site-inner" name="website" type="url" autocomplete="url" placeholder="www.agencywebsite.com">
+  </div>
+  <button class="ux-btn ux-btn--primary ux-form__submit" type="submit"><span class="ux-btn__label">Book a Discovery Call</span><span class="ux-btn__icon" aria-hidden="true"><svg class="ux-btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="ux-btn__arrow ux-btn__arrow--b" viewBox="0 0 16 16" fill="none"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</button>
+  <p class="ux-form__status" role="status" aria-live="polite"></p>
+</form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ux-footer">
+  <div class="ux-container ux-footer__inner">
+    <div class="ux-footer__top">
+      <div class="ux-footer__brand">
+        <a href="index.html" aria-label="UXTeam home"><img src="../assets/logos/uxteam-logo-footer.svg" width="156" height="38" alt="UXTeam"></a>
+        <p class="ux-footer__tagline">A UX strategy and design studio for B2B teams</p>
+      </div>
+      <div class="ux-footer__offices">
+        <address class="ux-footer__office">
+          <span class="ux-footer__office-name">UAE</span>
+          <span>3206, The One Tower<br>Barsha Heights<br>Sheikh Zayed Road<br>Dubai, United Arab Emirates</span>
+        </address>
+        <address class="ux-footer__office">
+          <span class="ux-footer__office-name">INDIA</span>
+          <span>B-1304, Sankalp Iconic Tower<br>Ambli Road, Sanidhya<br>Ahmedabad 380054<br>Gujarat, India</span>
+        </address>
+        <address class="ux-footer__office">
+          <span class="ux-footer__office-name">USA</span>
+          <span>101 Edison Glen Terrace<br>Edison, New Jersey 08837<br>United States</span>
+        </address>
+      </div>
+    </div>
+
+    <div class="ux-footer__bottom">
+      <ul class="ux-social" role="list">
+        <li><a class="ux-social__link" href="#" aria-label="UXTeam on LinkedIn"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><g transform="translate(2 2)"><path d="M16.0002 16.0005V10.1405C16.0002 7.26055 15.3802 5.06055 12.0202 5.06055C10.4002 5.06055 9.32016 5.94055 8.88016 6.78055H8.84016V5.32055H5.66016V16.0005H8.98016V10.7005C8.98016 9.30055 9.24016 7.96055 10.9602 7.96055C12.6602 7.96055 12.6802 9.54055 12.6802 10.7805V15.9805H16.0002V16.0005Z"/><path d="M0.259928 5.32015H3.57993V16.0002H0.259928V5.32015Z"/><path d="M1.92 0C0.86 0 0 0.86 0 1.92C0 2.98 0.86 3.86 1.92 3.86C2.98 3.86 3.84 2.98 3.84 1.92C3.84 0.86 2.98 0 1.92 0Z"/></g></svg></a></li>
+        <li><a class="ux-social__link" href="#" aria-label="UXTeam on Instagram"><svg viewBox="0 0 20 20" aria-hidden="true"><g transform="translate(0.03 0.03)"><path d="M19.1867 9.96874C19.1848 9.14664 19.1755 8.32449 19.1642 7.50242C19.1506 6.51058 19.1353 5.51832 18.8866 4.54347C18.6257 3.52121 18.1113 2.63956 17.3109 1.98687C16.4675 1.29906 15.448 0.937533 14.3477 0.870619C12.8883 0.781869 11.4283 0.746791 9.96836 0.750229C8.50836 0.746791 7.04836 0.781869 5.58903 0.870619C4.48872 0.937533 3.46926 1.29906 2.62583 1.98687C1.82544 2.63956 1.31098 3.52121 1.05012 4.54347C0.801374 5.51832 0.786062 6.51058 0.772507 7.50242C0.761257 8.32449 0.75192 9.14664 0.750006 9.96874C0.75192 10.7909 0.761257 11.613 0.772507 12.4351C0.786062 13.4269 0.801374 14.4192 1.05012 15.394C1.31098 16.4163 1.82544 17.2979 2.62583 17.9506C3.46926 18.6384 4.48872 19 5.58903 19.0669C7.04836 19.1556 8.50836 19.1907 9.96836 19.1873C11.4283 19.1907 12.8883 19.1556 14.3477 19.0669C15.448 19 16.4675 18.6384 17.3109 17.9506C18.1113 17.2979 18.6257 16.4163 18.8866 15.394C19.1353 14.4192 19.1506 13.4269 19.1642 12.4351C19.1755 11.613 19.1848 10.7909 19.1867 9.96874Z" fill="none" stroke="currentColor" stroke-width="1.5"/></g><g transform="translate(5.86 5.9)"><path d="M8.95312 4.85156C8.95312 2.58633 7.1168 0.75 4.85156 0.75C2.58633 0.75 0.75 2.58633 0.75 4.85156C0.75 7.1168 2.58633 8.95312 4.85156 8.95312C7.1168 8.95312 8.95312 7.1168 8.95312 4.85156Z" fill="none" stroke="currentColor" stroke-width="1.5"/></g><g transform="translate(14.22 3.55)"><path d="M2.34375 1.17188C2.34375 0.524687 1.81906 0 1.17188 0C0.524687 0 0 0.524687 0 1.17188C0 1.81906 0.524687 2.34375 1.17188 2.34375C1.81906 2.34375 2.34375 1.81906 2.34375 1.17188Z" fill="currentColor"/></g></svg></a></li>
+        <li><a class="ux-social__link" href="#" aria-label="UXTeam on Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/><path d="M6.65625 19.2441C7.99157 17.0323 9.87573 15.2032 12.126 13.934C14.3764 12.6648 16.9164 11.9986 19.5 12C20.0053 12 20.5059 12.0253 21 12.0741"/><path d="M17.6263 4.97656C16.2212 6.70362 14.4486 8.09553 12.4376 9.05093C10.4266 10.0063 8.22776 10.5012 6.00133 10.4994C5.05256 10.4996 4.10588 10.4105 3.17383 10.2331"/><path d="M8.05469 3.9082C10.3104 5.23138 12.1807 7.12158 13.4799 9.39113C14.7791 11.6607 15.4621 14.2306 15.4609 16.8457C15.4618 18.0711 15.3128 19.292 15.0175 20.4813"/></svg></a></li>
+      </ul>
+      <span class="ux-footer__line" aria-hidden="true"></span>
+      <ul class="ux-footer__links" role="list">
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li>©2026 UXTeam. All rights reserved</li>
+      </ul>
+    </div>
+  </div>
+  <img class="ux-footer__wordmark" src="../assets/images/footer-wordmark.svg" alt="" aria-hidden="true" width="1204" height="295">
+</footer>
+
+
+</div>
+<script src="../js/uxteam.js" defer></script>
+
+</body>
+</html>

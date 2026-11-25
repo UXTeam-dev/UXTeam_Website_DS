@@ -340,7 +340,13 @@ async function main() {
     console.error('dist/pages not found. Run `npm run build` first.');
     process.exit(1);
   }
-  const files = (await readdir(SRC)).filter((f) => f.endsWith('.html'));
+  // Approved pages (src/pages) and demo pages (src/demos) get the same checks.
+  const files = [];
+  for (const dir of ['pages', 'demos']) {
+    const from = join(ROOT, 'src', dir);
+    if (!existsSync(from)) continue;
+    for (const name of (await readdir(from)).filter((x) => x.endsWith('.html'))) files.push(dir === 'pages' ? name : `${dir}/${name}`);
+  }
   let errors = 0;
   let warnings = 0;
 
@@ -350,9 +356,9 @@ async function main() {
       error: (msg) => issues.push(['ERROR', msg]),
       warn: (msg) => issues.push(['warn ', msg]),
     };
-    const src = await readFile(join(SRC, f), 'utf8');
+    const src = await readFile(f.includes('/') ? join(ROOT, 'src', f) : join(SRC, f), 'utf8');
     checkSource(f, src, report);
-    const builtPath = join(DIST, f);
+    const builtPath = f.includes('/') ? join(ROOT, 'dist', f) : join(DIST, f);
     if (existsSync(builtPath)) checkBuilt(f, await readFile(builtPath, 'utf8'), report);
     else report.error('not built. Run `npm run build`.');
 

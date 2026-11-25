@@ -104,6 +104,11 @@ Wrap items in `<div class="ux-faq" data-ux-faq>`. One item open at a time. Two c
 |---|---|---|
 | Site header | `sections/site-header/site-header.html` | `theme` dark or light, `cta` ux-btn--glass or ux-btn--primary, `bordered` (pass empty on the homepage) |
 | Site footer | `sections/site-footer/site-footer.html` | none |
+| Service row | `sections/service-row` (`.ux-service-row`, `__text`, `__title`, `__intro`, `__list`, `__actions`, `__scene`) | Markup in `src/demos/ux-audit.html`. Scene from `components/graphic/_scene-*.html`. White sections only |
+| Numbers band | `sections/numbers-band` (`.ux-numbers`, `.ux-number`, `__figure`, `__value`, `__unit`, `__label`) | Deep Navy band. Up to 4 (`--ux-numbers-cols`). Safe numbers only |
+| Expectations row | `sections/expectations` (`.ux-expect`, `__item`, `__title`, `__text`) | `.ux-icon-tile` with `@icon`. 4 columns (`--ux-expect-cols`) |
+| Mini scene row | `.ux-scene-row` (`__title`, `__text`) in `components/graphic` | Four `_scene-mini-*.html` with a title and two lines |
+| Listing hero with trusted strip | `.ux-hero-listing--trusted` + `.ux-hero-listing__trusted` + the logo marquee include after the container | Extends the Hero Dusk so the white label stays readable |
 | Page end (booking card + footer) | `sections/page-end/page-end.html` | After `</main>`. `booking` (`booking-cta` default, `booking-cta-home` for home and hub), `mod` (`ux-booking--flush` on detail pages). The card overlaps the footer by 42px. Pages never include the booking card directly |
 | Booking card, inner pages | `sections/booking-cta/booking-cta.html` | Used through page-end. `mod` (ux-booking--flush removes the top padding) |
 | Booking card, homepage and hub pages | `sections/booking-cta/booking-cta-home.html` | `mod`. Which version a page uses: LLM.md 15.5 |

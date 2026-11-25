@@ -205,17 +205,18 @@
    Paths are relative to dist/css/uxteam.css.
    ========================================================================== */
 
-/* Aeonik. Drop the licensed web files into assets/fonts/aeonik/ with these names. */
+/* Aeonik. Drop the licensed web files into assets/fonts/aeonik/ with these names.
+   Until then, local() uses Aeonik when it is installed on the viewer's computer. */
 @font-face {
   font-family: 'Aeonik';
-  src: url('../assets/fonts/aeonik/Aeonik-Regular.woff2') format('woff2');
+  src: local('Aeonik Regular'), local('Aeonik-Regular'), url('../assets/fonts/aeonik/Aeonik-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Aeonik';
-  src: url('../assets/fonts/aeonik/Aeonik-Medium.woff2') format('woff2');
+  src: local('Aeonik Medium'), local('Aeonik-Medium'), url('../assets/fonts/aeonik/Aeonik-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -3346,13 +3347,22 @@ blockquote {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
-  margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-topic-grid) {
+  margin: 0;
+}
+
 @media (max-width: 1199px) {
   .ux-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+
+/* A set of three stays in one row on tablet, so no tile is left alone */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .ux-topic-grid:has(> li:nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 767px) {
@@ -3409,6 +3419,40 @@ blockquote {
   .ux-spot > img, .ux-spot > svg { transition: none; }
 }
 
+/* Row of mini scenes: up to four, each with a title and two or three lines
+   (Figma 2638:20489). Same base, card size and type in every item. */
+.ux-scene-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-scene-row) {
+  margin: 0;
+}
+
+.ux-scene-row__title {
+  margin: 24px 0 0;
+}
+
+.ux-scene-row__text {
+  margin: 10px 0 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+}
+
+@media (max-width: 1023px) {
+  .ux-scene-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+}
+
+@media (max-width: 559px) {
+  .ux-scene-row { grid-template-columns: 1fr; }
+}
+
 /* ---- 6. Image box --------------------------------------------------------- */
 
 /* An empty box that reserves the exact space for a real image (client
@@ -3443,6 +3487,229 @@ blockquote {
 .ux-image-box--outcome { --ux-image-ratio: 585 / 283; border-radius: 0 0 var(--ux-radius-card) var(--ux-radius-card); }
 .ux-image-box--portrait { --ux-image-ratio: 4 / 5; }
 .ux-image-box--wide { --ux-image-ratio: 16 / 9; }
+
+
+/* ===== sections/service-row/service-row.css ===== */
+/* ==========================================================================
+   Service row with a product scene (Figma 2638:17149, What we do service rows)
+   1200 white card, 1px Steel, radius 8. Text column from x57 (528 wide):
+   eyebrow, title, intro, checklist with arrow bullets, actions at the bottom
+   (one Primary plus one text link). Scene 518 x 518 on the right, 48 from the
+   top, right and bottom. High weight. White sections only (docs/GRAPHICS.md).
+   Stacks below 1024: text first, scene after at full width (max 518).
+   ========================================================================== */
+
+.ux-service-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 518px;
+  gap: 56px;
+  padding: 48px 48px 48px 57px;
+  border: var(--ux-border-hairline);
+  border-radius: var(--ux-radius-card);
+  background: var(--ux-white);
+}
+
+.ux-service-row__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
+.ux-service-row__title {
+  margin: 14px 0 0;
+}
+
+.ux-service-row__intro {
+  margin: 20px 0 0;
+  max-width: 528px;
+  font-size: var(--ux-fs-body-20);
+  line-height: var(--ux-lh-body-20);
+  color: var(--ux-charcoal);
+}
+
+.ux-service-row__list {
+  display: grid;
+  gap: 14px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-service-row__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--ux-fs-body-20);
+  line-height: 1.4;
+  color: var(--ux-navy);
+}
+
+.ux-service-row__list svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--ux-navy);
+}
+
+.ux-service-row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+  margin-top: auto;
+  padding-top: 48px;
+}
+
+@media (max-width: 1199px) {
+  .ux-service-row { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px; padding: 40px; }
+}
+
+@media (max-width: 1023px) {
+  .ux-service-row { grid-template-columns: 1fr; gap: 40px; }
+  .ux-service-row__scene { width: 100%; max-width: 518px; }
+}
+
+@media (max-width: 767px) {
+  .ux-service-row { padding: 28px 20px 20px; }
+  .ux-service-row__list li { font-size: 18px; }
+  .ux-service-row__actions { padding-top: 36px; }
+}
+
+
+/* ===== sections/numbers-band/numbers-band.css ===== */
+/* ==========================================================================
+   Numbers band (numerics as the visual anchor)
+   On the Deep Navy band. Up to four numbers in columns split by white 16%
+   hairlines. Number: Besley Regular 96 white, unit Aeonik Medium 24 Sky,
+   label Manrope 18 Hero Sub, 260 max. Medium weight.
+   Only numbers from knowledge/uxteam-website-knowledge.txt section 10 (safe
+   to use). Facts about the offer (days, calls, layers) count when the brand
+   guide states them.
+   ========================================================================== */
+
+.ux-numbers {
+  display: grid;
+  grid-template-columns: repeat(var(--ux-numbers-cols, 4), minmax(0, 1fr));
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-numbers) {
+  margin: 0;
+}
+
+.ux-number {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.ux-number:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ux-number__figure {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  color: var(--ux-white);
+}
+
+.ux-number__value {
+  font-family: var(--ux-font-accent);
+  font-weight: var(--ux-weight-regular);
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.ux-number__unit {
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ux-sky);
+}
+
+.ux-number__label {
+  max-width: 260px;
+  margin: 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-hero-sub);
+}
+
+@media (max-width: 1199px) {
+  .ux-number__value { font-size: 80px; }
+  .ux-number { padding-inline: 24px; }
+}
+
+@media (max-width: 1023px) {
+  .ux-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+  .ux-number:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
+
+@media (max-width: 559px) {
+  .ux-numbers { grid-template-columns: 1fr; row-gap: 0; }
+  .ux-number { padding: 28px 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .ux-number:first-child { padding-top: 0; border-top: 0; }
+  .ux-number__value { font-size: 72px; }
+}
+
+
+/* ===== sections/expectations/expectations.css ===== */
+/* ==========================================================================
+   Expectations row (Figma 2638:22316 "How we treat every engagement")
+   Four columns, gap 30. Each: Steel hairline on top, 56 tint icon tile 29
+   below it (Phosphor Light 32, Navy), title Aeonik Medium 25 16 below,
+   body Manrope 18 10 below. Low to Medium weight. White sections.
+   ========================================================================== */
+
+.ux-expect {
+  display: grid;
+  grid-template-columns: repeat(var(--ux-expect-cols, 4), minmax(0, 1fr));
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Zero specificity, so the section head spacing (.ux-section__head + *) still applies */
+:where(.ux-expect) {
+  margin: 0;
+}
+
+.ux-expect__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 29px;
+  border-top: var(--ux-border-hairline);
+}
+
+.ux-expect__title {
+  margin: 16px 0 0;
+}
+
+.ux-expect__text {
+  margin: 10px 0 0;
+  font-size: var(--ux-fs-body-18);
+  line-height: var(--ux-lh-body-18);
+  color: var(--ux-charcoal);
+}
+
+@media (max-width: 1023px) {
+  .ux-expect { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+}
+
+@media (max-width: 559px) {
+  .ux-expect { grid-template-columns: 1fr; row-gap: 40px; }
+}
 
 
 /* 4. Sections (organisms) */
@@ -4274,6 +4541,38 @@ main:has(> .ux-booking:last-child) + .ux-footer {
 @media (max-width: 1199px) { .ux-hero-listing__overlap--chips { margin-top: 64px; } }
 @media (max-width: 767px) { .ux-hero-listing__overlap--chips { margin-top: 48px; } }
 .ux-hero-listing__overlap--chips .ux-grid { text-align: left; }
+
+/* Trusted-by strip inside a listing hero, as on the homepage: the label and
+   the logo marquee include (full bleed, after the container). Use it on inner
+   pages that show trusted partners (LLM.md 12.5), with .ux-hero-listing--trusted
+   on the section: it extends the Hero Dusk so the white label sits on the
+   dark part (above 65% of the gradient) and the tiles on the fade. */
+.ux-hero-listing--trusted {
+  --ux-hero-bg-height: 1010px;
+  --ux-hero-bg-height-tablet: 850px;
+  --ux-hero-bg-height-mobile: 890px;
+}
+
+.ux-hero-listing__trusted {
+  margin: 96px 0 0;
+  font-family: var(--ux-font-heading);
+  font-weight: var(--ux-weight-medium);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ux-white);
+}
+
+.ux-hero-listing .ux-marquee {
+  margin-top: 21px;
+}
+
+@media (max-width: 1199px) {
+  .ux-hero-listing__trusted { margin-top: 72px; font-size: 18px; }
+}
+
+@media (max-width: 767px) {
+  .ux-hero-listing__trusted { margin-top: 56px; font-size: 17px; }
+}
 
 
 /* ===== sections/hero-case-study/hero-case-study.css ===== */

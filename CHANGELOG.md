@@ -2,6 +2,17 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 1.13.0 · 25 Nov 2026
+
+UX Audit demo page, with one graphic family per section:
+- New demo page `src/demos/ux-audit.html` (built to `dist/demos/`, checked like the approved pages; `src/demos/` is new and is not a source of truth). Sections: hero with the trusted strip (logos), what we audit (curated spot illustrations), at a glance (numerals on Deep Navy), inside the report (service row with the UX audit scene), sample findings (mini scenes), how we work (approved process, process icons), what we need (Phosphor icon tiles), FAQ, page end.
+- New sections: `sections/service-row`, `sections/numbers-band`, `sections/expectations`; `.ux-scene-row` in `components/graphic`; `.ux-hero-listing--trusted` and `__trusted` for a trusted strip in a listing hero.
+- New graphics: `_scene-ux-audit.html` (from Figma 2638:17184, photos redrawn as simple shapes) and four sample finding mini scenes.
+- Fix: new grid lists use zero specificity resets, so the section head spacing (`.ux-section__head + *`) applies above them. Three topic tiles stay in one row on tablet.
+- Aeonik `@font-face` now tries `local()` first, so headings use Aeonik where it is installed until the licensed files are added.
+- New `npm run bundle -- <dist path>`: one self-contained HTML file in `bundles/` (CSS, JS, fonts and images inlined). `bundles/ux-audit.html` is committed for sharing.
+- LLM.md (commands, section 14 rows), GRAPHICS.md, COMPONENTS.md and OPEN-ITEMS updated.
+
 ## 1.12.0 · 25 Nov 2026
 
 From reviewing the two B2B SaaS and AI demo pages:

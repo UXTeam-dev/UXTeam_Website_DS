@@ -34,6 +34,9 @@
 @import "components/toc/toc.css";
 @import "components/detail-blocks/detail-blocks.css";
 @import "components/graphic/graphic.css";
+@import "sections/service-row/service-row.css";
+@import "sections/numbers-band/numbers-band.css";
+@import "sections/expectations/expectations.css";
 
 /* 4. Sections (organisms) */
 @import "sections/site-header/site-header.css";

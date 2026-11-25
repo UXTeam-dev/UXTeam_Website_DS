@@ -217,7 +217,9 @@ src/library/           component library page (shows everything)
 dist/                  build output, do not edit
 ```
 
-Commands: `npm run build`, `npm run check` (page rules check, run after every build), `npm run serve` (http://localhost:4321), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon).
+Commands: `npm run build`, `npm run check` (page rules check, run after every build), `npm run serve` (http://localhost:4321), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon), `npm run bundle -- demos/<page>.html` (one self-contained HTML file in `bundles/`, for sharing).
+
+`src/demos/` holds demo pages: built and checked like `src/pages`, but not approved pages. Use them as worked examples, never as a source of truth over the approved pages.
 
 Figma file: **UXTeam Website 2026**, key `9JQFLWC1KBelhUEaEZ6I1C`.
 - Final Design Pages `1231:508` (approved pages, the only design source of truth)
@@ -1004,10 +1006,11 @@ Code: `src/sections/<name>/` or `src/components/<name>/`. Figma refs are node ID
 | Beliefs grid | 6 principles on Warm Glow | Low | 6 short beliefs (About) | `sections/beliefs` |
 | Capability stack | Sticky tabs + stacked capability cards with deliverable visuals + closing CTA band | High | 5 to 8 capabilities, each with intro, included list, where it fits, one action, one visual | Not in the repo yet. Reference: new.ux.team/what-we-do (15.4) |
 | Why grid with icons | 4 columns with hairlines, outline icon, title, one sentence | Medium | 4 reasons | Live What we do page; build from `sections/approach` styles with `.ux-icon-tile` (docs/GRAPHICS.md family 2) |
-| Expectations row | 4 columns, Steel hairline on top, 56px tint icon tile, title, two lines | Low to Medium | 4 promises or trust points | Figma `2638:22316`; icons and tile in `components/graphic`, section not built yet |
+| Expectations row | 4 columns, Steel hairline on top, 56px tint icon tile, title, two lines | Low to Medium | 4 promises, trust points or requirements | `sections/expectations` (`.ux-expect`), Figma `2638:22316`. Example: `src/demos/ux-audit.html` |
 | Topic tiles | 3 or 6 tiles, Mist spot illustration, title with arrow circle, one line | Medium | Topics, service areas or paths to choose from | `components/graphic/_topic-tile.html` with `.ux-topic-grid` (Figma `2638:22054`) |
-| Service row with scene | 1200 card: text column with checklist and two actions, 518 product scene | High | One service: intro, 5 included items, where it fits, actions, one scene | Figma `2638:17149` to `2638:19804`; scene kit in `components/graphic`, row not built yet |
-| Capability with mini scenes | Title, intro, one action, four mini scenes with titles and two lines | High | One capability with four parts | Figma `2638:20489`; mini scene kit in `components/graphic`, section not built yet |
+| Service row with scene | 1200 card: eyebrow, title, intro, checklist with arrow bullets, one Primary plus one link; 518 product scene | High | One service or deliverable: intro, 5 included items, actions, one scene | `sections/service-row` (`.ux-service-row`), Figma `2638:17149` to `2638:19804`. Scenes: `components/graphic/_scene-*.html` |
+| Numbers band | Up to 4 Besley numerals with a unit and a one line label, split by hairlines, on the Deep Navy band | Medium | Facts about an offer or the company (safe numbers only, knowledge section 10) | `sections/numbers-band` (`.ux-numbers`). Example: `src/demos/ux-audit.html` |
+| Capability with mini scenes | Section header, four mini scenes with titles and two lines | Medium to High | Four parts of one capability, or four sample results | `.ux-scene-row` in `components/graphic`, Figma `2638:20489`. Example: sample findings in `src/demos/ux-audit.html` |
 
 ### Content and listing
 
