@@ -30,3 +30,4 @@ This repo is the coded design system and pages for the UXTeam website.
 20. "You" and "use your judgment" mean whichever AI tool is building the page. Make the call yourself, following LLM.md.
 21. Read copy in place at 1440, 768 and 375; break lines at phrase boundaries, no lone last word (LLM.md 5.4).
 22. Scripts only from the approved `*-script.html` partials. New behaviour is a request to the developers.
+23. To give the person a page to view or send, run `npm run share -- <page>` and hand over `dist/share/<page>.html` (LLM.md 16.6). It has the real header, the right booking card, the footer overlap and correctly sized logos. Never hand-build a preview file.

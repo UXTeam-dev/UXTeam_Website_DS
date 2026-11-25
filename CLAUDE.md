@@ -18,4 +18,4 @@ House style for copy: sentence case, American spelling, no em dashes, main CTA "
 
 ## Building
 
-Plan new pages with the `uxteam-page-strategy` skill and review them with `uxteam-creative-review` (both in `skills/`; `.claude/skills/` only points there). Start new pages from `src/starters/page.html`, build sections from `src/partials/`, follow LLM.md sections 15 and 16, run `npm run classes` (after CSS changes), `npm run build` and `npm run check` until it passes, and add a line to `CHANGELOG.md` for every change.
+Plan new pages with the `uxteam-page-strategy` skill and review them with `uxteam-creative-review` (both in `skills/`; `.claude/skills/` only points there). Start new pages from `src/starters/page.html`, build sections from `src/partials/`, follow LLM.md sections 15 and 16, run `npm run classes` (after CSS changes), `npm run build` and `npm run check` until it passes, and add a line to `CHANGELOG.md` for every change. To give the person a file to view or share, run `npm run share -- <page>` and send `dist/share/<page>.html` (LLM.md 16.6); never assemble one by hand.

@@ -14,13 +14,14 @@
  *   attributes. The doc comment at the top of a partial is not copied into the output.
  *
  * The preview is the only place this build adds anything that is not in the
- * page: a stand-in header, the footer global section, the two stylesheets and
+ * page: the site header and booking card version (scripts/preview-shell.mjs), the footer global section, the two stylesheets and
  * a stand-in FAQ script (the live site has its own). Nothing from the preview
  * shell goes to WordPress.
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, rmSync, copyFileSync, statSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import * as shell from './preview-shell.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'src');
@@ -88,16 +89,6 @@ function additions() {
 /* ---------- preview shell ---------- */
 const forPreview = (html) => html.replace(/(["'(])\/wp-content\//g, `$1${LIVE}/wp-content/`);
 
-const STANDIN_HEADER = `<!-- PREVIEW ONLY: stand-in for Salient's native header. Not part of the page. -->
-<header class="preview-header"><a href="#" class="preview-logo">UXTeam</a><nav><a href="#">What We Do</a><a href="#">Success Stories</a><a href="#">Insights</a><a href="#">About</a></nav></header>`;
-
-const STANDIN_CSS = `/* PREVIEW ONLY. Not part of uxteam-site.css. */
-body{margin:0}
-.preview-header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 120px;background:#0a1b33;font:500 16px/1 'Manrope',sans-serif}
-.preview-header a{color:#fff;text-decoration:none;margin-left:28px}.preview-logo{margin-left:0!important;font-weight:600;font-size:20px}
-.preview-note{font:13px/1.4 'Manrope',sans-serif;background:#fedfba;color:#0a1b33;padding:8px 120px}
-@media (max-width:999px){.preview-header,.preview-note{padding-left:24px;padding-right:24px}.preview-header nav{display:none}}`;
-
 const STANDIN_JS = `<!-- PREVIEW ONLY: stand-in FAQ toggle. The live site uses its own global script. -->
 <script>
 document.querySelectorAll('.uxt-faq-question').forEach(function (b) {
@@ -120,14 +111,14 @@ function previewDoc(title, body, footer) {
 <title>${title} | UXTeam preview</title>
 <link rel="stylesheet" href="../css/uxteam-site.css">
 <link rel="stylesheet" href="../css/uxteam-site-additions.css">
-<style>${STANDIN_CSS}</style>
+<style>${shell.CSS}</style>
 </head>
 <body>
-${STANDIN_HEADER}
-<p class="preview-note">Preview. Images load from ${LIVE}. Aeonik shows only where it is installed. Header and FAQ script are stand-ins.</p>
+${shell.header(ROOT)}
 ${forPreview(body)}
 ${forPreview(footer)}
 ${STANDIN_JS}
+${shell.JS}
 </body>
 </html>
 `;
@@ -149,7 +140,7 @@ export function build({ quiet = false } = {}) {
     const body = expand(readFileSync(join(SRC, 'pages', f), 'utf8'), f).trim() + '\n';
     writeFileSync(join(DIST, 'wordpress', f), body);
     const title = basename(f, '.html').replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
-    writeFileSync(join(DIST, 'preview', f), previewDoc(title, body, footer));
+    writeFileSync(join(DIST, 'preview', f), previewDoc(title, body, shell.footerFor(f, footer)));
   }
 
   // starters build too, so a broken include in a starter is caught early

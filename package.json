@@ -13,7 +13,8 @@
     "icon": "node scripts/icon.mjs",
     "legacy:build": "node legacy/scripts/build.mjs",
     "legacy:check": "node legacy/scripts/check.mjs",
-    "legacy:bundle": "node legacy/scripts/bundle.mjs"
+    "legacy:bundle": "node legacy/scripts/bundle.mjs",
+    "share": "node scripts/share.mjs"
   },
   "engines": {
     "node": ">=18"

@@ -12,6 +12,8 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Aeonik font files, or confirmation the theme path `/wp-content/themes/salient/fonts/Aeonik/` stays | Previews outside WordPress fall back to Manrope | Headings show in Manrope in previews |
 | What we do hero has no eyebrow above the H1 | LLM.md rule 20 (every hero has an eyebrow); `npm run check` warns on the developers' file | Raise with the developers; new pages must have one |
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
+| Booking card version by page type | The footer global section has only "Skip the layers, talk to the founder."; inner pages should show "Let's talk about what you're building." (LLM.md 15.5) | Previews switch it (`scripts/preview-shell.mjs`); live shows the homepage version everywhere |
+| Booking card overlapping the footer by 40px on the live site | LLM.md 9.1, 16.5; the developers' CSS has no overlap rule outside Salient's wrappers | Previews add it (`scripts/preview-shell.mjs`); confirm it on new.ux.team |
 | Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
 
 ## White label page (`src/pages/white-label.html`)

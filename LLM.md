@@ -107,9 +107,10 @@ Before saying the work is done:
 1. Run `npm run classes` if you changed CSS, then `npm run build` and `npm run check`. Fix every error it reports. Treat warnings as things to justify or fix. A page with a `<style>` block, an inline style or a class outside the registry is not done.
 2. Screenshot the page at 1440, 768 and 375 and put it beside the closest approved page (`reference/pages/` holds screenshots of every approved page). Look for anything that does not appear on an approved page: a new color, a new card style, a different header or footer, a plain button, a flat hero. Remove it or justify it.
 3. Go through section 19.3 (failures seen before) and confirm none of them is present. Check every section for an eyebrow (the hero too), card fills (no gradients), icon files (SVG only), the logo marquee and the composition of content heavy sections.
-4. In the browser: read every heading and card at 1440, 768 and 375 and fix breaks that split a phrase (5.4); hover every card and confirm its arrow glides; scroll to the end of the preview and confirm the booking card and footer follow the page. (The header and its scroll behaviour are Salient's and show only on the live site.)
-5. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
-6. Report what you checked and anything you could not check.
+4. If the person will view or share the page as a file, make it with `npm run share -- <page>` (16.6) and check its header, logo strip, booking card and footer against an approved page.
+5. In the browser: read every heading and card at 1440, 768 and 375 and fix breaks that split a phrase (5.4); hover every card and confirm its arrow glides; scroll to the end of the preview and confirm the booking card and footer follow the page. (The header and its scroll behaviour are Salient's and show only on the live site.)
+6. For any page or High weight section, run the review in the `uxteam-creative-review` skill and fix everything it ranks as important.
+7. Report what you checked and anything you could not check.
 
 ---
 
@@ -187,7 +188,7 @@ Use them in this order on a new page: page strategy (Step 3 plan), then build, t
 | 16 | Building in the repo | Code structure and rules (with docs/CSS-GUIDE.md) |
 | 17 | Working in Figma | When the person asks for Figma |
 | 18 | Quality bar | What done looks like |
-| 19 | Do's and don'ts | The short list, and failures seen before (up to 56) |
+| 19 | Do's and don'ts | The short list, and failures seen before (up to 60) |
 | 20 | Open items | What must not be published yet |
 
 ---
@@ -229,7 +230,7 @@ dist/css/                  uxteam-site.css and uxteam-site-additions.css
 legacy/                    The old ux- system (before the developers' CSS). Not used for new pages; kept as a visual reference while its designs are converted
 ```
 
-Commands: `npm run build`, `npm run classes` (after any CSS change), `npm run check` (run after every build; must pass), `npm run serve` (http://localhost:4321/preview/<page>.html), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon). Legacy: `npm run legacy:build`, `legacy:check`, `legacy:bundle`.
+Commands: `npm run build`, `npm run classes` (after any CSS change), `npm run check` (run after every build; must pass), `npm run serve` (http://localhost:4321/preview/<page>.html), `npm run share -- <page>` (one self-contained file to view or send, 16.6), `npm run dev`, `npm run icon -- <word>` (find a Phosphor icon). Legacy: `npm run legacy:build`, `legacy:check`, `legacy:bundle`.
 
 Figma file: **UXTeam Website 2026**, key `9JQFLWC1KBelhUEaEZ6I1C`.
 - Final Design Pages `1231:508` (approved pages, the only design source of truth)
@@ -1156,6 +1157,14 @@ A page task adds a page, and the new sections that page needs as reusable sectio
 
 **Booking card and footer:** the footer global section (`src/global/footer-global.html`, PART E, L and D), with fixed copy, on every page. The card overlaps the top of the footer, as in Figma. A page never contains either one; a button that books a call links to `#book-call`, which scrolls to the card.
 
+### 16.6 Previews and shared files
+
+A page is reviewed and shared the way it will look live: header, page, booking card and footer together.
+
+- `npm run build` writes `dist/preview/<page>.html` with the real site header and the booking card version for the page type (`scripts/preview-shell.mjs`: homepage and What we do use "Skip the layers, talk to the founder."; every other page uses "Let's talk about what you're building."), and the card overlapping the footer by 40px. These are preview only; WordPress gets `dist/wordpress/`.
+- **When the person wants a file to view or send, run `npm run share -- <page>` and hand over `dist/share/<page>.html`.** Never assemble a file by hand. It embeds the repo's images (live image to repo copy table in `scripts/share.mjs`), sets every trusted-by logo to its approved size, keeps only the CSS the page uses and puts the fonts at the end, so it opens offline and is not cut off by file viewers. If it lists images it could not embed, add them to the table.
+- Before handing a shared file over, open it and compare its header, logo strip, booking card and footer with an approved page or demo, at 1440, 768 and 375.
+
 ---
 
 ## 17. Working in Figma (when the person asks for it)
@@ -1334,6 +1343,10 @@ Real mistakes from earlier AI generated pages, and the rule that prevents each o
 | 54 | Hovering a "What we design" card did nothing to its arrow | The card arrow was a separate drawing, not the Arrow Glide icon | Arrow Glide icon in every card; the card hover plays the glide (11) |
 | 55 | The booking card sat above the footer with a gap instead of overlapping it | The card was inside `<main>` and the footer outside it, so the overlap rule never applied | The booking card and footer are global, never in the page (16.5) |
 | 56 | Pages came with their own `<style>` blocks and classes the AI invented, so the developers rewrote every page before it could go into WordPress | The live site has one stylesheet and one class system; anything else is rework | Registry classes only, new CSS as a PART the developers' way (rule 1, docs/CSS-GUIDE.md) |
+| 57 | A shared preview of the White label page had a bare "UXTeam" text header with four wrong links | The preview build drew a stand-in header, so the page looked broken next to earlier demos | Previews use `scripts/preview-shell.mjs`: the real header (logo, What We Do, UXAudit, Work, About, Insights, Contact, Glass CTA, Ink bar on scroll up). Never hand over a preview with a stand-in header (16.6) |
+| 58 | The shared preview showed the homepage booking card ("Skip the layers…") on an inner page, with a gap above the footer instead of the overlap | Inner pages use "Let's talk about what you're building."; the card overlaps the footer by 40px | The preview shell picks the booking version by page type and adds the overlap (15.5, 16.5) |
+| 59 | In the shared file the trusted-by logos had different sizes | The repo's logo files were dropped into tiles sized for the live site's padded 2x images, so each logo scaled freely | Shared files come from `npm run share`, which sets every logo to its approved size in the tile (16.6) |
+| 60 | The shared file was 1.2 MB with fonts and images first, so a file viewer cut the page off at the stories section | Viewers often read only the start of a large file | `npm run share` keeps only used CSS, resizes images and puts fonts at the end (16.6) |
 
 **Root causes behind most of these:** the model did not read the repo before building (Step 2), did not map each section to a repo file (Step 3), and did not compare its result with an approved page (Step 4). Those steps are not optional.
 
