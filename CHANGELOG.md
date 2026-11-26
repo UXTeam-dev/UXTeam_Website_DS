@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.0.1 · 26 Nov 2026
+
+- Branch naming rule: new branches are named `<type>/<what-it-changes>` (`page/`, `section/`, `css/`, `content/`, `docs/`, `tooling/`, `fix/`), for example `page/white-label`. In `CLAUDE.md` ("Branch names") and LLM.md step 1.
+
 ## 2.0.0 · 25 Nov 2026
 
 **The repo now uses the developers' class system (`uxt-`), the same CSS that runs on new.ux.team.** Pages built here paste into a Salient Raw HTML element as they are, with no `<style>` block to remove.

@@ -44,7 +44,7 @@ Breaking any of these means the page is wrong, however good it looks.
 
 Rules change often. An old copy of the repo means old rules.
 
-1. Work from the latest `main`: `git fetch origin`, `git checkout main`, `git pull`. If you must work on another branch, create it from the latest `main`.
+1. Work from the latest `main`: `git fetch origin`, `git checkout main`, `git pull`. If you must work on another branch, create it from the latest `main` and name it `<type>/<what-it-changes>` (for example `page/white-label`; full rule in `CLAUDE.md`, "Branch names").
 2. Confirm that `LLM.md`, `AGENTS.md`, `docs/CSS-GUIDE.md`, `skills/` and `scripts/check.mjs` exist, and read the top of `CHANGELOG.md`. If any of them is missing, you are on an old copy: stop and update before doing anything else.
 3. If you cannot update (no network, read only access), say so before you start, and say which version you are working from.
 
