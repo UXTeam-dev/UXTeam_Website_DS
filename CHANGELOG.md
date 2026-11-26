@@ -7,6 +7,7 @@ Newest first. One entry per change that reaches GitHub. Name the Figma node when
 Previews and shared files now look like the live page (fixes found on the shared White label file):
 - **New `scripts/preview-shell.mjs`** (used by `npm run build` for `dist/preview/`): the real site header (UXTeam logo, What We Do, UXAudit, Work, About, Insights, Contact, Glass "Book a Discovery Call", hamburger and "Book a Call" on small screens, Ink bar on scroll up) instead of the stand-in text header; the booking card version by page type (inner pages: "Let's talk about what you're building."); the card overlapping the footer by 40px. The yellow preview note is gone.
 - **New `npm run share -- <page>`** (`scripts/share.mjs`): one self-contained file in `dist/share/`, with the repo's images embedded (small copies in `assets/share/`), every trusted-by logo at its approved size, only the CSS the page uses, fonts at the end. `dist/share/white-label.html` is the first.
+- `npm run build` no longer deletes `dist/share/`; it rebuilds only `dist/wordpress`, `preview`, `css` and `starters`.
 - Booking card founder photo in shared files: `assets/share/chintan-bhatt.webp` is now cropped to the Figma frame (425 x 466, head to waist) like the live image, instead of the full-length photo.
 - LLM.md 16.6 (previews and shared files), Step 4, commands, failures 57 to 61; AGENTS.md rule 23; CLAUDE.md; OPEN-ITEMS (booking version and overlap on the live site).
 

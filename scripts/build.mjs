@@ -126,7 +126,8 @@ ${shell.JS}
 
 /* ---------- build ---------- */
 export function build({ quiet = false } = {}) {
-  rmSync(DIST, { recursive: true, force: true });
+  // dist/share (npm run share) is kept; everything else is rebuilt
+  for (const d of ['wordpress', 'preview', 'css', 'starters']) rmSync(join(DIST, d), { recursive: true, force: true });
   for (const d of ['wordpress', 'preview', 'css']) mkdirSync(join(DIST, d), { recursive: true });
 
   copyFileSync(join(SRC, 'css', 'uxteam-site.css'), join(DIST, 'css', 'uxteam-site.css'));
