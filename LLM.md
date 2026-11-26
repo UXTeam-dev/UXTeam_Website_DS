@@ -12,7 +12,7 @@ If something here conflicts with a direct instruction from the person you are wo
 
 Breaking any of these means the page is wrong, however good it looks.
 
-1. **Only the developers' classes, only their stylesheet** ([docs/CSS-GUIDE.md](docs/CSS-GUIDE.md), mandatory). The live site runs one stylesheet, `src/css/uxteam-site.css`. A page uses only classes in [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md): no `<style>` blocks, no inline styles, no invented, Bootstrap, Salient or old `ux-` classes. When nothing fits, add a new PART in `src/css/parts/` the developers' way (CSS-GUIDE section 5), never CSS in a page. A page built here pastes into WordPress as it is. **Build from the repo, never from scratch:** a page is the wrapper `<div class="uxt-home uxt-<key>">` plus sections copied from `src/partials/` (`<!-- @include partials/... -->`), with only text, links and images changed.
+1. **Only the developers' classes, only their stylesheet** ([docs/CSS-GUIDE.md](docs/CSS-GUIDE.md), mandatory). The live site runs one stylesheet, `src/css/uxteam-site.css`. A page uses only classes in [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md): no `<style>` blocks, no inline styles, no invented, Bootstrap, Salient or old `ux-` classes. When nothing fits, add the CSS straight into `src/css/uxteam-site.css` in a PART of ours, the developers' way (CSS-GUIDE section 5), never CSS in a page. A page built here pastes into WordPress as it is. **Build from the repo, never from scratch:** a page is the wrapper `<div class="uxt-home uxt-<key>">` plus sections copied from `src/partials/` (`<!-- @include partials/... -->`), with only text, links and images changed.
 2. **Global sections are fixed and never in the page.** The header is Salient's own; the booking card and the footer are the footer global section (`src/global/footer-global.html`), on every page, with the card overlapping the footer. A page body never contains a header, a footer or a booking card; buttons that book a call link to `#book-call` (16.5).
 3. **Header navigation is the site navigation** (What We Do, UXAudit, Work, About, Insights, Contact), never anchor links to the current page's sections.
 4. **Every button is the developers' Arrow Glide button** (`uxt-button` + one type, `src/partials/elements/button.html`), always with the circle and its two arrow SVGs. No plain pills, no underlined links as CTAs, no buttons without the arrow.
@@ -148,7 +148,7 @@ How you reach this repo changes what you can do. Work out which case you are in 
 
 General rules for every tool:
 - **Read before you write.** Never change a file you have not read in full.
-- **Source, not output.** Edit `src/`, `docs/` and `assets/`. Never edit `dist/`, `docs/CLASS-REGISTRY.md` or the developers' files (`src/css/uxteam-site.css`, `src/pages/homepage.html`, `src/pages/what-we-do.html`, `src/global/footer-global.html`).
+- **Source, not output.** Edit `src/`, `docs/` and `assets/`. Never edit `dist/`, `docs/CLASS-REGISTRY.md`, the developers' page files (`src/pages/homepage.html`, `src/pages/what-we-do.html`, `src/global/footer-global.html`) or their CSS PARTs (A to S in `src/css/uxteam-site.css`). Our own CSS PARTs live in that same file and are edited there.
 - **Keep the repo current.** Every new section or element goes in with its partial, its PART if any, its docs and a changelog line (section 16.2).
 - **Be honest about checks.** If you could not build, preview or compare with Figma, say so instead of saying the page is done.
 - **Large files.** `uxteam-site.css` is about 7,500 lines. Read the registry and the PART you need, not the whole file.
@@ -211,9 +211,8 @@ skills/                    uxteam-page-strategy and uxteam-creative-review, for 
 reference/                 Screenshots of the approved pages (pages/), every graphic on the Figma Graphics board (graphics/), approved live references (README.md)
 assets/                    fonts, icons (SVG, Phosphor and custom), graphics (SVG), images, logos
 
-src/css/uxteam-site.css    The developers' live Custom CSS, PART A to R. Never edited (fingerprinted)
-src/css/parts/             New PARTs written here, the developers' way (CSS-GUIDE section 5)
-src/css/uxteam-site-additions.css  Imports the new PARTs in order
+src/css/uxteam-site.css    The live Custom CSS: the developers' PARTs A to S (never changed here), then ours (T shared helpers, U White label, next V). New CSS goes here directly (fingerprinted; npm run css:accept after a change)
+src/css/parts/             Empty. Only for a part the developers ask to receive separately
 src/css/hooks.json         Classes needed by markup or scripts that have no CSS
 src/pages/                 Page bodies. homepage.html and what-we-do.html are the developers' files (never edited)
 src/global/                footer-global.html: booking card and footer, the developers' file
@@ -1113,12 +1112,12 @@ Pages that should end with the footer only (the Insights listing and articles) n
 
 ### 16.1 Rules
 
-- **One stylesheet.** Pages use only `src/css/uxteam-site.css` (the developers' live CSS) and new PARTs in `src/css/parts/`. No `<style>`, no `style=""`, no linked stylesheets.
+- **One stylesheet.** Pages use only `src/css/uxteam-site.css` (the live CSS, including our PARTs). No `<style>`, no `style=""`, no linked stylesheets.
 - **Registry classes only.** Every class on a page is in `docs/CLASS-REGISTRY.md`. Never PART A classes (old Salient CSS), never Salient element classes (`nectar-*`, `wpb_*`), never the old `ux-` classes, never invented ones.
 - **Copy, then change content.** A section is copied from `src/partials/sections/` or built from `src/partials/elements/` (`<!-- @include partials/... key="value" -->`). Change text, links and images; keep classes and structure.
 - **Wrapper first.** The page body is `<div class="uxt-home uxt-<key>">` and everything is inside it.
 - **New classes the developers' way:** `uxt-<page key>-<part>`, flat hyphens, variants as a second class, states `is-*`/`has-*`, one PART file with the header, scoped to the page wrapper (CSS-GUIDE section 5).
-- **Never edit the developers' files** (`uxteam-site.css`, `homepage.html`, `what-we-do.html`, `footer-global.html`). The check fingerprints them.
+- **New CSS goes straight into `uxteam-site.css`,** in a PART of ours: change the page's own PART, or add a new one at the end. Never change the developers' PARTs (A to S) or their page files (`homepage.html`, `what-we-do.html`, `footer-global.html`). The check fingerprints them and lints our PARTs; `npm run css:accept` after a CSS change.
 - **Scripts** only from the approved `*-script.html` partials. New behaviour is a request to the developers.
 - **Accessibility.** Semantic HTML, one H1, headings in order, alt on every image, buttons with labels, keyboard support.
 - **Images** from the WordPress media library (`/wp-content/uploads/…`). Icons and graphics are SVG.
@@ -1128,7 +1127,7 @@ Pages that should end with the footer only (the Insights listing and articles) n
 
 1. Check the registry and the partials once more. Most sections exist.
 2. Write the markup as a partial in `src/partials/sections/<name>.html` with a doc comment at the top (what it is, where it works, fields as `{{key|default}}`), using registry classes wherever they fit.
-3. For what does not fit, write a new PART in `src/css/parts/` (CSS-GUIDE section 5) and import it in `src/css/uxteam-site-additions.css`.
+3. For what does not fit, add a PART of ours at the end of `src/css/uxteam-site.css` (CSS-GUIDE section 5), then `npm run css:accept`.
 4. `npm run classes`, `npm run build`, `npm run check`. Look at it in the preview at 1440, 768 and 375.
 5. Update `docs/COMPONENTS.md`, `docs/FIGMA-MAP.md`, `docs/OPEN-ITEMS.md` (placeholders) and `CHANGELOG.md` (with the PART for the handover), commit with the Figma node in the message, push.
 
@@ -1137,7 +1136,7 @@ Pages that should end with the footer only (the Insights listing and articles) n
 1. Copy `src/starters/page.html` to `src/pages/<page-name>.html` and set the wrapper (`uxt-home uxt-<key>`).
 2. Fill it with section partials, following your plan (Step 3).
 3. `npm run build`, `npm run check`, open `dist/preview/<page-name>.html`, compare with `reference/pages/`.
-4. Hand over `dist/wordpress/<page-name>.html` and, if any, `dist/css/uxteam-site-additions.css` (CSS-GUIDE section 7).
+4. Hand over `dist/wordpress/<page-name>.html` and, if any CSS changed, the whole `dist/css/uxteam-site.css` (CSS-GUIDE section 7). Say whether a change needs the CSS, the HTML, or both.
 
 **Standing rule:** every new section or element designed is added to the repo in the same piece of work, so the repo is always up to date.
 

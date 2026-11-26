@@ -2,6 +2,14 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.6.0 · 26 Nov 2026
+
+**New CSS goes straight into `uxteam-site.css`.** Changes to a page's styles are made in that page's own PART (PART U for White label); a new page adds a new PART at the end (next V). No separate part files to approve and merge later. The developers' PARTs A to S and their page files are still never changed.
+- `npm run check` now lints our PARTs inside `uxteam-site.css` (those with a `Scope:` line): naming, scope, page key prefix, colours (against the rest of the file), fonts, breakpoints. Tested by planting a bad class, an unscoped rule and an unknown colour.
+- New `npm run css:accept` (records the CSS fingerprint after a change). The fingerprint error now says what to do.
+- Rules updated: CLAUDE.md, AGENTS.md, LLM.md (non-negotiable 1, 0A.3, 1, 16.1 to 16.3), CSS-GUIDE (1, 2, 5.2, 5.7, 7, 8), HOW-TO-ADD, README, parts README, starter.
+- Handover rule: every change says whether it needs the CSS, the HTML, or both.
+
 ## 2.5.0 · 26 Nov 2026
 
 - White label comparison table: the UXTeam column now has a 1px Steel border all round (navy on the navy head), radius 8 top and bottom, so it reads as one unit. PART U of `uxteam-site.css`, fingerprint accepted.

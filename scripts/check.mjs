@@ -190,11 +190,29 @@ const BREAKPOINTS = new Set(['max-width: 1280px', 'max-width: 1024px', 'max-widt
 const NAME = /^uxt-[a-z0-9]+(-[a-z0-9]+)*$/;
 
 function checkPart(file) {
-  const r = report(relative(ROOT, file));
   const css = readFileSync(file, 'utf8');
   const fm = basename(file).match(/^part-([a-z]{1,2})-([a-z0-9-]+)\.css$/);
-  if (!fm) return r.error(`file name must be part-<letter>-<scope>.css, for example part-s-industry.css (${G} 5.2).`);
-  const letter = fm[1].toUpperCase();
+  if (!fm) return report(relative(ROOT, file)).error(`file name must be part-<letter>-<scope>.css, for example part-s-industry.css (${G} 5.2).`);
+  lintPart(report(relative(ROOT, file)), css, { letter: fm[1].toUpperCase(), others: siteClasses });
+}
+
+/* Our own PARTs inside uxteam-site.css (the ones with a "Scope:" line in their
+   header) get the same checks as a part file (docs/CSS-GUIDE.md 5). */
+function checkSiteParts() {
+  const starts = [...site.matchAll(/\/\* =+\s*\n {3}PART ([A-Z]{1,2}) \| /g)].map((m) => ({ i: m.index, letter: m[1] }));
+  starts.forEach((s, n) => {
+    const block = site.slice(s.i, n + 1 < starts.length ? starts[n + 1].i : site.length);
+    const head = block.match(/^\/\* =+\s*\n\s*PART [A-Z]{1,2} \| [^\n]+\n([\s\S]*?)=+ \*\//);
+    if (!head || !/Scope:/i.test(head[1])) return; // the developers' parts
+    const rest = site.slice(0, s.i) + site.slice(s.i + block.length);
+    const others = new Set([...rest.replace(/\/\*[\s\S]*?\*\//g, '').replace(/url\([^)]*\)/g, '').matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)].map((m) => m[1]));
+    const palette = new Set([...[...rest.slice(rest.indexOf('PART B  UXTEAM')).matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map((m) => m[0].toLowerCase()), ...FIGMA_SUPPORT]);
+    lintPart(report(`src/css/uxteam-site.css PART ${s.letter}`), block, { letter: s.letter, others, palette, inSite: true });
+  });
+}
+
+function lintPart(r, css, { letter, others, palette = PALETTE, inSite = false }) {
+  const siteClasses = others;
   const head = css.match(/^\/\* =+\s*\n\s*PART ([A-Z]{1,2}) \| ([^\n]+)\n([\s\S]*?)=+ \*\//);
   if (!head) r.error(`must start with the PART header block, as in uxteam-site.css (${G} 5.3).`);
   else {
@@ -203,7 +221,7 @@ function checkPart(file) {
     if (!/Scope:/i.test(head[3])) r.error(`header needs a "Scope:" line (${G} 5.3).`);
     if (!/HTML:/i.test(head[3])) r.error(`header needs an "HTML:" line naming the page or partial (${G} 5.3).`);
   }
-  if (siteLetters.has(letter)) r.error(`PART ${letter} already exists in uxteam-site.css. Use the next free letter (${G} 5.2).`);
+  if (!inSite && siteLetters.has(letter)) r.error(`PART ${letter} already exists in uxteam-site.css. Use the next free letter (${G} 5.2).`);
   const scope = (css.match(/Scope:\s*\.(uxt-[a-z0-9-]+)/) || [])[1];
   const isGlobal = /Scope:\s*global/i.test(css);
   if (!scope && !isGlobal) r.error(`"Scope:" must be a page wrapper class (.uxt-<page>) or "global" (${G} 5.4).`);
@@ -241,7 +259,7 @@ function checkPart(file) {
     }
   }
   // values
-  for (const m of clean.matchAll(/#[0-9a-fA-F]{3,8}\b/g)) if (!PALETTE.has(m[0].toLowerCase())) r.error(`colour ${m[0]} is not in the palette. Use var(--uxt-color-…) or a colour from PART B (${G} 5.5).`);
+  for (const m of clean.matchAll(/#[0-9a-fA-F]{3,8}\b/g)) if (!palette.has(m[0].toLowerCase())) r.error(`colour ${m[0]} is not in the palette. Use var(--uxt-color-…) or a colour from PART B (${G} 5.5).`);
   for (const m of clean.matchAll(/font-family\s*:\s*([^;}]+)/g)) if (!/^var\(--uxt-font-(aeonik|manrope|besley)\)/.test(m[1].trim())) r.error(`font-family "${m[1].trim()}". Use var(--uxt-font-aeonik), var(--uxt-font-manrope) or var(--uxt-font-besley) (${G} 5.5).`);
   for (const m of clean.matchAll(/font-size\s*:\s*([^;}]+)/g)) r.warn(`sets font-size (${m[1].trim()}). Text sizes come from the PART B classes; set a size only for a new kind of text the type table does not cover (${G} 5.5).`);
 }
@@ -256,6 +274,7 @@ for (const f of walk(join(SRC, 'starters')).filter((x) => x.endsWith('.html'))) 
   try { checkPage(relative(ROOT, f), expand(readFileSync(f, 'utf8'), basename(f)), { starter: true }); } catch (e) { report(relative(ROOT, f)).error(e.message); }
 }
 for (const f of walk(join(SRC, 'css', 'parts')).filter((x) => x.endsWith('.css'))) checkPart(f);
+checkSiteParts();
 const manifest = readFileSync(join(SRC, 'css', 'uxteam-site-additions.css'), 'utf8');
 for (const f of walk(join(SRC, 'css', 'parts')).filter((x) => x.endsWith('.css'))) {
   if (!manifest.includes(`parts/${basename(f)}`)) report('src/css/uxteam-site-additions.css').error(`does not import parts/${basename(f)}.`);
@@ -266,7 +285,7 @@ const repo = report('repo');
 const sha = (p) => createHash('sha256').update(readFileSync(join(ROOT, p))).digest('hex');
 for (const [p, h] of Object.entries(lock.files)) {
   if (!existsSync(join(ROOT, p))) repo.error(`${p} is missing.`);
-  else if (sha(p) !== h) repo.error(`${p} differs from the version the developers handed over (${lock.received}). Never edit it; sync a new version as in ${G} 8.`);
+  else if (sha(p) !== h) repo.error(`${p} differs from its fingerprint (${lock.received}). ${p.endsWith('.css') ? `If you changed our own PART in it (CSS-GUIDE 5) or synced the developers' new file (CSS-GUIDE 8), run npm run css:accept; never change the developers' PARTs.` : `Never edit it; sync a new version as in ${G} 8.`}`);
 }
 const reg = JSON.parse(readFileSync(join(ROOT, 'docs', 'classes.json'), 'utf8'));
 if (Object.keys(reg.allowed).sort().join() !== Object.keys(allowed).sort().join()) repo.error(`docs/classes.json is out of date. Run npm run classes.`);

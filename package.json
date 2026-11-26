@@ -14,7 +14,8 @@
     "legacy:build": "node legacy/scripts/build.mjs",
     "legacy:check": "node legacy/scripts/check.mjs",
     "legacy:bundle": "node legacy/scripts/bundle.mjs",
-    "share": "node scripts/share.mjs"
+    "share": "node scripts/share.mjs",
+    "css:accept": "node scripts/accept-live-css.mjs"
   },
   "engines": {
     "node": ">=18"

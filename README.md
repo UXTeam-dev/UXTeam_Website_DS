@@ -30,7 +30,7 @@ npm run dev       # build, check, then serve
 | Page body | one Raw HTML element | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card and footer | footer global section | `src/global/footer-global.html` |
 | CSS | Salient > Custom CSS (PART A to R) | `src/css/uxteam-site.css`, a byte for byte copy |
-| New CSS | added after the last PART (now U) | `src/css/parts/` → `dist/css/uxteam-site-additions.css` |
+| New CSS | a PART of ours in the same file (now T and U; next V) | `src/css/uxteam-site.css` → `dist/css/uxteam-site.css` |
 
 ## Folders
 
@@ -71,9 +71,9 @@ npm run dev       # build, check, then serve
    ```
 
    Paths are relative to `src/`. `{{name|default}}` in a partial is filled from the attributes.
-3. Need something no class covers? Write a new PART (CSS-GUIDE section 5), then `npm run classes`.
+3. Need something no class covers? Add it to a PART of ours in `src/css/uxteam-site.css` (CSS-GUIDE section 5), then `npm run css:accept` and `npm run classes`.
 4. `npm run build && npm run check`, then review `dist/preview/<page>.html` at 1440, 768 and 375.
-5. Hand over `dist/wordpress/<page>.html` and, if it has any, `dist/css/uxteam-site-additions.css` (CSS-GUIDE section 7).
+5. Hand over `dist/wordpress/<page>.html` and, if any CSS changed, the whole `dist/css/uxteam-site.css` (CSS-GUIDE section 7).
 
 ## Naming (the developers' convention)
 

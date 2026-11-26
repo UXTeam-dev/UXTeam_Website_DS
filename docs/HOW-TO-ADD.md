@@ -20,7 +20,7 @@ Fonts, colours, spacing and the button never change. Only the composition can be
 ## Add a section or element
 
 1. Write the markup in `src/partials/sections/<name>.html` (or `elements/<name>.html`). Start it with a doc comment: what it is, where it works (which wrapper), its fields as `{{key|default}}`. Use registry classes wherever they fit.
-2. If it needs new styles, add `src/css/parts/part-<next letter>-<scope>.css`:
+2. If it needs new styles, add a PART of ours at the end of `src/css/uxteam-site.css` (next letter, now V), or extend the page's existing PART (CSS-GUIDE 5.2):
 
    ```css
    /* =====================================================================
@@ -42,7 +42,7 @@ Fonts, colours, spacing and the button never change. Only the composition can be
    ```
 
    Rules: CSS-GUIDE section 5 (naming, header, scope, colours, fonts, breakpoints).
-3. Import it in `src/css/uxteam-site-additions.css`: `@import "parts/part-t-audit.css";`
+3. Run `npm run css:accept` so the check records the file's new fingerprint.
 4. `npm run classes` (adds the new classes to the registry).
 5. Do the "Finish" steps below.
 

@@ -1,5 +1,7 @@
 # New CSS parts
 
+**Not used now.** New CSS goes straight into `../uxteam-site.css`, in a PART of ours (docs/CSS-GUIDE.md 5.2). This folder is only for a part the developers ask to receive as a separate file.
+
 One file per new PART, written the way the developers write `uxteam-site.css`. Full rules: `docs/CSS-GUIDE.md` sections 5 and 6.
 
 - File name: `part-<letter>-<scope>.css`, continuing the developers' letters after the last one in `uxteam-site.css` (now U), so V, W…
