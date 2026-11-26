@@ -2,6 +2,12 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.0.2 · 26 Nov 2026
+
+- README rewritten as a plain-language front door for people who don't code: where to see the pages, page status, what each folder is, who should read what, and a glossary. The developer quick start and reference stay below, unchanged.
+- New short READMEs that describe each folder (no rules, they point to LLM.md and CSS-GUIDE): `docs/`, `src/`, `src/pages/`, `src/partials/`, `assets/`, `knowledge/`. GitHub shows them under each folder's file list.
+- No existing file, path, rule or script changed. The build output and `npm run check` result are identical.
+
 ## 2.0.1 · 26 Nov 2026
 
 - Branch naming rule: new branches are named `<type>/<what-it-changes>` (`page/`, `section/`, `css/`, `content/`, `docs/`, `tooling/`, `fix/`), for example `page/white-label`. In `CLAUDE.md` ("Branch names") and LLM.md step 1.
