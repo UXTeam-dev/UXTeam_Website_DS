@@ -2,7 +2,7 @@
 
 This repo is the coded design system and pages for the UXTeam website.
 
-**Work from the latest `main`, then read [LLM.md](LLM.md) completely before planning, writing, designing or building anything.** It is the full brief. The non-negotiables are repeated in [AGENTS.md](AGENTS.md).
+**Work from the latest `main`** (if a "CSS changed in WordPress" pull request is open, ask the person to merge it first: docs/WORDPRESS-CSS-SYNC.md)**, then read [LLM.md](LLM.md) completely before planning, writing, designing or building anything.** It is the full brief. The non-negotiables are repeated in [AGENTS.md](AGENTS.md).
 
 **Before any markup or CSS, read [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md). It is mandatory.** Pages use only the developers' `uxt-` classes listed in [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md): no `<style>` blocks, no inline styles, no invented classes. New CSS is a new PART in `src/css/parts/`, written the developers' way. Never edit the developers' files (`src/css/uxteam-site.css`, `src/pages/homepage.html`, `src/pages/what-we-do.html`, `src/global/footer-global.html`).
 

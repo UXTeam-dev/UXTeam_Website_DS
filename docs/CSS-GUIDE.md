@@ -232,6 +232,9 @@ When the developers confirm a new PART is live, they send back their updated `ux
 
 ## 8. Syncing a new version from the developers
 
+**Automatic (preferred):** with the WordPress plugin installed ([WORDPRESS-CSS-SYNC.md](WORDPRESS-CSS-SYNC.md)), every save of Salient > Custom CSS opens a "CSS changed in WordPress" pull request; its GitHub Action does steps 2 and 4 below and runs the check. Merge it when green.
+
+**By hand**, 
 Only when the developers send updated files:
 
 1. Replace the file in `src/` with theirs (CSS, page bodies or footer global section).

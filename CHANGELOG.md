@@ -2,6 +2,13 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.4.0 · 26 Nov 2026
+
+**CSS sync from WordPress to GitHub.**
+- New WordPress plugin `tools/wordpress/uxteam-css-sync/` (zip: `tools/wordpress/uxteam-css-sync.zip`): when Salient > Custom CSS is saved, it writes the CSS to `src/css/uxteam-site.css` on the `wordpress-live` branch and opens a "CSS changed in WordPress" pull request. Settings > UXTeam CSS Sync: key, test, send now, last result. Dry-run tested with stand-ins for WordPress and GitHub (first save, later saves into the same pull request, unrelated option saves ignored, no-change skip, fresh branch after merge, bad key).
+- New GitHub Action `.github/workflows/wordpress-css-sync.yml` and `scripts/accept-live-css.mjs`: on that branch, accept the new fingerprint, regenerate the registry and built files, commit, and run `npm run check`.
+- New guide `docs/WORDPRESS-CSS-SYNC.md` (step by step, no coding). LLM.md Step 0 (check for that pull request before building), AGENTS.md, CLAUDE.md, CSS-GUIDE section 8, OPEN-ITEMS.
+
 ## 2.3.0 · 26 Nov 2026
 
 **Universal CSS updated, White label CSS merged into it.**

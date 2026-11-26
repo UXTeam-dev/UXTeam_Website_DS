@@ -2,7 +2,7 @@
 
 This repo is the coded design system and pages for the UXTeam website.
 
-**First, make sure you are on the latest `main`** (`git fetch origin && git checkout main && git pull`). If `LLM.md`, `docs/CSS-GUIDE.md` or `skills/` is missing, your copy is out of date: update before doing anything.
+**First, make sure you are on the latest `main`, and that no "CSS changed in WordPress" pull request is waiting** (if one is, ask the person to merge it first; docs/WORDPRESS-CSS-SYNC.md) (`git fetch origin && git checkout main && git pull`). If `LLM.md`, `docs/CSS-GUIDE.md` or `skills/` is missing, your copy is out of date: update before doing anything.
 
 **Then read [LLM.md](LLM.md) completely, and [docs/CSS-GUIDE.md](docs/CSS-GUIDE.md) before writing any markup or CSS.** LLM.md holds the business, brand voice, design rules, craft rules, section library, page blueprints and the process to follow. CSS-GUIDE.md holds the mandatory class and CSS rules. Then follow LLM.md's steps: make sure the repo is current, pick the approach, read the repo, share a plan that maps every section to a repo file, and review your work before handing it over.
 

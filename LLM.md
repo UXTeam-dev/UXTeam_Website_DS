@@ -47,6 +47,7 @@ Rules change often. An old copy of the repo means old rules.
 1. Work from the latest `main`: `git fetch origin`, `git checkout main`, `git pull`. If you must work on another branch, create it from the latest `main`.
 2. Confirm that `LLM.md`, `AGENTS.md`, `docs/CSS-GUIDE.md`, `skills/` and `scripts/check.mjs` exist, and read the top of `CHANGELOG.md`. If any of them is missing, you are on an old copy: stop and update before doing anything else.
 3. If you cannot update (no network, read only access), say so before you start, and say which version you are working from.
+4. **Check that the repo has the live CSS.** If a pull request titled "CSS changed in WordPress" (branch `wordpress-live`) is open, the developers changed the CSS on the live site. Ask the person to merge it (when its check is green) before you build, and work from `main` after the merge. Setup and process: [docs/WORDPRESS-CSS-SYNC.md](docs/WORDPRESS-CSS-SYNC.md).
 
 ### Step 1. Pick the approach
 

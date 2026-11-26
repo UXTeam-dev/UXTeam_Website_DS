@@ -30,6 +30,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Three service visuals, 518 x 518 | Service cards | Drawn illustrative scenes (`partials/graphics/wl-scene-*.html`); swap for approved work samples if wanted |
 | Five process icons `wl-*.svg` to upload, or keep inline | Process | Inlined SVG in the page body |
 | Links: `/how-we-work/`, `/success-story/` | Closing buttons | As written; confirm the URLs |
+| Install the CSS sync (GitHub key, Actions on, plugin in WordPress) | So CSS changed in WordPress reaches the repo automatically: docs/WORDPRESS-CSS-SYNC.md | Developers send the CSS back by hand |
 | Put the updated `uxteam-site.css` live (PART T shared helpers and PART U White label are merged into it) | Salient > Custom CSS: replace the whole file | Until then the White label page's new sections are unstyled |
 
 ## Waiting for files
