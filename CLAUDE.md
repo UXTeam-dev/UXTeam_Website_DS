@@ -8,7 +8,7 @@ This repo is the coded design system and pages for the UXTeam website.
 
 ## Branch names
 
-Name every new branch so anyone can tell what it holds from the name alone: `<type>/<what-it-changes>`, lowercase, words joined with hyphens, no random words or session ids.
+Name every new branch so anyone can tell what it holds from the name alone: `<type>/<what-it-changes>`, lowercase, words joined with hyphens. Never a random name like `claude/festive-franklin-4ny7bh` or `claude/trusting-fermi-r5itgz`: it says nothing about what the branch holds or why it exists.
 
 - Types: `page/` (a new or changed page), `section/` (a section partial), `css/` (a new or changed PART), `content/` (copy, knowledge or brand text), `docs/` (guides and rules), `tooling/` (build, check, scripts, sync), `fix/` (a bug fix).
 - Examples: `page/industry-b2b-saas-ai`, `page/white-label`, `css/part-t-shared-helpers`, `docs/branch-naming`, `fix/faq-toggle-mobile`.
