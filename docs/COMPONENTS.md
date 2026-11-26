@@ -19,7 +19,7 @@ Include a partial with `<!-- @include partials/… key="value" -->` (paths from 
 | `heading-intro.html` | Section heading with an intro line | as above + `intro` · `size` `uxt-p-sm` for 18px |
 | `faq-item.html`, `faq-item-open.html` | One FAQ question (closed, or the one that starts open) | `n` unique number · `q` · `a` |
 | `center-cta.html` | Centered button under a section (What we do) | `label` · `href` |
-| `placeholder.html` | Labeled image box where a client image will go (PART S) | `label` · `ratio` empty (3:2), `uxt-placeholder-square`, `-wide`, `-tall` |
+| `placeholder.html` | Labeled image box where a client image will go (PART T) | `label` · `ratio` empty (3:2), `uxt-placeholder-square`, `-wide`, `-tall` |
 
 Icons: `<!-- @icon name size="32" class="uxt-…" -->` inlines a Phosphor Light icon (`set="custom"` for `assets/icons/custom/`). Find names with `npm run icon -- <word>`.
 
@@ -40,10 +40,10 @@ Icons: `<!-- @icon name size="32" class="uxt-…" -->` inlines a Phosphor Light 
 | `faq.html` | FAQ, two columns | `.uxt-home` | `uxt-faq-col`, `uxt-faq-item` (use `elements/faq-item.html`) |
 | `capabilities.html` | Sticky tabs + stacked capability cards | `.uxt-wwd` only | `uxt-cap-tab`, `uxt-cap-card`. Needs `capabilities-script.html` once at the end of the page |
 | `why.html` | Why choose UXTeam, four icon columns | `.uxt-wwd` only | `uxt-why-item`, `uxt-why-icon` |
-| `wl-fixes.html` | Problem and fix rows: problem (H3 small + line), quiet Steel arrow, fix (56px tint icon tile + line). Mobile: fix under its problem | `.uxt-wl` only (PART T) | `uxt-wl-fix-row`, `uxt-wl-fix-problem`, `uxt-wl-fix-answer`, `uxt-wl-icon-tile` |
-| `wl-services.html` | Service cards (title, intro, list label, arrow list, Where it fits, optional link, 518 square visual) + CTA band (LLM.md 13.9) | `.uxt-wl` only (PART T) | `uxt-wl-service-card`, `uxt-wl-points`, `uxt-wl-fit`, `uxt-wl-band` |
-| `wl-win.html` | Three icon columns on the Warm Glow band | `.uxt-wl` only (PART T) | `uxt-wl-win-grid`, `uxt-wl-win-item` |
-| `wl-compare.html` | Comparison table (LLM.md 13.8), UXTeam column highlighted, scrolls on mobile with the first column fixed | `.uxt-wl` only (PART T) | `uxt-wl-table`, `uxt-wl-us` |
+| `wl-fixes.html` | Problem and fix rows: problem (H3 small + line), quiet Steel arrow, fix (56px tint icon tile + line). Mobile: fix under its problem | `.uxt-wl` only (PART U) | `uxt-wl-fix-row`, `uxt-wl-fix-problem`, `uxt-wl-fix-answer`, `uxt-wl-icon-tile` |
+| `wl-services.html` | Service cards (title, intro, list label, arrow list, Where it fits, optional link, 518 square visual) + CTA band (LLM.md 13.9) | `.uxt-wl` only (PART U) | `uxt-wl-service-card`, `uxt-wl-points`, `uxt-wl-fit`, `uxt-wl-band` |
+| `wl-win.html` | Three icon columns on the Warm Glow band | `.uxt-wl` only (PART U) | `uxt-wl-win-grid`, `uxt-wl-win-item` |
+| `wl-compare.html` | Comparison table (LLM.md 13.8), UXTeam column highlighted, scrolls on mobile with the first column fixed | `.uxt-wl` only (PART U) | `uxt-wl-table`, `uxt-wl-us` |
 
 The White label page also reuses `process.html` with its own five steps and curated 64px icons (`assets/icons/custom/wl-*.svg`, placed with `@icon … set="custom" size="64" class="uxt-wl-step-svg"`), `engage.html` as four columns, and `uxt-wl-center` for a centered closing button.
 

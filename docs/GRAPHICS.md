@@ -6,7 +6,7 @@ Source: Figma file "UXTeam Website 2026", **Graphics** board (node `2638:6786`).
 
 > **Code note.** The drawing rules, families, sizes and colours in this guide are current. The markup examples (classes starting `ux-`, partials in `components/graphic/`) are from the old system in `legacy/`, which still shows every family live (`npm run legacy:build`, then `legacy/dist/library/index.html#graphics` and `legacy/dist/demos/ux-audit.html`). On a page today:
 > - **Icons:** `<!-- @icon name size="32" class="uxt-…" -->` (the build inlines the SVG); the class comes from the registry or the page's PART.
-> - **Image placeholders:** `<!-- @include partials/elements/placeholder.html label="…" ratio="uxt-placeholder-wide" -->` (PART S).
+> - **Image placeholders:** `<!-- @include partials/elements/placeholder.html label="…" ratio="uxt-placeholder-wide" -->` (PART T).
 > - **Icon tiles, spot panels, topic tiles, scenes:** the first page that needs one builds it as a partial with a PART, using the look described here and the SVG files in `assets/` ([CSS-GUIDE.md](CSS-GUIDE.md) section 5). Copy the SVG drawings as they are; write new `uxt-` classes for the boxes around them.
 
 ---

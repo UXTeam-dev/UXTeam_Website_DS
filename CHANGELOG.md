@@ -2,6 +2,17 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.3.0 · 26 Nov 2026
+
+**Universal CSS updated, White label CSS merged into it.**
+- `src/css/uxteam-site.css` replaced with the developers' new version (adds their **PART S | Insights**: listing, cards, filter chips, post hero, article, TOC, author box; everything before it unchanged).
+- Our two parts appended to it so the developers get one file: **PART T | Shared helpers** (`uxt-placeholder`, `uxt-nowrap`, was our PART S) and **PART U | White label page** (`.uxt-wl`, was our PART T). The file header lists S, T and U. `src/css/parts/` is empty; `uxteam-site-additions.css` imports nothing.
+- Fingerprint updated in `src/css/source.lock.json` (received 26 Nov 2026). Registry regenerated. Next new part letter is V.
+- Checked: homepage, What we do and White label render pixel-identical before and after the merge at 1440, 768 and 375.
+- Docs: CSS-GUIDE (letters, handover), parts README, README, WORDPRESS, COMPONENTS, GRAPHICS, OPEN-ITEMS, partial and page comments.
+
+Handover: `dist/css/uxteam-site.css` (replace the whole Salient Custom CSS) and `dist/wordpress/white-label.html`.
+
 ## 2.2.0 · 25 Nov 2026
 
 Previews and shared files now look like the live page (fixes found on the shared White label file):

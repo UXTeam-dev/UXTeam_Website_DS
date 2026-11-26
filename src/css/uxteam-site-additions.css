@@ -11,5 +11,5 @@
    Rules for every part: docs/CSS-GUIDE.md section 5 and 6.
    ===================================================================== */
 
-@import "parts/part-s-shared.css";
-@import "parts/part-t-white-label.css";
+/* No parts waiting: PART T (shared helpers) and PART U (White label)
+   were merged into uxteam-site.css on 26 Nov 2026. */

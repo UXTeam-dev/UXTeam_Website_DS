@@ -30,7 +30,7 @@ npm run dev       # build, check, then serve
 | Page body | one Raw HTML element | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card and footer | footer global section | `src/global/footer-global.html` |
 | CSS | Salient > Custom CSS (PART A to R) | `src/css/uxteam-site.css`, a byte for byte copy |
-| New CSS | added after PART R | `src/css/parts/` → `dist/css/uxteam-site-additions.css` |
+| New CSS | added after the last PART (now U) | `src/css/parts/` → `dist/css/uxteam-site-additions.css` |
 
 ## Folders
 

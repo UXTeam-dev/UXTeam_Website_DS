@@ -16,9 +16,9 @@ The live site (new.ux.team) runs on the Salient WordPress theme. The developers 
 | Page body | one Salient **Raw HTML** element per page | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card ("Book a Discovery Call") and footer | the **footer global section**, on every page | `src/global/footer-global.html` |
 | All CSS | **Salient > Custom CSS**, one file in PARTs A to R | `src/css/uxteam-site.css` (byte for byte copy) |
-| New CSS written here | added after PART R | `src/css/parts/part-<letter>-<scope>.css` → `dist/css/uxteam-site-additions.css` |
+| New CSS written here | added after the last PART (now U) | `src/css/parts/part-<letter>-<scope>.css` → `dist/css/uxteam-site-additions.css` |
 
-**The developers' files are the source of truth.** `uxteam-site.css`, `homepage.html`, `what-we-do.html` and `footer-global.html` are copies of what the developers handed over (25 Nov 2026). `npm run check` fails if any of them is edited (fingerprints in `src/css/source.lock.json`).
+**The developers' files are the source of truth.** `uxteam-site.css`, `homepage.html`, `what-we-do.html` and `footer-global.html` are copies of what the developers handed over (CSS updated 26 Nov 2026 with their PART S Insights; PART T shared helpers and PART U White label from this repo were merged into it the same day). `npm run check` fails if any of them is edited (fingerprints in `src/css/source.lock.json`).
 
 **The class list is generated, never written by hand.** `npm run classes` reads the stylesheet and writes [CLASS-REGISTRY.md](CLASS-REGISTRY.md) and `docs/classes.json`. A page may use only classes in that list.
 
@@ -157,7 +157,7 @@ Add CSS only when no existing class can carry the design. Then write it exactly 
 ### 5.2 One file per PART
 
 - `src/css/parts/part-<letter>-<scope>.css`, for example `part-s-industry.css`.
-- Letters continue after the developers' last one: **S, T, U…** (the check rejects a letter already used).
+- Letters continue after the last one in `uxteam-site.css`, which is now **U**, so the next new part is **V** (the check rejects a letter already used).
 - Import it in `src/css/uxteam-site-additions.css`: `@import "parts/part-s-industry.css";`
 
 ### 5.3 The PART header
@@ -224,7 +224,7 @@ The main CTA is **"Book a Discovery Call"** linking to `#book-call`. Never "Cont
 For every finished page, hand over:
 
 1. `dist/wordpress/<page>.html`: paste into one Salient Raw HTML element. Nothing to remove.
-2. `dist/css/uxteam-site-additions.css`, if the page added a PART: paste at the end of Salient > Custom CSS, after PART R.
+2. `dist/css/uxteam-site-additions.css`, if the page added a PART: paste at the end of Salient > Custom CSS, after the last PART.
 3. The list of new images to upload, with their intended paths.
 4. Anything that needs a script.
 

@@ -14,7 +14,6 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
 | Booking card version by page type | The footer global section has only "Skip the layers, talk to the founder."; inner pages should show "Let's talk about what you're building." (LLM.md 15.5) | Previews switch it (`scripts/preview-shell.mjs`); live shows the homepage version everywhere |
 | Booking card overlapping the footer by 40px on the live site | LLM.md 9.1, 16.5; the developers' CSS has no overlap rule outside Salient's wrappers | Previews add it (`scripts/preview-shell.mjs`); confirm it on new.ux.team |
-| Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
 
 ## White label page (`src/pages/white-label.html`)
 
@@ -31,7 +30,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Three service visuals, 518 x 518 | Service cards | Drawn illustrative scenes (`partials/graphics/wl-scene-*.html`); swap for approved work samples if wanted |
 | Five process icons `wl-*.svg` to upload, or keep inline | Process | Inlined SVG in the page body |
 | Links: `/how-we-work/`, `/success-story/` | Closing buttons | As written; confirm the URLs |
-| Agree PART T (`part-t-white-label.css`) | `dist/css/uxteam-site-additions.css` | Not live yet |
+| Put the updated `uxteam-site.css` live (PART T shared helpers and PART U White label are merged into it) | Salient > Custom CSS: replace the whole file | Until then the White label page's new sections are unstyled |
 
 ## Waiting for files
 
