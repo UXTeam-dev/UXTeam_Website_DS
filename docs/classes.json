@@ -282,7 +282,6 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/logos.html",
-    "partials/sections/wl-compare.html",
     "partials/sections/wl-fixes.html",
     "partials/sections/wl-services.html"
    ]
@@ -300,6 +299,7 @@
     "pages/white-label.html",
     "partials/elements/placeholder.html",
     "partials/sections/capabilities.html",
+    "partials/sections/wl-compare.html",
     "partials/sections/wl-services.html"
    ]
   },
@@ -4864,6 +4864,36 @@
     "partials/sections/wl-compare.html"
    ]
   },
+  "uxt-wl-col-label": {
+   "kind": "styled",
+   "sources": [
+    "PART U"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-table .uxt-wl-col-label",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
+  },
+  "uxt-wl-th": {
+   "kind": "styled",
+   "sources": [
+    "PART U"
+   ],
+   "scope": ".uxt-wl",
+   "scopes": [
+    ".uxt-wl"
+   ],
+   "example": ".uxt-wl .uxt-wl-table .uxt-wl-th",
+   "usedIn": [
+    "pages/white-label.html",
+    "partials/sections/wl-compare.html"
+   ]
+  },
   "uxt-wl-us": {
    "kind": "styled",
    "sources": [
@@ -4873,7 +4903,7 @@
    "scopes": [
     ".uxt-wl"
    ],
-   "example": ".uxt-wl .uxt-wl-table .uxt-wl-us",
+   "example": ".uxt-wl .uxt-wl-table td.uxt-wl-us",
    "usedIn": [
     "pages/white-label.html",
     "partials/sections/wl-compare.html"

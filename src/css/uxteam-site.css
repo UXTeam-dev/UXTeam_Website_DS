@@ -9508,7 +9508,7 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
      5. Pre-sales columns on the Warm Glow band
      6. Ways to partner: four columns instead of three
      7. Centered closing button under a section
-     8. Comparison table (LLM.md 13.8)
+     8. Comparison table (as the approved White label demo)
    ===================================================================== */
 
 /* ---------- 1. Hero trust line ---------- */
@@ -9837,6 +9837,11 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
 }
 
 /* ---------- 8. Comparison table ---------- */
+/* As the approved White label demo: hairline rows, column heads in Aeonik
+   Medium 20 Navy, cells Manrope 16 Charcoal. The UXTeam column is the
+   highlight: Navy head with white text, Mist column, Navy medium text.
+   Row titles (first column) in Besley Medium 18. The table scrolls sideways
+   inside its own box below 1000px, with the row titles pinned on the left. */
 .uxt-wl .uxt-wl-compare .uxt-heading {
     margin-bottom: 60px;
 }
@@ -9844,21 +9849,32 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
 .uxt-wl .uxt-wl-table-wrap {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.uxt-wl .uxt-wl-table-wrap:focus-visible {
+    outline: 2px solid var(--uxt-color-navy);
+    outline-offset: 4px;
 }
 
 .uxt-wl .uxt-wl-table {
     width: 100%;
-    min-width: 880px;
+    min-width: 960px;
     margin: 0 !important;
     border: 0 !important;
     border-collapse: separate;
     border-spacing: 0;
     table-layout: fixed;
+    text-align: left;
+}
+
+.uxt-wl .uxt-wl-table .uxt-wl-col-label {
+    width: 17%;
 }
 
 .uxt-wl .uxt-wl-table th,
 .uxt-wl .uxt-wl-table td {
-    padding: 20px 16px !important;
+    padding: 20px 18px !important;
     border: 0 !important;
     border-bottom: 1px solid var(--uxt-color-border) !important;
     background: transparent;
@@ -9867,43 +9883,56 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
 }
 
 .uxt-wl .uxt-wl-table thead th {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
     vertical-align: bottom;
+}
+
+/* Column heads */
+.uxt-wl .uxt-wl-table .uxt-wl-th {
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+/* First column: "What matters" and the row titles, Besley, pinned */
+.uxt-wl .uxt-wl-table th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    padding-left: 0 !important;
+    background: #ffffff;
     opacity: 1;
 }
 
+.uxt-wl .uxt-wl-table tbody th.uxt-accent {
+    color: var(--uxt-color-navy) !important;
+}
+
+/* Cells */
 .uxt-wl .uxt-wl-table td.uxt-p {
     margin: 0 !important;
+    color: var(--uxt-color-body) !important;
 }
 
-.uxt-wl .uxt-wl-table thead th:first-child {
-    width: 20%;
-}
-
-.uxt-wl .uxt-wl-table tbody th {
-    opacity: 1;
-}
-
-/* The UXTeam column reads as one unit: G6 tint and a 1px stroke, radius 8 */
-.uxt-wl .uxt-wl-table .uxt-wl-us {
-    background: linear-gradient(93deg, rgba(169, 251, 255, 0.55) 1.41%, rgba(254, 223, 186, 0.55) 99.08%);
-    border-left: 1px solid var(--uxt-color-border) !important;
-    border-right: 1px solid var(--uxt-color-border) !important;
-    font-weight: 600 !important;
+/* Highlighted column (UXTeam) */
+.uxt-wl .uxt-wl-table td.uxt-wl-us {
+    background: #f2f3f8;
+    font-weight: 500 !important;
     color: var(--uxt-color-navy) !important;
 }
 
 .uxt-wl .uxt-wl-table thead .uxt-wl-us {
-    border-top: 1px solid var(--uxt-color-border) !important;
+    background: var(--uxt-color-navy);
+    color: #ffffff !important;
     border-radius: 8px 8px 0 0;
 }
 
 .uxt-wl .uxt-wl-table tbody tr:last-child .uxt-wl-us {
     border-radius: 0 0 8px 8px;
-}
-
-.uxt-wl .uxt-wl-table tbody tr:last-child th,
-.uxt-wl .uxt-wl-table tbody tr:last-child td:not(.uxt-wl-us) {
-    border-bottom: 0 !important;
 }
 
 /* ---------- Responsive ---------- */
@@ -10017,20 +10046,24 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
     .uxt-wl .uxt-wl-center {
         margin-top: 40px;
     }
-    /* Table scrolls inside its box, first column stays in view */
+    /* Table: narrower, still scrolls inside its box */
     .uxt-wl .uxt-wl-table {
-        min-width: 760px;
+        min-width: 820px;
+    }
+    .uxt-wl .uxt-wl-table .uxt-wl-col-label {
+        width: 150px;
+    }
+    .uxt-wl .uxt-wl-table th.uxt-accent {
+        font-size: 16px !important;
     }
     .uxt-wl .uxt-wl-table th,
     .uxt-wl .uxt-wl-table td {
-        padding: 16px 12px !important;
+        padding: 16px 14px !important;
     }
-    .uxt-wl .uxt-wl-table tbody th,
-    .uxt-wl .uxt-wl-table thead th:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-        width: 150px;
-        background: #ffffff;
+    .uxt-wl .uxt-wl-table td.uxt-p {
+        font-size: 15px !important;
+    }
+    .uxt-wl .uxt-wl-table .uxt-wl-th {
+        font-size: 17px !important;
     }
 }

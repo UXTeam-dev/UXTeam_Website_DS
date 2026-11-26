@@ -1,5 +1,5 @@
 <!--
-  SECTION: Comparison table (LLM.md 13.8): Besley row and column labels, hairline rows, the UXTeam column tinted G6 with a 1px stroke and radius 8. Scrolls inside its box on mobile with the first column fixed. Neutral wording only.
+  SECTION: Comparison table (as the approved White label demo): hairline rows, Aeonik column heads, Besley row titles, the UXTeam column with a Navy head and a Mist column. Scrolls inside its box below 1000px with the first column pinned. Neutral wording only.
   First used on the White label page (src/pages/white-label.html). New section, PART U
   of uxteam-site.css, only inside <div class="uxt-home uxt-wl">.
   Use: copy this block and change only the text, links, icons and placeholder labels.
@@ -8,61 +8,62 @@
   <!-- ================= 8. COMPARISON TABLE ================= -->
   <div class="uxt-full uxt-section uxt-wl-compare">
     <div class="uxt-container">
-      <!-- @include partials/elements/heading-intro.html sub="Compare your options" title="How a specialist design partner compares" intro="There's more than one way to add design capacity. Here's how they compare." -->
+      <!-- @include partials/elements/heading-intro.html sub="Comparison" title="How a specialist design partner compares" intro="There's more than one way to add design capacity. Here's how they compare." -->
 
       <div class="uxt-wl-table-wrap" role="region" aria-label="Comparison of ways to add design capacity" tabindex="0">
         <table class="uxt-wl-table">
+          <colgroup><col class="uxt-wl-col-label"><col><col><col><col></colgroup>
           <thead>
             <tr>
               <th scope="col" class="uxt-accent">What matters</th>
-              <th scope="col" class="uxt-accent uxt-wl-us">UXTeam</th>
-              <th scope="col" class="uxt-accent">Freelancers</th>
-              <th scope="col" class="uxt-accent">Generalist white label agency</th>
-              <th scope="col" class="uxt-accent">Hiring in-house</th>
+              <th scope="col" class="uxt-wl-th uxt-wl-us">UXTeam</th>
+              <th scope="col" class="uxt-wl-th">Freelancers</th>
+              <th scope="col" class="uxt-wl-th">Generalist white label agency</th>
+              <th scope="col" class="uxt-wl-th">Hiring in-house</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row" class="uxt-accent">Focus</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">Design specialists</td>
-              <td class="uxt-p uxt-p-sm">One skill per person</td>
-              <td class="uxt-p uxt-p-sm">Design is one of many services</td>
-              <td class="uxt-p uxt-p-sm">Depends on the hire</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Design specialists</td>
+              <td class="uxt-p uxt-p-xs">One skill per person</td>
+              <td class="uxt-p uxt-p-xs">Design is one of many services</td>
+              <td class="uxt-p uxt-p-xs">Depends on the hire</td>
             </tr>
             <tr>
               <th scope="row" class="uxt-accent">Consistency</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">One standard on every project</td>
-              <td class="uxt-p uxt-p-sm">Varies person to person</td>
-              <td class="uxt-p uxt-p-sm">Varies by team assigned</td>
-              <td class="uxt-p uxt-p-sm">Strong once established</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">One standard on every project</td>
+              <td class="uxt-p uxt-p-xs">Varies person to person</td>
+              <td class="uxt-p uxt-p-xs">Varies by team assigned</td>
+              <td class="uxt-p uxt-p-xs">Strong once established</td>
             </tr>
             <tr>
               <th scope="row" class="uxt-accent">Time to start</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">[confirm X] days</td>
-              <td class="uxt-p uxt-p-sm">Fast, if available</td>
-              <td class="uxt-p uxt-p-sm">Depends on their workload</td>
-              <td class="uxt-p uxt-p-sm">Months to hire and onboard</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">[confirm X] days</td>
+              <td class="uxt-p uxt-p-xs">Fast, if available</td>
+              <td class="uxt-p uxt-p-xs">Depends on their workload</td>
+              <td class="uxt-p uxt-p-xs">Months to hire and onboard</td>
             </tr>
             <tr>
               <th scope="row" class="uxt-accent">Confidentiality</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">NDA, never in front of your clients</td>
-              <td class="uxt-p uxt-p-sm">Varies</td>
-              <td class="uxt-p uxt-p-sm">Varies</td>
-              <td class="uxt-p uxt-p-sm">Fully in-house</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">NDA, never in front of your clients</td>
+              <td class="uxt-p uxt-p-xs">Varies</td>
+              <td class="uxt-p uxt-p-xs">Varies</td>
+              <td class="uxt-p uxt-p-xs">Fully in-house</td>
             </tr>
             <tr>
               <th scope="row" class="uxt-accent">Pre-sales support</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">Pitches, estimates, client calls</td>
-              <td class="uxt-p uxt-p-sm">Rarely</td>
-              <td class="uxt-p uxt-p-sm">Rarely</td>
-              <td class="uxt-p uxt-p-sm">Yes, if they have time</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Pitches, estimates, client calls</td>
+              <td class="uxt-p uxt-p-xs">Rarely</td>
+              <td class="uxt-p uxt-p-xs">Rarely</td>
+              <td class="uxt-p uxt-p-xs">Yes, if they have time</td>
             </tr>
             <tr>
               <th scope="row" class="uxt-accent">Flexibility</th>
-              <td class="uxt-p uxt-p-sm uxt-wl-us">Scale up or down by engagement</td>
-              <td class="uxt-p uxt-p-sm">Flexible, hard to coordinate</td>
-              <td class="uxt-p uxt-p-sm">Often locked into contracts</td>
-              <td class="uxt-p uxt-p-sm">Fixed headcount</td>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Scale up or down by engagement</td>
+              <td class="uxt-p uxt-p-xs">Flexible, hard to coordinate</td>
+              <td class="uxt-p uxt-p-xs">Often locked into contracts</td>
+              <td class="uxt-p uxt-p-xs">Fixed headcount</td>
             </tr>
           </tbody>
         </table>
