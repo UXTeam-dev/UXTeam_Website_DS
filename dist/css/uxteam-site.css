@@ -9918,15 +9918,19 @@ body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
     color: var(--uxt-color-body) !important;
 }
 
-/* Highlighted column (UXTeam) */
+/* Highlighted column (UXTeam): one outlined unit, 1px Steel border,
+   radius 8 top and bottom (LLM.md 13.8) */
 .uxt-wl .uxt-wl-table td.uxt-wl-us {
     background: #f2f3f8;
+    border-left: 1px solid var(--uxt-color-border) !important;
+    border-right: 1px solid var(--uxt-color-border) !important;
     font-weight: 500 !important;
     color: var(--uxt-color-navy) !important;
 }
 
 .uxt-wl .uxt-wl-table thead .uxt-wl-us {
     background: var(--uxt-color-navy);
+    border: 1px solid var(--uxt-color-navy) !important;
     color: #ffffff !important;
     border-radius: 8px 8px 0 0;
 }

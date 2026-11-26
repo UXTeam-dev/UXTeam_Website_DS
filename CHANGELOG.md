@@ -4,6 +4,7 @@ Newest first. One entry per change that reaches GitHub. Name the Figma node when
 
 ## 2.5.0 · 26 Nov 2026
 
+- White label comparison table: the UXTeam column now has a 1px Steel border all round (navy on the navy head), radius 8 top and bottom, so it reads as one unit. PART U of `uxteam-site.css`, fingerprint accepted.
 - White label comparison table matches the approved demo: hairline rows, column heads in Aeonik Medium 20 Navy, cells Manrope 16, the UXTeam column with a Navy head (white text, top radius 8) and a Mist column (Navy medium text, bottom radius 8), first column pinned and flush left, table scrolls inside its box below 1000px. Row titles in Besley (18, 16 on mobile), as asked. Eyebrow "Comparison". Changed in PART U of `uxteam-site.css` (fingerprint accepted) and in `src/pages/white-label.html` and `partials/sections/wl-compare.html`; new classes `uxt-wl-th`, `uxt-wl-col-label`.
 
 ## 2.4.0 · 26 Nov 2026

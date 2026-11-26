@@ -2,7 +2,7 @@
   "note": "Fingerprints of the files the developers handed over. npm run check fails if any of them changes. Update only when syncing a new version from the developers (docs/CSS-GUIDE.md section 8). 26 Nov 2026: developers' CSS with PART S (Insights), plus PART T (shared helpers) and PART U (White label) merged from this repo.",
   "received": "2026-11-26",
   "files": {
-    "src/css/uxteam-site.css": "2f018d75c51b84e7861b46c1bbf3b88d7c7e291ecdc5237b88622729f2bc4000",
+    "src/css/uxteam-site.css": "12f69aeec048c2a0037053abc619c5bbf4c779a33ba652a8f329186b5528df47",
     "src/pages/homepage.html": "b92a9c6ee3eeae315638e5a468d51369e31c60c74b6a4660d35b805552200f8f",
     "src/pages/what-we-do.html": "9a6a6a79321f1e39146d173b53beab8518fbb1b24984d97a866bc4107d455d44",
     "src/global/footer-global.html": "5a6adf5e0702e2b48829484fe9fc9a4b4bf077c0ea895340fe9cb5c50b87965a"
