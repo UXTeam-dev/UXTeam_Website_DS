@@ -1,0 +1,55 @@
+# Runs when the WordPress plugin "UXTeam CSS Sync" sends the live site CSS
+# (Salient > Custom CSS) to the wordpress-live branch.
+# It accepts the new CSS (fingerprint), regenerates the class registry and
+# the built files, commits them to the same branch, and runs the repo check
+# on every page. The pull request into main shows the result: merge when green.
+# Guide: docs/WORDPRESS-CSS-SYNC.md
+name: WordPress CSS sync
+
+on:
+  push:
+    branches: [wordpress-live]
+    paths: ['src/css/uxteam-site.css']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wordpress-css-sync
+  cancel-in-progress: false
+
+jobs:
+  accept-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: wordpress-live
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Accept the live CSS (fingerprint)
+        run: node scripts/accept-live-css.mjs
+
+      - name: Regenerate class registry and built files
+        run: |
+          npm run classes
+          npm run build
+
+      - name: Commit the updates to this branch
+        run: |
+          git config user.name "uxteam-css-sync[bot]"
+          git config user.email "uxteam-css-sync@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Accept live CSS from WordPress: fingerprint, class registry, built files"
+            git push origin HEAD:wordpress-live
+          fi
+
+      - name: Check every page against the new CSS
+        run: npm run check

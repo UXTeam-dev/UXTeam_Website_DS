@@ -1,0 +1,74 @@
+<!--
+  SECTION: Problem and fix rows: two Besley column labels, then rows of a problem (H3 small + one line) and its fix (56px tint tile with a Phosphor Light icon + one line), joined by a quiet Steel arrow. Mobile: the fix stacks under its problem.
+  First used on the White label page (src/pages/white-label.html). New section, PART U
+  of uxteam-site.css, only inside <div class="uxt-home uxt-wl">.
+  Use: copy this block and change only the text, links, icons and placeholder labels.
+  To use it on another page, move its styles to a shared PART first (docs/CSS-GUIDE.md 5.4).
+-->
+  <!-- ================= 2. WHAT GETS IN THE WAY (problem and fix rows) ================= -->
+  <div class="uxt-full uxt-section uxt-wl-fixes">
+    <div class="uxt-container">
+      <!-- @include partials/elements/heading-intro.html sub="Why agencies choose UXTeam" title="What gets in the way, and how we fix it" intro="Most agencies don't struggle to win design work. They struggle to deliver it well, on time, every time." -->
+
+      <div class="uxt-wl-fix-head">
+        <span class="uxt-accent uxt-accent-strong">What gets in the way</span>
+        <span class="uxt-accent uxt-accent-strong">How we fix it</span>
+      </div>
+      <div class="uxt-wl-fix-list">
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Work arrives in waves.</h3>
+            <p class="uxt-p uxt-p-sm">One month you need three designers, the next you need none.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><!-- @icon trend-up size="32" --></span>
+            <p class="uxt-p">Capacity that scales up and down with your pipeline.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Hiring is slow and expensive.</h3>
+            <p class="uxt-p uxt-p-sm">A good designer takes months to find and onboard.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><!-- @icon users-three size="32" --></span>
+            <p class="uxt-p">An experienced team ready to start within [confirm X] days.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Freelancers are a gamble.</h3>
+            <p class="uxt-p uxt-p-sm">Quality and availability change from project to project.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><!-- @icon seal-check size="32" --></span>
+            <p class="uxt-p">One team and one quality standard across every client you hand us.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Design isn't your core.</h3>
+            <p class="uxt-p uxt-p-sm">Your strength is marketing, SEO, or development, and design holds the rest back.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><!-- @icon puzzle-piece size="32" --></span>
+            <p class="uxt-p">Specialist UX and UI that make your whole offer stronger.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Your name is on every deliverable.</h3>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><!-- @icon shield-check size="32" --></span>
+            <p class="uxt-p">NDA-backed, invisible to your clients, and deadlines we hold.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

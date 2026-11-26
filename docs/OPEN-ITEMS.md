@@ -12,7 +12,26 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Aeonik font files, or confirmation the theme path `/wp-content/themes/salient/fonts/Aeonik/` stays | Previews outside WordPress fall back to Manrope | Headings show in Manrope in previews |
 | What we do hero has no eyebrow above the H1 | LLM.md rule 20 (every hero has an eyebrow); `npm run check` warns on the developers' file | Raise with the developers; new pages must have one |
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
-| Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
+| Booking card version by page type | The footer global section has only "Skip the layers, talk to the founder."; inner pages should show "Let's talk about what you're building." (LLM.md 15.5) | Previews switch it (`scripts/preview-shell.mjs`); live shows the homepage version everywhere |
+| Booking card overlapping the footer by 40px on the live site | LLM.md 9.1, 16.5; the developers' CSS has no overlap rule outside Salient's wrappers | Previews add it (`scripts/preview-shell.mjs`); confirm it on new.ux.team |
+
+## White label page (`src/pages/white-label.html`)
+
+| Item | Where | Until then |
+|---|---|---|
+| Typical start time for a new partnership | Fix row 2, comparison table (Time to start), FAQ "How fast can you start?" | Visible `[confirm X] days` |
+| Design only, or design and build? | FAQ "Do you build websites, or design only?" | Visible `[confirm with Chintan: …]` at the end of the answer |
+| Review of every comparison table cell | Comparison table (draft positioning in the page copy) | Shown as written in the copy; not final |
+| White label UX audit sample report | "See a Sample Report" link in the UX audits card | `href="#"` |
+| Agency partner count: copy says [75]+, approved fact is 50+ | Hero trust line | "The design team behind 50+ agencies." |
+| Agency partner logos that agreed to be shown, and their label | Under the hero | The standard trusted-by marquee and label, unchanged (LLM.md 12.5) |
+| Testimonials 1 and 2 and the partnership story card (placeholders in the copy) | Partnership stories | Not on the page; the approved stories section (E2M video, Squaircle, Section, RBBI) carries the proof |
+| Four ways to partner vs the three ways to work rule | Ways to partner | Built as four, as the copy says (agency channel); confirm |
+| Three service visuals, 518 x 518 | Service cards | Drawn illustrative scenes (`partials/graphics/wl-scene-*.html`); swap for approved work samples if wanted |
+| Five process icons `wl-*.svg` to upload, or keep inline | Process | Inlined SVG in the page body |
+| Links: `/how-we-work/`, `/success-story/` | Closing buttons | As written; confirm the URLs |
+| Install the CSS sync (GitHub key, Actions on, plugin in WordPress) | So CSS changed in WordPress reaches the repo automatically: docs/WORDPRESS-CSS-SYNC.md | Developers send the CSS back by hand |
+| Put the updated `uxteam-site.css` live (PART T shared helpers and PART U White label are merged into it) | Salient > Custom CSS: replace the whole file | Until then the White label page's new sections are unstyled |
 
 ## Waiting for files
 

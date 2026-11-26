@@ -1,0 +1,95 @@
+<!--
+  SECTION: Service cards: one white card per service (title, intro, list label, arrow list, optional aside, Where it fits, optional text link) with a 518 square visual (image box until the image is supplied), then the CTA band (LLM.md 13.9).
+  First used on the White label page (src/pages/white-label.html). New section, PART U
+  of uxteam-site.css, only inside <div class="uxt-home uxt-wl">.
+  Use: copy this block and change only the text, links, icons and placeholder labels.
+  To use it on another page, move its styles to a shared PART first (docs/CSS-GUIDE.md 5.4).
+-->
+  <!-- ================= 3. WHITE LABEL SERVICES (service cards + CTA band) ================= -->
+  <div class="uxt-full uxt-section uxt-wl-services" id="services">
+    <div class="uxt-container">
+      <!-- @include partials/elements/heading-intro.html sub="White label services" title="White label design services" intro="Three services, one team, all delivered under your brand." -->
+
+      <div class="uxt-wl-service-list">
+        <article class="uxt-wl-service-card" id="wl-web-design">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label web design</h3>
+              <p class="uxt-p uxt-p-sm">Websites and landing pages your clients will love and your developers can build without guesswork. We design around the action each page needs to drive, ready to build in Webflow, WordPress, or your stack of choice.</p>
+              <span class="uxt-accent uxt-accent-strong">What's included</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Marketing website design and redesigns</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Landing pages and campaign pages</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Conversion-focused layout and messaging structure</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Responsive design across devices</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Developer-ready, CMS-ready files</span></li>
+              </ul>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Marketing, SEO, and PPC agencies that sell websites and landing pages, and development shops that need design before the build.</p>
+            </div>
+          </div>
+          <div class="uxt-wl-service-visual">
+            <!-- @include partials/graphics/wl-scene-web.html -->
+          </div>
+        </article>
+        <article class="uxt-wl-service-card" id="wl-ux-design">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label UX design</h3>
+              <p class="uxt-p uxt-p-sm">Product and app design for the SaaS platforms, dashboards, and mobile apps your clients are building. The work is grounded in how real users move through a product, so it holds up after launch.</p>
+              <span class="uxt-accent uxt-accent-strong">What's included</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">User flows and wireframes</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UI design for web and mobile apps</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Interactive prototypes</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Design systems and component libraries</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Developer handoff and design QA</span></li>
+              </ul>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Development and product agencies building software for clients, and agencies adding product design to their offer.</p>
+            </div>
+          </div>
+          <div class="uxt-wl-service-visual">
+            <!-- @include partials/graphics/wl-scene-ux.html -->
+          </div>
+        </article>
+        <article class="uxt-wl-service-card" id="wl-ux-audits">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label UX audits</h3>
+              <p class="uxt-p uxt-p-sm">Give your clients a clear, credible read on what's holding their product or website back. The report carries your brand, and the findings come with a prioritized plan your team can sell and deliver.</p>
+              <span class="uxt-accent uxt-accent-strong">What your clients get</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UX and Conversion Audit report, branded as yours</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Prioritized improvement roadmap</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Key friction-point analysis</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Actionable recommendations</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Walkthrough support for your client presentation</span></li>
+              </ul>
+                <p class="uxt-p uxt-p-xs uxt-wl-service-aside">Audexa, our AI tool, helps us move fast; the judgment stays human.</p>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Agencies that want a paid entry offer for new clients, or a clear way to scope a redesign before quoting it.</p>
+            </div>
+              <!-- @include partials/elements/button.html type="secondary" label="See a Sample Report" href="#" -->
+          </div>
+          <div class="uxt-wl-service-visual">
+            <!-- @include partials/graphics/wl-scene-audit.html -->
+          </div>
+        </article>
+      </div>
+
+      <div class="uxt-wl-band">
+        <div class="uxt-wl-band-text">
+          <h3 class="uxt-h3">Need something outside these three?</h3>
+          <p class="uxt-p uxt-p-sm">Tell us what your client needs, and we'll let you know if we can help.</p>
+        </div>
+        <!-- @include partials/elements/button.html type="primary" label="Book a Discovery Call" href="#book-call" -->
+      </div>
+    </div>
+  </div>

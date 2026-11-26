@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White label | UXTeam preview</title>
+<link rel="stylesheet" href="../css/uxteam-site.css">
+<link rel="stylesheet" href="../css/uxteam-site-additions.css">
+<style>/* PREVIEW ONLY. Not part of uxteam-site.css. */
+body{margin:0}
+.preview-header-slot{height:92px;background:#0d1315}
+.preview-header{position:relative;z-index:50;color:#fff;background:#0d1315;font-family:'Manrope',sans-serif}
+.preview-header-bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:92px;max-width:1200px;margin:0 auto;padding:0 120px;box-sizing:content-box}
+.preview-logo{display:block;line-height:0}.preview-logo-svg{width:156px;height:38px}
+.preview-nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.preview-nav ul{display:flex;align-items:center;gap:28px;margin:0;padding:0;list-style:none}
+.preview-nav-link{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;font:400 16px/1.6 'Manrope',sans-serif;color:#fff;text-decoration:none;white-space:nowrap;cursor:pointer;transition:opacity .2s}
+.preview-nav-link:hover{opacity:.75}.preview-nav-link svg{width:18px;height:18px;transition:transform .2s}.preview-nav-link[aria-expanded=true] svg{transform:rotate(180deg)}
+.preview-actions{display:flex;align-items:center;gap:16px}
+.preview-cta-short{display:none}
+.preview-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;padding:0 4px;border:0;background:none;color:#fff;cursor:pointer}
+.preview-toggle span{display:block;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+.preview-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}.preview-toggle[aria-expanded=true] span:nth-child(2){opacity:0}.preview-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.preview-header.is-pinned{position:fixed;top:0;left:0;right:0;box-shadow:0 8px 24px rgba(8,18,25,.18);transform:translateY(-100%);transition:transform .3s ease-out}
+.preview-header.is-pinned.is-shown{transform:translateY(0)}
+.preview-mobile-nav{padding:8px 40px 32px;background:#0d1315}.preview-mobile-nav[hidden]{display:none}
+.preview-mobile-nav ul{margin:0;padding:0;list-style:none}
+.preview-mobile-nav a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font:500 22px/1.3 'Aeonik','Manrope',sans-serif;color:#fff;text-decoration:none}
+@media (max-width:1199px){.preview-nav,.preview-cta{display:none!important}.preview-toggle{display:flex}.preview-logo-svg{width:123px;height:30px}.preview-header-bar{padding:0 40px}}
+@media (max-width:999px){.preview-header-slot,.preview-header-bar{height:70px}}
+@media (max-width:767px){.preview-header-bar{padding:0 15px}.preview-mobile-nav{padding:8px 15px 32px}.preview-cta{display:inline-flex!important}.preview-cta-full{display:none}.preview-cta-short{display:inline}}
+@media (prefers-reduced-motion:reduce){.preview-header.is-pinned{transition:none}}
+/* Booking card overlaps the top of the footer by 40px (LLM.md 9.1, 16.5) */
+#book-call.uxt-cta{position:relative;z-index:2;padding-bottom:0!important;margin-bottom:-40px!important}</style>
+</head>
+<body>
+<!-- PREVIEW ONLY: the site header (Salient's on the live site). Not part of the page. -->
+<div class="preview-header-slot">
+<header class="preview-header" data-preview-header>
+  <div class="preview-header-bar">
+    <a class="preview-logo" href="#" aria-label="UXTeam home"><svg class="preview-logo-svg" xmlns="http://www.w3.org/2000/svg" width="156" height="38" viewBox="0 0 155.34 38" fill="none" role="img" aria-label="UXTeam">
+  <g fill="#FFFFFF"><g transform="translate(23.34 0)"><path d="M122.673 6.61914C127.794 6.61914 131.998 9.56635 131.998 17.3451V31.5496H128.036V17.5866C128.036 12.7551 125.91 10.2428 122.19 10.2428C118.083 10.2428 115.571 13.3349 115.571 18.3597V31.5496H111.609V17.5866C111.609 12.7551 109.435 10.2428 105.666 10.2428C101.608 10.2428 99.1435 13.6248 99.1435 18.5529V31.5496H95.1816V6.90903H98.612L99.1435 10.2911C100.448 8.50342 102.526 6.61914 106.342 6.61914C109.773 6.61914 112.72 8.16522 114.121 11.3057C115.619 8.64837 118.276 6.61914 122.673 6.61914Z"/><path d="M90.8789 27.926H92.1351V31.5496H89.9609C86.6755 31.5496 85.5643 30.1485 85.516 27.7328C83.9699 29.9553 81.5058 31.8395 77.2541 31.8395C71.8428 31.8395 68.1709 29.1339 68.1709 24.6406C68.1709 19.7125 71.6013 16.9585 78.0755 16.9585H85.3227V15.2675C85.3227 12.0787 83.0519 10.1461 79.1867 10.1461C75.708 10.1461 73.3889 11.7888 72.9058 14.3012H68.9439C69.5237 9.46972 73.4372 6.61914 79.38 6.61914C85.6609 6.61914 89.2845 9.75961 89.2845 15.5091V26.2833C89.2845 27.5878 89.7677 27.926 90.8789 27.926ZM85.3227 21.5001V20.2923H77.6889C74.162 20.2923 72.181 21.5968 72.181 24.399C72.181 26.8148 74.2586 28.4575 77.544 28.4575C82.4721 28.4575 85.3227 25.6069 85.3227 21.5001Z"/><path d="M53.4073 31.8395C46.0151 31.8395 41.1836 26.7665 41.1836 19.2293C41.1836 11.7405 45.9185 6.61914 52.8758 6.61914C59.8332 6.61914 64.3748 11.0158 64.568 18.3114C64.568 18.8428 64.5197 19.4226 64.4714 20.0024H45.3387V20.3406C45.4836 25.0271 48.4308 28.3125 53.1174 28.3125C56.5961 28.3125 59.3017 26.4766 60.123 23.2878H64.1332C63.1669 28.2159 59.1084 31.8395 53.4073 31.8395ZM45.5803 16.717H60.3163C59.9298 12.4652 57.0309 10.0978 52.9241 10.0978C49.3005 10.0978 45.9668 12.7068 45.5803 16.717Z"/><path d="M28.5084 25.1238V10.5327H24.0635V6.90904H28.5084V0H32.4703V6.90904H38.8478V10.5327H32.4703V25.0755C32.4703 27.153 33.195 27.926 35.3209 27.926H39.2344V31.5497H34.9343C30.1995 31.5497 28.5084 29.4721 28.5084 25.1238Z"/><path d="M5.91173e-06 31.5497L9.3731 18.8911L0.6281 6.90904H5.36296L11.8855 16.0406L18.5046 6.90904H22.9979L14.2046 18.8911L23.626 31.5497H18.8911L11.6922 21.6451L4.49329 31.5497H5.91173e-06Z"/></g><g transform="translate(0 6.88)"><path d="M17.7278 13.6328V1.90735e-06H22.0069V13.6328C22.0069 19.7098 17.0805 24.6362 11.0034 24.6362C4.92641 24.6362 1.13106e-06 19.7098 1.13106e-06 13.6328V1.90735e-06H4.27911L4.27911 13.6328C4.27911 17.3465 7.28969 20.3571 11.0034 20.3571C14.7172 20.3571 17.7278 17.3465 17.7278 13.6328Z"/></g></g>
+  <rect x="0" y="33.97" width="22.007" height="4.03" fill="#919C9F"/>
+</svg></a>
+    <nav class="preview-nav" aria-label="Main"><ul><li><button class="preview-nav-link" type="button" aria-expanded="false">What We Do<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><a class="preview-nav-link" href="#">UXAudit</a></li><li><button class="preview-nav-link" type="button" aria-expanded="false">Work<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><button class="preview-nav-link" type="button" aria-expanded="false">About<svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M14 8 9 13 4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><a class="preview-nav-link" href="#">Insights</a></li><li><a class="preview-nav-link" href="#">Contact</a></li></ul></nav>
+    <div class="preview-actions">
+      <a href="#book-call" class="uxt-button uxt-button-glass preview-cta"><span class="uxt-button-label"><span class="preview-cta-full">Book a Discovery Call</span><span class="preview-cta-short">Book a Call</span></span><span class="uxt-button-circle"><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="preview-mobile-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="preview-mobile-nav" id="preview-mobile-nav" hidden>
+    <ul><li><a href="#">What We Do</a></li><li><a href="#">UXAudit</a></li><li><a href="#">Work</a></li><li><a href="#">About</a></li><li><a href="#">Insights</a></li><li><a href="#">Contact</a></li></ul>
+  </div>
+</header>
+</div>
+<!-- ============================================================
+     UXTEAM: WHITE LABEL PAGE  (Figma: no frame yet. Copy: "UX.team White
+     Label Page Copy v1.1". URL /white-label)
+     Paste into one Salient "Raw HTML" element (page body only).
+     Header, "Book a Discovery Call" and footer come from the global
+     sections, so they are not in this file.
+     Classes: only those in docs/CLASS-REGISTRY.md (uxteam-site.css and
+     src/css/parts). This page's own classes are PART U of
+     uxteam-site.css, scoped to .uxt-wl.
+     SEO (set in WordPress, not in this body):
+       Title: White Label Design Agency for Agencies | UXTeam
+       Meta description: White label web design, UX design, and UX audits
+       for agencies. Delivered under your brand, under NDA, by an
+       experienced design team.
+       Schema: FAQPage (section 9) and Service.
+     ============================================================ -->
+<div class="uxt-home uxt-wl">
+
+  <!-- ================= 1. HERO ================= -->
+  <div class="uxt-full uxt-section uxt-hero">
+    <div class="uxt-container">
+      <div class="uxt-hero-content">
+        <p class="uxt-subheading underline-sky-blue uxt-white">Design capacity for agencies</p>
+        <h1 class="uxt-h1 uxt-white">White label design<br> partner for agencies</h1>
+        <p class="uxt-p uxt-p-lg uxt-white">UX audits, UX design, and web design delivered under your brand by an experienced team that works the way your agency does. You keep the client relationship. We keep the quality bar&nbsp;high.</p>
+        <a href="#book-call" class="uxt-button uxt-button-primary uxt-button-dark">
+  <span class="uxt-button-label">Book a Discovery Call</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+        <p class="uxt-p uxt-p-sm uxt-white uxt-wl-hero-trust">The design team behind 50+ agencies.</p>
+      </div>
+    </div>
+    <div class="uxt-logos">
+        <p class="uxt-p uxt-p-sm uxt-logos-title">Trusted by B2B companies worldwide</p>
+
+        <div class="uxt-logos-track">
+            <div class="uxt-logos-list">
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt="SLAPS"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt="RBBi"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt="Section"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt="DS Live"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt="FWD"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt="Trescon"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt="The Squaircle"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt="Terrapinn"></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt="Client logo"></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt="Alta DX"></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt="Atomic North"></div>
+            </div>
+
+            <!-- Duplicate list for seamless scrolling -->
+            <div class="uxt-logos-list" aria-hidden="true">
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-raw"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt=""></div>
+            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt=""></div>
+            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt=""></div>
+            </div>
+        </div>
+        </div>
+  </div>
+
+  <!-- ================= 2. WHAT GETS IN THE WAY (problem and fix rows) ================= -->
+  <div class="uxt-full uxt-section uxt-wl-fixes">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">Why agencies choose UXTeam</p>
+  <h2 class="uxt-h2">What gets in the way, and how we fix it</h2>
+  <p class="uxt-p">Most agencies don't struggle to win design work. They struggle to deliver it well, on time, every time.</p>
+</div>
+
+      <div class="uxt-wl-fix-head">
+        <span class="uxt-accent uxt-accent-strong">What gets in the way</span>
+        <span class="uxt-accent uxt-accent-strong">How we fix it</span>
+      </div>
+      <div class="uxt-wl-fix-list">
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Work arrives in waves.</h3>
+            <p class="uxt-p uxt-p-sm">One month you need three designers, the next you need none.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M238,56v64a6,6,0,0,1-12,0V70.48l-85.76,85.76a6,6,0,0,1-8.48,0L96,120.49,28.24,188.24a6,6,0,0,1-8.48-8.48l72-72a6,6,0,0,1,8.48,0L136,143.51,217.52,62H168a6,6,0,0,1,0-12h64A6,6,0,0,1,238,56Z"/></svg></span>
+            <p class="uxt-p">Capacity that scales up and down with your pipeline.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Hiring is slow and expensive.</h3>
+            <p class="uxt-p uxt-p-sm">A good designer takes months to find and onboard.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M243.6,148.8a6,6,0,0,1-8.4-1.2A53.58,53.58,0,0,0,192,126a6,6,0,0,1,0-12,26,26,0,1,0-25.18-32.5,6,6,0,0,1-11.62-3,38,38,0,1,1,59.91,39.63A65.69,65.69,0,0,1,244.8,140.4,6,6,0,0,1,243.6,148.8ZM189.19,213a6,6,0,0,1-2.19,8.2,5.9,5.9,0,0,1-3,.81,6,6,0,0,1-5.2-3,59,59,0,0,0-101.62,0,6,6,0,1,1-10.38-6A70.1,70.1,0,0,1,103,182.55a46,46,0,1,1,50.1,0A70.1,70.1,0,0,1,189.19,213ZM128,178a34,34,0,1,0-34-34A34,34,0,0,0,128,178ZM70,120a6,6,0,0,0-6-6A26,26,0,1,1,89.18,81.49a6,6,0,1,0,11.62-3,38,38,0,1,0-59.91,39.63A65.69,65.69,0,0,0,11.2,140.4a6,6,0,1,0,9.6,7.2A53.58,53.58,0,0,1,64,126,6,6,0,0,0,70,120Z"/></svg></span>
+            <p class="uxt-p">An experienced team ready to start within [confirm X] days.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Freelancers are a gamble.</h3>
+            <p class="uxt-p uxt-p-sm">Quality and availability change from project to project.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.42,104.2c-3.9-4.07-7.93-8.27-9.55-12.18-1.5-3.63-1.58-9-1.67-14.68-.14-9.38-.3-20-7.42-27.12S188,42.94,178.66,42.8c-5.68-.09-11-.17-14.68-1.67-3.91-1.62-8.11-5.65-12.18-9.55C145.16,25.22,137.64,18,128,18s-17.16,7.22-23.8,13.58c-4.07,3.9-8.27,7.93-12.18,9.55-3.63,1.5-9,1.58-14.68,1.67-9.38.14-20,.3-27.12,7.42S42.94,68,42.8,77.34c-.09,5.68-.17,11-1.67,14.68-1.62,3.91-5.65,8.11-9.55,12.18C25.22,110.84,18,118.36,18,128s7.22,17.16,13.58,23.8c3.9,4.07,7.93,8.27,9.55,12.18,1.5,3.63,1.58,9,1.67,14.68.14,9.38.3,20,7.42,27.12S68,213.06,77.34,213.2c5.68.09,11,.17,14.68,1.67,3.91,1.62,8.11,5.65,12.18,9.55C110.84,230.78,118.36,238,128,238s17.16-7.22,23.8-13.58c4.07-3.9,8.27-7.93,12.18-9.55,3.63-1.5,9-1.58,14.68-1.67,9.38-.14,20-.3,27.12-7.42s7.28-17.74,7.42-27.12c.09-5.68.17-11,1.67-14.68,1.62-3.91,5.65-8.11,9.55-12.18C230.78,145.16,238,137.64,238,128S230.78,110.84,224.42,104.2Zm-8.66,39.3c-4.67,4.86-9.5,9.9-12,15.9-2.38,5.74-2.48,12.52-2.58,19.08-.11,7.44-.23,15.14-3.9,18.82s-11.38,3.79-18.82,3.9c-6.56.1-13.34.2-19.08,2.58-6,2.48-11,7.31-15.91,12-5.25,5-10.68,10.24-15.49,10.24s-10.24-5.21-15.5-10.24c-4.86-4.67-9.9-9.5-15.9-12-5.74-2.38-12.52-2.48-19.08-2.58-7.44-.11-15.14-.23-18.82-3.9s-3.79-11.38-3.9-18.82c-.1-6.56-.2-13.34-2.58-19.08-2.48-6-7.31-11-12-15.91C35.21,138.24,30,132.81,30,128s5.21-10.24,10.24-15.5c4.67-4.86,9.5-9.9,12-15.9,2.38-5.74,2.48-12.52,2.58-19.08.11-7.44.23-15.14,3.9-18.82s11.38-3.79,18.82-3.9c6.56-.1,13.34-.2,19.08-2.58,6-2.48,11-7.31,15.91-12C117.76,35.21,123.19,30,128,30s10.24,5.21,15.5,10.24c4.86,4.67,9.9,9.5,15.9,12,5.74,2.38,12.52,2.48,19.08,2.58,7.44.11,15.14.23,18.82,3.9s3.79,11.38,3.9,18.82c.1,6.56.2,13.34,2.58,19.08,2.48,6,7.31,11,12,15.91,5,5.25,10.24,10.68,10.24,15.49S220.79,138.24,215.76,143.5ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z"/></svg></span>
+            <p class="uxt-p">One team and one quality standard across every client you hand us.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Design isn't your core.</h3>
+            <p class="uxt-p uxt-p-sm">Your strength is marketing, SEO, or development, and design holds the rest back.</p>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M219.21,160.24a6,6,0,0,0-5.78-.35,22,22,0,1,1-11.05-41.83,22.15,22.15,0,0,1,11.05,2.06A6,6,0,0,0,222,114.7V72a14,14,0,0,0-14-14H169.48a35,35,0,0,0,.52-6,34.1,34.1,0,0,0-10.73-24.78,33.64,33.64,0,0,0-25.45-9.15A34,34,0,0,0,102.54,58H64A14,14,0,0,0,50,72v34.53a34,34,0,0,0-30.79,10.2,34,34,0,0,0,22.31,57.18,34.34,34.34,0,0,0,8.48-.44V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V165.31A6,6,0,0,0,219.21,160.24ZM210,208a2,2,0,0,1-2,2H64a2,2,0,0,1-2-2V165.31a6,6,0,0,0-6-6,5.92,5.92,0,0,0-2.57.58,22,22,0,0,1-31.38-18.46,22,22,0,0,1,31.38-21.31A6,6,0,0,0,62,114.7V72a2,2,0,0,1,2-2h46.69a6,6,0,0,0,5.42-8.57,22.25,22.25,0,0,1-2-11,22,22,0,1,1,41.83,11A6,6,0,0,0,161.3,70H208a2,2,0,0,1,2,2v34.54a34,34,0,0,0-39.93,31.28,33.71,33.71,0,0,0,9.14,25.45A34.15,34.15,0,0,0,210,173.48Z"/></svg></span>
+            <p class="uxt-p">Specialist UX and UI that make your whole offer stronger.</p>
+          </div>
+        </div>
+        <div class="uxt-wl-fix-row">
+          <div class="uxt-wl-fix-problem">
+            <h3 class="uxt-h3-sm">Your name is on every deliverable.</h3>
+          </div>
+          <svg class="uxt-wl-fix-arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h22M19 8l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="uxt-wl-fix-answer">
+            <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z"/></svg></span>
+            <p class="uxt-p">NDA-backed, invisible to your clients, and deadlines we hold.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. WHITE LABEL SERVICES (service cards + CTA band) ================= -->
+  <div class="uxt-full uxt-section uxt-wl-services" id="services">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">White label services</p>
+  <h2 class="uxt-h2">White label design services</h2>
+  <p class="uxt-p">Three services, one team, all delivered under your brand.</p>
+</div>
+
+      <div class="uxt-wl-service-list">
+        <article class="uxt-wl-service-card" id="wl-web-design">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label web design</h3>
+              <p class="uxt-p uxt-p-sm">Websites and landing pages your clients will love and your developers can build without guesswork. We design around the action each page needs to drive, ready to build in Webflow, WordPress, or your stack of choice.</p>
+              <span class="uxt-accent uxt-accent-strong">What's included</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Marketing website design and redesigns</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Landing pages and campaign pages</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Conversion-focused layout and messaging structure</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Responsive design across devices</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Developer-ready, CMS-ready files</span></li>
+              </ul>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Marketing, SEO, and PPC agencies that sell websites and landing pages, and development shops that need design before the build.</p>
+            </div>
+          </div>
+          <div class="uxt-wl-service-visual">
+            <svg class="uxt-wl-scene" viewBox="0 0 518 518" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative: a landing page designed in the client's brand, with the brand colors and type applied and files ready for Webflow or WordPress">
+  <defs>
+    <clipPath id="wlweb-clip"><rect width="518" height="518" rx="8"/></clipPath>
+    <filter id="wlweb-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="wlweb-shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0A1B33" flood-opacity="0.22"/></filter>
+    <linearGradient id="wlweb-accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient>
+  </defs>
+  <g clip-path="url(#wlweb-clip)">
+  <rect width="518" height="518" fill="#0A1B33"/>
+  <circle cx="110" cy="100" r="160" fill="#A5ECFF" opacity="0.16" filter="url(#wlweb-glow)"/>
+  <circle cx="430" cy="430" r="150" fill="#00BFF2" opacity="0.16" filter="url(#wlweb-glow)"/>
+  <g filter="url(#wlweb-shadow)">
+    <rect x="40" y="64" width="380" height="480" rx="10" fill="#FFFFFF"/>
+  </g>
+  <rect x="40" y="64" width="380" height="30" rx="10" fill="#F2F3F8"/>
+  <rect x="40" y="84" width="380" height="10" fill="#F2F3F8"/>
+  <circle cx="56" cy="79" r="4" fill="#E6EAEE"/><circle cx="70" cy="79" r="4" fill="#E6EAEE"/><circle cx="84" cy="79" r="4" fill="#E6EAEE"/>
+  <rect x="140" y="73" width="180" height="12" rx="6" fill="#FFFFFF"/>
+  <text x="60" y="124" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="12" letter-spacing="1.5">HALDEN</text>
+  <rect x="220" y="117" width="34" height="5" rx="2.5" fill="#E6EAEE"/><rect x="262" y="117" width="34" height="5" rx="2.5" fill="#E6EAEE"/><rect x="304" y="117" width="34" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="350" y="111" width="50" height="17" rx="8.5" stroke="#0A1B33" stroke-width="1"/>
+  <text x="60" y="170" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="21">Plan every shipment</text>
+  <text x="60" y="195" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="21">in one place</text>
+  <rect x="60" y="210" width="170" height="5" rx="2.5" fill="#E6EAEE"/><rect x="60" y="222" width="130" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="60" y="240" width="96" height="28" rx="14" fill="#0A1B33"/>
+  <text x="108" y="258" font-family="Manrope, sans-serif" font-weight="600" font-size="10" fill="#FFFFFF" text-anchor="middle">Book a demo</text>
+  <rect x="56" y="236" width="104" height="36" rx="18" stroke="#00BFF2" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="262" y="146" width="138" height="122" rx="6" fill="#F2F3F8"/>
+  <circle cx="300" cy="186" r="12" fill="#E6EAEE"/><path d="M272 256l38-40 26 26 18-16 36 30" stroke="#C9D3DC" stroke-width="1.5" stroke-linejoin="round"/>
+  <rect x="60" y="300" width="104" height="80" rx="6" stroke="#E6EAEE"/><rect x="178" y="300" width="104" height="80" rx="6" stroke="#E6EAEE"/><rect x="296" y="300" width="104" height="80" rx="6" stroke="#E6EAEE"/>
+  <rect x="72" y="314" width="18" height="18" rx="4" fill="#F2F3F8"/><rect x="190" y="314" width="18" height="18" rx="4" fill="#F2F3F8"/><rect x="308" y="314" width="18" height="18" rx="4" fill="#F2F3F8"/>
+  <rect x="72" y="344" width="70" height="5" rx="2.5" fill="#E6EAEE"/><rect x="72" y="356" width="54" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="190" y="344" width="70" height="5" rx="2.5" fill="#E6EAEE"/><rect x="190" y="356" width="54" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="308" y="344" width="70" height="5" rx="2.5" fill="#E6EAEE"/><rect x="308" y="356" width="54" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="60" y="404" width="340" height="5" rx="2.5" fill="#F2F3F8"/><rect x="60" y="416" width="280" height="5" rx="2.5" fill="#F2F3F8"/>
+  <g filter="url(#wlweb-shadow)">
+    <rect x="300" y="168" width="196" height="118" rx="12" fill="#FFFFFF"/>
+  </g>
+  <text x="316" y="192" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">BRAND APPLIED</text>
+  <text x="316" y="232" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="30">Aa</text>
+  <text x="362" y="216" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Client type</text>
+  <text x="362" y="230" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">and colors</text>
+  <circle cx="324" cy="262" r="9" fill="#0A1B33"/><circle cx="348" cy="262" r="9" fill="#00BFF2"/><circle cx="372" cy="262" r="9" fill="url(#wlweb-accent)"/><circle cx="396" cy="262" r="9" fill="#F2F3F8" stroke="#E6EAEE"/>
+  <g filter="url(#wlweb-shadow)">
+    <rect x="236" y="404" width="254" height="84" rx="12" fill="#FFFFFF"/>
+  </g>
+  <text x="252" y="428" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">HANDOFF</text>
+  <text x="252" y="452" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="15">Webflow · WordPress</text>
+  <text x="252" y="472" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Responsive, developer-ready files</text>
+  <rect x="414" y="417" width="62" height="20" rx="10" fill="#E4F5D4"/>
+  <text x="445" y="431" font-family="Manrope, sans-serif" font-weight="600" font-size="9" fill="#22661A" text-anchor="middle">CMS-ready</text>
+  </g>
+</svg>
+          </div>
+        </article>
+        <article class="uxt-wl-service-card" id="wl-ux-design">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label UX design</h3>
+              <p class="uxt-p uxt-p-sm">Product and app design for the SaaS platforms, dashboards, and mobile apps your clients are building. The work is grounded in how real users move through a product, so it holds up after launch.</p>
+              <span class="uxt-accent uxt-accent-strong">What's included</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">User flows and wireframes</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UI design for web and mobile apps</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Interactive prototypes</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Design systems and component libraries</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Developer handoff and design QA</span></li>
+              </ul>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Development and product agencies building software for clients, and agencies adding product design to their offer.</p>
+            </div>
+          </div>
+          <div class="uxt-wl-service-visual">
+            <svg class="uxt-wl-scene" viewBox="0 0 518 518" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative: a user flow from sign up to dashboard, with the SaaS dashboard and mobile app screen designed from it">
+  <defs>
+    <clipPath id="wlux-clip"><rect width="518" height="518" rx="8"/></clipPath>
+    <filter id="wlux-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="wlux-shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0A1B33" flood-opacity="0.22"/></filter>
+    <linearGradient id="wlux-accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient>
+  </defs>
+  <g clip-path="url(#wlux-clip)">
+  <rect width="518" height="518" fill="#0A1B33"/>
+  <circle cx="110" cy="100" r="160" fill="#A5ECFF" opacity="0.16" filter="url(#wlux-glow)"/>
+  <circle cx="430" cy="430" r="150" fill="#00BFF2" opacity="0.16" filter="url(#wlux-glow)"/>
+  <g filter="url(#wlux-shadow)">
+    <rect x="32" y="56" width="372" height="300" rx="10" fill="#FFFFFF"/>
+  </g>
+  <rect x="32" y="56" width="76" height="300" rx="10" fill="#F2F3F8"/>
+  <rect x="98" y="56" width="10" height="300" fill="#F2F3F8"/>
+  <circle cx="54" cy="80" r="8" fill="#0A1B33"/>
+  <rect x="46" y="108" width="48" height="16" rx="5" fill="#0A1B33"/>
+  <rect x="46" y="134" width="48" height="6" rx="3" fill="#E6EAEE"/><rect x="46" y="152" width="40" height="6" rx="3" fill="#E6EAEE"/><rect x="46" y="170" width="44" height="6" rx="3" fill="#E6EAEE"/><rect x="46" y="188" width="36" height="6" rx="3" fill="#E6EAEE"/>
+  <text x="124" y="86" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="14">Shipments</text>
+  <rect x="330" y="74" width="58" height="18" rx="9" fill="#0A1B33"/><text x="359" y="86" font-family="Manrope, sans-serif" font-weight="600" font-size="8" fill="#FFFFFF" text-anchor="middle">New order</text>
+  <rect x="124" y="104" width="80" height="54" rx="6" stroke="#E6EAEE"/><rect x="214" y="104" width="80" height="54" rx="6" stroke="#E6EAEE"/><rect x="304" y="104" width="84" height="54" rx="6" stroke="#E6EAEE"/>
+  <text x="134" y="122" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8">In transit</text><text x="134" y="145" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="15">1,284</text>
+  <text x="224" y="122" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8">On time</text><text x="224" y="145" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="15">96%</text>
+  <text x="314" y="122" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8">Avg. delivery</text><text x="314" y="145" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="15">4.2 days</text>
+  <rect x="124" y="170" width="264" height="104" rx="6" stroke="#E6EAEE"/>
+  <path d="M136 252l30-18 30 8 30-26 30 10 30-30 30 12 30-22" stroke="#00BFF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136 252l30-18 30 8 30-26 30 10 30-30 30 12 30-22V264H136Z" fill="#00BFF2" opacity="0.08"/>
+  <rect x="124" y="288" width="264" height="5" rx="2.5" fill="#E6EAEE"/><rect x="124" y="304" width="220" height="5" rx="2.5" fill="#F2F3F8"/><rect x="124" y="320" width="240" height="5" rx="2.5" fill="#F2F3F8"/>
+  <g filter="url(#wlux-shadow)">
+    <rect x="340" y="150" width="150" height="300" rx="22" fill="#FFFFFF"/>
+  </g>
+  <rect x="345.75" y="155.75" width="138.5" height="288.5" rx="17" stroke="#E6EAEE" stroke-width="1.5"/>
+  <rect x="395" y="164" width="40" height="6" rx="3" fill="#E6EAEE"/>
+  <text x="356" y="196" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="13">Track order</text>
+  <rect x="356" y="208" width="118" height="92" rx="8" fill="#F2F3F8"/>
+  <circle cx="370" cy="226" r="5" fill="#0A1B33"/><circle cx="370" cy="252" r="5" fill="#0A1B33"/><circle cx="370" cy="278" r="5" fill="url(#wlux-accent)" stroke="#0A1B33" stroke-width="1.5"/>
+  <path d="M370 231v16M370 257v16" stroke="#0A1B33" stroke-width="1.5"/>
+  <rect x="384" y="223" width="66" height="5" rx="2.5" fill="#C9D3DC"/><rect x="384" y="249" width="56" height="5" rx="2.5" fill="#C9D3DC"/><rect x="384" y="275" width="72" height="5" rx="2.5" fill="#0A1B33"/>
+  <rect x="356" y="314" width="118" height="5" rx="2.5" fill="#E6EAEE"/><rect x="356" y="326" width="90" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="356" y="400" width="118" height="28" rx="14" fill="#0A1B33"/>
+  <text x="415" y="418" font-family="Manrope, sans-serif" font-weight="600" font-size="10" fill="#FFFFFF" text-anchor="middle">Confirm delivery</text>
+  <g filter="url(#wlux-shadow)">
+    <rect x="32" y="384" width="292" height="104" rx="12" fill="#FFFFFF"/>
+  </g>
+  <text x="48" y="408" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">USER FLOW</text>
+  <rect x="48" y="424" width="68" height="28" rx="14" stroke="#0A1B33" stroke-width="1.5"/><text x="82" y="442" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="10" text-anchor="middle">Sign up</text>
+  <path d="M120 438h16M131 433l5 5-5 5" stroke="#6F7680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="140" y="424" width="76" height="28" rx="14" fill="url(#wlux-accent)" stroke="#0A1B33" stroke-width="1.5"/><text x="178" y="442" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="10" text-anchor="middle">Onboard</text>
+  <path d="M220 438h16M231 433l5 5-5 5" stroke="#6F7680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="240" y="424" width="72" height="28" rx="14" stroke="#0A1B33" stroke-width="1.5"/><text x="276" y="442" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="10" text-anchor="middle">Dashboard</text>
+  <text x="48" y="474" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Wireframes, prototype and design QA</text>
+  </g>
+</svg>
+          </div>
+        </article>
+        <article class="uxt-wl-service-card" id="wl-ux-audits">
+          <div class="uxt-wl-service-text">
+            <div class="uxt-wl-service-main">
+              <h3 class="uxt-h3 uxt-wl-service-title">White label UX audits</h3>
+              <p class="uxt-p uxt-p-sm">Give your clients a clear, credible read on what's holding their product or website back. The report carries your brand, and the findings come with a prioritized plan your team can sell and deliver.</p>
+              <span class="uxt-accent uxt-accent-strong">What your clients get</span>
+              <ul class="uxt-wl-points">
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">UX and Conversion Audit report, branded as yours</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Prioritized improvement roadmap</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Key friction-point analysis</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Actionable recommendations</span></li>
+                  <li><svg class="uxt-wl-bullet" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="uxt-p">Walkthrough support for your client presentation</span></li>
+              </ul>
+                <p class="uxt-p uxt-p-xs uxt-wl-service-aside">Audexa, our AI tool, helps us move fast; the judgment stays human.</p>
+            </div>
+            <div class="uxt-wl-fit">
+              <span class="uxt-accent">Where it fits</span>
+              <p class="uxt-p uxt-p-sm">Agencies that want a paid entry offer for new clients, or a clear way to scope a redesign before quoting it.</p>
+            </div>
+              <a href="#" class="uxt-button uxt-button-secondary">
+  <span class="uxt-button-label">See a Sample Report</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+          </div>
+          <div class="uxt-wl-service-visual">
+            <svg class="uxt-wl-scene" viewBox="0 0 518 518" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative: a UX and conversion audit report branded with your agency's logo, a problem flagged on a checkout page, and a prioritized roadmap">
+  <defs>
+    <clipPath id="wlaudit-clip"><rect width="518" height="518" rx="8"/></clipPath>
+    <filter id="wlaudit-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="35"/></filter>
+    <filter id="wlaudit-shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0A1B33" flood-opacity="0.22"/></filter>
+    <linearGradient id="wlaudit-accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient>
+  </defs>
+  <g clip-path="url(#wlaudit-clip)">
+  <rect width="518" height="518" fill="#0A1B33"/>
+  <circle cx="110" cy="100" r="160" fill="#A5ECFF" opacity="0.16" filter="url(#wlaudit-glow)"/>
+  <circle cx="430" cy="430" r="150" fill="#00BFF2" opacity="0.16" filter="url(#wlaudit-glow)"/>
+  <g filter="url(#wlaudit-shadow)">
+    <rect x="32" y="48" width="238" height="330" rx="10" fill="#FFFFFF"/>
+  </g>
+  <circle cx="58" cy="76" r="10" fill="url(#wlaudit-accent)" stroke="#0A1B33" stroke-width="1.5"/>
+  <text x="76" y="80" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#0A1B33" font-size="8">YOUR AGENCY</text>
+  <text x="48" y="122" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="17">UX and Conversion</text>
+  <text x="48" y="144" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="17">Audit</text>
+  <text x="48" y="164" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Prepared for Halden</text>
+  <circle cx="80" cy="214" r="28" stroke="#E6EAEE" stroke-width="6"/>
+  <path d="M80 186a28 28 0 1 1-27.4 33.8" stroke="#00BFF2" stroke-width="6" stroke-linecap="round"/>
+  <text x="80" y="220" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="17" text-anchor="middle">62</text>
+  <text x="124" y="208" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">UX SCORE</text>
+  <text x="124" y="226" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="12">Needs work</text>
+  <rect x="48" y="262" width="206" height="1" fill="#E6EAEE"/>
+  <text x="48" y="284" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">TOP FINDINGS</text>
+  <rect x="48" y="296" width="36" height="15" rx="7.5" fill="#E5484D" opacity="0.12"/><text x="66" y="306.5" font-family="Manrope, sans-serif" font-weight="600" font-size="8" fill="#C62F35" text-anchor="middle">High</text>
+  <rect x="94" y="301" width="130" height="5" rx="2.5" fill="#C9D3DC"/>
+  <rect x="48" y="320" width="36" height="15" rx="7.5" fill="#F2F3F8"/><text x="66" y="330.5" font-family="Manrope, sans-serif" font-weight="600" font-size="8" fill="#5C6D85" text-anchor="middle">Med</text>
+  <rect x="94" y="325" width="110" height="5" rx="2.5" fill="#E6EAEE"/>
+  <rect x="48" y="344" width="36" height="15" rx="7.5" fill="#F2F3F8"/><text x="66" y="354.5" font-family="Manrope, sans-serif" font-weight="600" font-size="8" fill="#5C6D85" text-anchor="middle">Low</text>
+  <rect x="94" y="349" width="120" height="5" rx="2.5" fill="#E6EAEE"/>
+  <g filter="url(#wlaudit-shadow)">
+    <rect x="236" y="128" width="252" height="236" rx="10" fill="#FFFFFF"/>
+  </g>
+  <rect x="236" y="128" width="252" height="26" rx="10" fill="#F2F3F8"/><rect x="236" y="144" width="252" height="10" fill="#F2F3F8"/>
+  <circle cx="250" cy="141" r="3.5" fill="#E6EAEE"/><circle cx="262" cy="141" r="3.5" fill="#E6EAEE"/><circle cx="274" cy="141" r="3.5" fill="#E6EAEE"/>
+  <text x="254" y="180" font-family="Aeonik, Manrope, sans-serif" font-weight="500" fill="#0A1B33" font-size="13">Checkout</text>
+  <rect x="254" y="192" width="216" height="24" rx="4.5" stroke="#C9D3DC"/><rect x="264" y="202" width="70" height="4" rx="2" fill="#E6EAEE"/>
+  <rect x="254" y="224" width="216" height="24" rx="4.5" stroke="#C9D3DC"/><rect x="264" y="234" width="90" height="4" rx="2" fill="#E6EAEE"/>
+  <text x="254" y="272" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Subtotal</text><text x="470" y="272" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9" text-anchor="end">$240.00</text>
+  <rect x="248" y="280" width="228" height="24" rx="4" fill="#E5484D" fill-opacity="0.05" stroke="#E5484D" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="254" y="296" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Shipping</text><text x="470" y="296" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9" text-anchor="end">Calculated later</text>
+  <circle cx="476" cy="280" r="7" fill="#C62F35" stroke="#FFFFFF" stroke-width="2.5"/>
+  <rect x="254" y="320" width="216" height="26" rx="13" fill="#0A1B33"/>
+  <text x="362" y="337" font-family="Manrope, sans-serif" font-weight="600" font-size="10" fill="#FFFFFF" text-anchor="middle">Place order</text>
+  <g filter="url(#wlaudit-shadow)">
+    <rect x="148" y="392" width="340" height="98" rx="12" fill="#FFFFFF"/>
+  </g>
+  <text x="164" y="416" font-family="Besley, serif" font-weight="500" letter-spacing="1.2" fill="#6F7680" font-size="8">PRIORITIZED ROADMAP</text>
+  <text x="164" y="440" font-family="Manrope, sans-serif" fill="#0A1B33" font-size="9">Show shipping costs early</text><rect x="320" y="433" width="120" height="8" rx="4" fill="url(#wlaudit-accent)" stroke="#0A1B33" stroke-width="1"/><text x="472" y="440" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8" text-anchor="end">Now</text>
+  <text x="164" y="458" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Shorten the sign up form</text><rect x="350" y="451" width="90" height="8" rx="4" fill="#E6EAEE"/><text x="472" y="458" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8" text-anchor="end">Next</text>
+  <text x="164" y="476" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="9">Clarify the pricing table</text><rect x="380" y="469" width="60" height="8" rx="4" fill="#F2F3F8"/><text x="472" y="476" font-family="Manrope, sans-serif" fill="#5C6D85" font-size="8" text-anchor="end">Later</text>
+  </g>
+</svg>
+          </div>
+        </article>
+      </div>
+
+      <div class="uxt-wl-band">
+        <div class="uxt-wl-band-text">
+          <h3 class="uxt-h3">Need something outside these three?</h3>
+          <p class="uxt-p uxt-p-sm">Tell us what your client needs, and we'll let you know if we can help.</p>
+        </div>
+        <a href="#book-call" class="uxt-button uxt-button-primary">
+  <span class="uxt-button-label">Book a Discovery Call</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 4. HOW THE PARTNERSHIP WORKS (process section, white label steps) ================= -->
+  <div class="uxt-full uxt-section uxt-process">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">How the partnership works</p>
+  <h2 class="uxt-h2">Invisible by design</h2>
+  <p class="uxt-p">We work as a quiet extension of your team. Here's how it goes.</p>
+</div>
+
+      <div class="uxt-steps">
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-wl-step-svg" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 1 Scope. Curated from Phosphor clipboard-text: a brief on a clipboard, the board in G4. -->
+<rect x="13" y="9.75" width="38" height="47.5" rx="5" fill="url(#gwlscope)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="23" y="5.75" width="18" height="8" rx="3" fill="#FFFFFF" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 26h22M21 34h22M21 42h13" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gwlscope" x1="13" y1="10" x2="51" y2="57" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg></div>
+          <span class="uxt-accent">1.&nbsp; Scope</span>
+          <h3 class="uxt-h3">Scope together.</h3>
+          <p class="uxt-p">You share the brief, the timeline, and the client context. We confirm what we'll deliver and when.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-wl-step-svg" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 2 Design under your brand. Curated from Phosphor browser and tag: a page with the agency's label in G4. -->
+<rect x="7.75" y="11.75" width="48.5" height="40.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.75 21.75h48.5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="15.75" y="29.75" width="20" height="14.5" rx="3" fill="url(#gwldesign)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 31h7M42 37h7M42 43h4" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gwldesign" x1="16" y1="30" x2="36" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg></div>
+          <span class="uxt-accent">2.&nbsp; Design</span>
+          <h3 class="uxt-h3">We design under your brand.</h3>
+          <p class="uxt-p">Our team works in your tools and to your client's brand guidelines.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-wl-step-svg" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 3 You review first. Curated from Phosphor eye: the eye over a frame, the iris in G4. -->
+<path d="M5.75 32C11 21.5 20.5 15.75 32 15.75S53 21.5 58.25 32C53 42.5 43.5 48.25 32 48.25S11 42.5 5.75 32Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="32" r="9.25" fill="url(#gwlreview)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="32" r="2.5" fill="#0A1B33"/>
+<defs><linearGradient id="gwlreview" x1="23" y1="23" x2="41" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg></div>
+          <span class="uxt-accent">3.&nbsp; Review</span>
+          <h3 class="uxt-h3">You review first.</h3>
+          <p class="uxt-p">You see every design before your client does, on your schedule.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-wl-step-svg" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 4 Clean handoff. Curated from Phosphor folder and stack: organized files, the front folder in G4. -->
+<path d="M14.75 14.75h12l4 5h18.5a3 3 0 0 1 3 3v4.5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.75 27.75a3 3 0 0 1 3-3h11l4 5h26.5a3 3 0 0 1 3 3v17.5a3 3 0 0 1-3 3h-41.5a3 3 0 0 1-3-3Z" fill="url(#gwlhandoff)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22 42h20" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gwlhandoff" x1="9" y1="25" x2="56" y2="53" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg></div>
+          <span class="uxt-accent">4.&nbsp; Handoff</span>
+          <h3 class="uxt-h3">Clean handoff.</h3>
+          <p class="uxt-p">Organized, production-ready files for your developers, or ours.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-wl-step-svg" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 5 Ongoing support. Curated from Phosphor arrows-clockwise: a loop around new work, the centre in G4. -->
+<path d="M50.5 24.5A20.25 20.25 0 0 0 14.5 21.5M13.5 39.5a20.25 20.25 0 0 0 36 3" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.25 13.75v11h-11M12.75 50.25v-11h11" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="32" r="8.25" fill="url(#gwlsupport)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M32 28.5v7M28.5 32h7" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gwlsupport" x1="24" y1="24" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg></div>
+          <span class="uxt-accent">5.&nbsp; Support</span>
+          <h3 class="uxt-h3">Ongoing support.</h3>
+          <p class="uxt-p">Revisions, new pages, and follow-on work as your client grows.</p>
+        </div>
+      </div>
+
+      <div class="uxt-wl-process-note">
+        <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,82H174V56a46,46,0,0,0-92,0V82H48A14,14,0,0,0,34,96V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V96A14,14,0,0,0,208,82ZM94,56a34,34,0,0,1,68,0V82H94ZM210,208a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V96a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Zm-82-94a26,26,0,0,0-6,51.29V184a6,6,0,0,0,12,0V165.29A26,26,0,0,0,128,114Zm0,40a14,14,0,1,1,14-14A14,14,0,0,1,128,154Z"/></svg></span>
+        <div>
+          <span class="uxt-accent">Confidentiality</span>
+          <p class="uxt-p uxt-p-sm">We sign an NDA before we see any client work. Our name never appears on your files, decks, or anything your client sees, and we never contact your clients directly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 5. HELP WINNING THE WORK (Warm Glow band) ================= -->
+  <div class="uxt-full uxt-section uxt-wl-win">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">Pre-sales support</p>
+  <h2 class="uxt-h2">We help you win the work, too</h2>
+  <p class="uxt-p">Design partners usually show up after the deal is signed. We can join earlier.</p>
+</div>
+
+      <div class="uxt-wl-win-grid">
+        <div class="uxt-wl-win-item">
+          <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,42H134V24a6,6,0,0,0-12,0V42H40A14,14,0,0,0,26,56V176a14,14,0,0,0,14,14H83.52L59.31,220.25a6,6,0,0,0,9.38,7.5L98.88,190h58.24l30.19,37.75a6,6,0,0,0,9.38-7.5L172.48,190H216a14,14,0,0,0,14-14V56A14,14,0,0,0,216,42Zm2,134a2,2,0,0,1-2,2H40a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2H216a2,2,0,0,1,2,2ZM102,120v24a6,6,0,0,1-12,0V120a6,6,0,0,1,12,0Zm32-16v40a6,6,0,0,1-12,0V104a6,6,0,0,1,12,0Zm32-16v56a6,6,0,0,1-12,0V88a6,6,0,0,1,12,0Z"/></svg></span>
+          <h3 class="uxt-h3-sm">Pitch support</h3>
+          <p class="uxt-p">Concept designs and visual direction for proposals.</p>
+        </div>
+        <div class="uxt-wl-win-item">
+          <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M176,58H80a6,6,0,0,0-6,6v48a6,6,0,0,0,6,6h96a6,6,0,0,0,6-6V64A6,6,0,0,0,176,58Zm-6,48H86V70h84Zm30-80H56A14,14,0,0,0,42,40V216a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V40A14,14,0,0,0,200,26Zm2,190a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V40a2,2,0,0,1,2-2H200a2,2,0,0,1,2,2ZM98,148a10,10,0,1,1-10-10A10,10,0,0,1,98,148Zm40,0a10,10,0,1,1-10-10A10,10,0,0,1,138,148Zm40,0a10,10,0,1,1-10-10A10,10,0,0,1,178,148ZM98,188a10,10,0,1,1-10-10A10,10,0,0,1,98,188Zm40,0a10,10,0,1,1-10-10A10,10,0,0,1,138,188Zm40,0a10,10,0,1,1-10-10A10,10,0,0,1,178,188Z"/></svg></span>
+          <h3 class="uxt-h3-sm">Estimates</h3>
+          <p class="uxt-p">Realistic scope and timelines you can quote with confidence.</p>
+        </div>
+        <div class="uxt-wl-win-item">
+          <span class="uxt-wl-icon-tile"><svg width="32" height="32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,42H40A14,14,0,0,0,26,56V200a14,14,0,0,0,14,14H216a14,14,0,0,0,14-14V56A14,14,0,0,0,216,42Zm2,14v66H166V54h50A2,2,0,0,1,218,56ZM38,200V56a2,2,0,0,1,2-2H154V202H40A2,2,0,0,1,38,200Zm178,2H166V134h52v66A2,2,0,0,1,216,202ZM182,88a10,10,0,1,1,10,10A10,10,0,0,1,182,88Zm20,80a10,10,0,1,1-10-10A10,10,0,0,1,202,168Zm-68.19-1.49A38,38,0,0,0,115.23,143a30,30,0,1,0-38.45,0A38,38,0,0,0,58.19,166.5a6,6,0,0,0,11.62,3C72.67,158.38,83.93,150,96,150s23.34,8.38,26.19,19.49a6,6,0,0,0,11.62-3ZM78,120a18,18,0,1,1,18,18A18,18,0,0,1,78,120Z"/></svg></span>
+          <h3 class="uxt-h3-sm">Client calls</h3>
+          <p class="uxt-p">We can join discovery and review calls as part of your team, under your brand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 6. WAYS TO PARTNER (engage section, four columns) ================= -->
+  <div class="uxt-full uxt-section uxt-engage">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">Ways to partner</p>
+  <h2 class="uxt-h2">A partnership that fits your agency</h2>
+</div>
+
+      <div class="uxt-engage-grid">
+        <div class="uxt-engage-item">
+          <h3 class="uxt-h3">Project-based</h3>
+          <span class="uxt-accent">For agencies handling a spike in work</span>
+          <p class="uxt-p">Overflow capacity for a specific client or deadline.</p>
+        </div>
+        <div class="uxt-engage-item">
+          <h3 class="uxt-h3">Dedicated partnership</h3>
+          <span class="uxt-accent">For agencies with steady client demand</span>
+          <p class="uxt-p">Ongoing design capacity you can count on every month.</p>
+        </div>
+        <div class="uxt-engage-item">
+          <h3 class="uxt-h3">Team extension</h3>
+          <span class="uxt-accent">For agencies who want us to feel in-house</span>
+          <p class="uxt-p">Designers embedded in your team and your tools.</p>
+        </div>
+        <div class="uxt-engage-item">
+          <h3 class="uxt-h3">Hourly blocks</h3>
+          <span class="uxt-accent">For agencies who want flexibility without a fixed commitment</span>
+          <p class="uxt-p">Pre-purchased design hours you use as needed.</p>
+        </div>
+      </div>
+
+      <div class="uxt-wl-center">
+        <a href="/how-we-work/" class="uxt-button uxt-button-primary">
+  <span class="uxt-button-label">See Engagement Terms and Pricing</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+      </div>
+    </div>
+  </div>
+
+<!-- ================= 7. PARTNERSHIP STORIES (approved stories section, heading from the page copy) ================= -->
+  <div class="uxt-full uxt-section uxt-stories">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Agency owners voices</p>
+        <h2 class="uxt-h2">Agencies that scaled with us</h2>
+        <p class="uxt-p">How agencies grew their design delivery without growing their headcount.</p>
+      </div>
+
+      <div class="uxt-story-feature">
+        <div class="uxt-story-video">
+          <img src="https://new.ux.team/wp-content/uploads/2026/10/Brent-Weaver-CEO-Founder-img1.webp" alt="Brent Weaver">
+          <div class="uxt-story-person">
+            <p class="uxt-h3 uxt-white">Brent Weaver</p>
+            <span class="uxt-accent uxt-white">CEO</span>
+          </div>
+          <a href="https://new.ux.team/wp-content/uploads/2026/10/E2M-Brent-Weaver-CEO-Founder.mp4" class="uxt-play" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>
+          </a>
+        </div>
+        <a href="/success-story/transforming-brand-identity-into-a-high-performance-website-experience/" class="uxt-story-body uxt-button-trigger uxt-story-link" aria-label="Read story">
+          <div class="uxt-story-top">
+            <img class="uxt-story-logo" src="https://new.ux.team/wp-content/uploads/2026/10/e2m-homepage.svg" alt="E2M">
+            <span class="uxt-accent uxt-text-right">Digital Agency<br>USA · India</span>
+          </div>
+          <h3 class="uxt-h3 uxt-story-title">Transforming a Strong Brand Identity into a High-Performance Website Experience</h3>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="uxt-story-grid">
+        <a href="/success-story/premium-ux-strategy-partnership-for-a-digital-product-studio/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img class="uxt-story-card-logo" src="https://new.ux.team/wp-content/uploads/2026/10/sqc-homepage.svg" alt="SQC">
+          <h3 class="uxt-h3">Premium UX Strategy Partnership for a Digital Product Studio</h3>
+          <span class="uxt-accent">AI Transformation Studio<br>USA · India</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+        <a href="/success-story/helping-a-digital-transformation-company-scale-design-delivery/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img class="uxt-story-card-logo uxt-logo-wide" src="https://new.ux.team/wp-content/uploads/2026/10/section-homepage.svg" alt="Section">
+          <h3 class="uxt-h3">Helping a digital transformation company scale design delivery</h3>
+          <span class="uxt-accent">Digital Experience Agency<br>Singapore</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+        <a href="/success-story/helping-a-creative-agency-scale-design-delivery-through-ux-ui-partnership/" class="uxt-story-card uxt-story-link" aria-label="Read story">
+          <img class="uxt-story-card-logo" src="https://new.ux.team/wp-content/uploads/2026/10/rbbi-homepage.svg" alt="RBBi">
+          <h3 class="uxt-h3">Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership</h3>
+          <span class="uxt-accent">Digital Experience Agency<br>Dubai</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="uxt-wl-center">
+        <a href="/success-story/" class="uxt-button uxt-button-primary">
+  <span class="uxt-button-label">Read Partnership Stories</span>
+  <span class="uxt-button-circle">
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 8. COMPARISON TABLE ================= -->
+  <div class="uxt-full uxt-section uxt-wl-compare">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+  <p class="uxt-subheading underline-sky-blue">Comparison</p>
+  <h2 class="uxt-h2">How a specialist design partner compares</h2>
+  <p class="uxt-p">There's more than one way to add design capacity. Here's how they compare.</p>
+</div>
+
+      <div class="uxt-wl-table-wrap" role="region" aria-label="Comparison of ways to add design capacity" tabindex="0">
+        <table class="uxt-wl-table">
+          <colgroup><col class="uxt-wl-col-label"><col><col><col><col></colgroup>
+          <thead>
+            <tr>
+              <th scope="col" class="uxt-accent">What matters</th>
+              <th scope="col" class="uxt-wl-th uxt-wl-us">UXTeam</th>
+              <th scope="col" class="uxt-wl-th">Freelancers</th>
+              <th scope="col" class="uxt-wl-th">Generalist white label agency</th>
+              <th scope="col" class="uxt-wl-th">Hiring in-house</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="uxt-accent">Focus</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Design specialists</td>
+              <td class="uxt-p uxt-p-xs">One skill per person</td>
+              <td class="uxt-p uxt-p-xs">Design is one of many services</td>
+              <td class="uxt-p uxt-p-xs">Depends on the hire</td>
+            </tr>
+            <tr>
+              <th scope="row" class="uxt-accent">Consistency</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">One standard on every project</td>
+              <td class="uxt-p uxt-p-xs">Varies person to person</td>
+              <td class="uxt-p uxt-p-xs">Varies by team assigned</td>
+              <td class="uxt-p uxt-p-xs">Strong once established</td>
+            </tr>
+            <tr>
+              <th scope="row" class="uxt-accent">Time to start</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">[confirm X] days</td>
+              <td class="uxt-p uxt-p-xs">Fast, if available</td>
+              <td class="uxt-p uxt-p-xs">Depends on their workload</td>
+              <td class="uxt-p uxt-p-xs">Months to hire and onboard</td>
+            </tr>
+            <tr>
+              <th scope="row" class="uxt-accent">Confidentiality</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">NDA, never in front of your clients</td>
+              <td class="uxt-p uxt-p-xs">Varies</td>
+              <td class="uxt-p uxt-p-xs">Varies</td>
+              <td class="uxt-p uxt-p-xs">Fully in-house</td>
+            </tr>
+            <tr>
+              <th scope="row" class="uxt-accent">Pre-sales support</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Pitches, estimates, client calls</td>
+              <td class="uxt-p uxt-p-xs">Rarely</td>
+              <td class="uxt-p uxt-p-xs">Rarely</td>
+              <td class="uxt-p uxt-p-xs">Yes, if they have time</td>
+            </tr>
+            <tr>
+              <th scope="row" class="uxt-accent">Flexibility</th>
+              <td class="uxt-p uxt-p-xs uxt-wl-us">Scale up or down by engagement</td>
+              <td class="uxt-p uxt-p-xs">Flexible, hard to coordinate</td>
+              <td class="uxt-p uxt-p-xs">Often locked into contracts</td>
+              <td class="uxt-p uxt-p-xs">Fixed headcount</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 9. AGENCY FAQ (approved FAQ section) ================= -->
+  <div class="uxt-full uxt-section uxt-faq">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Agency FAQ</p>
+        <h2 class="uxt-h2">What we observe, think, and learn</h2>
+      </div>
+
+      <div class="uxt-faq-grid">
+        <div class="uxt-faq-col">
+          <span class="uxt-accent uxt-accent-strong">White label basics</span>
+          <div class="uxt-faq-list">
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-1" aria-expanded="false"><h3 class="uxt-h3-sm">What is a white label design agency?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-1" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">A white label design agency does design work that another agency delivers to its clients under its own brand. The agency keeps the client relationship, and the design partner works behind the scenes.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-2" aria-expanded="false"><h3 class="uxt-h3-sm">What white label design services do you offer?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-2" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">White label web design, UX and product design, and UX audits. We also cover design systems and conversion optimization for agency clients.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-3" aria-expanded="false"><h3 class="uxt-h3-sm">How does white label web design work with UXTeam?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-3" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">You share the brief and client context. We design the site under your brand, you review it first, and we hand off production-ready files to your developers or ours.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-4" aria-expanded="false"><h3 class="uxt-h3-sm">Will our clients ever know you're involved?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-4" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">No. We sign an NDA before we start, our name never appears on anything your client sees, and we never contact your clients directly.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-5" aria-expanded="false"><h3 class="uxt-h3-sm">Can you join client calls under our brand?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-5" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. We can join discovery, pitch, and review calls as part of your team when it helps.</p></div></div>
+</div>
+          </div>
+        </div>
+
+        <div class="uxt-faq-col">
+          <span class="uxt-accent uxt-accent-strong">Working together</span>
+          <div class="uxt-faq-list">
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-6" aria-expanded="true"><h3 class="uxt-h3-sm">Can we brand the UX audit reports as our own?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-6"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. White label UX audit reports carry your agency's branding.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-7" aria-expanded="false"><h3 class="uxt-h3-sm">How do you price white label design work?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-7" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">By engagement: per project, an ongoing monthly partnership, team extension, or pre-purchased hourly blocks. We'll recommend the right fit on a discovery call.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-8" aria-expanded="false"><h3 class="uxt-h3-sm">How fast can you start?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-8" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Most partnerships begin within [confirm X] days of a signed NDA and an agreed scope.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-9" aria-expanded="false"><h3 class="uxt-h3-sm">Do you work in our tools and process?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-9" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. We work in your project management tools, communication channels, and file structure.</p></div></div>
+</div>
+            <div class="uxt-faq-item">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-10" aria-expanded="false"><h3 class="uxt-h3-sm">Do you build websites, or design only?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-10" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">We design and hand off clean, production-ready files, and design CMS-ready for Webflow and WordPress. [confirm with Chintan: design only, or design and build]</p></div></div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book a Discovery Call and the footer come from the footer global section
+       (src/global/footer-global.html). Buttons with href="#book-call" scroll to it. -->
+
+</div>
+
+<!-- ============================================================
+     UXTEAM FOOTER GLOBAL SECTION
+     Paste this whole file into one Salient "Raw HTML" element in
+     your footer global section. It holds two parts:
+       1. Book a Discovery Call (shows above the footer on every page)
+       2. Main footer
+     CSS: uxteam-site.css, PART E (Book a call) and PART D (footer).
+     The form sends through uxteam-discovery-form.php.
+     ============================================================ -->
+
+<!-- ================= 1. BOOK A DISCOVERY CALL ================= -->
+<section class="uxt-full uxt-section uxt-cta" id="book-call">
+  <div class="uxt-container">
+    <div class="uxt-cta-box">
+
+      <!-- TOP: heading -->
+      <div class="cta-top">
+        <div class="uxt-heading uxt-cta-heading">
+          <p class="uxt-subheading underline-white">Book a discovery call</p>
+          <h2 class="uxt-h2">Let's talk about what you're building.</h2>
+        </div>
+      </div>
+
+      <!-- BOTTOM: left photo, right facts and form -->
+      <div class="cta-bottom">
+
+        <!-- Left: large founder photo (desktop only), bottom aligned -->
+        <div class="cta-bottom-left">
+          <img class="uxt-cta-founder" src="https://new.ux.team/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="Chintan Bhatt, Founder of UXTeam" loading="lazy">
+        </div>
+
+        <!-- Right: founder name, facts and form -->
+        <div class="cta-bottom-right uxt-cta-body">
+
+          <!-- Founder name and facts -->
+          <div class="uxt-cta-info">
+            <!-- Small founder photo, tablet and mobile only -->
+            <div class="uxt-cta-photo"><img src="https://new.ux.team/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="uxt-cta-person">
+              <p class="uxt-cta-name">Chintan Bhatt</p>
+              <span class="uxt-cta-role">Founder, UXTeam</span>
+            </div>
+              <p class="uxt-cta-description">
+                Tell us about your product, your website, or the experience you want to improve, and we'll recommend the right place to start.
+              </p>
+          </div>
+
+          <!-- Form, then success message after sending -->
+          <div class="uxt-cta-form-wrap">
+            <form class="uxt-cta-form" id="uxt-discovery-form" novalidate="">
+              <label><span class="uxt-label">Full name</span><input type="text" name="full_name" placeholder="John Anderson" autocomplete="name" maxlength="100"></label>
+              <label><span class="uxt-label">Work email*</span><input type="email" name="work_email" placeholder="johna@agencywebsite.com" autocomplete="email" maxlength="150" required=""></label>
+              <label><span class="uxt-label">Company website</span><input type="text" name="company_website" placeholder="www.agencywebsite.com" autocomplete="url" maxlength="200"></label>
+              <!-- Spam trap, keep it hidden -->
+              <input type="text" name="uxt_hp" class="uxt-cta-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <p class="uxt-cta-error" role="alert" aria-live="polite"></p>
+              <button type="submit" class="uxt-button uxt-button-primary">
+                <span class="uxt-button-label">Book a Discovery Call</span>
+                <span class="uxt-button-circle">
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </span>
+              </button>
+            </form>
+
+            <div class="uxt-cta-success" hidden="">
+              <svg class="uxt-cta-success-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0d1315"></circle><path d="M15 24.5l6 6 12-13" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <p class="uxt-label">Your request has been submitted.<br>We’ll get back to you shortly.</p>
+              <!-- Shown while we move to Calendly; also works as a direct link -->
+              <a class="uxt-cta-cal-link" href="https://calendly.com/chintanuxteam">Taking you to Calendly to pick a time</a>
+              <button type="button" class="uxt-button uxt-button-primary uxt-cta-again">
+                <span class="uxt-button-label">Book Another Discovery Call</span>
+                <span class="uxt-button-circle">
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Discovery call form: sends to WordPress, shows the success message
+   for 2 seconds, then goes to Calendly in the same tab */
+(function () {
+  var CALENDLY_URL = 'https://calendly.com/chintanuxteam';
+  var REDIRECT_DELAY = 2000; /* 2 seconds on the success message */
+  var form = document.getElementById('uxt-discovery-form');
+  if (!form) return;
+  var wrap = form.parentNode;
+  var success = wrap.querySelector('.uxt-cta-success');
+  var error = form.querySelector('.uxt-cta-error');
+  var button = form.querySelector('button[type="submit"]');
+  var label = button.querySelector('.uxt-button-label');
+  var email = form.elements.work_email;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    error.textContent = '';
+    email.classList.remove('is-invalid');
+    var value = email.value.trim();
+    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      email.classList.add('is-invalid');
+      error.textContent = 'Please enter a valid work email.';
+      email.focus();
+      return;
+    }
+    var data = new FormData(form);
+    data.append('action', 'uxt_discovery_call');
+    button.disabled = true;
+    label.textContent = 'Sending...';
+    fetch('/wp-admin/admin-ajax.php', { method: 'POST', body: data, credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) {
+          form.reset();
+          form.hidden = true;
+          success.hidden = false;
+          /* Show the message first, then go to Calendly in this tab */
+          setTimeout(function () { window.location.href = CALENDLY_URL; }, REDIRECT_DELAY);
+        } else {
+          error.textContent = (res && res.data && res.data.message) || 'Something went wrong. Please try again.';
+        }
+      })
+      .catch(function () { error.textContent = 'Something went wrong. Please try again.'; })
+      .then(function () { button.disabled = false; label.textContent = 'Book a Discovery Call'; });
+  });
+
+  wrap.querySelector('.uxt-cta-again').addEventListener('click', function () {
+    success.hidden = true;
+    form.hidden = false;
+    form.elements.full_name.focus();
+  });
+})();
+</script>
+
+<!-- ================= 2. MAIN FOOTER ================= -->
+<footer class="uxt-full uxt-main-footer">
+  <div class="uxt-container uxt-main-footer-inner">
+
+    <!-- Top row: logo, tagline and the three offices -->
+    <div class="uxt-main-footer-top">
+      <div class="uxt-main-footer-brand">
+        <a href="https://new.ux.team/" class="uxt-main-footer-logo" aria-label="UXTeam home">
+          <img src="https://new.ux.team/wp-content/uploads/2026/10/UX-Team-Gray-logo.svg" alt="UXTeam" width="156" height="38">
+        </a>
+        <p class="uxt-main-footer-tagline">A UX strategy and design studio for B2B teams</p>
+      </div>
+
+      <div class="uxt-main-footer-offices">
+        <div class="uxt-main-footer-office">
+          <p class="uxt-accent uxt-white">UAE</p>
+          <address class="uxt-main-footer-address">
+            3206, The One Tower<br>
+            Barsha Heights<br>
+            Sheikh Zayed Road<br>
+            Dubai, United Arab Emirates
+          </address>
+        </div>
+        <div class="uxt-main-footer-office">
+          <p class="uxt-accent uxt-white">INDIA</p>
+          <address class="uxt-main-footer-address">
+            B-1304, Sankalp Iconic Tower<br>
+            Ambli Road, Sanidhya<br>
+            Ahmedabad 380054<br>
+            Gujarat, India
+          </address>
+        </div>
+        <div class="uxt-main-footer-office">
+          <p class="uxt-accent uxt-white">USA</p>
+          <address class="uxt-main-footer-address">
+            101 Edison Glen Terrace<br>
+            Edison, New Jersey 08837<br>
+            United States
+          </address>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: social icons, line, links -->
+    <div class="uxt-main-footer-bottom">
+      <div class="uxt-main-footer-social">
+        <a href="https://in.linkedin.com/company/uxteam" target="_blank" rel="noopener" aria-label="UXTeam on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.34 3.5a2.09 2.09 0 1 1 0 4.18 2.09 2.09 0 0 1 0-4.18ZM3.54 9.27h3.6V20.5h-3.6V9.27Zm5.86 0h3.45v1.54h.05c.48-.91 1.66-1.87 3.41-1.87 3.65 0 4.32 2.4 4.32 5.52v6.04h-3.6v-5.36c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83v5.45H9.4V9.27Z"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/uxteam_studio/" target="_blank" rel="noopener" aria-label="UXTeam on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"></path><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"></circle></svg>
+        </a>
+        <a href="https://dribbble.com/uxteam_studio" target="_blank" rel="noopener" aria-label="UXTeam on Dribbble">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path fill="none" stroke="currentColor" stroke-width="1.8" d="M8.3 3.8c3.4 4.2 5.9 9.6 7 16.3M3.1 10.6c5.6.4 10.5-.6 15.1-4.4M5.5 18.3c3.3-4.7 8-6.6 15.4-4.9"></path></svg>
+        </a>
+      </div>
+
+      <span class="uxt-main-footer-line" aria-hidden="true"></span>
+
+      <div class="uxt-main-footer-links">
+        <a href="https://new.ux.team/careers/">Careers</a>
+        <a href="https://new.ux.team/privacy-policy/">Privacy Policy</a>
+        <p>©2026 UXTeam. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Large "uxteam" shape at the bottom -->
+  <div class="uxt-container uxt-main-footer-shape" aria-hidden="true">
+    <div class="uxt-main-footer-shape-box">
+      <img src="https://new.ux.team/wp-content/uploads/2026/10/UX-Team-bg-shape.svg" alt="">
+    </div>
+  </div>
+</footer>
+
+<!-- PREVIEW ONLY: stand-in FAQ toggle. The live site uses its own global script. -->
+<script>
+document.querySelectorAll('.uxt-faq-question').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var item = b.closest('.uxt-faq-item'), panel = document.getElementById(b.getAttribute('aria-controls'));
+    var open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    item.classList.toggle('is-expanded', !open);
+    if (panel) { if (open) panel.setAttribute('inert', ''); else panel.removeAttribute('inert'); }
+  });
+});
+</script>
+<!-- PREVIEW ONLY: header menu and scroll behaviour (Salient and PART O on the live site). -->
+<script>
+(function () {
+  var h = document.querySelector('[data-preview-header]'); if (!h) return;
+  var t = h.querySelector('.preview-toggle'), p = h.querySelector('.preview-mobile-nav');
+  t.addEventListener('click', function () { var o = t.getAttribute('aria-expanded') !== 'true'; t.setAttribute('aria-expanded', String(o)); t.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); p.hidden = !o; h.classList.toggle('is-menu-open', o); });
+  h.querySelectorAll('button.preview-nav-link').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); }); });
+  var last = window.scrollY, tick = false;
+  function pin(on) { if (h.classList.contains('is-pinned') === on) return; h.classList.toggle('is-pinned', on); if (!on) h.classList.remove('is-shown'); }
+  function update() { tick = false; var y = window.scrollY, d = y - last; last = y; if (h.classList.contains('is-menu-open')) return;
+    if (y <= 0) { pin(false); return; } if (Math.abs(d) < 4) return;
+    if (d < 0 && y > 92) { if (!h.classList.contains('is-pinned')) { pin(true); void h.offsetWidth; } h.classList.add('is-shown'); }
+    else if (d > 0 && h.classList.contains('is-pinned')) h.classList.remove('is-shown'); }
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+})();
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@ You don't need to install anything or know how to code to look around. Start wit
 | Homepage | Live, built by the developers | [new.ux.team](https://new.ux.team) · [approved design](reference/pages/homepage-desktop.webp) |
 | What we do | Live, built by the developers | [new.ux.team/what-we-do](https://new.ux.team/what-we-do/) |
 | About us | Its styles are live. Its page code is still to come from the developers [confirm] | [approved design](reference/pages/about-desktop.webp) |
-| White label | In progress, not in `main` yet | [Work in progress branch](https://github.com/UXTeam-dev/UXTeam_Website_DS/tree/claude/trusting-fermi-r5itgz) |
+| White label | Built, waiting for review and launch [confirm] | [Shareable preview](dist/share/white-label.html) (on that page, click **Download raw file**, then open it in your browser) |
 | B2B SaaS and AI industry page | Planned | No approved screenshot in the repo yet |
 | Success stories (listing and detail) | Designed, to be rebuilt in the current system | [listing](reference/pages/success-stories-desktop.webp) · [detail](reference/pages/success-story-detail-desktop.webp) |
 | Insights (listing and detail) | Designed, to be rebuilt in the current system | [listing](reference/pages/insights-desktop.webp) · [detail](reference/pages/insights-detail-desktop.webp) |
@@ -45,6 +45,7 @@ You don't need to install anything or know how to code to look around. Start wit
 | [src/](src/) | The page code and styles that get edited | Developers |
 | [dist/](dist/) | Created automatically from `src/` by the build. Never edited by hand. It holds the files for WordPress and the page previews | Developers |
 | [scripts/](scripts/) | The tools that build and check the pages | Developers |
+| [tools/](tools/) | A WordPress plugin that sends every CSS change made in WordPress to this repo. Setup: [docs/WORDPRESS-CSS-SYNC.md](docs/WORDPRESS-CSS-SYNC.md) | Site admin |
 | [skills/](skills/) | Step-by-step methods for planning and reviewing a page | AI tools, people planning a page |
 | [legacy/](legacy/) | The repo's first, older system. Kept only as a visual reference | Nobody, for new work |
 | [CHANGELOG.md](CHANGELOG.md) | Every change made to the repo, newest first | Everyone |
@@ -67,7 +68,7 @@ You don't need to install anything or know how to code to look around. Start wit
 | **Salient** | The WordPress theme the live site uses |
 | **Raw HTML element** | The box in WordPress that each page's code is pasted into |
 | **Custom CSS** | The one place in WordPress where all of the site's styles live |
-| **PART** | One labeled chunk of the styles, such as PART C for the homepage. The developers' PARTs run from A to R. New ones written here continue from S |
+| **PART** | One labeled chunk of the styles, such as PART C for the homepage. The developers' PARTs run from A to S. The ones written here (T, U and on) are added to the same file |
 | **Class** | A name in the page code, such as `uxt-button`, that tells the page which style to use. Allowed names: [docs/CLASS-REGISTRY.md](docs/CLASS-REGISTRY.md) |
 | **Section** or **partial** | A ready-made block of a page, such as the FAQ or the process steps, that new pages reuse |
 | **Build** | A command that turns the code in `src/` into finished files in `dist/` |
@@ -104,7 +105,7 @@ npm run dev       # build, check, then serve
 | Page body | one Raw HTML element | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card and footer | footer global section | `src/global/footer-global.html` |
 | CSS | Salient > Custom CSS (PART A to R) | `src/css/uxteam-site.css`, a byte for byte copy |
-| New CSS | added after PART R | `src/css/parts/` → `dist/css/uxteam-site-additions.css` |
+| New CSS | a PART of ours in the same file (now T and U; next V) | `src/css/uxteam-site.css` → `dist/css/uxteam-site.css` |
 
 ### Folders in detail
 
@@ -145,9 +146,9 @@ npm run dev       # build, check, then serve
    ```
 
    Paths are relative to `src/`. `{{name|default}}` in a partial is filled from the attributes.
-3. Need something no class covers? Write a new PART (CSS-GUIDE section 5), then `npm run classes`.
+3. Need something no class covers? Add it to a PART of ours in `src/css/uxteam-site.css` (CSS-GUIDE section 5), then `npm run css:accept` and `npm run classes`.
 4. `npm run build && npm run check`, then review `dist/preview/<page>.html` at 1440, 768 and 375.
-5. Hand over `dist/wordpress/<page>.html` and, if it has any, `dist/css/uxteam-site-additions.css` (CSS-GUIDE section 7).
+5. Hand over `dist/wordpress/<page>.html` and, if any CSS changed, the whole `dist/css/uxteam-site.css` (CSS-GUIDE section 7).
 
 ### Naming (the developers' convention)
 

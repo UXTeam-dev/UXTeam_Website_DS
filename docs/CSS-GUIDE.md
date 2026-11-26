@@ -15,10 +15,10 @@ The live site (new.ux.team) runs on the Salient WordPress theme. The developers 
 | Header | Salient's own header | not in the repo (the preview shows a stand-in) |
 | Page body | one Salient **Raw HTML** element per page | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card ("Book a Discovery Call") and footer | the **footer global section**, on every page | `src/global/footer-global.html` |
-| All CSS | **Salient > Custom CSS**, one file in PARTs A to R | `src/css/uxteam-site.css` (byte for byte copy) |
-| New CSS written here | added after PART R | `src/css/parts/part-<letter>-<scope>.css` → `dist/css/uxteam-site-additions.css` |
+| All CSS | **Salient > Custom CSS**, one file in PARTs | `src/css/uxteam-site.css`: the developers' PARTs A to S, then the PARTs written here (T, U…) |
+| New CSS written here | a new PART at the end of the same file, or the page's existing PART | `src/css/uxteam-site.css` → `dist/css/uxteam-site.css` |
 
-**The developers' files are the source of truth.** `uxteam-site.css`, `homepage.html`, `what-we-do.html` and `footer-global.html` are copies of what the developers handed over (25 Nov 2026). `npm run check` fails if any of them is edited (fingerprints in `src/css/source.lock.json`).
+**One CSS file for everyone.** `uxteam-site.css` is the file that runs in Salient > Custom CSS. It holds the developers' PARTs A to S (never changed here) and the PARTs written in this repo (T: shared helpers, U: White label, then V…). New CSS and changes to our PARTs are made **directly in this file** (section 5), so what you hand over is always the complete, current file. `homepage.html`, `what-we-do.html` and `footer-global.html` are the developers' and are never edited. `npm run check` compares every one of these files with its fingerprint (`src/css/source.lock.json`); after a CSS change, `npm run css:accept` records the new one.
 
 **The class list is generated, never written by hand.** `npm run classes` reads the stylesheet and writes [CLASS-REGISTRY.md](CLASS-REGISTRY.md) and `docs/classes.json`. A page may use only classes in that list.
 
@@ -27,7 +27,7 @@ The live site (new.ux.team) runs on the Salient WordPress theme. The developers 
 1. **No `<style>` blocks, no `style=""` attributes, no `<link rel="stylesheet">`** in any page or partial. Not even "just for now".
 2. **No classes from anywhere else.** Not Tailwind, not Bootstrap (`btn`, `row`, `col-*`), not the old `ux-` system, not invented names.
 3. **No Salient element classes** in a page body (`nectar-*`, `wpb_*`, `vc_*`, `sub-title`, `container`, `row-bg`). PARTs I, J, K and O restyle those, but Salient adds them, so they never appear in a Raw HTML body.
-4. If something cannot be built from existing classes, add a new PART (section 5). The page then uses the new classes like any other.
+4. If something cannot be built from existing classes, add the CSS to `uxteam-site.css` in a PART of our own (section 5). The page then uses the new classes like any other.
 
 ## 3. Page structure
 
@@ -154,11 +154,13 @@ Add CSS only when no existing class can carry the design. Then write it exactly 
 - **No BEM** (`__`, `--`), no camelCase, no numbers for meaning (`uxt-card2`), no generic names (`uxt-box`, `uxt-wrapper`).
 - Name for what it is (`uxt-industry-proof`), not how it looks (`uxt-blue-box`).
 
-### 5.2 One file per PART
+### 5.2 Where the CSS goes: straight into `uxteam-site.css`
 
-- `src/css/parts/part-<letter>-<scope>.css`, for example `part-s-industry.css`.
-- Letters continue after the developers' last one: **S, T, U…** (the check rejects a letter already used).
-- Import it in `src/css/uxteam-site-additions.css`: `@import "parts/part-s-industry.css";`
+- **A change to an existing page** (for example the White label page): edit that page's own PART in `src/css/uxteam-site.css` (PART U for White label). No separate file, no later merge.
+- **A new page or section:** add a new PART at the **end** of `src/css/uxteam-site.css`. Letters continue after the last one, which is now **U**, so the next is **V**.
+- **Never change the developers' PARTs (A to S).** To adjust one of their sections on one page, override it in our page's PART, scoped to that page (5.4).
+- `npm run check` lints every PART of ours inside the file (the ones with a `Scope:` line): naming, scope, colours, fonts, breakpoints.
+- `src/css/parts/` and `uxteam-site-additions.css` stay empty. They are only for a part the developers ask to receive separately.
 
 ### 5.3 The PART header
 
@@ -198,9 +200,10 @@ Only the site's: `max-width: 1280px`, `1024px`, `999px`, `767px` (fine tuning `4
 ### 5.7 Steps
 
 1. Check [CLASS-REGISTRY.md](CLASS-REGISTRY.md) once more: is there a class for this already?
-2. Write the part (5.1 to 5.6) and import it.
-3. `npm run classes`, `npm run build`, `npm run check`.
-4. Add the part to the handover list in `CHANGELOG.md`.
+2. Write the CSS in our PART inside `src/css/uxteam-site.css` (5.1 to 5.6).
+3. `npm run css:accept` (records the file's new fingerprint), `npm run classes`, `npm run build`, `npm run check`.
+4. Compare the pages that use it at 1440, 768 and 375.
+5. Add a line to `CHANGELOG.md` naming the PART, and hand over the whole `uxteam-site.css` (section 7).
 
 ## 6. Content inside the markup
 
@@ -224,22 +227,25 @@ The main CTA is **"Book a Discovery Call"** linking to `#book-call`. Never "Cont
 For every finished page, hand over:
 
 1. `dist/wordpress/<page>.html`: paste into one Salient Raw HTML element. Nothing to remove.
-2. `dist/css/uxteam-site-additions.css`, if the page added a PART: paste at the end of Salient > Custom CSS, after PART R.
+2. `dist/css/uxteam-site.css` if any CSS changed: the developers replace the whole Salient > Custom CSS with it.
+   Always say whether a change needs the CSS only, the HTML only, or both.
 3. The list of new images to upload, with their intended paths.
 4. Anything that needs a script.
 
-When the developers confirm a new PART is live, they send back their updated `uxteam-site.css` (section 8). The part then moves out of `src/css/parts/` and the additions file is empty again.
+If the developers change the CSS in WordPress, it comes back through the CSS sync (section 8) before the next page is built.
 
 ## 8. Syncing a new version from the developers
 
-Only when the developers send updated files:
+**Automatic (preferred):** with the WordPress plugin installed ([WORDPRESS-CSS-SYNC.md](WORDPRESS-CSS-SYNC.md)), every save of Salient > Custom CSS opens a "CSS changed in WordPress" pull request; its GitHub Action does steps 2 and 4 below and runs the check. Merge it when green.
+
+**By hand**, only when the developers send updated files:
 
 1. Replace the file in `src/` with theirs (CSS, page bodies or footer global section).
-2. Update its fingerprint in `src/css/source.lock.json` and the `received` date.
-3. Delete any part in `src/css/parts/` that is now inside `uxteam-site.css`.
+2. Keep our PARTs (T, U…) at the end of their CSS if their file does not already contain them, then `npm run css:accept` (fingerprint and date).
+3. Compare every page at 1440, 768 and 375.
 4. `npm run classes`, `npm run build`, `npm run check`, add a line to `CHANGELOG.md`.
 
-Never edit their files to make a page work. Write a new PART instead.
+Never edit their PARTs or page files to make a page work. Write or extend our own PART instead.
 
 ## 9. The old ux- system
 

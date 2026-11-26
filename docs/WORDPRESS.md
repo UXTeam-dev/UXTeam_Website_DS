@@ -9,7 +9,7 @@ After `npm run build`:
 | From `dist/` | Where it goes |
 |---|---|
 | `wordpress/<page>.html` | One Salient **Raw HTML** element on the page. Paste it whole |
-| `css/uxteam-site-additions.css` | Only if it has PARTs: paste at the **end** of Salient > Custom CSS, after PART R |
+| `css/uxteam-site-additions.css` | Only if it has PARTs: paste at the **end** of Salient > Custom CSS, after the last PART |
 | `wordpress/footer-global.html` | Only if it changed: the footer global section (booking card and footer) |
 
 Plus a list of new images to upload to the media library, with the paths the page uses (`/wp-content/uploads/<year>/<month>/<file>`).

@@ -2,15 +2,67 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
-## 2.0.2 · 26 Nov 2026
+## 2.7.1 · 26 Nov 2026
 
 - README rewritten as a plain-language front door for people who don't code: where to see the pages, page status, what each folder is, who should read what, and a glossary. The developer quick start and reference stay below, unchanged.
 - New short READMEs that describe each folder (no rules, they point to LLM.md and CSS-GUIDE): `docs/`, `src/`, `src/pages/`, `src/partials/`, `assets/`, `knowledge/`. GitHub shows them under each folder's file list.
 - No existing file, path, rule or script changed. The build output and `npm run check` result are identical.
 
-## 2.0.1 · 26 Nov 2026
+## 2.7.0 · 26 Nov 2026
 
 - Branch naming rule: new branches are named `<type>/<what-it-changes>` (`page/`, `section/`, `css/`, `content/`, `docs/`, `tooling/`, `fix/`), for example `page/white-label`. In `CLAUDE.md` ("Branch names") and LLM.md step 1.
+
+## 2.6.0 · 26 Nov 2026
+
+**New CSS goes straight into `uxteam-site.css`.** Changes to a page's styles are made in that page's own PART (PART U for White label); a new page adds a new PART at the end (next V). No separate part files to approve and merge later. The developers' PARTs A to S and their page files are still never changed.
+- `npm run check` now lints our PARTs inside `uxteam-site.css` (those with a `Scope:` line): naming, scope, page key prefix, colours (against the rest of the file), fonts, breakpoints. Tested by planting a bad class, an unscoped rule and an unknown colour.
+- New `npm run css:accept` (records the CSS fingerprint after a change). The fingerprint error now says what to do.
+- Rules updated: CLAUDE.md, AGENTS.md, LLM.md (non-negotiable 1, 0A.3, 1, 16.1 to 16.3), CSS-GUIDE (1, 2, 5.2, 5.7, 7, 8), HOW-TO-ADD, README, parts README, starter.
+- Handover rule: every change says whether it needs the CSS, the HTML, or both.
+
+## 2.5.0 · 26 Nov 2026
+
+- White label comparison table: the UXTeam column now has a 1px Steel border all round (navy on the navy head), radius 8 top and bottom, so it reads as one unit. PART U of `uxteam-site.css`, fingerprint accepted.
+- White label comparison table matches the approved demo: hairline rows, column heads in Aeonik Medium 20 Navy, cells Manrope 16, the UXTeam column with a Navy head (white text, top radius 8) and a Mist column (Navy medium text, bottom radius 8), first column pinned and flush left, table scrolls inside its box below 1000px. Row titles in Besley (18, 16 on mobile), as asked. Eyebrow "Comparison". Changed in PART U of `uxteam-site.css` (fingerprint accepted) and in `src/pages/white-label.html` and `partials/sections/wl-compare.html`; new classes `uxt-wl-th`, `uxt-wl-col-label`.
+
+## 2.4.0 · 26 Nov 2026
+
+**CSS sync from WordPress to GitHub.**
+- New WordPress plugin `tools/wordpress/uxteam-css-sync/` (zip: `tools/wordpress/uxteam-css-sync.zip`): when Salient > Custom CSS is saved, it writes the CSS to `src/css/uxteam-site.css` on the `wordpress-live` branch and opens a "CSS changed in WordPress" pull request. Settings > UXTeam CSS Sync: key, test, send now, last result. Dry-run tested with stand-ins for WordPress and GitHub (first save, later saves into the same pull request, unrelated option saves ignored, no-change skip, fresh branch after merge, bad key).
+- New GitHub Action `.github/workflows/wordpress-css-sync.yml` and `scripts/accept-live-css.mjs`: on that branch, accept the new fingerprint, regenerate the registry and built files, commit, and run `npm run check`.
+- New guide `docs/WORDPRESS-CSS-SYNC.md` (step by step, no coding). LLM.md Step 0 (check for that pull request before building), AGENTS.md, CLAUDE.md, CSS-GUIDE section 8, OPEN-ITEMS.
+
+## 2.3.0 · 26 Nov 2026
+
+**Universal CSS updated, White label CSS merged into it.**
+- `src/css/uxteam-site.css` replaced with the developers' new version (adds their **PART S | Insights**: listing, cards, filter chips, post hero, article, TOC, author box; everything before it unchanged).
+- Our two parts appended to it so the developers get one file: **PART T | Shared helpers** (`uxt-placeholder`, `uxt-nowrap`, was our PART S) and **PART U | White label page** (`.uxt-wl`, was our PART T). The file header lists S, T and U. `src/css/parts/` is empty; `uxteam-site-additions.css` imports nothing.
+- Fingerprint updated in `src/css/source.lock.json` (received 26 Nov 2026). Registry regenerated. Next new part letter is V.
+- Checked: homepage, What we do and White label render pixel-identical before and after the merge at 1440, 768 and 375.
+- Docs: CSS-GUIDE (letters, handover), parts README, README, WORDPRESS, COMPONENTS, GRAPHICS, OPEN-ITEMS, partial and page comments.
+
+Handover: `dist/css/uxteam-site.css` (replace the whole Salient Custom CSS) and `dist/wordpress/white-label.html`.
+
+## 2.2.0 · 25 Nov 2026
+
+Previews and shared files now look like the live page (fixes found on the shared White label file):
+- **New `scripts/preview-shell.mjs`** (used by `npm run build` for `dist/preview/`): the real site header (UXTeam logo, What We Do, UXAudit, Work, About, Insights, Contact, Glass "Book a Discovery Call", hamburger and "Book a Call" on small screens, Ink bar on scroll up) instead of the stand-in text header; the booking card version by page type (inner pages: "Let's talk about what you're building."); the card overlapping the footer by 40px. The yellow preview note is gone.
+- **New `npm run share -- <page>`** (`scripts/share.mjs`): one self-contained file in `dist/share/`, with the repo's images embedded (small copies in `assets/share/`), every trusted-by logo at its approved size, only the CSS the page uses, fonts at the end. `dist/share/white-label.html` is the first.
+- `npm run build` no longer deletes `dist/share/`; it rebuilds only `dist/wordpress`, `preview`, `css` and `starters`.
+- Booking card founder photo in shared files: `assets/share/chintan-bhatt.webp` is now cropped to the Figma frame (425 x 466, head to waist) like the live image, instead of the full-length photo.
+- LLM.md 16.6 (previews and shared files), Step 4, commands, failures 57 to 61; AGENTS.md rule 23; CLAUDE.md; OPEN-ITEMS (booking version and overlap on the live site).
+
+## 2.1.0 · 25 Nov 2026
+
+**New page: White label** (`src/pages/white-label.html`, wrapper `uxt-home uxt-wl`, URL /white-label), built from "UX.team White Label Page Copy v1.1". No Figma frame yet.
+
+- Sections: display hero + trusted-by marquee (one CTA, trust line), what gets in the way (new problem and fix rows), white label services (new service cards with 518 square placeholders + CTA band), how the partnership works (process section with five new steps and curated 64px icons, confidentiality row), we help you win the work (Warm Glow band, three icon columns), ways to partner (engage section as four columns, one closing button), partnership stories (approved stories section, heading from the copy, one closing button), comparison table (new, UXTeam column highlighted), agency FAQ (approved FAQ, two groups).
+- **PART T (new, scope `.uxt-wl`):** `src/css/parts/part-t-white-label.css`, imported in `uxteam-site-additions.css`. New partials `sections/wl-fixes.html`, `wl-services.html`, `wl-win.html`, `wl-compare.html`. Curated process icons `assets/icons/custom/wl-scope.svg`, `wl-design.svg`, `wl-review.svg`, `wl-handoff.svg`, `wl-support.svg`.
+- Copy changes from the document: headings in sentence case without full stops, "UX.team" written UXTeam, hero secondary CTA dropped, [75]+ agencies written as the approved 50+, [X] placeholders shown as `[confirm …]`, footer CTA and footer left to the global section. Open questions in `docs/OPEN-ITEMS.md`.
+- Three drawn service scenes (GRAPHICS.md family 4, invented brand, labeled Illustrative) in `src/partials/graphics/wl-scene-web.html`, `wl-scene-ux.html`, `wl-scene-audit.html`, replacing the image placeholders; class `uxt-wl-scene`.
+- Docs: COMPONENTS, OPEN-ITEMS; registry regenerated.
+
+Handover: `dist/wordpress/white-label.html`, `dist/css/uxteam-site-additions.css` (PART S and PART T), the five `wl-*.svg` icons if the developers prefer files.
 
 ## 2.0.0 · 25 Nov 2026
 

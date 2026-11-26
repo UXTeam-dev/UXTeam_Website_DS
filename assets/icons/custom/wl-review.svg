@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><!-- White label process, step 3 You review first. Curated from Phosphor eye: the eye over a frame, the iris in G4. -->
+<path d="M5.75 32C11 21.5 20.5 15.75 32 15.75S53 21.5 58.25 32C53 42.5 43.5 48.25 32 48.25S11 42.5 5.75 32Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="32" r="9.25" fill="url(#gwlreview)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="32" r="2.5" fill="#0A1B33"/>
+<defs><linearGradient id="gwlreview" x1="23" y1="23" x2="41" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs>
+</svg>

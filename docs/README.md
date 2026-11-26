@@ -33,4 +33,5 @@ Every guide for the UXTeam website, grouped by who it's for. You only need the o
 | Guide | What's in it |
 |---|---|
 | [WORDPRESS.md](WORDPRESS.md) | What the developers paste into WordPress, and where |
+| [WORDPRESS-CSS-SYNC.md](WORDPRESS-CSS-SYNC.md) | One-time setup, no coding, that keeps the CSS in WordPress and this repo the same |
 | [OPEN-ITEMS.md](OPEN-ITEMS.md) | Everything still pending: placeholders, decisions, files we're waiting for |
