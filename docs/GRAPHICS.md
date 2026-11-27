@@ -61,7 +61,7 @@ Scenes (families 4 and 5) are drawn UI, so they follow their own recipe in secti
 - **Where:** the process section only (`sections/process`, homepage "How we work"), and any page that reuses it.
 - **Files:** `assets/icons/process/audit.svg`, `evidence.svg`, `journey.svg`, `build.svg`, `proof.svg`. Reference: `reference/graphics/process-icons.webp`.
 - **Look:** 64 x 64, Navy 1.5 outline, one shape filled with G4 (the report, the top layer, the two journey dots, the cube faces, the gauge dot). Connected by Steel hairlines between steps.
-- **Use them as they are.** They belong to the approved five steps. Do not reorder, recolor or add a sixth. If a page needs a different set of steps, draw new 64px icons with the same rules and the same single G4 fill.
+- **Use them as they are.** They belong to the approved five steps. Do not reorder, recolor or add a sixth. If a page needs a different set of steps, draw new 64px icons with the same rules and the same single G4 fill. Contact page set: `share.svg` (form, G4 send button), `schedule.svg` (calendar, G4 picked day), `talk.svg` (two bubbles, G4 reply).
 
 ## 4. Family 2: line icons (32px and 24px)
 

@@ -1,0 +1,104 @@
+<!-- ============================================================
+     UXTEAM: CONTACT PAGE  (no Figma frame yet, coded directly from the
+     page rules in LLM.md 15.6 and docs/BRAND-GUIDE.md section 8)
+     Paste into one Salient "Raw HTML" element (page body only).
+     Header, "Book a Discovery Call" and footer come from the global
+     sections, so they are not in this file. The booking card holds the
+     three-field form, the founder and the Calendly step, so this page
+     leads every visitor to it (#book-call) instead of repeating it.
+     Classes: uxteam-site.css (homepage hero, logos, How we work, FAQ)
+     and PART T (src/css/parts/part-t-contact.css) for the three steps,
+     the step icons, the closing button and the offices.
+     Step icons: inline SVG, also in assets/icons/process (share,
+     schedule, talk).
+     ============================================================ -->
+<div class="uxt-home uxt-contact">
+
+  <!-- ================= 1. HERO ================= -->
+  <div class="uxt-full uxt-section uxt-hero">
+    <div class="uxt-container">
+      <div class="uxt-hero-content">
+        <p class="uxt-subheading underline-sky-blue uxt-white">Contact UXTeam</p>
+        <h1 class="uxt-h1 uxt-white">Tell us what's holding<br> <span class="uxt-nowrap">growth back</span></h1>
+        <p class="uxt-p uxt-p-lg uxt-white">Share three details, pick a time, and talk it through with our founder. You'll leave the call knowing where to start.</p>
+        <!-- @include partials/elements/button.html type="primary" mod="uxt-button-dark" label="Book a Discovery Call" href="#book-call" -->
+      </div>
+    </div>
+    <!-- @include partials/sections/logos.html -->
+  </div>
+
+  <!-- ================= 2. HOW BOOKING WORKS ================= -->
+  <div class="uxt-full uxt-section uxt-process">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">How booking works</p>
+        <h2 class="uxt-h2">Three steps to a discovery call</h2>
+      </div>
+
+      <div class="uxt-steps">
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect x="13.75" y="6.75" width="36.5" height="50.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.75 17.75H42.25M21.75 26.75H42.25M21.75 35.75H34.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="21.75" y="43.75" width="20.5" height="6.5" rx="3.25" fill="url(#gshare0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gshare0" x1="21.75" y1="43.75" x2="40" y2="52" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">1.&nbsp; Share</span>
+          <h3 class="uxt-h3">Tell us three things.</h3>
+          <p class="uxt-p">Your name, work email, and company website. That's the whole form.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect x="8.75" y="12.75" width="46.5" height="43.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 24.75H55.25M21.75 7.75V17.75M42.25 7.75V17.75" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="34.75" y="34.75" width="11.5" height="11.5" rx="2.5" fill="url(#gschedule0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gschedule0" x1="34.75" y1="34.75" x2="46.25" y2="46.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">2.&nbsp; Schedule</span>
+          <h3 class="uxt-h3">Pick a time that suits you.</h3>
+          <p class="uxt-p">Our calendar opens as soon as you send the form.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><path d="M12.75 9.75H35.25C38.0114 9.75 40.25 11.9886 40.25 14.75V29.25C40.25 32.0114 38.0114 34.25 35.25 34.25H18.75L10.75 40.25V34.25C8.54 33.6 7.75 31.9 7.75 29.25V14.75C7.75 11.9886 9.98858 9.75 12.75 9.75Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28.75 25.75H51.25C54.0114 25.75 56.25 27.9886 56.25 30.75V44.25C56.25 46.9 55.46 48.6 53.25 49.25V55.25L45.25 49.25H28.75C25.9886 49.25 23.75 47.0114 23.75 44.25V30.75C23.75 27.9886 25.9886 25.75 28.75 25.75Z" fill="url(#gtalk0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.75 37.75H46.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gtalk0" x1="23.75" y1="25.75" x2="56.25" y2="55.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">3.&nbsp; Talk</span>
+          <h3 class="uxt-h3">Talk to our founder.</h3>
+          <p class="uxt-p">Your goal, what's in the way, and where to start: an audit, a project, or a partnership.</p>
+        </div>
+      </div>
+
+      <div class="uxt-contact-center">
+        <!-- @include partials/elements/button.html type="primary" label="Book a Discovery Call" href="#book-call" -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. OFFICES ================= -->
+  <!-- @include partials/sections/offices.html -->
+
+  <!-- ================= 4. FAQ ================= -->
+  <div class="uxt-full uxt-section uxt-faq">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">FAQs</p>
+        <h2 class="uxt-h2">What we observe, think, and learn</h2>
+      </div>
+
+      <div class="uxt-faq-grid">
+        <div class="uxt-faq-col">
+          <span class="uxt-accent uxt-accent-strong">About the call</span>
+          <div class="uxt-faq-list">
+            <!-- @include partials/elements/faq-item-open.html n="1" q="Who will I speak with?" a="Our founder, who has 20+ years in design. You talk to the person who shapes the recommendation, not a sales team." -->
+            <!-- @include partials/elements/faq-item.html n="2" q="How long is the call?" a="About [confirm call length with Chintan], at a time you pick in our calendar." -->
+            <!-- @include partials/elements/faq-item.html n="3" q="Is the call free?" a="[Confirm with Chintan.] There's no obligation to work with us after it." -->
+            <!-- @include partials/elements/faq-item.html n="4" q="What should I prepare?" a="Nothing formal. It helps to know the metric you want to move and where you think it's stuck. Bring analytics or past test results if you have them." -->
+            <!-- @include partials/elements/faq-item.html n="5" q="Can we sign an NDA first?" a="Yes. Every engagement runs under a mutual NDA, you keep full IP ownership, and we use your data only for your project. If you need the NDA before the call, tell us when you book." -->
+          </div>
+        </div>
+
+        <div class="uxt-faq-col">
+          <span class="uxt-accent uxt-accent-strong">Working together</span>
+          <div class="uxt-faq-list">
+            <!-- @include partials/elements/faq-item.html n="6" q="What happens after the call?" a="We recommend where to start: a UX audit, a project, or a partnership. An audit is a fixed fee, quoted after this one call, with the report in about 3 days once we have analytics access." -->
+            <!-- @include partials/elements/faq-item.html n="7" q="Where do most engagements start?" a="Usually with a UX Audit or a strategy workshop. Both scope the work and surface the priorities before you commit to a larger project." -->
+            <!-- @include partials/elements/faq-item.html n="8" q="Do you work with in-house design and product teams?" a="Yes, often. We can lead a project end to end or work alongside your team to add capacity and an outside perspective." -->
+            <!-- @include partials/elements/faq-item.html n="9" q="Do you work with agencies?" a="Yes. Alongside our direct clients, we partner with agencies and work under their brand when needed." -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book a Discovery Call and the footer come from the footer global section
+       (src/global/footer-global.html). Buttons with href="#book-call" scroll to it. -->
+
+</div>

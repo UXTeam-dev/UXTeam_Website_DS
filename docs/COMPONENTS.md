@@ -40,6 +40,7 @@ Icons: `<!-- @icon name size="32" class="uxt-…" -->` inlines a Phosphor Light 
 | `faq.html` | FAQ, two columns | `.uxt-home` | `uxt-faq-col`, `uxt-faq-item` (use `elements/faq-item.html`) |
 | `capabilities.html` | Sticky tabs + stacked capability cards | `.uxt-wwd` only | `uxt-cap-tab`, `uxt-cap-card`. Needs `capabilities-script.html` once at the end of the page |
 | `why.html` | Why choose UXTeam, four icon columns | `.uxt-wwd` only | `uxt-why-item`, `uxt-why-icon` |
+| `offices.html` | Three offices as hairline rows: country and city, address, time zone, closing note (PART T, new) | `.uxt-contact` only | `uxt-contact-office-list`, `uxt-contact-office`, `uxt-contact-office-zone` |
 
 A section that works only inside `.uxt-wwd` or `.uxt-about` is used on another page only after its styles move to a shared PART (CSS-GUIDE 5.4).
 

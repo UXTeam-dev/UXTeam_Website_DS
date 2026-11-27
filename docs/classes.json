@@ -12,6 +12,7 @@
    "scopes": [],
    "example": ".uxt-h1",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -32,6 +33,7 @@
    "example": ".uxt-h2",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/elements/heading-intro.html",
@@ -42,6 +44,7 @@
     "partials/sections/faq.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -61,6 +64,7 @@
    "scopes": [],
    "example": ".uxt-h3",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -78,7 +82,8 @@
    "sources": [
     "PART B",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
@@ -91,6 +96,7 @@
     "partials/sections/capabilities.html",
     "partials/sections/faq.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/why.html"
    ]
   },
@@ -103,12 +109,14 @@
     "PART M",
     "PART N",
     "PART P",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
    "example": ".uxt-p",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/elements/faq-item-open.html",
@@ -122,6 +130,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/logos.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -149,13 +158,15 @@
     "PART C",
     "PART D",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
    "example": ".uxt-accent",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -164,6 +175,7 @@
     "partials/sections/faq.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/stories.html"
@@ -181,6 +193,7 @@
    "example": ".uxt-subheading",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/elements/heading-intro.html",
@@ -192,6 +205,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -234,6 +248,7 @@
    "scopes": [],
    "example": ".uxt-p.uxt-p-lg",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -257,7 +272,8 @@
     "partials/sections/faq.html",
     "partials/sections/hero.html",
     "partials/sections/industries.html",
-    "partials/sections/logos.html"
+    "partials/sections/logos.html",
+    "partials/sections/offices.html"
    ]
   },
   "uxt-p-xs": {
@@ -283,6 +299,7 @@
    "scopes": [],
    "example": ".underline-sky-blue",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -292,6 +309,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -324,6 +342,7 @@
    "example": ".uxt-white",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -354,6 +373,7 @@
    "example": ".uxt-full",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -363,6 +383,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -385,6 +406,7 @@
    "scopes": [],
    "example": ".uxt-home:has(.uxt-full)",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "starters/page.html"
@@ -400,6 +422,7 @@
    "example": ".uxt-container",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -409,6 +432,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -437,6 +461,7 @@
    "example": ".uxt-section",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -446,6 +471,7 @@
     "partials/sections/hero.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -461,13 +487,15 @@
     "PART C",
     "PART L",
     "PART M",
-    "PART R"
+    "PART R",
+    "PART T (new)"
    ],
    "scope": "global",
    "scopes": [],
    "example": ".uxt-heading",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/elements/heading-intro.html",
@@ -478,6 +506,7 @@
     "partials/sections/faq.html",
     "partials/sections/industries.html",
     "partials/sections/insights.html",
+    "partials/sections/offices.html",
     "partials/sections/outcomes.html",
     "partials/sections/process.html",
     "partials/sections/services.html",
@@ -799,11 +828,13 @@
    ],
    "example": ".uxt-home .uxt-accent.uxt-accent-strong",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
     "partials/sections/engage.html",
-    "partials/sections/faq.html"
+    "partials/sections/faq.html",
+    "partials/sections/offices.html"
    ]
   },
   "uxt-hero": {
@@ -818,6 +849,7 @@
    ],
    "example": ".uxt-home .uxt-hero",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -835,6 +867,7 @@
    ],
    "example": ".uxt-home .uxt-hero-content",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -1603,6 +1636,7 @@
    ],
    "example": ".uxt-home .uxt-process .uxt-heading",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1611,14 +1645,17 @@
   "uxt-steps": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
-    ".uxt-home"
+    ".uxt-home",
+    ".uxt-contact"
    ],
    "example": ".uxt-home .uxt-steps",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1627,14 +1664,17 @@
   "uxt-step-icon": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART T (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
-    ".uxt-home"
+    ".uxt-home",
+    ".uxt-contact"
    ],
    "example": ".uxt-home .uxt-step-icon",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1651,6 +1691,7 @@
    ],
    "example": ".uxt-home .uxt-step:not(:last-child) .uxt-step-icon::after",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1963,6 +2004,7 @@
    ],
    "example": ".uxt-home .uxt-faq .uxt-heading",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/faq.html"
@@ -1979,6 +2021,7 @@
    ],
    "example": ".uxt-home .uxt-faq-grid",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/faq.html"
@@ -1995,6 +2038,7 @@
    ],
    "example": ".uxt-home .uxt-faq-col > .uxt-accent",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/faq.html"
@@ -2013,6 +2057,7 @@
    ],
    "example": ".uxt-home .uxt-faq-list",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/faq.html"
@@ -3825,7 +3870,133 @@
    "scope": "global",
    "scopes": [],
    "example": ".uxt-nowrap",
-   "usedIn": []
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": "global",
+   "scopes": [],
+   "example": ".uxt-contact .uxt-steps",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-icon": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-step-icon .uxt-contact-icon",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-center": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-center",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-offices": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-offices .uxt-heading",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
+  },
+  "uxt-contact-office-list": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office-list",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
+  },
+  "uxt-contact-office": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
+  },
+  "uxt-contact-office-address": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office-address",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
+  },
+  "uxt-contact-office-zone": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office-zone",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
+  },
+  "uxt-contact-offices-note": {
+   "kind": "styled",
+   "sources": [
+    "PART T (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-offices-note",
+   "usedIn": [
+    "partials/sections/offices.html"
+   ]
   },
   "uxt-insights": {
    "kind": "hook",

@@ -12,6 +12,9 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Aeonik font files, or confirmation the theme path `/wp-content/themes/salient/fonts/Aeonik/` stays | Previews outside WordPress fall back to Manrope | Headings show in Manrope in previews |
 | What we do hero has no eyebrow above the H1 | LLM.md rule 20 (every hero has an eyebrow); `npm run check` warns on the developers' file | Raise with the developers; new pages must have one |
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
+| Calendar on the Contact page | The page rules want the calendar on the same page; today the booking card sends people to Calendly after the form. An inline Calendly embed is a new script | The Contact page links to the booking card (`#book-call`) |
+| Upload the Contact step icons (`assets/icons/process/share.svg`, `schedule.svg`, `talk.svg`) | They are inline SVG in `src/pages/contact.html`; upload them if the developers prefer `<img>` as in the homepage process | Inline SVG works as it is |
+| Agree PART T (Contact page: three steps, step icons, closing button, offices) | New PART for `src/pages/contact.html` | In `dist/css/uxteam-site-additions.css`, not live yet |
 | Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
 
 ## Waiting for files
@@ -24,6 +27,8 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Real links for cards | `href` on cards and buttons | Links point to `#` |
 
 ## Placeholder copy (as in Figma)
+
+- Contact page (`src/pages/contact.html`, `partials/sections/offices.html`): call length, whether the call is free, and a contact email are `[confirm … with Chintan]` placeholders. Email is not published anywhere on the live site.
 
 - FAQ answers: only "Can you share results and client work?" (homepage) and "What is UXTeam?" (About) have answers. The rest show the Figma placeholder "Add answer here."
 - Homepage outcomes: both cards carry the same headline and numbers in Figma, and the 3motionAI name is still waiting for approval.

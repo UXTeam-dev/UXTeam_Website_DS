@@ -2,6 +2,17 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.1.0 · 27 Nov 2026
+
+**Contact page** (`src/pages/contact.html`, wrapper `uxt-home uxt-contact`), coded directly; no Figma frame yet. Job: make booking effortless. Main action: Book a Discovery Call. The global booking card already holds the three-field form, the founder and the Calendly step, so the page leads to it (`#book-call`) instead of repeating it.
+- Sections: display hero with eyebrow and the logo strip; How booking works (the process steps, three steps, closing button); Where we work (new `partials/sections/offices.html`: three offices with time zones); FAQ (approved heading, two groups; three answers reused word for word from What we do).
+- New step icons in the process family: `assets/icons/process/share.svg`, `schedule.svg`, `talk.svg` (inline on the page).
+- **PART T (new, scoped to `.uxt-contact`):** three-column steps, inline step icon sizes, `uxt-contact-center`, `uxt-contact-offices` rows.
+- Placeholders to confirm with Chintan: call length, whether the call is free, contact email. Calendar embed on the page is a developer request. Listed in `docs/OPEN-ITEMS.md`.
+- COMPONENTS, GRAPHICS and OPEN-ITEMS updated.
+
+Handover: `dist/wordpress/contact.html`, and `dist/css/uxteam-site-additions.css` (PART S and PART T).
+
 ## 2.0.0 · 25 Nov 2026
 
 **The repo now uses the developers' class system (`uxt-`), the same CSS that runs on new.ux.team.** Pages built here paste into a Salient Raw HTML element as they are, with no `<style>` block to remove.

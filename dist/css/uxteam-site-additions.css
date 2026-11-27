@@ -53,4 +53,145 @@
 .uxt-nowrap {
     white-space: nowrap;
 }
+/* =====================================================================
+   PART T | CONTACT PAGE  (Figma: none yet, coded directly)
+   HTML: src/pages/contact.html, wrapped in
+         <div class="uxt-home uxt-contact">
+         Offices section: src/partials/sections/offices.html
+   Scope: .uxt-contact
+   Reuses the homepage hero, logo strip, How we work steps and FAQ
+   (Part C). This part adds only what is new:
+
+   uxt-steps (scoped)     The process steps with three steps instead of
+                          five: three columns down to tablet, the mobile
+                          icon rail from Part C below 768.
+   uxt-contact-icon       The inline 64px step icons (assets/icons/process
+                          share, schedule, talk), sized like the img
+                          icons in Part C.
+   uxt-contact-center     Centered closing button under a section.
+   uxt-contact-offices    Office rows: country label and city, address,
+                          time zone, separated by Steel hairlines.
+   ===================================================================== */
+
+/* ---------- 2. How booking works ---------- */
+.uxt-contact .uxt-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.uxt-contact .uxt-step-icon .uxt-contact-icon {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 64px;
+    height: 64px;
+}
+
+.uxt-contact .uxt-contact-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+/* ---------- 3. Offices ---------- */
+.uxt-contact .uxt-contact-offices .uxt-heading {
+    margin-bottom: 64px;
+}
+
+.uxt-contact .uxt-contact-offices .uxt-heading .uxt-p {
+    max-width: 760px;
+}
+
+.uxt-contact .uxt-contact-office-list {
+    border-top: 1px solid var(--uxt-color-border);
+}
+
+.uxt-contact .uxt-contact-office {
+    display: grid;
+    grid-template-columns: 4fr 5fr 3fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--uxt-color-border);
+}
+
+.uxt-contact .uxt-contact-office .uxt-accent {
+    display: block;
+    margin-bottom: 8px !important;
+}
+
+.uxt-contact .uxt-contact-office .uxt-h3-sm {
+    margin: 0 !important;
+}
+
+.uxt-contact .uxt-contact-office-address {
+    margin: 0 !important;
+    font-style: normal;
+}
+
+.uxt-contact .uxt-contact-office-zone {
+    margin: 0 !important;
+    text-align: right;
+}
+
+.uxt-contact .uxt-contact-offices-note {
+    margin: 40px 0 0 !important;
+    text-align: center;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 999px) {
+    .uxt-contact .uxt-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+    .uxt-contact .uxt-step-icon .uxt-contact-icon {
+        width: 56px;
+        height: 56px;
+    }
+    .uxt-contact .uxt-contact-center {
+        margin-top: 48px;
+    }
+    .uxt-contact .uxt-contact-offices .uxt-heading {
+        margin-bottom: 48px;
+    }
+    .uxt-contact .uxt-contact-office {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 32px;
+    }
+    .uxt-contact .uxt-contact-office-zone {
+        grid-column: 2;
+        text-align: left;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+    .uxt-contact .uxt-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .uxt-contact .uxt-step-icon .uxt-contact-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .uxt-contact .uxt-contact-center {
+        margin-top: 40px;
+    }
+    .uxt-contact .uxt-contact-offices .uxt-heading {
+        margin-bottom: 40px;
+    }
+    /* The intro's line break balances it on desktop and tablet only */
+    .uxt-contact .uxt-contact-offices .uxt-heading br {
+        display: none;
+    }
+    .uxt-contact .uxt-contact-office {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 24px 0;
+    }
+    .uxt-contact .uxt-contact-office-zone {
+        grid-column: auto;
+    }
+}
 
