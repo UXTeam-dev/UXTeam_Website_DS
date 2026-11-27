@@ -18,217 +18,348 @@ body{margin:0}
 <header class="preview-header"><a href="#" class="preview-logo">UXTeam</a><nav><a href="#">What We Do</a><a href="#">Success Stories</a><a href="#">Insights</a><a href="#">About</a></nav></header>
 <p class="preview-note">Preview. Images load from https://new.ux.team. Aeonik shows only where it is installed. Header and FAQ script are stand-ins.</p>
 <!-- ============================================================
-     UXTEAM: CONTACT PAGE  (no Figma frame yet, coded directly from the
-     page rules in LLM.md 15.6 and docs/BRAND-GUIDE.md section 8)
+     UXTEAM: CONTACT PAGE  (Figma "Contact Us · Design v1", 2771:18393)
      Paste into one Salient "Raw HTML" element (page body only).
-     Header, "Book a Discovery Call" and footer come from the global
-     sections, so they are not in this file. The booking card holds the
-     three-field form, the founder and the Calendly step, so this page
-     leads every visitor to it (#book-call) instead of repeating it.
-     Classes: uxteam-site.css (homepage hero, logos, How we work, FAQ)
-     and PART T (src/css/parts/part-t-contact.css) for the three steps,
-     the step icons, the closing button and the offices.
-     Step icons: inline SVG, also in assets/icons/process (share,
-     schedule, talk).
+     The header and footer come from Salient and the footer global
+     section. This page has its own form in the hero and its own closing
+     card, so the "Book a Discovery Call" card of the footer global
+     section is switched off on this page (as on Insights).
+     Header: "Transparent Header Navigation Color: Dark" (light hero).
+     CSS: uxteam-site.css (Part B, homepage How we work, story cards and
+     FAQ accordion) and PART W (src/css/parts/part-w-contact.css).
+     Script: the contact form script at the end (same behaviour as the
+     booking card form: WordPress, then Calendly).
+     Global sections: "How we work" (#1785) and the story cards (#1784)
+     can replace the marked blocks below (Part T, uxt-gs-*).
      ============================================================ -->
 <div class="uxt-home uxt-contact">
 
-  <!-- ================= 1. HERO ================= -->
-  <div class="uxt-full uxt-section uxt-hero">
+  <!-- ================= 1. HERO: intro, founder, form ================= -->
+  <div class="uxt-full uxt-section uxt-hero uxt-contact-hero">
     <div class="uxt-container">
-      <div class="uxt-hero-content">
-        <p class="uxt-subheading underline-sky-blue uxt-white">Contact UXTeam</p>
-        <h1 class="uxt-h1 uxt-white">Tell us what's holding<br> <span class="uxt-nowrap">growth back</span></h1>
-        <p class="uxt-p uxt-p-lg uxt-white">Share three details, pick a time, and talk it through with our founder. You'll leave the call knowing where to start.</p>
-        <a href="#book-call" class="uxt-button uxt-button-primary uxt-button-dark">
-  <span class="uxt-button-label">Book a Discovery Call</span>
-  <span class="uxt-button-circle">
-    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </span>
-</a>
+      <div class="uxt-contact-hero-grid">
+
+        <div class="uxt-contact-intro">
+          <div class="uxt-contact-intro-text">
+            <p class="uxt-subheading underline-sky-blue">Talk to us</p>
+            <h1 class="uxt-h2 uxt-contact-title">Let's talk about what you're building.</h1>
+            <p class="uxt-p">Fill up the form, then pick a time.<br> Your first call is with our founder, not a sales rep.</p>
+          </div>
+
+          <div class="uxt-contact-founder">
+            <div class="uxt-contact-person">
+              <div class="uxt-contact-photo"><img src="https://new.ux.team/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="Chintan Bhatt, Founder of UXTeam" width="112" height="168"></div>
+              <div>
+                <p class="uxt-contact-name">Chintan Bhatt</p>
+                <p class="uxt-contact-role">Founder, UXTeam, 20+ years in design</p>
+              </div>
+            </div>
+            <ul class="uxt-contact-points">
+              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">A senior read on your site or product, before you commit to anything</span></li>
+              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">An honest answer on fit, even when it isn't us</span></li>
+              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">A mutual NDA on request, before you share anything</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="uxt-contact-card" id="contact-form">
+          <div class="uxt-contact-card-head">
+            <p class="uxt-h3 uxt-contact-card-title" id="uxt-contact-form-title">Book a discovery call</p>
+            <p class="uxt-p uxt-p-xs">Three quick fields, then pick a time that suits you.</p>
+          </div>
+
+          <div class="uxt-contact-form-wrap">
+            <form class="uxt-contact-form" id="uxt-contact-form" novalidate aria-labelledby="uxt-contact-form-title">
+              <label class="uxt-contact-field"><span class="uxt-label">Full name</span><input type="text" name="full_name" placeholder="Jane Cooper" autocomplete="name" maxlength="100"></label>
+              <label class="uxt-contact-field"><span class="uxt-label">Work email*</span><input type="email" name="work_email" placeholder="jane@company.com" autocomplete="email" maxlength="150" required></label>
+              <label class="uxt-contact-field"><span class="uxt-label">Company website</span><input type="text" name="company_website" placeholder="company.com" autocomplete="url" maxlength="200"></label>
+              <!-- Spam trap, keep it hidden -->
+              <input type="text" name="uxt_hp" class="uxt-contact-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <p class="uxt-contact-form-error" role="alert" aria-live="polite"></p>
+              <button type="submit" class="uxt-button uxt-button-primary">
+                <span class="uxt-button-label">Book a Discovery Call</span>
+                <span class="uxt-button-circle">
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </button>
+            </form>
+
+            <div class="uxt-contact-form-success" hidden>
+              <svg class="uxt-contact-form-success-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0d1315"/><path d="M15 24.5l6 6 12-13" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="uxt-label" role="status">Your request has been submitted.<br>We'll get back to you shortly.</p>
+              <a class="uxt-p uxt-p-xs uxt-contact-form-cal" href="https://calendly.com/chintanuxteam">Taking you to Calendly to pick a time</a>
+              <button type="button" class="uxt-button uxt-button-primary uxt-contact-form-again">
+                <span class="uxt-button-label">Book Another Discovery Call</span>
+                <span class="uxt-button-circle">
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="uxt-logos">
-        <p class="uxt-p uxt-p-sm uxt-logos-title">Trusted by B2B companies worldwide</p>
-
-        <div class="uxt-logos-track">
-            <div class="uxt-logos-list">
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt="SLAPS"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt="RBBi"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt="Section"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt="DS Live"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt="FWD"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt="Trescon"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt="The Squaircle"></div>
-            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt="Terrapinn"></div>
-            <div class="uxt-logo-item uxt-logo-raw"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt="Client logo"></div>
-            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt="Alta DX"></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt="Atomic North"></div>
-            </div>
-
-            <!-- Duplicate list for seamless scrolling -->
-            <div class="uxt-logos-list" aria-hidden="true">
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt=""></div>
-            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt=""></div>
-            <div class="uxt-logo-item uxt-logo-raw"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt=""></div>
-            <div class="uxt-logo-item uxt-logo-dark"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt=""></div>
-            <div class="uxt-logo-item"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt=""></div>
-            </div>
-        </div>
-        </div>
   </div>
 
-  <!-- ================= 2. HOW BOOKING WORKS ================= -->
+  <!-- ================= 2. HOW WE WORK (approved section, as it is) =================
+       On WordPress this can be the "How we work" global section (#1785). -->
+  <!-- ================= 6. HOW WE WORK ================= -->
   <div class="uxt-full uxt-section uxt-process">
     <div class="uxt-container">
       <div class="uxt-heading">
-        <p class="uxt-subheading underline-sky-blue">How booking works</p>
-        <h2 class="uxt-h2">Three steps to a discovery call</h2>
+        <p class="uxt-subheading underline-sky-blue">How we work</p>
+        <h2 class="uxt-h2">From first audit to final result</h2>
       </div>
 
       <div class="uxt-steps">
         <div class="uxt-step">
-          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect x="13.75" y="6.75" width="36.5" height="50.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.75 17.75H42.25M21.75 26.75H42.25M21.75 35.75H34.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="21.75" y="43.75" width="20.5" height="6.5" rx="3.25" fill="url(#gshare0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gshare0" x1="21.75" y1="43.75" x2="40" y2="52" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
-          <span class="uxt-accent">1.&nbsp; Share</span>
-          <h3 class="uxt-h3">Tell us three things.</h3>
-          <p class="uxt-p">Your name, work email, and company website. That's the whole form.</p>
+          <div class="uxt-step-icon"><img src="https://new.ux.team/wp-content/uploads/2026/10/Audit.svg" alt="Audit icon" width="64" height="64"></div>
+          <span class="uxt-accent">1.&nbsp; Audit</span>
+          <h3 class="uxt-h3">We walk your product as your buyers do.</h3>
+          <p class="uxt-p">A UX audit first, to find what's really holding growth back.</p>
         </div>
         <div class="uxt-step">
-          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect x="8.75" y="12.75" width="46.5" height="43.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 24.75H55.25M21.75 7.75V17.75M42.25 7.75V17.75" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="34.75" y="34.75" width="11.5" height="11.5" rx="2.5" fill="url(#gschedule0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gschedule0" x1="34.75" y1="34.75" x2="46.25" y2="46.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
-          <span class="uxt-accent">2.&nbsp; Schedule</span>
-          <h3 class="uxt-h3">Pick a time that suits you.</h3>
-          <p class="uxt-p">Our calendar opens as soon as you send the form.</p>
+          <div class="uxt-step-icon"><img src="https://new.ux.team/wp-content/uploads/2026/10/Evidence.svg" alt="Evidence icon" width="64" height="64"></div>
+          <span class="uxt-accent">2.&nbsp; Evidence</span>
+          <h3 class="uxt-h3">We check it against your data.</h3>
+          <p class="uxt-p">Analytics, behavior data, and category research. One agreed metric.</p>
         </div>
         <div class="uxt-step">
-          <div class="uxt-step-icon"><svg class="uxt-contact-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><path d="M12.75 9.75H35.25C38.0114 9.75 40.25 11.9886 40.25 14.75V29.25C40.25 32.0114 38.0114 34.25 35.25 34.25H18.75L10.75 40.25V34.25C8.54 33.6 7.75 31.9 7.75 29.25V14.75C7.75 11.9886 9.98858 9.75 12.75 9.75Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28.75 25.75H51.25C54.0114 25.75 56.25 27.9886 56.25 30.75V44.25C56.25 46.9 55.46 48.6 53.25 49.25V55.25L45.25 49.25H28.75C25.9886 49.25 23.75 47.0114 23.75 44.25V30.75C23.75 27.9886 25.9886 25.75 28.75 25.75Z" fill="url(#gtalk0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.75 37.75H46.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gtalk0" x1="23.75" y1="25.75" x2="56.25" y2="55.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
-          <span class="uxt-accent">3.&nbsp; Talk</span>
-          <h3 class="uxt-h3">Talk to our founder.</h3>
-          <p class="uxt-p">Your goal, what's in the way, and where to start: an audit, a project, or a partnership.</p>
+          <div class="uxt-step-icon"><img src="https://new.ux.team/wp-content/uploads/2026/10/Journey.svg" alt="Journey icon" width="64" height="64"></div>
+          <span class="uxt-accent">3.&nbsp; Journey</span>
+          <h3 class="uxt-h3">We redesign the path around their questions.</h3>
+          <p class="uxt-p">Story, routes, and content built around how your buyers decide.</p>
         </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="https://new.ux.team/wp-content/uploads/2026/10/Build.svg" alt="Build icon" width="64" height="64"></div>
+          <span class="uxt-accent">4.&nbsp; Build</span>
+          <h3 class="uxt-h3">We design and build together.</h3>
+          <p class="uxt-p">One team, so nothing waits on a long handover.</p>
+        </div>
+        <div class="uxt-step">
+          <div class="uxt-step-icon"><img src="https://new.ux.team/wp-content/uploads/2026/10/Proof.svg" alt="Proof icon" width="64" height="64"></div>
+          <span class="uxt-accent">5.&nbsp; Proof</span>
+          <h3 class="uxt-h3">We test, measure, and keep refining.</h3>
+          <p class="uxt-p">A/B tests against the metric we agreed at the start.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. OUR CLIENTS AND GLOBAL PRESENCE ================= -->
+  <div class="uxt-full uxt-section uxt-contact-clients">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Our clients</p>
+        <h2 class="uxt-h2">Trusted by B2B teams worldwide</h2>
+        <p class="uxt-p uxt-p-sm">We work with product, growth and marketing teams in the USA, Canada, the UAE and wider Middle East, Southeast Asia, and Australia.</p>
+      </div>
+
+      <div class="uxt-contact-logos">
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo01_2x.webp" alt="SLAPS" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo02_2x.webp" alt="RBBi" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo03_2x.webp" alt="Section" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo04_2x.webp" alt="DXB Live" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo05_2x.webp" alt="FWD" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo06_2x.webp" alt="Trescon" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo07_2x.webp" alt="The Squaircle" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo08_2x.webp" alt="Terrapinn" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo09_2x.webp" alt="E2M" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo10_2x.webp" alt="Alta DX" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img src="https://new.ux.team/wp-content/uploads/2026/10/homepage_banner_logo11_2x.webp" alt="Atomic North" width="187" height="80" loading="lazy"></div>
+          <div class="uxt-contact-logo"><img class="uxt-contact-logo-voro" src="https://new.ux.team/wp-content/uploads/2026/11/voro-wordmark.svg" alt="VORO" width="104" height="25" loading="lazy"></div>
+      </div>
+
+      <div class="uxt-contact-based">
+        <p class="uxt-p">Our global presence</p>
+        <ul class="uxt-contact-based-list">
+          <li class="uxt-h3-sm">India</li>
+          <li class="uxt-h3-sm">UAE</li>
+          <li class="uxt-h3-sm">USA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 4. SUCCESS STORIES =================
+       On WordPress the three cards can be the story cards global section (#1784). -->
+  <div class="uxt-full uxt-section uxt-contact-stories">
+    <div class="uxt-container">
+      <div class="uxt-heading">
+        <p class="uxt-subheading underline-sky-blue">Success stories</p>
+        <h2 class="uxt-h2">The partnerships behind the results</h2>
+      </div>
+
+      <div class="uxt-story-grid">
+        <a href="#" class="uxt-story-card uxt-story-link uxt-button-trigger" aria-label="Read story: Helping an Enterprise Technology Company Turn Complex Data into Intuitive UX">
+          <div class="uxt-contact-story-logo"><img class="uxt-contact-logo-dx" src="https://new.ux.team/wp-content/uploads/2026/11/dxfactor.svg" alt="DX Factor" width="142" height="44" loading="lazy"></div>
+          <h3 class="uxt-h3">Helping an Enterprise Technology Company Turn Complex Data into Intuitive UX</h3>
+          <span class="uxt-accent">AI Transformation Studio<br>USA · India</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+          </span>
+        </a>
+        <a href="/success-story/helping-a-creative-agency-scale-design-delivery-through-ux-ui-partnership/" class="uxt-story-card uxt-story-link uxt-button-trigger" aria-label="Read story: Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership">
+          <div class="uxt-contact-story-logo"><img class="uxt-contact-logo-rbbi" src="https://new.ux.team/wp-content/uploads/2026/10/rbbi-homepage.svg" alt="RBBi" width="57" height="57" loading="lazy"></div>
+          <h3 class="uxt-h3">Helping a Creative Agency Scale Design Delivery Through UX/UI Partnership</h3>
+          <span class="uxt-accent">Digital Experience Agency<br>Dubai</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+          </span>
+        </a>
+        <a href="/success-story/transforming-brand-identity-into-a-high-performance-website-experience/" class="uxt-story-card uxt-story-link uxt-button-trigger" aria-label="Read story: Transforming Brand Identity into High-Performance Website Experience">
+          <div class="uxt-contact-story-logo"><img class="uxt-contact-logo-e2m" src="https://new.ux.team/wp-content/uploads/2026/10/e2m-homepage.svg" alt="E2M" width="56" height="56" loading="lazy"></div>
+          <h3 class="uxt-h3">Transforming Brand Identity into High-Performance Website Experience</h3>
+          <span class="uxt-accent">AI Transformation Studio<br>USA · India</span>
+          <span class="uxt-button uxt-button-secondary" aria-hidden="true">
+            <span class="uxt-button-label">Read Story</span>
+            <span class="uxt-button-circle">
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+          </span>
+        </a>
       </div>
 
       <div class="uxt-contact-center">
-        <a href="#book-call" class="uxt-button uxt-button-primary">
-  <span class="uxt-button-label">Book a Discovery Call</span>
-  <span class="uxt-button-circle">
-    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </span>
-</a>
+        <a href="/success-stories/" class="uxt-button uxt-button-primary">
+          <span class="uxt-button-label">Read All Success Stories</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- ================= 3. OFFICES ================= -->
-  <!-- ================= OFFICES ================= -->
-  <div class="uxt-full uxt-section uxt-contact-offices">
-    <div class="uxt-container">
-      <div class="uxt-heading">
-        <p class="uxt-subheading underline-sky-blue">Where we work</p>
-        <h2 class="uxt-h2">Three offices, one team</h2>
-        <p class="uxt-p">We work with B2B teams across the USA, Canada,<br> the Middle East, Southeast Asia, and Australia.</p>
-      </div>
-
-      <div class="uxt-contact-office-list">
-        <div class="uxt-contact-office">
-          <div>
-            <span class="uxt-accent uxt-accent-strong">UAE</span>
-            <h3 class="uxt-h3-sm">Dubai</h3>
-          </div>
-          <address class="uxt-p uxt-p-sm uxt-contact-office-address">3206, The One Tower, Barsha Heights, Sheikh Zayed Road, Dubai, United Arab Emirates</address>
-          <p class="uxt-p uxt-p-sm uxt-contact-office-zone">Gulf Standard Time</p>
-        </div>
-        <div class="uxt-contact-office">
-          <div>
-            <span class="uxt-accent uxt-accent-strong">India</span>
-            <h3 class="uxt-h3-sm">Ahmedabad</h3>
-          </div>
-          <address class="uxt-p uxt-p-sm uxt-contact-office-address">B-1304, Sankalp Iconic Tower, Ambli Road, Sanidhya, Ahmedabad 380054, Gujarat, India</address>
-          <p class="uxt-p uxt-p-sm uxt-contact-office-zone">India Standard Time</p>
-        </div>
-        <div class="uxt-contact-office">
-          <div>
-            <span class="uxt-accent uxt-accent-strong">USA</span>
-            <h3 class="uxt-h3-sm">New Jersey</h3>
-          </div>
-          <address class="uxt-p uxt-p-sm uxt-contact-office-address">101 Edison Glen Terrace, Edison, New Jersey 08837, United States</address>
-          <p class="uxt-p uxt-p-sm uxt-contact-office-zone">US Eastern Time</p>
-        </div>
-      </div>
-
-      <p class="uxt-p uxt-p-sm uxt-contact-offices-note">Prefer email? Write to us at [confirm contact email with Chintan].</p>
-    </div>
-  </div>
-
-  <!-- ================= 4. FAQ ================= -->
-  <div class="uxt-full uxt-section uxt-faq">
+  <!-- ================= 5. FAQ (homepage accordion, one column) ================= -->
+  <div class="uxt-full uxt-section uxt-faq uxt-contact-faq">
     <div class="uxt-container">
       <div class="uxt-heading">
         <p class="uxt-subheading underline-sky-blue">FAQs</p>
-        <h2 class="uxt-h2">What we observe, think, and learn</h2>
+        <h2 class="uxt-h2">Questions before you book</h2>
       </div>
 
-      <div class="uxt-faq-grid">
-        <div class="uxt-faq-col">
-          <span class="uxt-accent uxt-accent-strong">About the call</span>
-          <div class="uxt-faq-list">
+      <div class="uxt-faq-list">
             <div class="uxt-faq-item is-expanded">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-1" aria-expanded="true"><h3 class="uxt-h3-sm">Who will I speak with?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-1"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Our founder, who has 20+ years in design. You talk to the person who shapes the recommendation, not a sales team.</p></div></div>
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-1" aria-expanded="true"><h3 class="uxt-h3-sm">Is the discovery call free?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-1"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. It's a working conversation about your problem, with no pitch deck and no obligation after it.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-2" aria-expanded="false"><h3 class="uxt-h3-sm">How long is the call?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-2" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">About [confirm call length with Chintan], at a time you pick in our calendar.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-2" aria-expanded="true"><h3 class="uxt-h3-sm">Do I need a brief before we talk?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-2"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">No. A link to your site or product is enough. If you have analytics or past research, bring it, but it's not required.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-3" aria-expanded="false"><h3 class="uxt-h3-sm">Is the call free?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-3" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">[Confirm with Chintan.] There's no obligation to work with us after it.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-3" aria-expanded="true"><h3 class="uxt-h3-sm">What does it cost?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-3"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Most teams start with a UX audit. It's a fixed fee, quoted after one call, so you know the cost before you commit.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-4" aria-expanded="false"><h3 class="uxt-h3-sm">What should I prepare?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-4" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Nothing formal. It helps to know the metric you want to move and where you think it's stuck. Bring analytics or past test results if you have them.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-4" aria-expanded="true"><h3 class="uxt-h3-sm">Will you sign an NDA?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-4"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. We sign a mutual NDA on request before you share anything. You own all the work, and your data is used only for the project.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-5" aria-expanded="false"><h3 class="uxt-h3-sm">Can we sign an NDA first?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-5" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. Every engagement runs under a mutual NDA, you keep full IP ownership, and we use your data only for your project. If you need the NDA before the call, tell us when you book.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-5" aria-expanded="true"><h3 class="uxt-h3-sm">How soon can you start?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-5"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">It depends on scope. Audits usually start as soon as we have analytics access, and we'll give you a real start date on the call.</p></div></div>
 </div>
-          </div>
-        </div>
-
-        <div class="uxt-faq-col">
-          <span class="uxt-accent uxt-accent-strong">Working together</span>
-          <div class="uxt-faq-list">
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-6" aria-expanded="false"><h3 class="uxt-h3-sm">What happens after the call?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-6" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">We recommend where to start: a UX audit, a project, or a partnership. An audit is a fixed fee, quoted after this one call, with the report in about 3 days once we have analytics access.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-6" aria-expanded="true"><h3 class="uxt-h3-sm">Do you work with teams in my time zone?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-6"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">We have offices in India, the UAE and the USA, and work with teams across North America, the Middle East, Southeast Asia and Australia.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-7" aria-expanded="false"><h3 class="uxt-h3-sm">Where do most engagements start?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-7" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Usually with a UX Audit or a strategy workshop. Both scope the work and surface the priorities before you commit to a larger project.</p></div></div>
+            <div class="uxt-faq-item is-expanded">
+  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-7" aria-expanded="true"><h3 class="uxt-h3-sm">Can agencies book this call too?</h3><span class="uxt-faq-icon"></span></button>
+  <div class="uxt-faq-panel" id="uxt-faq-answer-7"><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. If you're an agency looking for a white label partner, mention it in the form and we'll keep the conversation confidential.</p></div></div>
 </div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-8" aria-expanded="false"><h3 class="uxt-h3-sm">Do you work with in-house design and product teams?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-8" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes, often. We can lead a project end to end or work alongside your team to add capacity and an outside perspective.</p></div></div>
-</div>
-            <div class="uxt-faq-item">
-  <button type="button" class="uxt-faq-question" aria-controls="uxt-faq-answer-9" aria-expanded="false"><h3 class="uxt-h3-sm">Do you work with agencies?</h3><span class="uxt-faq-icon"></span></button>
-  <div class="uxt-faq-panel" id="uxt-faq-answer-9" inert><div class="uxt-faq-panel-inner"><p class="uxt-p uxt-p-sm">Yes. Alongside our direct clients, we partner with agencies and work under their brand when needed.</p></div></div>
-</div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Book a Discovery Call and the footer come from the footer global section
-       (src/global/footer-global.html). Buttons with href="#book-call" scroll to it. -->
+  <!-- ================= 6. CLOSING CALL TO ACTION ================= -->
+  <div class="uxt-full uxt-section uxt-contact-closing">
+    <div class="uxt-container">
+      <div class="uxt-contact-closing-card">
+        <div class="uxt-heading">
+          <p class="uxt-subheading underline-sky-blue">Book a discovery call</p>
+          <h2 class="uxt-h2">Ready when you are</h2>
+          <p class="uxt-p uxt-p-sm">Three quick fields and a time that suits you. That's all it takes to start.</p>
+        </div>
+        <a href="#contact-form" class="uxt-button uxt-button-primary">
+          <span class="uxt-button-label">Book a Discovery Call</span>
+          <span class="uxt-button-circle">
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="uxt-button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+/* Contact page form: the booking card's behaviour, for the form in the
+   Contact hero. Sends to WordPress (action uxt_discovery_call), shows the
+   success message for 2 seconds, then goes to Calendly in the same tab */
+(function () {
+  var CALENDLY_URL = 'https://calendly.com/chintanuxteam';
+  var REDIRECT_DELAY = 2000; /* 2 seconds on the success message */
+  var form = document.getElementById('uxt-contact-form');
+  if (!form) return;
+  var wrap = form.parentNode;
+  var success = wrap.querySelector('.uxt-contact-form-success');
+  var error = form.querySelector('.uxt-contact-form-error');
+  var button = form.querySelector('button[type="submit"]');
+  var label = button.querySelector('.uxt-button-label');
+  var email = form.elements.work_email;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    error.textContent = '';
+    email.classList.remove('is-invalid');
+    var value = email.value.trim();
+    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      email.classList.add('is-invalid');
+      error.textContent = 'Please enter a valid work email.';
+      email.focus();
+      return;
+    }
+    var data = new FormData(form);
+    data.append('action', 'uxt_discovery_call');
+    button.disabled = true;
+    label.textContent = 'Sending...';
+    fetch('/wp-admin/admin-ajax.php', { method: 'POST', body: data, credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) {
+          form.reset();
+          form.hidden = true;
+          success.hidden = false;
+          /* Show the message first, then go to Calendly in this tab */
+          setTimeout(function () { window.location.href = CALENDLY_URL; }, REDIRECT_DELAY);
+        } else {
+          error.textContent = (res && res.data && res.data.message) || 'Something went wrong. Please try again.';
+        }
+      })
+      .catch(function () { error.textContent = 'Something went wrong. Please try again.'; })
+      .then(function () { button.disabled = false; label.textContent = 'Book a Discovery Call'; });
+  });
+
+  wrap.querySelector('.uxt-contact-form-again').addEventListener('click', function () {
+    success.hidden = true;
+    form.hidden = false;
+    form.elements.full_name.focus();
+  });
+})();
+</script>
 
 </div>
 

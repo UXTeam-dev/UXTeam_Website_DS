@@ -2,16 +2,21 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
-## 2.1.0 · 27 Nov 2026
+## 2.2.0 · 27 Nov 2026
 
-**Contact page** (`src/pages/contact.html`, wrapper `uxt-home uxt-contact`), coded directly; no Figma frame yet. Job: make booking effortless. Main action: Book a Discovery Call. The global booking card already holds the three-field form, the founder and the Calendly step, so the page leads to it (`#book-call`) instead of repeating it.
-- Sections: display hero with eyebrow and the logo strip; How booking works (the process steps, three steps, closing button); Where we work (new `partials/sections/offices.html`: three offices with time zones); FAQ (approved heading, two groups; three answers reused word for word from What we do).
-- New step icons in the process family: `assets/icons/process/share.svg`, `schedule.svg`, `talk.svg` (inline on the page).
-- **PART T (new, scoped to `.uxt-contact`):** three-column steps, inline step icon sizes, `uxt-contact-center`, `uxt-contact-offices` rows.
-- Placeholders to confirm with Chintan: call length, whether the call is free, contact email. Calendar embed on the page is a developer request. Listed in `docs/OPEN-ITEMS.md`.
-- COMPONENTS, GRAPHICS and OPEN-ITEMS updated.
+**New developer CSS synced** (`src/css/uxteam-site.css`, received 27 Nov 2026, fingerprint updated). It adds PART S (Insights), T (shared helpers, global sections), U (White label, transparent header) and V (Our work). Our PART S (`uxt-placeholder`, `uxt-nowrap`) is now inside their PART T, so `src/css/parts/part-s-shared.css` is removed. New parts continue at W.
 
-Handover: `dist/wordpress/contact.html`, and `dist/css/uxteam-site-additions.css` (PART S and PART T).
+**Contact page rebuilt from Figma "Contact Us · Design v1" (2771:18393)**, replacing the earlier coded draft (its PART T, offices partial and three step icons are removed). `src/pages/contact.html`, wrapper `uxt-home uxt-contact`:
+- Light hero (About hero gradient, keeps `uxt-hero` for the transparent header): eyebrow, title, founder with three points, and the three-field form card.
+- How we work: the approved process section, as it is.
+- Our clients: logo grid (2 rows of 6) and global presence, About values.
+- Success stories: DX Factor, RBBi, E2M cards with logos, About values; Read All Success Stories.
+- FAQ: one column, seven questions, all open as in Figma.
+- Closing card "Ready when you are" (G5), button to the hero form.
+- **PART W (new, scoped to `.uxt-contact`)** and `src/partials/contact-form-script.html` (the booking card script with its selectors changed). Hooks `uxt-contact-form-wrap`, `uxt-contact-form-again`.
+- For the developers: switch off the footer booking card on this page, add the form script, point the header button to `#contact-form`, upload the DX Factor and VORO logos (docs/OPEN-ITEMS.md).
+
+Handover: `dist/wordpress/contact.html`, `dist/css/uxteam-site-additions.css` (PART W).
 
 ## 2.0.0 · 25 Nov 2026
 

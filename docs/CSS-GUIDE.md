@@ -16,7 +16,7 @@ The live site (new.ux.team) runs on the Salient WordPress theme. The developers 
 | Page body | one Salient **Raw HTML** element per page | `src/pages/<page>.html` → `dist/wordpress/<page>.html` |
 | Booking card ("Book a Discovery Call") and footer | the **footer global section**, on every page | `src/global/footer-global.html` |
 | All CSS | **Salient > Custom CSS**, one file in PARTs A to R | `src/css/uxteam-site.css` (byte for byte copy) |
-| New CSS written here | added after PART R | `src/css/parts/part-<letter>-<scope>.css` → `dist/css/uxteam-site-additions.css` |
+| New CSS written here | added after PART V | `src/css/parts/part-<letter>-<scope>.css` → `dist/css/uxteam-site-additions.css` |
 
 **The developers' files are the source of truth.** `uxteam-site.css`, `homepage.html`, `what-we-do.html` and `footer-global.html` are copies of what the developers handed over (25 Nov 2026). `npm run check` fails if any of them is edited (fingerprints in `src/css/source.lock.json`).
 

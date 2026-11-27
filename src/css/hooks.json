@@ -8,7 +8,9 @@
     "is-invalid": "Added to a booking form field by the footer script when it fails validation.",
     "is-leaving": "Added by the What we do capabilities script during the card animation.",
     "is-moved": "Added by the What we do capabilities script during the card animation.",
-    "is-pinned": "Added by the What we do capabilities script when the tab bar is pinned."
+    "is-pinned": "Added by the What we do capabilities script when the tab bar is pinned.",
+    "uxt-contact-form-wrap": "Contact page form: holds the form and its success message; the contact form script finds the success message inside it.",
+    "uxt-contact-form-again": "\"Book another\" button in the Contact page form; the contact form script finds it with this class."
   },
   "developerNames": {
     "underline-sky-blue": "With uxt-subheading: the sky blue line under the eyebrow (light sections).",

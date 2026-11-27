@@ -12,15 +12,17 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Aeonik font files, or confirmation the theme path `/wp-content/themes/salient/fonts/Aeonik/` stays | Previews outside WordPress fall back to Manrope | Headings show in Manrope in previews |
 | What we do hero has no eyebrow above the H1 | LLM.md rule 20 (every hero has an eyebrow); `npm run check` warns on the developers' file | Raise with the developers; new pages must have one |
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
-| Calendar on the Contact page | The page rules want the calendar on the same page; today the booking card sends people to Calendly after the form. An inline Calendly embed is a new script | The Contact page links to the booking card (`#book-call`) |
-| Upload the Contact step icons (`assets/icons/process/share.svg`, `schedule.svg`, `talk.svg`) | They are inline SVG in `src/pages/contact.html`; upload them if the developers prefer `<img>` as in the homepage process | Inline SVG works as it is |
-| Agree PART T (Contact page: three steps, step icons, closing button, offices) | New PART for `src/pages/contact.html` | In `dist/css/uxteam-site-additions.css`, not live yet |
-| Agree PART S (`uxt-placeholder`, `uxt-nowrap`) | The first new PART, global, for image placeholders and no-wrap spans | In `dist/css/uxteam-site-additions.css`, not live yet |
+| Contact page: switch off the footer global booking card | The Contact design (Figma 2771:18393) has its own form in the hero and its own closing card, then the footer | Pages keep the global booking card |
+| Contact page form script (`src/partials/contact-form-script.html`) | The booking card script with only its selectors changed, for the hero form; posts to the same `uxt_discovery_call` action, then Calendly | Not live until the developers add it |
+| Contact page header button | With the booking card off, the header's Book a Discovery Call (`#book-call`) needs to point to the hero form (`#contact-form`) on this page | Header link set by the developers |
+| Agree PART W (Contact page) | New PART for `src/pages/contact.html` | In `dist/css/uxteam-site-additions.css`, not live yet |
 
 ## Waiting for files
 
 | Item | Where it goes | Until then |
 |---|---|---|
+| Upload `assets/logos/clients/dxfactor.svg` and `voro-wordmark.svg` to `/wp-content/uploads/2026/11/` (or point to the files the About page already uses) | Contact page story card (DX Factor) and logo grid (VORO) | The paths in `src/pages/contact.html` assume 2026/11 |
+| DX Factor success story link | Contact page story card | Links to `#` |
 | Featured story video (Brent Weaver, E2M) | The featured story in `src/partials/sections/stories.html` (the developers' markup) | The play button shows the still only |
 | Calendly booking link | The booking form in the footer global section (developers) | As on the live site |
 | LinkedIn URLs for people | Story and author links | Links point to `#` |
@@ -28,7 +30,6 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 
 ## Placeholder copy (as in Figma)
 
-- Contact page (`src/pages/contact.html`, `partials/sections/offices.html`): call length, whether the call is free, and a contact email are `[confirm … with Chintan]` placeholders. Email is not published anywhere on the live site.
 
 - FAQ answers: only "Can you share results and client work?" (homepage) and "What is UXTeam?" (About) have answers. The rest show the Figma placeholder "Add answer here."
 - Homepage outcomes: both cards carry the same headline and numbers in Figma, and the 3motionAI name is still waiting for approval.

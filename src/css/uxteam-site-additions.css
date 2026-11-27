@@ -5,11 +5,10 @@
    The build joins them into dist/css/uxteam-site-additions.css.
 
    To go live: the developers paste the additions file at the END of
-   Salient > Custom CSS (after PART R), then move each part into
+   Salient > Custom CSS (after PART V), then move each part into
    uxteam-site.css and delete it here (docs/CSS-GUIDE.md section 7).
 
    Rules for every part: docs/CSS-GUIDE.md section 5 and 6.
    ===================================================================== */
 
-@import "parts/part-s-shared.css";
-@import "parts/part-t-contact.css";
+@import "parts/part-w-contact.css";

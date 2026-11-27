@@ -19,6 +19,10 @@
            HTML at the top of uxteam-footer.html.
    PART R  About Us page (only inside <div class="uxt-about">),
            HTML in uxteam-about-us.html.
+   PART S  Insights listing and posts.
+   PART T  Shared helpers: uxt-placeholder image boxes, uxt-nowrap.
+   PART U  White label page (only inside <div class="uxt-wl">),
+           HTML in white-label.html.
    ===================================================================== */
 
 /* =====================================================================
@@ -1959,9 +1963,10 @@ body #header-outer[data-lhe='default'] #top nav .sf-menu > .current-menu-ancesto
         margin-bottom: -25px !important;
     }
 
-    /* NOTE: the words 'Scroll css tab' below were outside a comment, so this rule never matches.
-       Kept as is. To make it work, delete '.success-story-scrolling-tab-main-section Scroll css tab' from the selector. */
-    .success-story-scrolling-tab-main-section Scroll css tab .success-story-scrolling-tab-main-section .success-story-dropdown-placeholder {
+    /* Spacer that holds the dropdown's place while it sticks under the header,
+       so the page does not jump. (Fixed November 2026: the stray words
+       'Scroll css tab' in this selector stopped the rule from working.) */
+    .success-story-scrolling-tab-main-section .success-story-dropdown-placeholder {
         display: block;
         width: 100%;
         height: 0;
@@ -8002,5 +8007,3025 @@ body .nectar-cta.ss-e2m-btn .link_text:focus-visible::after {
 @media (prefers-reduced-motion: reduce) {
     .uxt-about .uxt-about-faq .uxt-faq-item > .uxt-faq-question {
         transition: none;
+    }
+}
+
+
+/* =====================================================================
+   PART S | INSIGHTS  (Figma "Insights Listing" 2102:3047 and
+   "Insights Details Page" 2102:3181)
+   1. Insights page: title block (Raw HTML, uxteam-insights-listing.html)
+      inside a row with the classes "uxt-insights-listing uxt-insights-loop".
+   2. Insight cards and filter chips: Salient Post Loop Builder inside any
+      row with the class "uxt-insights-loop" (Insights page and the
+      "Other Insights" row on each post).
+   3. Insight post: hero from the [uxt_insight_hero] shortcode
+      (functions.php), article, table of contents and author box
+      (uxteam-insight-post.html). The body class "uxt-insight-page" is
+      added by functions.php on posts that use the shortcode.
+   ===================================================================== */
+
+/* ---------- 1. Insights page: row background and title ---------- */
+/* Figma header background (810px tall, from the top of the page). The
+   site header is 86px, so the stops are moved up by 86px. */
+/* Row type must be "Full Width Background": Salient stretches the
+   .row-bg layer to the full screen width, so the gradient goes there. */
+
+.insights-template-default section#book-call {
+    display: none;
+}
+
+.page-id-1657 section#book-call {
+    display: none;
+}
+
+body .wpb_row.uxt-insights-listing {
+    padding-top: 100px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0 !important;
+}
+
+body .wpb_row.uxt-insights-listing > .row-bg-wrap .row-bg {
+    background: linear-gradient(180deg, #0d1315 -86px, rgba(10, 27, 51, 0.9) 182px, #5c6d85 434px, #ffffff 646px, #ffffff 100%) !important;
+    opacity: 1 !important;
+}
+
+.uxt-insights-loop .wpb_raw_code,
+.uxt-insights-loop .wpb_raw_html,
+.uxt-insights-loop .wpb_content_element {
+    margin-bottom: 0 !important;
+}
+
+.uxt-insights-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 732px;
+    margin: 0 auto !important;
+    padding: 0 0 120px;
+    text-align: center;
+}
+
+/* "Design Insights": Aeonik Medium 64 / 120% */
+.uxt-insights-hero .uxt-insights-hero-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 64px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    color: #ffffff !important;
+}
+
+.uxt-insights-hero .uxt-insights-hero-accent {
+    background: linear-gradient(98.4deg, #a9fbff 1.41%, #fedfba 99.08%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.uxt-insights-hero .uxt-insights-hero-text {
+    max-width: 601px;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    color: #e4f0ff !important;
+}
+
+/* ---------- 2. Post Loop Builder: filter chips ---------- */
+.uxt-insights-loop .nectar-post-grid-wrap {
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters {
+    margin: 0 0 40px !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+/* Chips show on the Insights page only, never under "Other Insights" */
+.uxt-insights-listing .nectar-post-grid-filters {
+    display: block !important;
+}
+
+.uxt-insights-related .nectar-post-grid-filters {
+    display: none !important;
+}
+
+/* Salient's mobile "Filter" toggle: the chips are always shown instead */
+.uxt-insights-loop .nectar-post-grid-filters h4 {
+    display: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters > div {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters a {
+    position: relative;
+    display: inline-flex !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 10px 20px !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: nowrap;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid #acb5c2 !important;
+    border-radius: 100px !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters a::before,
+.uxt-insights-loop .nectar-post-grid-filters a::after {
+    content: none !important;
+    display: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters a:hover {
+    background: rgba(255, 255, 255, 0.32) !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters a.active {
+    color: #081219 !important;
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-filters a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* ---------- 2. Post Loop Builder: cards (Figma Blog Card, 384 x 453) ---------- */
+.uxt-insights-loop .nectar-post-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .inner {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column;
+    gap: 32px;
+    height: 100% !important;
+    min-height: 453px;
+    margin: 0 !important;
+    padding: 24px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--uxt-color-border) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+    transform: none !important;
+    transition: box-shadow 0.3s ease;
+}
+
+.uxt-insights-loop .nectar-post-grid-item:hover .inner {
+    box-shadow: 0 12px 40px rgba(8, 18, 25, 0.08);
+}
+
+/* Image: bottom of the card, 216px tall, 6px corners */
+.uxt-insights-loop .nectar-post-grid-item-bg-wrap {
+    order: 2;
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 auto;
+    width: 100% !important;
+    height: 216px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    background: #e9ecf1;
+    transform: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item-bg-wrap-inner,
+.uxt-insights-loop .nectar-post-grid-item-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item-bg::before,
+.uxt-insights-loop .nectar-post-grid-item-bg::after,
+.uxt-insights-loop .nectar-post-grid-item .bg-overlay {
+    display: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item-bg img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    transform: none;
+    transition: transform 0.5s ease !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item:hover .nectar-post-grid-item-bg img {
+    transform: scale(1.04);
+}
+
+/* Post without a featured image: text only */
+.uxt-insights-loop .nectar-post-grid-item[data-has-img='false'] .nectar-post-grid-item-bg-wrap {
+    display: none !important;
+}
+
+/* Text: meta row (category, dot, date, arrow) then the title */
+.uxt-insights-loop .nectar-post-grid-item .content {
+    order: 1;
+    position: static !important;
+    inset: auto !important;
+    flex: 1 1 auto;
+    display: grid !important;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: center;
+    align-content: start;
+    column-gap: 6px;
+    row-gap: 20px;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 8px 8px 0 !important;
+    background: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* The whole card links to the post */
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-link {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .meta-category {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Category and date: Besley Medium 18 / 150%, navy at 70% */
+.uxt-insights-loop .nectar-post-grid-item .meta-category a,
+.uxt-insights-loop .nectar-post-grid-item .meta-date {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-besley) !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    white-space: nowrap;
+    color: #0a1b33 !important;
+    background: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .meta-category a::before,
+.uxt-insights-loop .nectar-post-grid-item .meta-category a::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Only the first category is shown, as in Figma */
+.uxt-insights-loop .nectar-post-grid-item .meta-category a ~ a {
+    display: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .item-main {
+    display: contents !important;
+}
+
+/* Title: Aeonik Medium 25 / 130%, navy */
+.uxt-insights-loop .nectar-post-grid-item .post-heading {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 25px !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #0a1b33 !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .post-heading a,
+.uxt-insights-loop .nectar-post-grid-item .post-heading span {
+    color: #0a1b33 !important;
+    background-image: none !important;
+    font: inherit !important;
+}
+
+/* Date sits next to the category with a dot between them */
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-item__meta-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .item-main > .meta-date {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-item__meta-wrap > span::before,
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-item__meta-wrap > span::after {
+    content: none !important;
+    display: none !important;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .meta-category:not(:empty) + .item-main .nectar-post-grid-item__meta-wrap::before,
+.uxt-insights-loop .nectar-post-grid-item .meta-category:not(:empty) + .item-main > .meta-date::before {
+    content: '\2022';
+    display: inline-block;
+    margin-right: 6px;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #081219;
+    opacity: 1;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .item-main > .meta-date {
+    display: inline-flex !important;
+    align-items: center;
+}
+
+/* meta-wrap already has a 6px gap */
+.uxt-insights-loop .nectar-post-grid-item .meta-category:not(:empty) + .item-main .nectar-post-grid-item__meta-wrap::before {
+    margin-right: 0;
+}
+
+.uxt-insights-loop .nectar-post-grid-item .meta-author,
+.uxt-insights-loop .nectar-post-grid-item .meta-reading-time,
+.uxt-insights-loop .nectar-post-grid-item .meta-excerpt,
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-item__read-more,
+.uxt-insights-loop .nectar-post-grid-item .nectar-post-grid-item__custom-fields {
+    display: none !important;
+}
+
+/* Diagonal arrow in a dark circle, shows on hover (Figma Blog Card) */
+.uxt-insights-loop .nectar-post-grid-item .content::after {
+    content: '';
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #111111 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='rotate(-45 12 12)'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/g%3E%3C/svg%3E") center / 14px 14px no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.uxt-insights-loop .nectar-post-grid-item:hover .content::after,
+.uxt-insights-loop .nectar-post-grid-item:focus-within .content::after {
+    opacity: 1;
+}
+/* 
+.uxt-insights-loop .nectar-post-grid-item:focus-within .inner {
+    outline: 2px solid #1678a1;
+    outline-offset: 3px;
+} */
+
+/* Load More button: navy pill */
+.uxt-insights-loop .load-more-wrap {
+    margin-top: 48px !important;
+    text-align: center;
+}
+
+.uxt-insights-loop .load-more-wrap .load-more {
+    display: inline-flex !important;
+    padding: 12px 24px !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    color: #ffffff !important;
+    background: var(--uxt-color-navy) !important;
+    border: 0 !important;
+    border-radius: 200px !important;
+}
+
+/* "Other Insights" row on each post */
+body .wpb_row.uxt-insights-related {
+    padding-top: 120px !important;
+    padding-bottom: 100px !important;
+    margin-bottom: 0 !important;
+    background: #ffffff;
+}
+
+.uxt-insights-related-head {
+    margin: 0 !important;
+    padding: 0 0 40px;
+    text-align: center;
+}
+
+.uxt-insights-related-head .uxt-h2 {
+    color: var(--uxt-color-heading) !important;
+}
+
+/* Hide "Other Insights" until there is at least one other insight */
+body .wpb_row.uxt-insights-related:not(:has(.nectar-post-grid-item)) {
+    display: none !important;
+}
+
+/* ---------- 3. Insight post: hide Salient's default post parts ---------- */
+body.uxt-insight-page .row.heading-title,
+body.uxt-insight-page #single-below-header,
+body.uxt-insight-page #author-bio,
+body.uxt-insight-page .blog_next_prev_buttons,
+body.uxt-insight-page .comments-section,
+body.uxt-insight-page #respond,
+body.uxt-insight-page .post-area .post-featured-img,
+body.uxt-insight-page #page-header-bg,
+body.uxt-insight-page #page-header-wrap {
+    display: none !important;
+}
+
+body.uxt-insight-page .container-wrap {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+body.uxt-insight-page .post-area {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Let full width sections and the sticky table of contents work */
+body.uxt-insight-page .post-area,
+body.uxt-insight-page .post-area article,
+body.uxt-insight-page .post-area .inner-wrap,
+body.uxt-insight-page .post-area .post-content,
+body.uxt-insight-page .post-area .content-inner {
+    overflow: visible !important;
+}
+
+body.uxt-insight-page .post-area .post-content,
+body.uxt-insight-page .post-area .content-inner {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.uxt-insight-page .post-area .wpb_row:has(.uxt-insight-hero),
+body.uxt-insight-page .post-area .wpb_row:has(.uxt-insight-article) {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* "Other Insights" row: full screen width even inside the narrower post
+   column, content in the 1200px container */
+body.uxt-insight-page .wpb_row.uxt-insights-related {
+    left: auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    box-sizing: border-box;
+}
+
+body.uxt-insight-page .wpb_row.uxt-insights-related > .row_col_wrap_12 {
+    float: none !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding-left: 120px !important;
+    padding-right: 120px !important;
+    box-sizing: border-box;
+}
+
+body.uxt-insight-page .wpb_text_column:has(.uxt-insight-hero),
+body.uxt-insight-page .wpb_text_column:has(.uxt-insight-hero) > .wpb_wrapper,
+body.uxt-insight-page .wpb_raw_code:has(.uxt-insight-article) {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ---------- 3. Insight post: hero (shortcode) ---------- */
+/* Figma header background (1000px tall), moved up by the 86px site header */
+.uxt-insight-hero {
+    padding: 100px 0 0;
+    background: linear-gradient(180deg, #0d1315 -86px, rgba(10, 27, 51, 0.9) 245px, #5c6d85 556px, #ffffff 818px, #ffffff 100%);
+}
+
+.uxt-insight-hero .uxt-insight-hero-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 1056px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.uxt-insight-hero .uxt-insight-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+.uxt-insight-hero .uxt-insight-hero-cat {
+    color: #ffffff;
+}
+
+.uxt-insight-hero .uxt-insight-hero-dot {
+    color: #cccccc;
+}
+
+.uxt-insight-hero .uxt-insight-hero-date {
+    color: #f1f1f1;
+}
+
+/* Title: Aeonik Regular 64 / 120%, white */
+.uxt-insight-hero .uxt-insight-hero-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 400 !important;
+    font-size: 64px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #ffffff !important;
+}
+
+/* Featured image: 1200 x 550, 8px corners */
+.uxt-insight-hero .uxt-insight-hero-cover {
+    position: relative;
+    margin: 64px 0 0 !important;
+    padding: 0 !important;
+    aspect-ratio: 1200 / 550;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #1c2a35;
+}
+
+.uxt-insight-hero .uxt-insight-hero-cover img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ---------- 3. Insight post: article and table of contents ---------- */
+.uxt-full.uxt-insight-article {
+    overflow: visible !important;
+    padding: 120px 0 0;
+    background: #ffffff;
+}
+
+.uxt-insight-article .uxt-article-layout {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 810px);
+    justify-content: space-between;
+    column-gap: 60px;
+    align-items: start;
+}
+
+.uxt-insight-article .uxt-article-toc {
+    align-self: stretch;
+}
+
+.uxt-insight-article .uxt-article-toc-inner {
+    position: sticky;
+    top: 120px;
+    padding-top: 24px;
+}
+
+.uxt-insight-article.uxt-article-no-toc .uxt-article-layout {
+    grid-template-columns: minmax(0, 810px);
+    justify-content: center;
+}
+
+.uxt-insight-article.uxt-article-no-toc .uxt-article-toc {
+    display: none;
+}
+
+/* Table of Contents: "Table of Contents" title as in Figma, then the
+   Success Story side-menu look (Aeonik 17 medium, grey line under every
+   item, arrow on the active and the hovered item) */
+.uxt-insight-article .uxt-article-toc-title {
+    margin: 0 0 13px !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: #6f7680 !important;
+}
+
+.uxt-insight-article .uxt-article-toc-list {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.uxt-insight-article .uxt-article-toc-list li {
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    list-style: none !important;
+    border-bottom: 1px solid #777777;
+}
+
+.uxt-insight-article .uxt-article-toc-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    color: #081219 !important;
+    text-decoration: none !important;
+}
+
+.uxt-insight-article .uxt-article-toc-list a::after {
+    content: '';
+    flex: 0 0 15px;
+    width: 15px;
+    height: 28px;
+    background: url('/wp-content/uploads/2026/09/right-side-icon-ss.svg') center / contain no-repeat;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.uxt-insight-article .uxt-article-toc-list li.is-active a::after,
+.uxt-insight-article .uxt-article-toc-list li:hover a::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Article column, 810px */
+.uxt-insight-article .uxt-article {
+    min-width: 0;
+    padding-top: 38px;
+}
+
+.uxt-insight-article .uxt-article-body {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+/* 120px around the intro, the conclusion and the author box (Figma) */
+.uxt-insight-article .uxt-article-intro {
+    margin-bottom: 56px;
+}
+
+.uxt-insight-article .uxt-article-conclusion {
+    margin-top: 56px;
+}
+
+.uxt-insight-article .uxt-article-intro > *,
+.uxt-insight-article .uxt-article-section > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.uxt-insight-article .uxt-article-section > * + * {
+    margin-top: 32px !important;
+}
+
+.uxt-insight-article .uxt-article-intro > p + p,
+.uxt-insight-article .uxt-article-section > p + p {
+    margin-top: 16px !important;
+}
+
+.uxt-insight-article .uxt-article-section > h3 + p,
+.uxt-insight-article .uxt-article-section > h4 + *,
+.uxt-insight-article .uxt-article-section > p + figure,
+.uxt-insight-article .uxt-article-section > figure + figure {
+    margin-top: 24px !important;
+}
+
+/* Body text: Manrope 20 / 160% */
+.uxt-insight-article .uxt-article-body p,
+.uxt-insight-article .uxt-article-body li {
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0 !important;
+    color: #081219 !important;
+}
+
+.uxt-insight-article .uxt-article-body a {
+    color: var(--uxt-color-navy) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+}
+
+.uxt-insight-article .uxt-article-body h2,
+.uxt-insight-article .uxt-article-body h3,
+.uxt-insight-article .uxt-article-body h4 {
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    color: var(--uxt-color-navy) !important;
+    scroll-margin-top: 120px;
+}
+
+/* H2 50 / 100%, H3 30 / 120%, H3 small 25 / 140% */
+.uxt-insight-article .uxt-article-body h2 {
+    font-size: 50px !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.uxt-insight-article .uxt-article-body h3 {
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.uxt-insight-article .uxt-article-body h4 {
+    font-size: 25px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+}
+
+.uxt-insight-article .uxt-article-body ul,
+.uxt-insight-article .uxt-article-body ol {
+    padding: 0 0 0 30px !important;
+}
+
+.uxt-insight-article .uxt-article-body ul li {
+    list-style: disc outside !important;
+}
+
+.uxt-insight-article .uxt-article-body ol li {
+    list-style: decimal outside !important;
+}
+
+.uxt-insight-article .uxt-article-body li {
+    margin: 0 !important;
+}
+
+.uxt-insight-article .uxt-article-body li + li {
+    margin-top: 20px !important;
+}
+
+.uxt-insight-article .uxt-article-figure {
+    padding: 0 !important;
+}
+
+.uxt-insight-article .uxt-article-figure img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 8px;
+}
+
+.uxt-insight-article .uxt-article-figure figcaption {
+    margin: 12px 0 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+    color: var(--uxt-color-border) !important;
+}
+
+/* ---------- 3. Insight post: author and share ---------- */
+.uxt-insight-article .uxt-article-author {
+    margin-top: 120px;
+    padding-top: 64px;
+    border-top: 1px solid #d7d7d7;
+}
+
+.uxt-insight-article .uxt-article-author-title {
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 25px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-insight-article .uxt-article-author-card {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 32px;
+    background: #f2f3f8;
+    border-radius: 8px;
+}
+
+.uxt-insight-article .uxt-article-author-person {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.uxt-insight-article .uxt-article-author-photo {
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 4.444px;
+    background: #f6dba0;
+}
+
+.uxt-insight-article .uxt-article-author-photo img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: cover;
+    object-position: center top;
+    /* Head and shoulders crop, as in Figma */
+    transform: scale(1);
+    transform-origin: 50% 6%;
+}
+
+.uxt-insight-article .uxt-article-author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.uxt-insight-article .uxt-article-author-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Name: Aeonik Medium 20 / 140% */
+.uxt-insight-article .uxt-article-author-name {
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.005em !important;
+    color: #081219 !important;
+}
+
+.uxt-insight-article .uxt-article-author-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 12px;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    color: #081219 !important;
+    text-decoration: none !important;
+}
+
+.uxt-insight-article .uxt-article-author-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 16px;
+    background: #d7d7d7;
+    transform: translateY(-50%);
+}
+
+.uxt-insight-article .uxt-article-author-link svg {
+    transition: transform 0.2s ease;
+}
+
+.uxt-insight-article .uxt-article-author-link:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.uxt-insight-article .uxt-article-author-role {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #081219 !important;
+}
+
+.uxt-insight-article .uxt-article-share {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.uxt-insight-article .uxt-article-share-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.uxt-insight-article .uxt-article-share-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 25px !important;
+    line-height: 1.4 !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-insight-article .uxt-article-share-sub {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #081219 !important;
+}
+
+.uxt-insight-article .uxt-article-share-links {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 20px;
+}
+
+.uxt-insight-article .uxt-article-share-links a,
+.uxt-insight-article .uxt-article-share-links button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000000 !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.uxt-insight-article .uxt-article-share-links a:hover,
+.uxt-insight-article .uxt-article-share-links button:hover {
+    transform: translateY(-2px);
+}
+
+.uxt-insight-article .uxt-article-share-links svg {
+    display: block;
+}
+
+.uxt-insight-article .uxt-share-copied {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    padding: 4px 10px;
+    font-family: var(--uxt-font-manrope);
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: nowrap;
+    color: #ffffff;
+    background: #0a1b33;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.uxt-insight-article .uxt-share-copied:empty {
+    display: none;
+}
+
+/* Sticky table of contents: Salient's style.css sets body overflow hidden,
+   which stops sticky elements. Same fix as Part Q, insight posts only. */
+@media (min-width: 1000px) {
+    @supports (overflow-x: clip) {
+        html:not(.no-overflow-y) body.uxt-insight-page {
+            overflow-x: clip !important;
+            overflow-y: visible !important;
+        }
+    }
+}
+
+/* ---------- Insights responsive (1280, 1024, 999, 767, 450) ---------- */
+@media (max-width: 1280px) {
+    body.uxt-insight-page .wpb_row.uxt-insights-related > .row_col_wrap_12 {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+    }
+    .uxt-insight-article .uxt-article-layout {
+        grid-template-columns: 200px minmax(0, 1fr);
+        column-gap: 56px;
+    }
+}
+
+@media (max-width: 1024px) {
+    body.uxt-insight-page .wpb_row.uxt-insights-related > .row_col_wrap_12 {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+    .uxt-insights-hero .uxt-insights-hero-title {
+        font-size: 56px !important;
+    }
+    .uxt-insights-hero {
+        padding-bottom: 90px;
+    }
+    .uxt-insights-loop .nectar-post-grid {
+        gap: 18px !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .inner {
+        min-height: 420px;
+        padding: 18px !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .post-heading {
+        font-size: 22px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-title {
+        font-size: 52px !important;
+    }
+    .uxt-insight-article .uxt-article-layout {
+        grid-template-columns: 190px minmax(0, 1fr);
+        column-gap: 40px;
+    }
+    .uxt-insight-article .uxt-article-body h2 {
+        font-size: 42px !important;
+    }
+}
+
+@media (max-width: 999px) {
+    body.uxt-insight-page .wpb_row.uxt-insights-related > .row_col_wrap_12 {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+    body .wpb_row.uxt-insights-listing {
+        padding-top: 80px !important;
+        padding-bottom: 72px !important;
+    }
+    .uxt-insights-hero .uxt-insights-hero-title {
+        font-size: 48px !important;
+    }
+    .uxt-insights-hero .uxt-insights-hero-text {
+        font-size: 18px !important;
+    }
+    .uxt-insights-hero {
+        padding-bottom: 64px;
+    }
+    .uxt-insights-loop .nectar-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .uxt-insights-loop .nectar-post-grid-item .content::after {
+        opacity: 1;
+    }
+    body .wpb_row.uxt-insights-related {
+        padding-top: 90px !important;
+        padding-bottom: 80px !important;
+    }
+
+    .uxt-insight-hero {
+        padding-top: 80px;
+    }
+    .uxt-insight-hero .uxt-insight-hero-title {
+        font-size: 44px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-meta {
+        font-size: 18px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-cover {
+        margin-top: 48px !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Article: one column, table of contents above the text */
+    .uxt-full.uxt-insight-article {
+        padding-top: 72px;
+    }
+    .uxt-insight-article .uxt-article-layout {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 48px;
+    }
+    .uxt-insight-article .uxt-article-toc-inner {
+        position: static;
+        padding: 24px;
+        background: #f2f3f8;
+        border-radius: 8px;
+    }
+    .uxt-insight-article .uxt-article-toc-title {
+        margin-bottom: 20px !important;
+    }
+    .uxt-insight-article .uxt-article-toc-list li.is-active {
+        border-bottom-color: rgba(111, 118, 128, 0.3);
+    }
+    .uxt-insight-article .uxt-article-toc-list li.is-active a {
+        font-weight: 400 !important;
+    }
+    .uxt-insight-article .uxt-article-toc-list li.is-active a::after {
+        content: none;
+    }
+    .uxt-insight-article .uxt-article-toc-list li:last-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        border-bottom: 0;
+    }
+    .uxt-insight-article .uxt-article {
+        padding-top: 0;
+    }
+    .uxt-insight-article .uxt-article-body {
+        gap: 56px;
+    }
+    .uxt-insight-article .uxt-article-intro {
+        margin-bottom: 24px;
+    }
+    .uxt-insight-article .uxt-article-conclusion {
+        margin-top: 24px;
+    }
+    .uxt-insight-article .uxt-article-body p,
+    .uxt-insight-article .uxt-article-body li {
+        font-size: 18px !important;
+    }
+    .uxt-insight-article .uxt-article-body h2 {
+        font-size: 40px !important;
+    }
+    .uxt-insight-article .uxt-article-body h3 {
+        font-size: 26px !important;
+    }
+    .uxt-insight-article .uxt-article-body h4 {
+        font-size: 22px !important;
+    }
+    .uxt-insight-article .uxt-article-author {
+        margin-top: 80px;
+        padding-top: 56px;
+    }
+}
+
+@media (max-width: 767px) {
+    body.uxt-insight-page .wpb_row.uxt-insights-related > .row_col_wrap_12 {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+    body .wpb_row.uxt-insights-listing {
+        padding-top: 64px !important;
+        padding-bottom: 56px !important;
+    }
+    .uxt-insights-hero {
+        gap: 16px;
+        padding-bottom: 48px;
+    }
+    .uxt-insights-hero .uxt-insights-hero-title {
+        font-size: 40px !important;
+    }
+    .uxt-insights-hero .uxt-insights-hero-text {
+        font-size: 17px !important;
+    }
+
+    /* Chips scroll sideways in one line */
+    .uxt-insights-loop .nectar-post-grid-filters {
+        margin-bottom: 32px !important;
+        max-width: 100% !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-filters > div {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -25px !important;
+        padding: 0 25px !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-filters > div::-webkit-scrollbar {
+        display: none;
+    }
+    .uxt-insights-loop .nectar-post-grid-filters a {
+        flex-shrink: 0;
+        padding: 8px 16px !important;
+        font-size: 15px !important;
+    }
+
+    .uxt-insights-loop .nectar-post-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .inner {
+        min-height: 0;
+        gap: 24px;
+    }
+    .uxt-insights-loop .nectar-post-grid-item-bg-wrap {
+        height: auto !important;
+        aspect-ratio: 336 / 216;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .content {
+        row-gap: 14px;
+        padding: 4px 4px 0 !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .meta-category a,
+    .uxt-insights-loop .nectar-post-grid-item .meta-date {
+        font-size: 16px !important;
+    }
+    .uxt-insights-loop .nectar-post-grid-item .post-heading {
+        font-size: 21px !important;
+    }
+    body .wpb_row.uxt-insights-related {
+        padding-top: 72px !important;
+        padding-bottom: 64px !important;
+    }
+    .uxt-insights-related-head {
+        padding-bottom: 32px;
+    }
+
+    .uxt-insight-hero {
+        padding-top: 64px;
+    }
+    .uxt-insight-hero .uxt-insight-hero-head {
+        gap: 12px;
+    }
+    .uxt-insight-hero .uxt-insight-hero-meta {
+        gap: 8px;
+        font-size: 16px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-title {
+        font-size: 34px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-cover {
+        margin-top: 36px !important;
+        aspect-ratio: 4 / 3;
+    }
+
+    .uxt-full.uxt-insight-article {
+        padding-top: 56px;
+    }
+    .uxt-insight-article .uxt-article-layout {
+        row-gap: 40px;
+    }
+    .uxt-insight-article .uxt-article-toc-inner {
+        padding: 20px;
+    }
+    .uxt-insight-article .uxt-article-body {
+        gap: 48px;
+    }
+    .uxt-insight-article .uxt-article-section > * + * {
+        margin-top: 24px !important;
+    }
+    .uxt-insight-article .uxt-article-section > h3 + p,
+    .uxt-insight-article .uxt-article-section > h4 + *,
+    .uxt-insight-article .uxt-article-section > p + figure,
+    .uxt-insight-article .uxt-article-section > figure + figure {
+        margin-top: 20px !important;
+    }
+    .uxt-insight-article .uxt-article-body p,
+    .uxt-insight-article .uxt-article-body li {
+        font-size: 17px !important;
+    }
+    .uxt-insight-article .uxt-article-body li + li {
+        margin-top: 14px !important;
+    }
+    .uxt-insight-article .uxt-article-body ul,
+    .uxt-insight-article .uxt-article-body ol {
+        padding-left: 22px !important;
+    }
+    .uxt-insight-article .uxt-article-body h2 {
+        font-size: 32px !important;
+    }
+    .uxt-insight-article .uxt-article-body h3 {
+        font-size: 22px !important;
+    }
+    .uxt-insight-article .uxt-article-body h4 {
+        font-size: 20px !important;
+    }
+    .uxt-insight-article .uxt-article-figure figcaption {
+        font-size: 14px !important;
+    }
+
+    .uxt-insight-article .uxt-article-author {
+        margin-top: 64px;
+        padding-top: 48px;
+    }
+    .uxt-insight-article .uxt-article-author-title {
+        font-size: 22px !important;
+        margin-bottom: 20px !important;
+    }
+    .uxt-insight-article .uxt-article-author-card {
+        gap: 32px;
+        padding: 24px 20px;
+    }
+    .uxt-insight-article .uxt-article-author-person {
+        gap: 18px;
+    }
+    .uxt-insight-article .uxt-article-author-photo {
+        flex-basis: 80px;
+        width: 80px;
+        height: 80px;
+    }
+    .uxt-insight-article .uxt-article-author-name,
+    .uxt-insight-article .uxt-article-author-link {
+        font-size: 18px !important;
+    }
+    .uxt-insight-article .uxt-article-author-role {
+        font-size: 16px !important;
+    }
+    .uxt-insight-article .uxt-article-share {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .uxt-insight-article .uxt-article-share-title {
+        font-size: 22px !important;
+    }
+    .uxt-insight-article .uxt-article-share-sub {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .uxt-insights-hero .uxt-insights-hero-title {
+        font-size: 36px !important;
+    }
+    .uxt-insight-hero .uxt-insight-hero-title {
+        font-size: 30px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .uxt-insights-loop .nectar-post-grid-item-bg img,
+    .uxt-insights-loop .nectar-post-grid-item .content::after,
+    .uxt-insights-loop .nectar-post-grid-item .inner,
+    .uxt-insight-article .uxt-article-share-links a,
+    .uxt-insight-article .uxt-article-share-links button {
+        transition: none !important;
+    }
+}
+
+
+/* =====================================================================
+   PART T | SHARED HELPERS  (Figma Graphics 2638:6786, family 6 image boxes)
+   HTML: src/partials/elements/placeholder.html and nowrap spans in page copy.
+   Scope: global
+   Two small helpers every page may need. Only new classes, nothing in
+   PART A to R is restyled.
+
+   uxt-placeholder   Labeled image box where a client mockup, screenshot,
+                     photo or cover will go (never a real mockup that was
+                     not supplied). Default 3:2. Add uxt-placeholder-square,
+                     uxt-placeholder-wide (16:9) or uxt-placeholder-tall (4:5).
+   uxt-nowrap        Keeps a short phrase on one line (LLM.md 5.4).
+   ===================================================================== */
+
+.uxt-placeholder {
+    position: relative;
+    display: grid !important;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px dashed var(--uxt-color-border) !important;
+    border-radius: 8px !important;
+    background: #f2f3f8 !important;
+    text-align: center;
+}
+
+.uxt-placeholder.uxt-placeholder-square { aspect-ratio: 1 / 1; }
+.uxt-placeholder.uxt-placeholder-wide { aspect-ratio: 16 / 9; }
+.uxt-placeholder.uxt-placeholder-tall { aspect-ratio: 4 / 5; }
+
+/* The label is a PART B text class (uxt-p uxt-p-xs); this only sets
+   its width and the Steel colour. */
+.uxt-placeholder .uxt-placeholder-label {
+    max-width: 32ch;
+    color: var(--uxt-color-border) !important;
+}
+
+.uxt-nowrap {
+    white-space: nowrap;
+}
+
+
+/* =====================================================================
+   PART U | WHITE LABEL PAGE  (Figma: no frame yet, built from the page
+            copy "White Label Page Copy v1.1" and the What we do PART M)
+   HTML: white-label.html (page body for one Raw HTML element), wrapped in
+         <div class="uxt-home uxt-wl">
+   Scope: .uxt-wl
+   Reuses the homepage styles (Part C): hero, logos, process, engage,
+   stories, FAQ. This part adds only what is new:
+     1. Hero trust line
+     2. Problem and fix rows ("What gets in the way")
+     3. Service cards (What we do capability card look, no sticky stack)
+        and the closing CTA band (LLM.md 13.9)
+     4. Process: 64px inline icons and the confidentiality row
+     5. Pre-sales columns on the Warm Glow band
+     6. Ways to partner: four columns instead of three
+     7. Centered closing button under a section
+     8. Comparison table (LLM.md 13.8)
+   ===================================================================== */
+
+/* ---------- 1. Hero trust line ---------- */
+.uxt-wl .uxt-hero .uxt-p.uxt-wl-hero-trust {
+    margin: 24px auto 0 !important;
+    opacity: 0.8;
+}
+
+/* ---------- 2. Problem and fix rows ---------- */
+.uxt-wl .uxt-wl-fixes .uxt-heading {
+    margin-bottom: 60px;
+}
+
+.uxt-wl .uxt-wl-fix-head,
+.uxt-wl .uxt-wl-fix-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 32px;
+}
+
+.uxt-wl .uxt-wl-fix-head {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-fix-head .uxt-accent:last-child {
+    grid-column: 3;
+}
+
+.uxt-wl .uxt-wl-fix-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.uxt-wl .uxt-wl-fix-row {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-fix-problem .uxt-h3-sm {
+    margin: 0 0 8px !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-wl .uxt-wl-fix-problem .uxt-p {
+    margin: 0 !important;
+}
+
+/* Quiet connector: a plain Steel arrow, never a filled circle (13.5) */
+.uxt-wl .uxt-wl-fix-arrow {
+    justify-self: center;
+    width: 32px;
+    height: 32px;
+    color: var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-fix-answer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.uxt-wl .uxt-wl-fix-answer .uxt-p {
+    margin: 0 !important;
+    font-weight: 500 !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+/* 56px tint tile with a 32px Phosphor Light icon (GRAPHICS.md 4.1) */
+.uxt-wl .uxt-wl-icon-tile {
+    flex: 0 0 56px;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: linear-gradient(93deg, rgba(169, 251, 255, 0.55) 1.41%, rgba(254, 223, 186, 0.55) 99.08%);
+    color: var(--uxt-color-navy);
+}
+
+/* ---------- 3. Service cards ---------- */
+.uxt-wl .uxt-wl-services .uxt-heading {
+    margin-bottom: 50px;
+}
+
+.uxt-wl .uxt-wl-service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.uxt-wl .uxt-wl-service-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 40px 40px 56px;
+    background: #ffffff;
+    border: 1px solid var(--uxt-color-border);
+    border-radius: 8px;
+}
+
+.uxt-wl .uxt-wl-service-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.uxt-wl .uxt-wl-service-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.uxt-wl .uxt-wl-service-title {
+    margin: 0 0 16px !important;
+    font-size: 40px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-wl .uxt-wl-service-main > .uxt-p {
+    margin: 0 0 24px !important;
+}
+
+.uxt-wl .uxt-wl-service-main > .uxt-accent {
+    margin: 0 0 12px !important;
+    opacity: 1;
+}
+
+.uxt-wl .uxt-wl-points {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+}
+
+.uxt-wl .uxt-wl-points li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.uxt-wl .uxt-wl-bullet {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    color: var(--uxt-color-body);
+}
+
+.uxt-wl .uxt-wl-points .uxt-p {
+    margin: 0 !important;
+    font-weight: 500 !important;
+}
+
+.uxt-wl .uxt-wl-service-main > .uxt-p.uxt-wl-service-aside {
+    margin: 16px 0 0 !important;
+    color: var(--uxt-color-border) !important;
+}
+
+.uxt-wl .uxt-wl-fit {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.uxt-wl .uxt-wl-fit .uxt-accent {
+    opacity: 1;
+}
+
+.uxt-wl .uxt-wl-fit .uxt-p {
+    margin: 0 !important;
+}
+
+.uxt-wl .uxt-wl-service-visual {
+    flex: 0 0 auto;
+    width: 518px;
+    max-width: 100%;
+}
+
+/* Drawn scene (GRAPHICS.md family 4), inline SVG in src/partials/graphics */
+.uxt-wl .uxt-wl-scene {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Closing CTA band (13.9): Mist panel, button on the right */
+.uxt-wl .uxt-wl-band {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 64px;
+    padding: 44px 48px;
+    border-radius: 8px;
+    background:
+        radial-gradient(160% 260% at 50% 0%, rgba(242, 243, 248, 0.8) 0%, rgba(237, 253, 255, 0.8) 57.2%, rgba(255, 236, 188, 0.8) 100%),
+        #f2f3f8;
+}
+
+.uxt-wl .uxt-wl-band-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.uxt-wl .uxt-wl-band .uxt-h3 {
+    margin: 0 0 12px !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-wl .uxt-wl-band .uxt-p {
+    margin: 0 !important;
+}
+
+.uxt-wl .uxt-wl-band .uxt-button {
+    flex: 0 0 auto;
+}
+
+/* ---------- 4. Process: inline icons and the confidentiality row ---------- */
+.uxt-wl .uxt-step-icon .uxt-wl-step-svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 64px;
+    height: 64px;
+}
+
+.uxt-wl .uxt-wl-process-note {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-process-note .uxt-accent {
+    display: block;
+    margin: 0 0 4px !important;
+    opacity: 1;
+}
+
+.uxt-wl .uxt-wl-process-note .uxt-p {
+    margin: 0 !important;
+}
+
+/* ---------- 5. Pre-sales columns on Warm Glow ---------- */
+.uxt-wl .uxt-wl-win {
+    background: radial-gradient(1376px 747px at 50% 100%, #ffecbc 0%, #edfdff 42.79%, #ffffff 100%);
+}
+
+.uxt-wl .uxt-wl-win-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--uxt-color-border);
+    border-bottom: 1px solid var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-win-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 40px 32px;
+}
+
+.uxt-wl .uxt-wl-win-item:first-child {
+    padding-left: 0;
+}
+
+.uxt-wl .uxt-wl-win-item + .uxt-wl-win-item {
+    border-left: 1px solid var(--uxt-color-border);
+}
+
+.uxt-wl .uxt-wl-win-item .uxt-h3-sm,
+.uxt-wl .uxt-wl-win-item .uxt-p {
+    margin: 0 !important;
+    color: var(--uxt-color-body) !important;
+}
+
+/* ---------- 6. Ways to partner: four columns ---------- */
+.uxt-wl .uxt-engage-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 40px;
+}
+
+.uxt-wl .uxt-engage-grid {
+    grid-template-rows: auto auto 1fr;
+}
+
+/* Titles, labels and text line up across the row, whatever wraps */
+.uxt-wl .uxt-engage-item {
+    display: grid !important;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+    align-content: start;
+}
+
+.uxt-wl .uxt-engage-item .uxt-h3 {
+    align-self: end;
+}
+
+.uxt-wl .uxt-engage-item .uxt-accent {
+    margin-top: 18px !important;
+}
+
+.uxt-wl .uxt-engage-item .uxt-p {
+    margin: 12px 0 0 !important;
+}
+
+/* ---------- 7. Centered closing button ---------- */
+.uxt-wl .uxt-wl-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+/* ---------- 8. Comparison table ---------- */
+.uxt-wl .uxt-wl-compare .uxt-heading {
+    margin-bottom: 60px;
+}
+
+.uxt-wl .uxt-wl-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.uxt-wl .uxt-wl-table {
+    width: 100%;
+    min-width: 880px;
+    margin: 0 !important;
+    border: 0 !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.uxt-wl .uxt-wl-table th,
+.uxt-wl .uxt-wl-table td {
+    padding: 20px 16px !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--uxt-color-border) !important;
+    background: transparent;
+    text-align: left;
+    vertical-align: top;
+}
+
+.uxt-wl .uxt-wl-table thead th {
+    vertical-align: bottom;
+    opacity: 1;
+}
+
+.uxt-wl .uxt-wl-table td.uxt-p {
+    margin: 0 !important;
+}
+
+.uxt-wl .uxt-wl-table thead th:first-child {
+    width: 20%;
+}
+
+.uxt-wl .uxt-wl-table tbody th {
+    opacity: 1;
+}
+
+/* The UXTeam column reads as one unit: G6 tint and a 1px stroke, radius 8 */
+.uxt-wl .uxt-wl-table .uxt-wl-us {
+    background: linear-gradient(93deg, rgba(169, 251, 255, 0.55) 1.41%, rgba(254, 223, 186, 0.55) 99.08%);
+    border-left: 1px solid var(--uxt-color-border) !important;
+    border-right: 1px solid var(--uxt-color-border) !important;
+    font-weight: 600 !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-wl .uxt-wl-table thead .uxt-wl-us {
+    border-top: 1px solid var(--uxt-color-border) !important;
+    border-radius: 8px 8px 0 0;
+}
+
+.uxt-wl .uxt-wl-table tbody tr:last-child .uxt-wl-us {
+    border-radius: 0 0 8px 8px;
+}
+
+.uxt-wl .uxt-wl-table tbody tr:last-child th,
+.uxt-wl .uxt-wl-table tbody tr:last-child td:not(.uxt-wl-us) {
+    border-bottom: 0 !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1280px) {
+    .uxt-wl .uxt-wl-service-visual {
+        width: 44%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .uxt-wl .uxt-wl-service-card {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        padding: 40px;
+    }
+    .uxt-wl .uxt-wl-service-visual {
+        width: 100%;
+        max-width: 518px;
+        margin: 0 auto;
+    }
+    .uxt-wl .uxt-engage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        row-gap: 48px;
+    }
+    .uxt-wl .uxt-engage-item {
+        display: flex !important;
+        grid-row: auto;
+    }
+    .uxt-wl .uxt-wl-win-item {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 999px) {
+    .uxt-wl .uxt-wl-service-title {
+        font-size: 32px !important;
+    }
+    .uxt-wl .uxt-wl-fix-head,
+    .uxt-wl .uxt-wl-fix-row {
+        grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+        column-gap: 16px;
+    }
+    .uxt-wl .uxt-wl-band {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Problem above its fix, a downward connector between them */
+    .uxt-wl .uxt-wl-fix-head {
+        display: none;
+    }
+    .uxt-wl .uxt-wl-fix-list {
+        border-top: 1px solid var(--uxt-color-border);
+    }
+    .uxt-wl .uxt-wl-fix-row {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+        padding: 24px 0;
+    }
+    .uxt-wl .uxt-wl-fix-arrow {
+        justify-self: start;
+        width: 24px;
+        height: 24px;
+        margin-left: 16px;
+        transform: rotate(90deg);
+    }
+    .uxt-wl .uxt-wl-fix-answer {
+        gap: 16px;
+    }
+    .uxt-wl .uxt-wl-service-card {
+        padding: 24px;
+        gap: 32px;
+    }
+    .uxt-wl .uxt-wl-service-title {
+        font-size: 28px !important;
+    }
+    .uxt-wl .uxt-wl-band {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-top: 40px;
+        padding: 32px 24px;
+    }
+    .uxt-wl .uxt-step-icon .uxt-wl-step-svg {
+        width: 32px;
+        height: 32px;
+    }
+    .uxt-wl .uxt-wl-process-note {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 40px;
+    }
+    .uxt-wl .uxt-wl-win-grid {
+        grid-template-columns: 1fr;
+    }
+    .uxt-wl .uxt-wl-win-item,
+    .uxt-wl .uxt-wl-win-item:first-child {
+        padding: 32px 0;
+    }
+    .uxt-wl .uxt-wl-win-item + .uxt-wl-win-item {
+        border-left: 0;
+        border-top: 1px solid var(--uxt-color-border);
+    }
+    .uxt-wl .uxt-engage-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+    .uxt-wl .uxt-wl-center {
+        margin-top: 40px;
+    }
+    /* Table scrolls inside its box, first column stays in view */
+    .uxt-wl .uxt-wl-table {
+        min-width: 760px;
+    }
+    .uxt-wl .uxt-wl-table th,
+    .uxt-wl .uxt-wl-table td {
+        padding: 16px 12px !important;
+    }
+    .uxt-wl .uxt-wl-table tbody th,
+    .uxt-wl .uxt-wl-table thead th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        width: 150px;
+        background: #ffffff;
+    }
+}
+
+
+/* ---------- Insight post: Table of Contents dropdown (999px and below) ----------
+   Snippet 6 builds the Success Story dropdown (.success-story-dropdown-*)
+   above the article and adds "uxt-has-toc-dropdown" to the article. The
+   dropdown look comes from Part A. Here the old Table of Contents box is
+   hidden on tablet and mobile. */
+@media (max-width: 999px) {
+    .uxt-insight-article.uxt-has-toc-dropdown .uxt-article-toc {
+        display: none !important;
+    }
+    .uxt-insight-article.uxt-has-toc-dropdown .uxt-article-layout {
+        row-gap: 0;
+    }
+    .uxt-insight-article.uxt-has-toc-dropdown .success-story-dropdown-wrap:not(.is-fixed) {
+        margin-bottom: 40px;
+    }
+}
+
+/* =====================================================================
+   PART T  |  GLOBAL SECTIONS  (Figma 2708:1409, added 26 Nov 2026)
+   Success story cards, "How we work" steps and insight cards live in
+   Salient > Global Sections (#1784 stories, #1785 steps, #1786 insights),
+   used on Home, What We Do, White Label and About Us.
+   Each page keeps its own heading (.uxt-gs-head); the cards come from the
+   global section (.uxt-gs-body); a page button under them sits in
+   .uxt-gs-tail. Edit a global section once and every page updates.
+   ===================================================================== */
+.wpb_raw_html:has(> .wpb_wrapper > .uxt-home),
+.wpb_row:has(.uxt-gs) {
+    margin-bottom: 0 !important;
+}
+
+.wpb_row:has(.uxt-gs) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.uxt-section.uxt-gs-head {
+    padding-bottom: 0 !important;
+}
+
+.uxt-section.uxt-gs-body,
+.uxt-section.uxt-gs-tail {
+    padding-top: 0 !important;
+}
+
+/* A page button follows the cards: drop the gap from the section padding */
+.wpb_row:has(.uxt-gs-body):has(+ .wpb_raw_html > .wpb_wrapper > .uxt-home > .uxt-gs-tail:first-child) .uxt-gs-body {
+    padding-bottom: 0 !important;
+}
+
+/* Insight card titles stop at three lines (Figma) */
+.uxt-gs .uxt-insight-card .uxt-h3-sm {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ---------- Home | Industries hover (fixed 26 Nov 2026) ----------
+   The open card is the last card hovered or focused (.is-active, set by the
+   small script after the Industries section in the Home page HTML), so the
+   row no longer snaps shut in the gaps between cards. The description sits
+   under the card line without changing the row height (no page jump), fades
+   out fast when a card closes and fades in once the card has widened, so it
+   is never squeezed into a narrow column or cut off at the top.
+   Without the script the original hover rules above still apply. */
+@media (min-width: 1000px) {
+    .uxt-home .uxt-industry-list.uxt-industries-js {
+        padding-bottom: var(--uxt-ind-detail, 79px);
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry {
+        position: relative;
+        flex-grow: 224 !important;
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry.is-active {
+        flex-grow: 437 !important;
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry .uxt-button {
+        opacity: 0.3 !important;
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry.is-active .uxt-button {
+        opacity: 1 !important;
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry-detail {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: none !important;
+        opacity: 0 !important;
+        visibility: hidden;
+        transition: opacity 0.15s ease, visibility 0s linear 0.15s;
+    }
+
+    .uxt-home .uxt-industry-list.uxt-industries-js .uxt-industry.is-active .uxt-industry-detail {
+        opacity: 1 !important;
+        visibility: visible;
+        transition: opacity 0.3s ease 0.35s, visibility 0s linear 0s;
+    }
+}
+
+
+/* ---------- Success Story | E2M "Read Story" underline (fixed 26 Nov 2026) ----------
+   The button's "border radius 30px" setting rounded .link_wrap, which also
+   hides overflow, so its bottom-left corner clipped the left end of the
+   hover underline into a curve. The button has no background, so square
+   corners change nothing else. */
+body #ajax-content-wrap .nectar-cta.ss-e2m-btn,
+body #ajax-content-wrap .nectar-cta.ss-e2m-btn .link_wrap {
+    border-radius: 0 !important;
+}
+
+/* =====================================================================
+   PART U  |  TRANSPARENT HEADER ON EVERY PAGE AND POST  (26 Nov 2026)
+   "Force Transparency On Navigation" is on for all pages and posts
+   (Code Snippets > "UXTeam | Transparent header on all pages and posts").
+   At the top of a page the header paints nothing and the page's first
+   section grows by the header height, painting its own background behind
+   the menu, so nothing on the page moves. Once you scroll, Salient drops
+   .transparent and the solid header (#0D1315) comes back as before.
+   Light pages (About Us, Privacy Policy, Thank You, blog posts) use
+   "Transparent Header Navigation Color: Dark" for dark menu text.
+   ===================================================================== */
+:root {
+    --uxt-hh: 86px;
+}
+
+@media (max-width: 999px) {
+    :root {
+        --uxt-hh: 70px;
+    }
+}
+
+/* 1. The header itself: nothing behind the menu while at the top */
+body #header-outer[data-transparent-header="true"].transparent {
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* 2a. Pages that start with a UXTeam hero section: the hero paints behind the menu */
+body[data-bg-header="true"] .uxt-hero,
+body[data-bg-header="true"] .uxt-about-hero,
+body[data-bg-header="true"] .uxt-insight-hero {
+    border-top: var(--uxt-hh) solid transparent !important;
+    background-origin: border-box !important;
+}
+
+/* 2b. Pages that start with a WPBakery row background (Insights and Success
+   Story listings, success story posts): that row paints behind the menu */
+body[data-bg-header="true"]:not([data-force-header-trans-color="dark"]) :is(.main-content > .row > .wpb_row.top-level:not(.wpb_row.top-level ~ .wpb_row.top-level), .post-content .content-inner > .wpb_row:first-child):not(:has(.uxt-hero, .uxt-about-hero, .uxt-insight-hero)) {
+    border-top: var(--uxt-hh) solid transparent !important;
+}
+
+body[data-bg-header="true"]:not([data-force-header-trans-color="dark"]) :is(.main-content > .row > .wpb_row.top-level:not(.wpb_row.top-level ~ .wpb_row.top-level), .post-content .content-inner > .wpb_row:first-child):not(:has(.uxt-hero, .uxt-about-hero, .uxt-insight-hero)) > .row-bg-wrap {
+    top: calc(-1 * var(--uxt-hh)) !important;
+    height: calc(100% + var(--uxt-hh)) !important;
+}
+
+/* 2c. Plain white pages with dark menu text (Privacy Policy, Thank You,
+   blog posts): keep the header space, white behind the transparent menu,
+   and Salient's usual 40px top padding */
+body[data-force-header-trans-color="dark"]:not(:has(.uxt-hero, .uxt-about-hero, .uxt-insight-hero)) #header-space {
+    display: block !important;
+    background: #ffffff !important;
+}
+
+body[data-force-header-trans-color="dark"]:not(:has(.uxt-hero, .uxt-about-hero, .uxt-insight-hero)) #ajax-content-wrap .container-wrap {
+    padding-top: 40px !important;
+}
+
+/* 3. Dark menu text on light pages (Transparent Header Navigation Color: Dark) */
+#header-outer.transparent.dark-slide #logo img {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+#header-outer.transparent.dark-slide #top nav > ul > li > a,
+#header-outer.transparent.dark-slide #top nav > ul > li > a .menu-title-text,
+#header-outer.transparent.dark-slide #top nav > ul > li > a .sf-sub-indicator i,
+#header-outer.transparent.dark-slide #top nav > ul > li > a .sf-sub-indicator {
+    color: #0a1b33 !important;
+}
+
+body #header-outer[data-has-menu][data-format].transparent.dark-slide header#top nav > ul.sf-menu > li.menu-item.main-menu-btn-left > a.uxt-header-glide,
+body #header-outer[data-has-menu][data-format].transparent.dark-slide #menu-header-btn.sf-menu > li.menu-item.main-menu-btn-left > a.uxt-header-glide {
+    background: #0a1b33 !important;
+    color: #ffffff !important;
+}
+
+body #header-outer[data-has-menu][data-format].transparent.dark-slide #menu-header-btn.sf-menu > li.menu-item.main-menu-btn-left > a.uxt-header-glide .menu-title-text {
+    color: #ffffff !important;
+}
+
+/* Figma "CTA 01 Arrow Glide", Primary on Light: navy pill, white label,
+   white arrow in a 30% white circle */
+#header-outer.transparent.dark-slide a.uxt-header-glide .uxt-header-arrow-box {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+}
+
+#header-outer.transparent.dark-slide .main-menu-btn-left a.uxt-header-glide .uxt-header-arrow-box svg.uxt-header-arrow path {
+    stroke: #ffffff !important;
+}
+
+#header-outer.transparent.dark-slide .slide-out-widget-area-toggle .lines,
+#header-outer.transparent.dark-slide .slide-out-widget-area-toggle .lines:before,
+#header-outer.transparent.dark-slide .slide-out-widget-area-toggle .lines:after,
+#header-outer.transparent.dark-slide .slide-out-widget-area-toggle .lines-button:after {
+    background-color: #081219 !important;
+}
+
+/* ---------- Insight post: Table of Contents hover (27 Nov 2026) ----------
+   Same as the Success Story side menu (Salient scrolling tabs): the items
+   you are not reading sit at 45% and come to full strength on hover; the
+   section you are reading stays at full strength. The arrow rules above
+   already slide the arrow in on hover and on the active item. */
+.uxt-insight-article .uxt-article-toc-list li {
+    opacity: 0.45;
+    transition: opacity 0.25s;
+}
+
+.uxt-insight-article .uxt-article-toc-list li.is-active,
+.uxt-insight-article .uxt-article-toc-list li:hover {
+    opacity: 1;
+}
+
+/* ---------- Success Story post: hero lines and background (27 Nov 2026) ----------
+   The lines above and below the "uxteam x client" logo row use #6F7680
+   (they were the WPBakery column border colour #3A4C58).
+   The hero background is the Figma "Header bg" gradient (ink #0D1315, navy,
+   slate #5C6D85, white). On tablet and phone the hero stacks and gets much
+   taller, so the percentage stops put the person's name and role on white.
+   There the gradient holds slate until the content ends and fades to white
+   in the extra bottom space, so every line of hero text sits on the dark part. */
+.success-story-template-default .first-section .wpb_column.child_column[class*="border_color_"] > .vc_column-inner {
+    border-color: #6f7680 !important;
+}
+
+/* The row's own WPBakery background colour (#081219) sat in front of the
+   gradient (a solid block on narrow screens). Only the gradient shows now. */
+.success-story-template-default .wpb_row.first-section.has-row-bg-color {
+    background-color: transparent !important;
+}
+
+@media (max-width: 999px) {
+    .success-story-template-default .wpb_row.first-section {
+        padding-bottom: 140px !important;
+    }
+
+    .success-story-template-default .first-section .row-bg.viewport-desktop.using-bg-color {
+        background: linear-gradient(180deg, #0d1315 0%, rgba(10, 27, 51, 0.9) 33.06%, #5c6d85 calc(100% - 140px), #ffffff 100%) !important;
+    }
+}
+
+/* =====================================================================
+   PART V  |  OUR WORK  (case studies, post type "our-work", 27 Nov 2026)
+   Every case study is one Raw HTML block wrapped in .uxt-home.uxt-work.
+   Typography, buttons, container and section spacing come from the
+   design system (Part A: .uxt-h1/.uxt-h2/.uxt-h3/.uxt-p, .uxt-button,
+   .uxt-container, .uxt-section, .uxt-heading). The hero reuses the insight
+   post hero (.uxt-insight-hero), so it also works with the transparent
+   header (Part U). Only the case-study pieces are defined here, all under
+   the uxt-work- prefix:
+     .uxt-work-hero-logo     client logo chip in the hero
+     .uxt-work-tint          light grey band for every second section
+     .uxt-work-overview-grid overview text + project facts (.uxt-work-facts)
+     .uxt-work-cards         2-4 cards (challenges, problems, insights)
+     .uxt-work-figure        screenshot in a rounded frame, opens full size
+     .uxt-work-feature       screenshot + text side by side (-reverse flips)
+     .uxt-work-gallery-2/-3  screenshots in a row
+     .uxt-work-list          bullet list
+     .uxt-work-stats         result numbers
+     .uxt-work-quote         testimonial
+     .uxt-work-cta           closing call to action (links to #book-call)
+     .uxt-reveal             subtle fade-up on scroll (script in Code
+                             Snippets > "UXTeam | Our Work")
+   Archive (/our-work/) cards are at the end of this part.
+   ===================================================================== */
+
+/* ---------- Page wrappers: no gaps between the Raw HTML rows ---------- */
+body.single-our-work .post-area .wpb_row:has(.uxt-work) {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.single-our-work .wpb_raw_code:has(.uxt-work) {
+    margin: 0 !important;
+}
+
+/* Salient's own post header, meta and comments are not used on case studies */
+body.single-our-work .row.heading-title,
+body.single-our-work #single-below-header,
+body.single-our-work .blog_next_prev_buttons,
+body.single-our-work .comments-section,
+body.single-our-work #author-bio,
+body.single-our-work .post-area .post-meta,
+body.single-our-work .post-header,
+body.single-our-work .post-content > .post-featured-img {
+    display: none !important;
+}
+
+body.single-our-work .container-wrap,
+body.single-our-work .container-wrap.no-sidebar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+body.single-our-work .post-area {
+    margin-top: 0 !important;
+}
+
+/* ---------- Hero ---------- */
+.uxt-work .uxt-work-hero {
+    padding-bottom: 0;
+}
+
+.uxt-work .uxt-work-hero-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    margin-bottom: 8px;
+    padding: 12px 24px;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.uxt-work .uxt-work-hero-logo img {
+    display: block;
+    width: auto !important;
+    max-width: 200px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    object-fit: contain;
+}
+
+/* Keep the banner's own shape (no cropping of the device mockups) */
+.uxt-work .uxt-work-hero .uxt-insight-hero-cover {
+    aspect-ratio: auto !important;
+    background: transparent;
+}
+
+.uxt-work .uxt-work-hero .uxt-insight-hero-cover img {
+    position: static;
+    display: block;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 620px;
+    margin: 0 auto !important;
+    object-fit: contain;
+}
+
+/* ---------- Sections ---------- */
+.uxt-work .uxt-work-section.uxt-work-tint {
+    background: #f4f5f7;
+}
+
+.uxt-work .uxt-heading .uxt-p {
+    max-width: 860px;
+}
+
+.uxt-work .uxt-work-section .uxt-heading + .uxt-heading {
+    margin-top: 80px;
+}
+
+.uxt-work .uxt-work-section > .uxt-container > * + .uxt-heading {
+    margin-top: 96px;
+}
+
+/* ---------- Overview + project facts ---------- */
+.uxt-work .uxt-work-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 80px;
+    align-items: start;
+}
+
+.uxt-work .uxt-work-overview-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.uxt-work .uxt-work-overview-text .uxt-h2 {
+    margin-bottom: 6px !important;
+}
+
+.uxt-work .uxt-work-facts {
+    margin: 0 !important;
+    padding: 8px 32px;
+    background: #ffffff;
+    border: 1px solid rgba(111, 118, 128, 0.3);
+    border-radius: 8px;
+}
+
+.uxt-work .uxt-work-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(111, 118, 128, 0.3);
+}
+
+.uxt-work .uxt-work-fact:last-child {
+    border-bottom: 0;
+}
+
+.uxt-work .uxt-work-fact dt {
+    margin: 0 !important;
+    font-family: var(--uxt-font-besley) !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
+    color: var(--uxt-color-border) !important;
+}
+
+.uxt-work .uxt-work-fact dd {
+    margin: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    color: var(--uxt-color-heading) !important;
+}
+
+.uxt-work .uxt-work-overview-grid + * {
+    margin-top: 64px;
+}
+
+/* ---------- Cards ---------- */
+.uxt-work .uxt-work-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.uxt-work .uxt-work-cards + * {
+    margin-top: 64px;
+}
+
+.uxt-work .uxt-work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px 32px;
+    background: #ffffff;
+    border: 1px solid rgba(111, 118, 128, 0.3);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.uxt-work .uxt-work-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(111, 118, 128, 0.6);
+    box-shadow: 0 12px 40px rgba(8, 18, 25, 0.08);
+}
+
+.uxt-work .uxt-work-card-icon {
+    display: block;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 0 6px !important;
+    object-fit: contain;
+}
+
+.uxt-work .uxt-work-card .uxt-h3 {
+    font-size: 25px !important;
+    line-height: 1.3 !important;
+}
+
+.uxt-work .uxt-work-card .uxt-p {
+    font-size: 18px !important;
+}
+
+/* ---------- Screenshots ---------- */
+.uxt-work .uxt-work-figure {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.uxt-work .uxt-work-figure + .uxt-work-figure,
+.uxt-work .uxt-work-figure + .uxt-work-feature,
+.uxt-work .uxt-work-feature + .uxt-work-figure,
+.uxt-work .uxt-work-feature + .uxt-work-feature,
+.uxt-work .uxt-work-gallery + *,
+.uxt-work * + .uxt-work-gallery,
+.uxt-work .uxt-work-figure + .uxt-work-list,
+.uxt-work .uxt-work-list + * {
+    margin-top: 56px;
+}
+
+.uxt-work .uxt-work-zoom {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(111, 118, 128, 0.2);
+    background: #ffffff;
+    cursor: zoom-in;
+}
+
+.uxt-work .uxt-work-zoom img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.uxt-work .uxt-work-zoom:hover img,
+.uxt-work .uxt-work-zoom:focus-visible img {
+    transform: scale(1.02);
+}
+
+.uxt-work .uxt-work-zoom:focus-visible {
+    outline: 2px solid #1678a1;
+    outline-offset: 3px;
+}
+
+.uxt-work .uxt-work-figure figcaption {
+    margin-top: 14px;
+    font-family: var(--uxt-font-manrope) !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: var(--uxt-color-border) !important;
+    text-align: center;
+}
+
+/* ---------- Feature: screenshot + text ---------- */
+.uxt-work .uxt-work-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+}
+
+.uxt-work .uxt-work-feature-reverse .uxt-work-figure {
+    order: 2;
+}
+
+.uxt-work .uxt-work-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ---------- Gallery ---------- */
+.uxt-work .uxt-work-gallery {
+    display: grid;
+    gap: 24px;
+    align-items: start;
+}
+
+.uxt-work .uxt-work-gallery-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.uxt-work .uxt-work-gallery-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.uxt-work .uxt-work-gallery .uxt-work-figure + .uxt-work-figure {
+    margin-top: 0;
+}
+
+/* Larger sets of screens (wireframes, phone screens) get more columns */
+.uxt-work .uxt-work-gallery:has(> .uxt-work-figure:nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.uxt-work .uxt-work-gallery:has(> .uxt-work-figure:nth-child(7)) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* A paragraph on its own between blocks (not in a heading) */
+.uxt-work .uxt-work-section .uxt-container > .uxt-p {
+    max-width: 860px;
+    margin: 40px auto 0 !important;
+    text-align: center;
+}
+
+/* Overview photos are small stock photos: same 3:2 tile for every one */
+.uxt-work .uxt-work-overview .uxt-work-gallery .uxt-work-zoom {
+    aspect-ratio: 3 / 2;
+}
+
+.uxt-work .uxt-work-overview .uxt-work-gallery .uxt-work-zoom img {
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.uxt-work .uxt-work-overview .uxt-work-gallery + .uxt-work-gallery {
+    margin-top: 24px;
+}
+
+/* ---------- List ---------- */
+.uxt-work .uxt-work-list {
+    max-width: 860px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.uxt-work .uxt-work-list li {
+    position: relative;
+    margin: 0 0 12px !important;
+    padding: 0 0 0 30px !important;
+    list-style: none !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    color: var(--uxt-color-body) !important;
+}
+
+.uxt-work .uxt-work-list li::before {
+    content: '';
+    position: absolute;
+    top: 0.62em;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #a5ecff;
+    box-shadow: 0 0 0 2px var(--uxt-color-navy);
+}
+
+/* ---------- Results ---------- */
+.uxt-work .uxt-work-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.uxt-work .uxt-work-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px;
+    background: #f4f5f7;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.uxt-work .uxt-work-stat-num {
+    margin: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 50px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--uxt-color-navy) !important;
+}
+
+.uxt-work .uxt-work-stat-label {
+    margin: 0 !important;
+    font-family: var(--uxt-font-manrope) !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    color: var(--uxt-color-body) !important;
+}
+
+.uxt-work .uxt-work-stats + .uxt-work-quote,
+.uxt-work .uxt-work-quote + .uxt-work-quote {
+    margin-top: 48px !important;
+}
+
+.uxt-work .uxt-work-quote {
+    max-width: 960px;
+    margin: 0 auto !important;
+    padding: 48px 56px !important;
+    background: linear-gradient(95.59deg, rgba(169, 251, 255, 0.35) 1.41%, rgba(254, 223, 186, 0.45) 99.08%);
+    border-radius: 8px;
+}
+
+.uxt-work .uxt-work-quote blockquote {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+}
+
+.uxt-work .uxt-work-quote blockquote::before {
+    display: none !important;
+}
+
+.uxt-work .uxt-work-quote blockquote p {
+    margin: 0 !important;
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 400 !important;
+    font-size: 26px !important;
+    line-height: 1.45 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--uxt-color-heading) !important;
+}
+
+.uxt-work .uxt-work-quote figcaption {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.uxt-work .uxt-work-quote-photo {
+    grid-row: 1 / 3;
+    width: 64px !important;
+    height: 64px !important;
+    margin: 0 !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.uxt-work .uxt-work-quote-name {
+    font-family: var(--uxt-font-aeonik) !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    color: var(--uxt-color-heading) !important;
+}
+
+.uxt-work .uxt-work-quote-role {
+    font-family: var(--uxt-font-manrope) !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: var(--uxt-color-body) !important;
+}
+
+.uxt-work .uxt-work-quote figcaption:not(:has(.uxt-work-quote-photo)) {
+    grid-template-columns: 1fr;
+}
+
+/* ---------- Closing call to action ---------- */
+.uxt-work .uxt-work-cta {
+    padding-top: 0;
+}
+
+.uxt-work .uxt-work-cta-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 72px 40px;
+    text-align: center;
+    background: linear-gradient(180deg, #0d1315 0%, #0a1b33 100%);
+    border-radius: 8px;
+}
+
+.uxt-work .uxt-work-cta-box .uxt-h2,
+.uxt-work .uxt-work-cta-box .uxt-p {
+    color: #ffffff !important;
+    max-width: 760px;
+}
+
+.uxt-work .uxt-work-cta-box .uxt-button {
+    margin-top: 16px;
+}
+
+/* ---------- Entrance animation ---------- */
+.uxt-work-js .uxt-work .uxt-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.uxt-work-js .uxt-work .uxt-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.uxt-work-js .uxt-work .uxt-work-card.uxt-reveal.is-visible:hover {
+    transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .uxt-work-js .uxt-work .uxt-reveal,
+    .uxt-work .uxt-work-zoom img,
+    .uxt-work .uxt-work-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1199px) {
+    .uxt-work .uxt-work-overview-grid {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 56px;
+    }
+    .uxt-work .uxt-work-feature {
+        gap: 48px;
+    }
+}
+
+@media (max-width: 999px) {
+    .uxt-work .uxt-work-overview-grid,
+    .uxt-work .uxt-work-feature {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .uxt-work .uxt-work-feature-reverse .uxt-work-figure {
+        order: 0;
+    }
+    .uxt-work .uxt-work-gallery-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .uxt-work .uxt-work-gallery:has(> .uxt-work-figure:nth-child(4)) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .uxt-work .uxt-work-hero .uxt-insight-hero-cover img {
+        max-height: 480px;
+    }
+    .uxt-work .uxt-work-stat-num {
+        font-size: 40px !important;
+    }
+    .uxt-work .uxt-work-quote {
+        padding: 40px !important;
+    }
+    .uxt-work .uxt-work-quote blockquote p {
+        font-size: 22px !important;
+    }
+    .uxt-work .uxt-work-section > .uxt-container > * + .uxt-heading {
+        margin-top: 72px;
+    }
+}
+
+@media (max-width: 767px) {
+    .uxt-work .uxt-work-hero-logo {
+        min-height: 52px;
+        padding: 10px 18px;
+    }
+    .uxt-work .uxt-work-hero-logo img {
+        height: 32px !important;
+        max-width: 160px !important;
+    }
+    .uxt-work .uxt-work-facts {
+        padding: 4px 24px;
+    }
+    .uxt-work .uxt-work-fact {
+        padding: 16px 0;
+    }
+    .uxt-work .uxt-work-card {
+        padding: 28px 24px;
+    }
+    .uxt-work .uxt-work-card .uxt-h3 {
+        font-size: 22px !important;
+    }
+    .uxt-work .uxt-work-gallery-2,
+    .uxt-work .uxt-work-gallery-3 {
+        grid-template-columns: 1fr;
+    }
+    .uxt-work .uxt-work-gallery:has(> .uxt-work-figure:nth-child(4)) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+    .uxt-work .uxt-work-overview .uxt-work-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+    .uxt-work .uxt-work-hero .uxt-insight-hero-cover img {
+        max-height: 360px;
+    }
+    .uxt-work .uxt-work-section .uxt-container > .uxt-p {
+        margin-top: 32px !important;
+    }
+    .uxt-work .uxt-work-figure + .uxt-work-figure,
+    .uxt-work .uxt-work-figure + .uxt-work-feature,
+    .uxt-work .uxt-work-feature + .uxt-work-figure,
+    .uxt-work .uxt-work-feature + .uxt-work-feature,
+    .uxt-work .uxt-work-gallery + *,
+    .uxt-work * + .uxt-work-gallery,
+    .uxt-work .uxt-work-cards + *,
+    .uxt-work .uxt-work-overview-grid + * {
+        margin-top: 40px;
+    }
+    .uxt-work .uxt-work-section > .uxt-container > * + .uxt-heading {
+        margin-top: 56px;
+    }
+    .uxt-work .uxt-work-list li {
+        font-size: 18px !important;
+    }
+    .uxt-work .uxt-work-stat {
+        padding: 24px;
+    }
+    .uxt-work .uxt-work-stat-num {
+        font-size: 34px !important;
+    }
+    .uxt-work .uxt-work-quote {
+        padding: 32px 24px !important;
+    }
+    .uxt-work .uxt-work-quote blockquote p {
+        font-size: 19px !important;
+    }
+    .uxt-work .uxt-work-cta-box {
+        padding: 48px 24px;
+    }
+}
+
+/* ---------- Archive: /our-work/ ---------- */
+.uxt-work-archive .uxt-work-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.uxt-work-archive .uxt-work-archive-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: inherit !important;
+    text-decoration: none !important;
+    background: #ffffff;
+    border: 1px solid rgba(111, 118, 128, 0.3);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.uxt-work-archive .uxt-work-archive-card:hover,
+.uxt-work-archive .uxt-work-archive-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba(111, 118, 128, 0.6);
+    box-shadow: 0 12px 40px rgba(8, 18, 25, 0.08);
+}
+
+.uxt-work-archive .uxt-work-archive-img {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f4f5f7;
+}
+
+.uxt-work-archive .uxt-work-archive-img img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.uxt-work-archive .uxt-work-archive-card:hover .uxt-work-archive-img img {
+    transform: scale(1.04);
+}
+
+.uxt-work-archive .uxt-work-archive-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+    padding: 32px;
+}
+
+.uxt-work-archive .uxt-work-archive-body .uxt-h3 {
+    font-size: 25px !important;
+    line-height: 1.3 !important;
+}
+
+.uxt-work-archive .uxt-work-archive-body .uxt-button {
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+@media (max-width: 767px) {
+    .uxt-work-archive .uxt-work-archive-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .uxt-work-archive .uxt-work-archive-body {
+        padding: 24px;
+    }
+    .uxt-work-archive .uxt-work-archive-body .uxt-h3 {
+        font-size: 22px !important;
     }
 }

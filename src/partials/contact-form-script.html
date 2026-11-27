@@ -1,0 +1,63 @@
+<!--
+  SCRIPT: Contact page form (src/pages/contact.html), include once at the end
+  of the page. A copy of the developers' booking card script in
+  src/global/footer-global.html with only the selectors changed
+  (#uxt-contact-form, .uxt-contact-form-success, -error, -again). It posts to
+  the same WordPress action (uxt_discovery_call), then opens Calendly.
+  For the developers to confirm before it goes live.
+-->
+<script>
+/* Contact page form: the booking card's behaviour, for the form in the
+   Contact hero. Sends to WordPress (action uxt_discovery_call), shows the
+   success message for 2 seconds, then goes to Calendly in the same tab */
+(function () {
+  var CALENDLY_URL = 'https://calendly.com/chintanuxteam';
+  var REDIRECT_DELAY = 2000; /* 2 seconds on the success message */
+  var form = document.getElementById('uxt-contact-form');
+  if (!form) return;
+  var wrap = form.parentNode;
+  var success = wrap.querySelector('.uxt-contact-form-success');
+  var error = form.querySelector('.uxt-contact-form-error');
+  var button = form.querySelector('button[type="submit"]');
+  var label = button.querySelector('.uxt-button-label');
+  var email = form.elements.work_email;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    error.textContent = '';
+    email.classList.remove('is-invalid');
+    var value = email.value.trim();
+    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      email.classList.add('is-invalid');
+      error.textContent = 'Please enter a valid work email.';
+      email.focus();
+      return;
+    }
+    var data = new FormData(form);
+    data.append('action', 'uxt_discovery_call');
+    button.disabled = true;
+    label.textContent = 'Sending...';
+    fetch('/wp-admin/admin-ajax.php', { method: 'POST', body: data, credentials: 'same-origin' })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) {
+          form.reset();
+          form.hidden = true;
+          success.hidden = false;
+          /* Show the message first, then go to Calendly in this tab */
+          setTimeout(function () { window.location.href = CALENDLY_URL; }, REDIRECT_DELAY);
+        } else {
+          error.textContent = (res && res.data && res.data.message) || 'Something went wrong. Please try again.';
+        }
+      })
+      .catch(function () { error.textContent = 'Something went wrong. Please try again.'; })
+      .then(function () { button.disabled = false; label.textContent = 'Book a Discovery Call'; });
+  });
+
+  wrap.querySelector('.uxt-contact-form-again').addEventListener('click', function () {
+    success.hidden = true;
+    form.hidden = false;
+    form.elements.full_name.focus();
+  });
+})();
+</script>
