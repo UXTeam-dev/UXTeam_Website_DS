@@ -1,0 +1,47 @@
+<!--
+  SCRIPT: Contact page office clocks (src/pages/contact.html, Where to find us).
+  For each .uxt-contact-office[data-tz], turns the clock hands to the office's
+  local time, updates the clock's label for screen readers, and writes the
+  current UTC offset into .uxt-contact-zone-offset (so US Eastern shows
+  UTC-5 in winter and UTC-4 in summer). Updates every 15 seconds. Uses the
+  browser's own time zone data (Intl), no outside service.
+  For the developers to confirm before it goes live.
+-->
+<script>
+(function () {
+  var offices = document.querySelectorAll('.uxt-contact-office[data-tz]');
+  if (!offices.length || !window.Intl) return;
+  function parts(tz, now) {
+    var out = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false })
+      .formatToParts(now).forEach(function (p) { out[p.type] = parseInt(p.value, 10); });
+    return out;
+  }
+  function offset(tz, now) {
+    try {
+      var name = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'shortOffset' })
+        .formatToParts(now).filter(function (p) { return p.type === 'timeZoneName'; })[0];
+      return name ? name.value.replace('GMT', 'UTC') : null;
+    } catch (e) { return null; }
+  }
+  function tick() {
+    var now = new Date();
+    for (var i = 0; i < offices.length; i++) {
+      var el = offices[i], tz = el.getAttribute('data-tz');
+      try {
+        var t = parts(tz, now), h = t.hour % 12, m = t.minute, s = t.second;
+        el.querySelector('.uxt-contact-clock-hour').setAttribute('transform', 'rotate(' + (h * 30 + m * 0.5) + ' 50 50)');
+        el.querySelector('.uxt-contact-clock-minute').setAttribute('transform', 'rotate(' + (m * 6 + s * 0.1) + ' 50 50)');
+        var face = el.querySelector('.uxt-contact-clock-face');
+        var city = face.getAttribute('aria-label').replace(/^Local time in ([^,:]+).*$/, '$1');
+        var time = new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' }).format(now).toLowerCase();
+        face.setAttribute('aria-label', 'Local time in ' + city + ': ' + time);
+        var off = offset(tz, now), slot = el.querySelector('.uxt-contact-zone-offset');
+        if (off && slot) slot.textContent = off === 'UTC' ? 'UTC+0' : off;
+      } catch (e) {}
+    }
+  }
+  tick();
+  setInterval(tick, 15000);
+})();
+</script>

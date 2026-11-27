@@ -95,7 +95,6 @@
    "scopes": [],
    "example": ".uxt-h3-sm",
    "usedIn": [
-    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/elements/faq-item-open.html",
@@ -5787,34 +5786,6 @@
     "pages/contact.html"
    ]
   },
-  "uxt-contact-based": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-based",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-based-list": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-based-list",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
   "uxt-contact-stories": {
    "kind": "styled",
    "sources": [
@@ -5895,6 +5866,174 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-contact-faq",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-find": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-find",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-offices": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-offices",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-office": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-face": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-face",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-rim": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-rim",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-tick": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-tick",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-tick-major": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-tick-major",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-hour": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-hour",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-minute": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-minute",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-clock-pin": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-clock-pin",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-zone": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-zone",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-office-address": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office-address",
    "usedIn": [
     "pages/contact.html"
    ]
@@ -6023,6 +6162,17 @@
    ],
    "scope": "n/a",
    "example": "\"Book another\" button in the Contact page form; the contact form script finds it with this class.",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-zone-offset": {
+   "kind": "hook",
+   "sources": [
+    "src/css/hooks.json"
+   ],
+   "scope": "n/a",
+   "example": "Contact page office clocks: the UTC offset in each time zone chip; contact-clock-script.html rewrites it so daylight saving shows correctly.",
    "usedIn": [
     "pages/contact.html"
    ]

@@ -2,6 +2,13 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.7.0 · 27 Nov 2026
+
+Contact page (`src/pages/contact.html`), on request:
+- **Where to find us is back, below Success stories,** as a clock row (the person's reference): for each office an analogue clock with the live local time, a Mist pill with the time zone and UTC offset, the city as an H3 and the address in two lines, centred. Eyebrow "Contact information". Three columns on desktop and tablet, stacked on mobile; address phrases never split. PART W section 6.
+- New script `src/partials/contact-clock-script.html`: turns the hands every 15 seconds and keeps the UTC offset right through daylight saving (Intl, no outside service). Hook `uxt-contact-zone-offset`. For the developers to confirm.
+- **Our clients:** "Our global presence" and the India, UAE, USA names removed (and their CSS).
+
 ## 2.6.3 · 27 Nov 2026
 
 Contact page: Contact details moved above Our clients (order: hero, What happens next, Contact details, Our clients, Success stories, FAQ, closing card).

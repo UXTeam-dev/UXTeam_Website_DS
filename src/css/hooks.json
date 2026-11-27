@@ -10,7 +10,8 @@
     "is-moved": "Added by the What we do capabilities script during the card animation.",
     "is-pinned": "Added by the What we do capabilities script when the tab bar is pinned.",
     "uxt-contact-form-wrap": "Contact page form: holds the form and its success message; the contact form script finds the success message inside it.",
-    "uxt-contact-form-again": "\"Book another\" button in the Contact page form; the contact form script finds it with this class."
+    "uxt-contact-form-again": "\"Book another\" button in the Contact page form; the contact form script finds it with this class.",
+    "uxt-contact-zone-offset": "Contact page office clocks: the UTC offset in each time zone chip; contact-clock-script.html rewrites it so daylight saving shows correctly."
   },
   "developerNames": {
     "underline-sky-blue": "With uxt-subheading: the sky blue line under the eyebrow (light sections).",

@@ -49,6 +49,7 @@ A section that works only inside `.uxt-wwd` or `.uxt-about` is used on another p
 |---|---|
 | `capabilities-script.html` | What we do sticky capability cards (`.uxt-wwd`) |
 | `contact-form-script.html` | Contact page form (`#uxt-contact-form`): the booking card script with its selectors changed. For the developers to confirm |
+| `contact-clock-script.html` | Contact page office clocks: turns the hands to each office's local time and updates the UTC offset. For the developers to confirm |
 
 ## Global (`src/global/`)
 

@@ -14,6 +14,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 | Insights pages end with the footer only | The booking card is global; switching it off for Insights is a WordPress setting | Pages keep the global booking card |
 | Contact page: switch off the footer global booking card | The Contact design (Figma 2771:18393) has its own form in the hero and its own closing card, then the footer | Pages keep the global booking card |
 | Contact page form script (`src/partials/contact-form-script.html`) | The booking card script with only its selectors changed, for the hero form; posts to the same `uxt_discovery_call` action, then Calendly | Not live until the developers add it |
+| Contact page clock script (`src/partials/contact-clock-script.html`) | Turns the office clock hands in Where to find us and keeps the UTC offsets right | Without it the clocks show 12:00 and the offsets as written |
 | Contact page header button | With the booking card off, the header's Book a Discovery Call (`#book-call`) needs to point to the hero form (`#contact-form`) on this page | Header link set by the developers |
 | Agree PART W (Contact page) | New PART for `src/pages/contact.html` | In `dist/css/uxteam-site-additions.css`, not live yet |
 
