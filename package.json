@@ -1,6 +1,6 @@
 {
   "name": "uxteam-website-ds",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "UXTeam website: the developers' uxt- stylesheet, page bodies ready to paste into Salient, the class registry and the checks that keep new pages on it.",
   "private": true,
   "type": "module",

@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.6.2 · 27 Nov 2026
+
+Contact page, Contact details: now uses the homepage approach columns (`uxt-approach-grid`, `uxt-approach-item`: top and bottom hairlines, lines between columns, Besley label, H3, body), on white without the Warm Glow, as requested. Each column keeps its link, lined up at the bottom. Responsive behaviour comes from Part C.
+
 ## 2.6.1 · 27 Nov 2026
 
 Contact page, Contact details: email `connect@ux.team` and phone `+91 8200578710` (supplied by the person), with working `mailto:` and `tel:` links. Placeholders removed from the page and OPEN-ITEMS.

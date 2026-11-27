@@ -1467,6 +1467,7 @@
    ],
    "example": ".uxt-home .uxt-approach-grid",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "partials/sections/approach-stats.html"
    ]
@@ -1482,6 +1483,7 @@
    ],
    "example": ".uxt-home .uxt-approach-item",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "partials/sections/approach-stats.html"
    ]
@@ -5907,20 +5909,6 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-contact-direct",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-details": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-details",
    "usedIn": [
     "pages/contact.html"
    ]
