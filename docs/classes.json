@@ -1656,6 +1656,7 @@
    ],
    "example": ".uxt-home .uxt-process .uxt-heading",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1664,14 +1665,17 @@
   "uxt-steps": {
    "kind": "styled",
    "sources": [
-    "PART C"
+    "PART C",
+    "PART W (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
-    ".uxt-home"
+    ".uxt-home",
+    ".uxt-contact"
    ],
    "example": ".uxt-home .uxt-steps",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1681,15 +1685,18 @@
    "kind": "styled",
    "sources": [
     "PART C",
-    "PART U"
+    "PART U",
+    "PART W (new)"
    ],
    "scope": ".uxt-home",
    "scopes": [
     ".uxt-home",
+    ".uxt-contact",
     ".uxt-wl"
    ],
    "example": ".uxt-home .uxt-step-icon",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -1706,6 +1713,7 @@
    ],
    "example": ".uxt-home .uxt-step:not(:last-child) .uxt-step-icon::after",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/process.html"
@@ -5697,6 +5705,34 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-contact-form-cal",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-next": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-next .uxt-steps",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-step-icon": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-step-icon .uxt-contact-step-icon",
    "usedIn": [
     "pages/contact.html"
    ]

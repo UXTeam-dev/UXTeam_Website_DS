@@ -9,7 +9,8 @@
    the FAQ accordion reuse the homepage styles (Part C, G, H). The logo
    grid, global presence, story card logos and one column FAQ follow the
    About page (Part R) values, scoped to this page. New here: the light
-   hero with the founder and the form card, and the closing card.
+   hero with the founder and the form card, What happens next (the How we
+   work steps with three steps and inline 64px icons), and the closing card.
    The hero keeps the uxt-hero class so the transparent header (Part U)
    paints the hero behind the menu.
    ===================================================================== */
@@ -284,6 +285,20 @@
     text-decoration: underline;
 }
 
+/* ---------- 2. What happens next (How we work steps, three steps) ---------- */
+.uxt-contact .uxt-contact-next .uxt-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.uxt-contact .uxt-step-icon .uxt-contact-step-icon {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 64px;
+    height: 64px;
+}
+
 /* ---------- 3. Our clients and global presence (About values) ---------- */
 .uxt-contact .uxt-contact-clients {
     padding: 120px 0 100px;
@@ -523,6 +538,15 @@
 }
 
 @media (max-width: 999px) {
+    /* What happens next: three steps stay in one row on tablet */
+    .uxt-contact .uxt-contact-next .uxt-steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+    .uxt-contact .uxt-step-icon .uxt-contact-step-icon {
+        width: 56px;
+        height: 56px;
+    }
     /* Hero: intro first, form card full width under it */
     .uxt-contact .uxt-contact-hero-grid {
         grid-template-columns: 1fr;
@@ -547,6 +571,15 @@
 }
 
 @media (max-width: 767px) {
+    /* What happens next: the homepage icon rail */
+    .uxt-contact .uxt-contact-next .uxt-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .uxt-contact .uxt-step-icon .uxt-contact-step-icon {
+        width: 32px;
+        height: 32px;
+    }
     .uxt-contact .uxt-contact-hero {
         padding: 72px 0 80px;
     }

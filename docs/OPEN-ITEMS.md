@@ -23,6 +23,7 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 |---|---|---|
 | Upload `assets/logos/clients/dxfactor.svg` and `voro-wordmark.svg` to `/wp-content/uploads/2026/11/` (or point to the files the About page already uses) | Contact page story card (DX Factor) and logo grid (VORO) | The paths in `src/pages/contact.html` assume 2026/11 |
 | DX Factor success story link | Contact page story card | Links to `#` |
+| Contact page step icons `assets/icons/process/review.svg`, `call.svg`, `proposal.svg` | Inline SVG in the page; upload them only if the developers prefer `<img>` as in the homepage How we work | Inline SVG works as it is |
 | Featured story video (Brent Weaver, E2M) | The featured story in `src/partials/sections/stories.html` (the developers' markup) | The play button shows the still only |
 | Calendly booking link | The booking form in the footer global section (developers) | As on the live site |
 | LinkedIn URLs for people | Story and author links | Links point to `#` |

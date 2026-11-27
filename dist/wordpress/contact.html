@@ -6,12 +6,15 @@
      card, so the "Book a Discovery Call" card of the footer global
      section is switched off on this page (as on Insights).
      Header: "Transparent Header Navigation Color: Dark" (light hero).
-     CSS: uxteam-site.css (Part B, homepage How we work, story cards and
+     CSS: uxteam-site.css (Part B, homepage How we work steps, story cards and
      FAQ accordion) and PART W (src/css/parts/part-w-contact.css).
      Script: the contact form script at the end (same behaviour as the
      booking card form: WordPress, then Calendly).
-     Global sections: "How we work" (#1785) and the story cards (#1784)
-     can replace the marked blocks below (Part T, uxt-gs-*).
+     What happens next: the homepage How we work layout with three steps
+     and their own icons (inline SVG, also in assets/icons/process:
+     review, call, proposal).
+     Global section: the story cards (#1784) can replace the marked block
+     below (Part T, uxt-gs-*).
      ============================================================ -->
 <div class="uxt-home uxt-contact">
 
@@ -85,46 +88,32 @@
     </div>
   </div>
 
-  <!-- ================= 2. HOW WE WORK (approved section, as it is) =================
-       On WordPress this can be the "How we work" global section (#1785). -->
-  <!-- ================= 6. HOW WE WORK ================= -->
-  <div class="uxt-full uxt-section uxt-process">
+  <!-- ================= 2. WHAT HAPPENS NEXT (How we work layout, three steps) ================= -->
+  <div class="uxt-full uxt-section uxt-process uxt-contact-next">
     <div class="uxt-container">
       <div class="uxt-heading">
-        <p class="uxt-subheading underline-sky-blue">How we work</p>
-        <h2 class="uxt-h2">From first audit to final result</h2>
+        <p class="uxt-subheading underline-sky-blue">What happens next</p>
+        <h2 class="uxt-h2">How we'll move forward together</h2>
       </div>
 
       <div class="uxt-steps">
         <div class="uxt-step">
-          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Audit.svg" alt="Audit icon" width="64" height="64"></div>
-          <span class="uxt-accent">1.&nbsp; Audit</span>
-          <h3 class="uxt-h3">We walk your product as your buyers do.</h3>
-          <p class="uxt-p">A UX audit first, to find what's really holding growth back.</p>
+          <div class="uxt-step-icon"><svg class="uxt-contact-step-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect x="10.75" y="6.75" width="32.5" height="44.5" rx="5" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.75 17.75H35.25M18.75 25.75H35.25M18.75 33.75H27.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="41" cy="41" r="10.25" fill="url(#greview0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M48.5 48.5L56.25 56.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="greview0" x1="30.75" y1="30.75" x2="51.25" y2="51.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">1.&nbsp; Review</span>
+          <h3 class="uxt-h3">Review and qualification</h3>
+          <p class="uxt-p">We'll align on your project goals, scope, and timeline to ensure we're fully synchronized.</p>
         </div>
         <div class="uxt-step">
-          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Evidence.svg" alt="Evidence icon" width="64" height="64"></div>
-          <span class="uxt-accent">2.&nbsp; Evidence</span>
-          <h3 class="uxt-h3">We check it against your data.</h3>
-          <p class="uxt-p">Analytics, behavior data, and category research. One agreed metric.</p>
+          <div class="uxt-step-icon"><svg class="uxt-contact-step-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><path d="M12.75 9.75H35.25C38.0114 9.75 40.25 11.9886 40.25 14.75V29.25C40.25 32.0114 38.0114 34.25 35.25 34.25H18.75L10.75 40.25V34.25C8.54 33.6 7.75 31.9 7.75 29.25V14.75C7.75 11.9886 9.98858 9.75 12.75 9.75Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28.75 25.75H51.25C54.0114 25.75 56.25 27.9886 56.25 30.75V44.25C56.25 46.9 55.46 48.6 53.25 49.25V55.25L45.25 49.25H28.75C25.9886 49.25 23.75 47.0114 23.75 44.25V30.75C23.75 27.9886 25.9886 25.75 28.75 25.75Z" fill="url(#gcall0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33.75 37.75H46.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gcall0" x1="23.75" y1="25.75" x2="56.25" y2="55.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">2.&nbsp; Call</span>
+          <h3 class="uxt-h3">Strategy alignment call</h3>
+          <p class="uxt-p">If we're aligned, we'll schedule a call to discuss priorities and outline the execution framework.</p>
         </div>
         <div class="uxt-step">
-          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Journey.svg" alt="Journey icon" width="64" height="64"></div>
-          <span class="uxt-accent">3.&nbsp; Journey</span>
-          <h3 class="uxt-h3">We redesign the path around their questions.</h3>
-          <p class="uxt-p">Story, routes, and content built around how your buyers decide.</p>
-        </div>
-        <div class="uxt-step">
-          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Build.svg" alt="Build icon" width="64" height="64"></div>
-          <span class="uxt-accent">4.&nbsp; Build</span>
-          <h3 class="uxt-h3">We design and build together.</h3>
-          <p class="uxt-p">One team, so nothing waits on a long handover.</p>
-        </div>
-        <div class="uxt-step">
-          <div class="uxt-step-icon"><img src="/wp-content/uploads/2026/10/Proof.svg" alt="Proof icon" width="64" height="64"></div>
-          <span class="uxt-accent">5.&nbsp; Proof</span>
-          <h3 class="uxt-h3">We test, measure, and keep refining.</h3>
-          <p class="uxt-p">A/B tests against the metric we agreed at the start.</p>
+          <div class="uxt-step-icon"><svg class="uxt-contact-step-icon" width="64" height="64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><path d="M14.75 6.75H38.25L49.25 17.75V52.25C49.25 55.0114 47.0114 57.25 44.25 57.25H14.75C11.9886 57.25 9.75 55.0114 9.75 52.25V11.75C9.75 8.98858 11.9886 6.75 14.75 6.75Z" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.25 6.75V17.75H49.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="16.75" y="24.75" width="25.5" height="9.5" rx="2.5" fill="url(#gproposal0)" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.75 41.75H42.25M16.75 48.75H32.25" stroke="#0A1B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gproposal0" x1="16.75" y1="24.75" x2="42.25" y2="34.25" gradientUnits="userSpaceOnUse"><stop stop-color="#A9FBFF"/><stop offset="1" stop-color="#FEDFBA"/></linearGradient></defs></svg></div>
+          <span class="uxt-accent">3.&nbsp; Proposal</span>
+          <h3 class="uxt-h3">Structured proposal</h3>
+          <p class="uxt-p">Based on our discussion, we'll provide a clear proposal outlining the next steps, timeline, and deliverables.</p>
         </div>
       </div>
     </div>

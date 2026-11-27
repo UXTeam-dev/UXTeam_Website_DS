@@ -2,6 +2,13 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.3.0 · 27 Nov 2026
+
+Contact page (`src/pages/contact.html`), on request:
+- **What happens next** now shows three steps instead of the How we work process: Review and qualification, Strategy alignment call, Structured proposal (copy from the live Thank You page, in sentence case with "and" for "&"). Heading "How we'll move forward together". Same layout as How we work; three columns down to tablet, the icon rail on mobile (PART W).
+- Three new 64px process icons in the house style, one G4 shape each: `assets/icons/process/review.svg`, `call.svg`, `proposal.svg` (inline on the page).
+- Direct contact details section: not added (email and phone are not published).
+
 ## 2.2.0 · 27 Nov 2026
 
 **New developer CSS synced** (`src/css/uxteam-site.css`, received 27 Nov 2026, fingerprint updated). It adds PART S (Insights), T (shared helpers, global sections), U (White label, transparent header) and V (Our work). Our PART S (`uxt-placeholder`, `uxt-nowrap`) is now inside their PART T, so `src/css/parts/part-s-shared.css` is removed. New parts continue at W.
