@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.6.3 · 27 Nov 2026
+
+Contact page: Contact details moved above Our clients (order: hero, What happens next, Contact details, Our clients, Success stories, FAQ, closing card).
+
 ## 2.6.2 · 27 Nov 2026
 
 Contact page, Contact details: now uses the homepage approach columns (`uxt-approach-grid`, `uxt-approach-item`: top and bottom hairlines, lines between columns, Besley label, H3, body), on white without the Warm Glow, as requested. Each column keeps its link, lined up at the bottom. Responsive behaviour comes from Part C.
