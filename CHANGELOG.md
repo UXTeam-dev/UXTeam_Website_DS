@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.6.1 · 27 Nov 2026
+
+Contact page, Contact details: email `connect@ux.team` and phone `+91 8200578710` (supplied by the person), with working `mailto:` and `tel:` links. Placeholders removed from the page and OPEN-ITEMS.
+
 ## 2.6.0 · 27 Nov 2026
 
 Contact page (`src/pages/contact.html`), on request:

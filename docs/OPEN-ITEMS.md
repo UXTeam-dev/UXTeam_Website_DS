@@ -31,7 +31,6 @@ Things that are placeholders, pending a decision, or waiting for a file. Remove 
 
 ## Placeholder copy (as in Figma)
 
-- Contact page, Contact details: the email address and phone number are `[confirm …]` placeholders, and the Send an Email (`mailto:`) and Call Now (`tel:`) links are empty. ux.team publishes neither.
 
 
 - FAQ answers: only "Can you share results and client work?" (homepage) and "What is UXTeam?" (About) have answers. The rest show the Figma placeholder "Add answer here."
