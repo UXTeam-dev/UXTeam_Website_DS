@@ -2,6 +2,13 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.6.0 · 27 Nov 2026
+
+Contact page (`src/pages/contact.html`), on request:
+- **Where to find us removed** (the office addresses stay in the footer).
+- **New Contact details section** in its place, "Prefer to reach us directly?": three columns, Email, Phone and Book a call (Calendly), each with a Besley label, the value as an H3 over a Steel hairline, one line and a Secondary link (Send an Email, Call Now, Book a Discovery Call). Stacks on mobile. PART W section 6.
+- ux.team publishes no phone number or email (checked the homepage, privacy policy and thank you pages; /contact and /contact-us do not exist), so both are `[confirm …]` placeholders with empty `mailto:` and `tel:` links. Listed in docs/OPEN-ITEMS.md.
+
 ## 2.5.0 · 27 Nov 2026
 
 Contact page (`src/pages/contact.html`), new section from Figma 2802:19872 ("07 Contact information", 2810:1108), between the FAQ and the closing card:

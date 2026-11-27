@@ -850,6 +850,7 @@
    ],
    "example": ".uxt-home .uxt-accent.uxt-accent-strong",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/approach-stats.html",
@@ -5896,7 +5897,7 @@
     "pages/contact.html"
    ]
   },
-  "uxt-contact-find": {
+  "uxt-contact-direct": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5905,12 +5906,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-find",
+   "example": ".uxt-contact .uxt-contact-direct",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-offices": {
+  "uxt-contact-details": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5919,12 +5920,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-offices",
+   "example": ".uxt-contact .uxt-contact-details",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-office": {
+  "uxt-contact-detail": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5933,12 +5934,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-office",
+   "example": ".uxt-contact .uxt-contact-detail",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-office-address": {
+  "uxt-contact-detail-note": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5947,7 +5948,7 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-office-address",
+   "example": ".uxt-contact .uxt-contact-detail-note",
    "usedIn": [
     "pages/contact.html"
    ]

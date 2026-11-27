@@ -62,7 +62,7 @@ A page may use only the classes listed here (plus `is-*` and `has-*` state class
 |---|---|---|
 | `is-active` | inside `.uxt-home` | pages/homepage.html, pages/what-we-do.html, partials/sections/capabilities.html +1 |
 | `uxt-accent` | anywhere | global/footer-global.html, pages/contact.html, pages/homepage.html +10 |
-| `uxt-accent-strong` | inside `.uxt-home` | pages/homepage.html, pages/what-we-do.html, partials/sections/approach-stats.html +2 |
+| `uxt-accent-strong` | inside `.uxt-home` | pages/contact.html, pages/homepage.html, pages/what-we-do.html +3 |
 | `uxt-approach` | anywhere | pages/homepage.html, partials/sections/approach-stats.html |
 | `uxt-approach-grid` | inside `.uxt-home` | pages/homepage.html, partials/sections/approach-stats.html |
 | `uxt-approach-item` | inside `.uxt-home` | pages/homepage.html, partials/sections/approach-stats.html |
@@ -633,12 +633,15 @@ A page may use only the classes listed here (plus `is-*` and `has-*` state class
 | `uxt-contact-clients` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-closing` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-closing-card` | inside `.uxt-contact` | pages/contact.html |
+| `uxt-contact-detail` | inside `.uxt-contact` | pages/contact.html |
+| `uxt-contact-detail-note` | inside `.uxt-contact` | pages/contact.html |
+| `uxt-contact-details` | inside `.uxt-contact` | pages/contact.html |
+| `uxt-contact-direct` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-fact-num` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-fact-text` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-facts` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-faq` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-field` | inside `.uxt-contact` | pages/contact.html |
-| `uxt-contact-find` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-form` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-form-cal` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-form-error` | inside `.uxt-contact` | pages/contact.html |
@@ -655,9 +658,6 @@ A page may use only the classes listed here (plus `is-*` and `has-*` state class
 | `uxt-contact-logos` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-name` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-next` | inside `.uxt-contact` | pages/contact.html |
-| `uxt-contact-office` | inside `.uxt-contact` | pages/contact.html |
-| `uxt-contact-office-address` | inside `.uxt-contact` | pages/contact.html |
-| `uxt-contact-offices` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-panel` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-panel-body` | inside `.uxt-contact` | pages/contact.html |
 | `uxt-contact-panel-glow` | inside `.uxt-contact` | pages/contact.html |
