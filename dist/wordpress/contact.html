@@ -1,6 +1,7 @@
 <!-- ============================================================
-     UXTEAM: CONTACT PAGE  (Figma "Contact Us · Design v1", 2771:18393)
+     UXTEAM: CONTACT PAGE  (Figma "Contact Us · Design v2 (as built)", 2802:19872)
      Paste into one Salient "Raw HTML" element (page body only).
+     Figma: "Contact Us · Design v2 (as built)" (2802:19872).
      The header and footer come from Salient and the footer global
      section. This page has its own form in the hero and its own closing
      card, so the "Book a Discovery Call" card of the footer global
@@ -18,45 +19,39 @@
      ============================================================ -->
 <div class="uxt-home uxt-contact">
 
-  <!-- ================= 1. HERO: intro, founder, form ================= -->
+  <!-- ================= 1. HERO: intro, then the founder and form panel ================= -->
   <div class="uxt-full uxt-section uxt-hero uxt-contact-hero">
     <div class="uxt-container">
-      <div class="uxt-contact-hero-grid">
+      <div class="uxt-hero-content">
+        <p class="uxt-subheading underline-sky-blue uxt-white">Book a discovery call</p>
+        <h1 class="uxt-h1 uxt-white">Skip the layers,<br> talk to <span class="uxt-nowrap">the founder.</span></h1>
+      </div>
 
-        <div class="uxt-contact-intro">
-          <div class="uxt-contact-intro-text">
-            <p class="uxt-subheading underline-sky-blue">Talk to us</p>
-            <h1 class="uxt-h2 uxt-contact-title">Let's talk about what you're building.</h1>
-            <p class="uxt-p">Fill up the form, then pick a time.<br> Your first call is with our founder, not a sales rep.</p>
-          </div>
-
-          <div class="uxt-contact-founder">
-            <div class="uxt-contact-person">
-              <div class="uxt-contact-photo"><img src="/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="Chintan Bhatt, Founder of UXTeam" width="112" height="168"></div>
-              <div>
-                <p class="uxt-contact-name">Chintan Bhatt</p>
-                <p class="uxt-contact-role">Founder, UXTeam, 20+ years in design</p>
-              </div>
-            </div>
-            <ul class="uxt-contact-points">
-              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">A senior read on your site or product, before you commit to anything</span></li>
-              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">An honest answer on fit, even when it isn't us</span></li>
-              <li class="uxt-contact-point"><svg class="uxt-contact-point-icon" width="22" height="22" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z"/></svg><span class="uxt-p uxt-p-xs">A mutual NDA on request, before you share anything</span></li>
-            </ul>
-          </div>
+      <div class="uxt-contact-panel" id="contact-form">
+        <div class="uxt-contact-panel-photo">
+          <img src="/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="Chintan Bhatt, Founder of UXTeam" width="535" height="802">
+          <img class="uxt-contact-panel-glow" src="/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="" aria-hidden="true" width="535" height="802">
         </div>
 
-        <div class="uxt-contact-card" id="contact-form">
-          <div class="uxt-contact-card-head">
-            <p class="uxt-h3 uxt-contact-card-title" id="uxt-contact-form-title">Book a discovery call</p>
-            <p class="uxt-p uxt-p-xs">Three quick fields, then pick a time that suits you.</p>
+        <div class="uxt-contact-panel-body">
+          <div class="uxt-contact-panel-info">
+            <div class="uxt-contact-panel-thumb"><img src="/wp-content/uploads/2026/10/chintan_bhatt_founder_uxteam-web.webp" alt="" aria-hidden="true" width="120" height="120" loading="lazy"></div>
+            <div class="uxt-contact-panel-person">
+              <p class="uxt-contact-name">Chintan Bhatt</p>
+              <p class="uxt-contact-role">Founder, UXTeam</p>
+            </div>
+            <ul class="uxt-contact-facts">
+              <li><span class="uxt-contact-fact-num">8+ years</span><span class="uxt-contact-fact-text">inside agency delivery</span></li>
+              <li><span class="uxt-contact-fact-num">50+ agency</span><span class="uxt-contact-fact-text">partnerships, US, UAE, UK</span></li>
+              <li><span class="uxt-contact-fact-num">1 partnership</span><span class="uxt-contact-fact-text">Strategy and execution</span></li>
+            </ul>
           </div>
 
           <div class="uxt-contact-form-wrap">
-            <form class="uxt-contact-form" id="uxt-contact-form" novalidate aria-labelledby="uxt-contact-form-title">
-              <label class="uxt-contact-field"><span class="uxt-label">Full name</span><input type="text" name="full_name" placeholder="Jane Cooper" autocomplete="name" maxlength="100"></label>
-              <label class="uxt-contact-field"><span class="uxt-label">Work email*</span><input type="email" name="work_email" placeholder="jane@company.com" autocomplete="email" maxlength="150" required></label>
-              <label class="uxt-contact-field"><span class="uxt-label">Company website</span><input type="text" name="company_website" placeholder="company.com" autocomplete="url" maxlength="200"></label>
+            <form class="uxt-contact-form" id="uxt-contact-form" novalidate aria-label="Book a discovery call">
+              <label class="uxt-contact-field"><span class="uxt-label">Full name</span><input type="text" name="full_name" placeholder="John Anderson" autocomplete="name" maxlength="100"></label>
+              <label class="uxt-contact-field"><span class="uxt-label">Work email*</span><input type="email" name="work_email" placeholder="johna@agencywebsite.com" autocomplete="email" maxlength="150" required></label>
+              <label class="uxt-contact-field"><span class="uxt-label">Company website</span><input type="text" name="company_website" placeholder="www.agencywebsite.com" autocomplete="url" maxlength="200"></label>
               <!-- Spam trap, keep it hidden -->
               <input type="text" name="uxt_hp" class="uxt-contact-form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
               <p class="uxt-contact-form-error" role="alert" aria-live="polite"></p>
@@ -83,7 +78,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

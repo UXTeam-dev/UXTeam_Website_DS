@@ -2,6 +2,14 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.4.0 · 27 Nov 2026
+
+Contact page (`src/pages/contact.html`) matched to Figma "Contact Us · Design v2 (as built)" (2802:19872):
+- **New hero:** the dark homepage hero with eyebrow "Book a discovery call" and the display H1 "Skip the layers, talk to the founder.", then a 1204px panel in the booking card look (G5 gradient): founder cutout with a soft light copy, name, three facts, a line, and the form (same fields, script and success message). Tablet and mobile follow the booking card (Part L): the large photo gives way to a small one beside the name.
+- **Our clients** is now white; the Warm Glow moved to **Success stories** (100px top and bottom). **FAQ** top spacing 120px.
+- PART W rewritten for the hero; the old split hero classes are gone.
+- To confirm: "partnerships, US, UAE, UK" (UK is not an approved client region in the brand guide); the hero card has a gradient surface on the hero gradient (allowed for the booking card look, as in Figma).
+
 ## 2.3.0 · 27 Nov 2026
 
 Contact page (`src/pages/contact.html`), on request:

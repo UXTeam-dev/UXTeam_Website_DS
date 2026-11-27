@@ -12,6 +12,7 @@
    "scopes": [],
    "example": ".uxt-h1",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -350,6 +351,7 @@
    "example": ".uxt-white",
    "usedIn": [
     "global/footer-global.html",
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -884,6 +886,7 @@
    ],
    "example": ".uxt-home .uxt-hero-content",
    "usedIn": [
+    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/hero.html",
@@ -4382,7 +4385,9 @@
    "scope": "global",
    "scopes": [],
    "example": ".uxt-nowrap",
-   "usedIn": []
+   "usedIn": [
+    "pages/contact.html"
+   ]
   },
   "uxt-wl": {
    "kind": "styled",
@@ -5385,9 +5390,7 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-h2:not(.uxt-white):not(.uxt-contact-title)",
-   "usedIn": [
-    "pages/contact.html"
-   ]
+   "usedIn": []
   },
   "uxt-contact-center": {
    "kind": "styled",
@@ -5417,7 +5420,7 @@
     "pages/contact.html"
    ]
   },
-  "uxt-contact-hero-grid": {
+  "uxt-contact-panel": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5426,12 +5429,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-hero-grid",
+   "example": ".uxt-contact .uxt-contact-panel",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-intro": {
+  "uxt-contact-panel-photo": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5440,12 +5443,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-intro",
+   "example": ".uxt-contact .uxt-contact-panel-photo",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-intro-text": {
+  "uxt-contact-panel-glow": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5454,12 +5457,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-intro-text",
+   "example": ".uxt-contact .uxt-contact-panel-photo img.uxt-contact-panel-glow",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-founder": {
+  "uxt-contact-panel-body": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5468,12 +5471,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-founder",
+   "example": ".uxt-contact .uxt-contact-panel-body",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-person": {
+  "uxt-contact-panel-info": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5482,12 +5485,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-person",
+   "example": ".uxt-contact .uxt-contact-panel-info",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-photo": {
+  "uxt-contact-panel-thumb": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5496,7 +5499,21 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-photo",
+   "example": ".uxt-contact .uxt-contact-panel-thumb",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-panel-person": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-panel-person",
    "usedIn": [
     "pages/contact.html"
    ]
@@ -5529,7 +5546,7 @@
     "pages/contact.html"
    ]
   },
-  "uxt-contact-points": {
+  "uxt-contact-facts": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5538,12 +5555,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-points",
+   "example": ".uxt-contact .uxt-contact-facts",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-point": {
+  "uxt-contact-fact-num": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5552,12 +5569,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-point",
+   "example": ".uxt-contact .uxt-contact-fact-num",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-point-icon": {
+  "uxt-contact-fact-text": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5566,24 +5583,12 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-point-icon",
-   "usedIn": []
-  },
-  "uxt-contact-card": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-card",
+   "example": ".uxt-contact .uxt-contact-fact-text",
    "usedIn": [
     "pages/contact.html"
    ]
   },
-  "uxt-contact-card-head": {
+  "uxt-contact-form-wrap": {
    "kind": "styled",
    "sources": [
     "PART W (new)"
@@ -5592,21 +5597,7 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-card-head",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-card-title": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-card-title",
+   "example": ".uxt-contact .uxt-contact-form-wrap",
    "usedIn": [
     "pages/contact.html"
    ]
@@ -5704,7 +5695,7 @@
    "scopes": [
     ".uxt-contact"
    ],
-   "example": ".uxt-contact .uxt-contact-form-cal",
+   "example": ".uxt-contact .uxt-contact-hero .uxt-contact-form-cal",
    "usedIn": [
     "pages/contact.html"
    ]
@@ -5979,17 +5970,6 @@
    "scope": "n/a",
    "example": "Added by the What we do capabilities script during the card animation.",
    "usedIn": []
-  },
-  "uxt-contact-form-wrap": {
-   "kind": "hook",
-   "sources": [
-    "src/css/hooks.json"
-   ],
-   "scope": "n/a",
-   "example": "Contact page form: holds the form and its success message; the contact form script finds the success message inside it.",
-   "usedIn": [
-    "pages/contact.html"
-   ]
   },
   "uxt-contact-form-again": {
    "kind": "hook",

@@ -1,18 +1,17 @@
 /* =====================================================================
-   PART W | CONTACT PAGE  (Figma "Contact Us · Design v1", 2771:18393)
+   PART W | CONTACT PAGE  (Figma "Contact Us · Design v2 (as built)", 2802:19872)
    HTML: src/pages/contact.html, wrapped in
          <div class="uxt-home uxt-contact">
          Form script: src/partials/contact-form-script.html
    Scope: .uxt-contact
-   Text uses the Part B classes (uxt-h2, uxt-h3, uxt-h3-sm, uxt-p,
-   uxt-label, uxt-accent, uxt-subheading). How we work, the story cards and
-   the FAQ accordion reuse the homepage styles (Part C, G, H). The logo
-   grid, global presence, story card logos and one column FAQ follow the
-   About page (Part R) values, scoped to this page. New here: the light
-   hero with the founder and the form card, What happens next (the How we
-   work steps with three steps and inline 64px icons), and the closing card.
-   The hero keeps the uxt-hero class so the transparent header (Part U)
-   paints the hero behind the menu.
+   Text uses the Part B classes (uxt-h1, uxt-h2, uxt-h3, uxt-h3-sm, uxt-p,
+   uxt-label, uxt-accent, uxt-subheading). The dark hero, How we work
+   steps, story cards and FAQ accordion reuse the homepage styles (Part C,
+   G, H). The logo grid, global presence, story card logos and one column
+   FAQ follow the About page (Part R) values, scoped to this page.
+   New here: the hero panel (the booking card look of Part E and L: founder
+   cutout, facts and the form, on the G5 gradient), What happens next
+   (three steps with inline 64px icons) and the closing card.
    ===================================================================== */
 
 /* ---------- Shared on this page ---------- */
@@ -37,85 +36,83 @@
     margin-top: 48px;
 }
 
-/* ---------- 1. Hero: intro, founder, form card ---------- */
+
+/* ---------- 1. Hero: dark intro, then the founder and form panel ---------- */
+/* Homepage hero (Part C) gives the dark gradient; spacing from Figma */
 .uxt-contact .uxt-contact-hero {
     padding: 100px 0 120px;
-    background: radial-gradient(95.5% 100% at 50% 0%, rgba(255, 236, 188, 0.5) 0%, #edfdff 58.4%, #ffffff 100%);
-}
-
-.uxt-contact .uxt-contact-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 585px;
-    gap: 64px;
-}
-
-.uxt-contact .uxt-contact-intro {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-}
-
-.uxt-contact .uxt-contact-intro-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
 }
 
 .uxt-contact .uxt-contact-hero .uxt-subheading {
-    margin: 0 !important;
+    margin-bottom: 24px !important;
 }
 
-.uxt-contact .uxt-contact-title {
-    color: var(--uxt-color-body) !important;
-}
-
-/* The homepage hero centres its text and makes it white: not here */
-.uxt-contact .uxt-contact-hero .uxt-p {
-    max-width: none;
-    margin: 0 !important;
-    color: var(--uxt-color-body) !important;
-}
-
-.uxt-contact .uxt-contact-founder {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    padding-top: 40px;
-    border-top: 1px solid var(--uxt-color-border);
-}
-
-.uxt-contact .uxt-contact-person {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.uxt-contact .uxt-contact-person > div:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-/* Founder photo: 72px tile, cut-out photo on the Figma author background */
-.uxt-contact .uxt-contact-photo {
+/* Panel: 1204 x 473, 2px outside the grid like the booking card */
+.uxt-contact .uxt-contact-panel {
     position: relative;
-    flex: none;
-    width: 72px;
-    height: 72px;
+    display: flex;
+    min-height: 473px;
+    margin: 72px -2px 0;
     overflow: hidden;
-    background: #f6dba0;
-    border-radius: 3.2px;
+    background:
+        linear-gradient(101.57deg, #a9fbff 0.34%, #e4edd3 39.33%, rgba(254, 223, 186, 0.3) 71.6%),
+        linear-gradient(97.2deg, #a9fbff 1.41%, #fedfba 99.08%);
+    border-radius: 8px;
 }
 
-.uxt-contact .uxt-contact-photo img {
+/* Founder cutout: 425px column, photo frame starts 7px down */
+.uxt-contact .uxt-contact-panel-photo {
+    position: relative;
+    flex: 0 0 425px;
+    margin-top: 7px;
+    overflow: hidden;
+}
+
+.uxt-contact .uxt-contact-panel-photo img {
     position: absolute;
-    top: -3px;
-    left: -20px;
-    width: 112px !important;
+    top: 0;
+    left: -58px;
+    width: 535px !important;
     max-width: none !important;
     height: auto !important;
     margin: 0 !important;
+}
+
+/* Second copy of the photo, soft light at 45% (Figma) */
+.uxt-contact .uxt-contact-panel-photo img.uxt-contact-panel-glow {
+    left: -56px;
+    opacity: 0.45;
+    mix-blend-mode: soft-light;
+}
+
+.uxt-contact .uxt-contact-panel-body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 59px;
+    min-width: 0;
+    padding: 64px 77px 64px 12px;
+}
+
+.uxt-contact .uxt-contact-panel-info {
+    display: flex;
+    flex: 0 0 188px;
+    flex-direction: column;
+    gap: 21px;
+    width: 188px;
+}
+
+/* Small photo for tablet and mobile only */
+.uxt-contact .uxt-contact-panel-thumb {
+    display: none;
+}
+
+.uxt-contact .uxt-contact-panel-person {
+    padding-bottom: 21px;
+    border-bottom: 1px solid var(--uxt-color-border);
 }
 
 .uxt-contact .uxt-contact-name {
@@ -124,7 +121,7 @@
     font-weight: 500 !important;
     font-size: 22px !important;
     line-height: 1.4 !important;
-    color: var(--uxt-color-navy) !important;
+    color: var(--uxt-color-body) !important;
 }
 
 .uxt-contact .uxt-contact-role {
@@ -133,58 +130,56 @@
     font-family: var(--uxt-font-besley) !important;
     font-weight: 400 !important;
     font-size: 18px !important;
-    line-height: 1.5 !important;
+    line-height: 1.4 !important;
     color: var(--uxt-color-body) !important;
 }
 
-.uxt-contact .uxt-contact-points {
+.uxt-contact .uxt-contact-facts {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 25px;
     margin: 0 !important;
     padding: 0 !important;
     list-style: none !important;
 }
 
-.uxt-contact .uxt-contact-point {
+.uxt-contact .uxt-contact-facts li {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
     margin: 0 !important;
     padding: 0 !important;
     list-style: none !important;
+    color: var(--uxt-color-body);
 }
 
-.uxt-contact .uxt-contact-point-icon {
-    flex: none;
-    color: var(--uxt-color-navy);
+.uxt-contact .uxt-contact-fact-num {
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em;
 }
 
-/* Form card (Figma "Booking card · simple form") */
-.uxt-contact .uxt-contact-card {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    padding: 48px;
-    background: #ffffff;
-    border: 1px solid var(--uxt-color-border);
-    border-radius: 8px;
+.uxt-contact .uxt-contact-fact-text {
+    font-family: var(--uxt-font-manrope) !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em;
 }
 
-.uxt-contact .uxt-contact-card-head {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.uxt-contact .uxt-contact-card-title {
-    color: var(--uxt-color-navy) !important;
+/* Form: 383px column after a 340px line */
+.uxt-contact .uxt-contact-form-wrap {
+    flex: 0 0 442px;
+    width: 442px;
+    padding-left: 59px;
+    border-left: 1px solid var(--uxt-color-border);
 }
 
 .uxt-contact .uxt-contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     margin: 0;
 }
 
@@ -202,7 +197,7 @@
 }
 
 .uxt-contact .uxt-contact-field .uxt-label {
-    color: var(--uxt-color-body) !important;
+    color: var(--uxt-color-heading) !important;
 }
 
 .uxt-contact .uxt-contact-field input {
@@ -213,9 +208,9 @@
     font-family: var(--uxt-font-manrope) !important;
     font-size: 16px !important;
     line-height: 1.6 !important;
-    color: var(--uxt-color-body) !important;
+    color: var(--uxt-color-heading) !important;
     background: #ffffff !important;
-    border: 1px solid var(--uxt-color-border) !important;
+    border: 1px solid rgba(111, 118, 128, 0.6) !important;
     border-radius: 4px !important;
     box-shadow: none !important;
     -webkit-appearance: none;
@@ -223,8 +218,8 @@
 }
 
 .uxt-contact .uxt-contact-field input::placeholder {
-    color: var(--uxt-color-border);
-    opacity: 1;
+    color: var(--uxt-color-heading);
+    opacity: 0.7;
 }
 
 .uxt-contact .uxt-contact-field input:focus {
@@ -262,10 +257,10 @@
     display: none;
 }
 
-/* The button sits 32px under the last field (Figma "Action") */
+/* The button sits 22px under the last field (Figma) */
 .uxt-contact .uxt-contact-form .uxt-button {
     align-self: flex-start;
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 .uxt-contact .uxt-contact-form-success {
@@ -280,7 +275,9 @@
     height: 48px;
 }
 
-.uxt-contact .uxt-contact-form-cal {
+/* The homepage hero makes .uxt-p white: this link stays navy */
+.uxt-contact .uxt-contact-hero .uxt-contact-form-cal {
+    margin: 0 !important;
     color: var(--uxt-color-navy) !important;
     text-decoration: underline;
 }
@@ -299,10 +296,9 @@
     height: 64px;
 }
 
-/* ---------- 3. Our clients and global presence (About values) ---------- */
+/* ---------- 3. Our clients and global presence (About values, white) ---------- */
 .uxt-contact .uxt-contact-clients {
     padding: 120px 0 100px;
-    background: radial-gradient(95.5% 100% at 50% 100%, #ffecbc 0%, #edfdff 42.79%, #ffffff 100%);
 }
 
 /* Logo grid, 2 rows of 6: a line on top, under each row and between tiles.
@@ -392,8 +388,10 @@
 }
 
 /* ---------- 4. Success stories (homepage cards, About values) ---------- */
+/* Warm Glow from the bottom of the section (Figma radial, flipped) */
 .uxt-contact .uxt-contact-stories {
-    padding: 100px 0 80px;
+    padding: 100px 0;
+    background: radial-gradient(95.5% 100% at 50% 100%, #ffecbc 0%, #edfdff 42.79%, #ffffff 100%);
 }
 
 .uxt-contact .uxt-contact-story-logo {
@@ -441,7 +439,7 @@
 
 /* ---------- 5. FAQ (homepage accordion, one column, About values) ---------- */
 .uxt-contact .uxt-contact-faq {
-    padding: 80px 0;
+    padding: 120px 0 80px;
 }
 
 .uxt-contact .uxt-contact-faq .uxt-faq-list {
@@ -505,11 +503,21 @@
     max-width: 640px;
 }
 
-/* ---------- Responsive (1280, 1024, 999, 767, 450) ---------- */
+/* ---------- Responsive (1280, 1024, 999, 767) ---------- */
+/* Small desktop: same steps as the booking card (Part L) */
 @media (max-width: 1280px) {
-    .uxt-contact .uxt-contact-hero-grid {
-        grid-template-columns: minmax(0, 1fr) 520px;
-        gap: 48px;
+    .uxt-contact .uxt-contact-panel-photo {
+        flex-basis: 30%;
+    }
+    .uxt-contact .uxt-contact-panel-body {
+        gap: 36px;
+        padding: 50px 40px 56px 8px;
+    }
+    .uxt-contact .uxt-contact-form-wrap {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 443px;
+        padding-left: 36px;
     }
     .uxt-contact .uxt-contact-logo img {
         width: 170px !important;
@@ -524,10 +532,10 @@
         padding: 70px 0 90px;
     }
     .uxt-contact .uxt-contact-stories {
-        padding: 90px 0 70px;
+        padding: 90px 0;
     }
     .uxt-contact .uxt-contact-faq {
-        padding: 70px 0;
+        padding: 90px 0 70px;
     }
     .uxt-contact .uxt-contact-closing {
         padding: 70px 0 100px;
@@ -537,7 +545,68 @@
     }
 }
 
+/* Tablet: panel stacks, big photo hidden, small photo beside the name
+   (as the booking card on tablet) */
 @media (max-width: 999px) {
+    .uxt-contact .uxt-contact-panel {
+        display: block;
+        min-height: 0;
+        margin: 56px 0 0;
+        padding: 56px 40px;
+    }
+    .uxt-contact .uxt-contact-panel-photo {
+        display: none;
+    }
+    .uxt-contact .uxt-contact-panel-body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+        padding: 0;
+    }
+    .uxt-contact .uxt-contact-panel-info {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        align-items: center;
+        gap: 24px;
+        flex: none;
+        width: 100%;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--uxt-color-border);
+    }
+    .uxt-contact .uxt-contact-panel-thumb {
+        display: block;
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .uxt-contact .uxt-contact-panel-thumb img {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        object-fit: cover;
+        object-position: center top;
+    }
+    .uxt-contact .uxt-contact-panel-person {
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+    .uxt-contact .uxt-contact-facts {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 32px;
+    }
+    .uxt-contact .uxt-contact-facts li {
+        flex: 1 1 0;
+    }
+    .uxt-contact .uxt-contact-form-wrap {
+        flex: none;
+        width: auto;
+        max-width: none;
+        padding-left: 0;
+        border-left: 0;
+    }
     /* What happens next: three steps stay in one row on tablet */
     .uxt-contact .uxt-contact-next .uxt-steps {
         grid-template-columns: repeat(3, 1fr);
@@ -547,15 +616,6 @@
         width: 56px;
         height: 56px;
     }
-    /* Hero: intro first, form card full width under it */
-    .uxt-contact .uxt-contact-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 56px;
-    }
-    .uxt-contact .uxt-contact-card {
-        padding: 40px;
-    }
-    /* Logos: three columns */
     .uxt-contact .uxt-contact-logos {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -571,6 +631,36 @@
 }
 
 @media (max-width: 767px) {
+    .uxt-contact .uxt-contact-hero {
+        padding: 72px 0 80px;
+    }
+    .uxt-contact .uxt-contact-panel {
+        margin-top: 40px;
+        padding: 40px 20px;
+    }
+    .uxt-contact .uxt-contact-panel-body {
+        gap: 32px;
+    }
+    .uxt-contact .uxt-contact-panel-info {
+        grid-template-columns: 96px 1fr;
+        gap: 16px;
+        padding-bottom: 32px;
+    }
+    .uxt-contact .uxt-contact-panel-thumb {
+        width: 96px;
+        height: 96px;
+    }
+    .uxt-contact .uxt-contact-name {
+        font-size: 20px !important;
+    }
+    .uxt-contact .uxt-contact-role {
+        font-size: 16px !important;
+    }
+    .uxt-contact .uxt-contact-facts {
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 8px !important;
+    }
     /* What happens next: the homepage icon rail */
     .uxt-contact .uxt-contact-next .uxt-steps {
         grid-template-columns: 1fr;
@@ -580,43 +670,11 @@
         width: 32px;
         height: 32px;
     }
-    .uxt-contact .uxt-contact-hero {
-        padding: 72px 0 80px;
-    }
-    .uxt-contact .uxt-contact-intro {
-        gap: 40px;
-    }
-    .uxt-contact .uxt-contact-intro-text {
-        gap: 20px;
-    }
-    .uxt-contact .uxt-contact-hero .uxt-p br {
-        display: none;
-    }
-    .uxt-contact .uxt-contact-founder {
-        gap: 24px;
-        padding-top: 32px;
-    }
-    .uxt-contact .uxt-contact-name {
-        font-size: 20px !important;
-    }
-    .uxt-contact .uxt-contact-role {
-        font-size: 16px !important;
-    }
-    .uxt-contact .uxt-contact-point {
-        align-items: flex-start;
-    }
-    .uxt-contact .uxt-contact-point-icon {
-        margin-top: 2px;
-    }
-    .uxt-contact .uxt-contact-card {
-        gap: 28px;
-        padding: 32px 20px;
-    }
     .uxt-contact .uxt-contact-clients,
-    .uxt-contact .uxt-contact-faq {
+    .uxt-contact .uxt-contact-stories {
         padding: 72px 0;
     }
-    .uxt-contact .uxt-contact-stories {
+    .uxt-contact .uxt-contact-faq {
         padding: 72px 0 56px;
     }
     .uxt-contact .uxt-contact-closing {
@@ -628,7 +686,6 @@
     .uxt-contact .uxt-contact-center {
         margin-top: 36px;
     }
-    /* Logos: two columns */
     .uxt-contact .uxt-contact-logos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
