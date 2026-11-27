@@ -2,6 +2,12 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.5.0 · 27 Nov 2026
+
+Contact page (`src/pages/contact.html`), new section from Figma 2802:19872 ("07 Contact information", 2810:1108), between the FAQ and the closing card:
+- **Where to find us:** eyebrow "Contact information", three office columns (India, UAE, USA) with an H3, a Steel hairline, the address and a Secondary "Get directions" link; the links line up at the bottom. Stacks on mobile. PART W section 6.
+- "Get directions" opens a Google Maps search for each address in a new tab (Figma gives no link). Swap in exact map links if preferred.
+
 ## 2.4.0 · 27 Nov 2026
 
 Contact page (`src/pages/contact.html`) matched to Figma "Contact Us · Design v2 (as built)" (2802:19872):

@@ -11,7 +11,8 @@
    FAQ follow the About page (Part R) values, scoped to this page.
    New here: the hero panel (the booking card look of Part E and L: founder
    cutout, facts and the form, on the G5 gradient), What happens next
-   (three steps with inline 64px icons) and the closing card.
+   (three steps with inline 64px icons), Where to find us (three office
+   columns) and the closing card.
    ===================================================================== */
 
 /* ---------- Shared on this page ---------- */
@@ -479,7 +480,43 @@
     color: var(--uxt-color-navy) !important;
 }
 
-/* ---------- 6. Closing call to action (Figma "CTA card · G5") ---------- */
+/* ---------- 6. Contact information: where to find us ---------- */
+.uxt-contact .uxt-contact-find {
+    padding: 80px 0;
+}
+
+/* Three office columns; the links line up at the bottom */
+.uxt-contact .uxt-contact-offices {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 64px;
+}
+
+.uxt-contact .uxt-contact-office {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.uxt-contact .uxt-contact-office .uxt-h3 {
+    width: 100%;
+    padding-bottom: 18px !important;
+    color: var(--uxt-color-navy) !important;
+    border-bottom: 1px solid var(--uxt-color-border);
+}
+
+.uxt-contact .uxt-contact-office-address {
+    flex: 1 1 auto;
+    margin: 0 !important;
+    font-style: normal;
+}
+
+.uxt-contact .uxt-contact-office .uxt-button {
+    margin-top: 8px;
+}
+
+/* ---------- 7. Closing call to action (Figma "CTA card · G5") ---------- */
 .uxt-contact .uxt-contact-closing {
     padding: 80px 0 120px;
 }
@@ -536,6 +573,12 @@
     }
     .uxt-contact .uxt-contact-faq {
         padding: 90px 0 70px;
+    }
+    .uxt-contact .uxt-contact-find {
+        padding: 70px 0;
+    }
+    .uxt-contact .uxt-contact-offices {
+        gap: 40px;
     }
     .uxt-contact .uxt-contact-closing {
         padding: 70px 0 100px;
@@ -676,6 +719,13 @@
     }
     .uxt-contact .uxt-contact-faq {
         padding: 72px 0 56px;
+    }
+    .uxt-contact .uxt-contact-find {
+        padding: 56px 0;
+    }
+    .uxt-contact .uxt-contact-offices {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
     .uxt-contact .uxt-contact-closing {
         padding: 56px 0 80px;

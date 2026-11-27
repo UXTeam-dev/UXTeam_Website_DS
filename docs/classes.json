@@ -5896,6 +5896,62 @@
     "pages/contact.html"
    ]
   },
+  "uxt-contact-find": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-find",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-offices": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-offices",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-office": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
+  "uxt-contact-office-address": {
+   "kind": "styled",
+   "sources": [
+    "PART W (new)"
+   ],
+   "scope": ".uxt-contact",
+   "scopes": [
+    ".uxt-contact"
+   ],
+   "example": ".uxt-contact .uxt-contact-office-address",
+   "usedIn": [
+    "pages/contact.html"
+   ]
+  },
   "uxt-contact-closing": {
    "kind": "styled",
    "sources": [
