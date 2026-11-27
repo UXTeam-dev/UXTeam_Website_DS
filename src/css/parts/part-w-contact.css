@@ -6,8 +6,8 @@
    Scope: .uxt-contact
    Text uses the Part B classes (uxt-h1, uxt-h2, uxt-h3, uxt-h3-sm, uxt-p,
    uxt-label, uxt-accent, uxt-subheading). The dark hero, How we work
-   steps, story cards and FAQ accordion reuse the homepage styles (Part C,
-   G, H). The logo grid, global presence, story card logos and one column
+   steps and FAQ accordion reuse the homepage styles (Part C, G, H).
+   The logo grid and one column
    FAQ follow the About page (Part R) values, scoped to this page.
    New here: the hero panel (the booking card look of Part E and L: founder
    cutout, facts and the form, on the G5 gradient), What happens next
@@ -340,56 +340,6 @@
     width: 104px !important;
 }
 
-/* ---------- 4. Success stories (homepage cards, About values) ---------- */
-/* Warm Glow from the bottom of the section (Figma radial, flipped) */
-.uxt-contact .uxt-contact-stories {
-    padding: 100px 0;
-    background: radial-gradient(95.5% 100% at 50% 100%, #ffecbc 0%, #edfdff 42.79%, #ffffff 100%);
-}
-
-.uxt-contact .uxt-contact-story-logo {
-    display: flex;
-    align-items: center;
-    height: 64px;
-}
-
-.uxt-contact .uxt-contact-story-logo img {
-    display: block;
-    height: auto !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    object-fit: contain;
-    object-position: left center;
-}
-
-.uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-dx {
-    width: 142px !important;
-}
-
-.uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-rbbi {
-    width: 57px !important;
-}
-
-.uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-e2m {
-    width: 56px !important;
-}
-
-.uxt-contact .uxt-story-card .uxt-accent {
-    opacity: 0.8;
-}
-
-@media (min-width: 1025px) {
-    .uxt-contact .uxt-story-card {
-        min-height: 0;
-        padding: 40px 40px 32px;
-    }
-    /* Title box is 156px tall in Figma, so all three cards line up */
-    .uxt-contact .uxt-story-card .uxt-h3 {
-        min-height: 156px;
-        margin: 24px 0 !important;
-    }
-}
-
 /* ---------- 5. FAQ (homepage accordion, one column, About values) ---------- */
 .uxt-contact .uxt-contact-faq {
     padding: 120px 0 80px;
@@ -603,9 +553,6 @@
     .uxt-contact .uxt-contact-clients {
         padding: 70px 0 90px;
     }
-    .uxt-contact .uxt-contact-stories {
-        padding: 90px 0;
-    }
     .uxt-contact .uxt-contact-faq {
         padding: 90px 0 70px;
     }
@@ -763,8 +710,7 @@
         width: 32px;
         height: 32px;
     }
-    .uxt-contact .uxt-contact-clients,
-    .uxt-contact .uxt-contact-stories {
+    .uxt-contact .uxt-contact-clients {
         padding: 72px 0;
     }
     .uxt-contact .uxt-contact-faq {
@@ -812,9 +758,6 @@
     }
     .uxt-contact .uxt-contact-logo img.uxt-contact-logo-voro {
         width: 84px !important;
-    }
-    .uxt-contact .uxt-contact-story-logo {
-        height: 56px;
     }
     .uxt-contact .uxt-contact-closing-card {
         gap: 28px;

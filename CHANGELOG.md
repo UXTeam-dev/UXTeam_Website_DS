@@ -2,6 +2,10 @@
 
 Newest first. One entry per change that reaches GitHub. Name the Figma node when there is one.
 
+## 2.7.1 · 27 Nov 2026
+
+Contact page: Success stories section removed, with its PART W styles (card logos, card sizes, the Warm Glow on that section). Order now: hero, What happens next, Contact details, Our clients, Where to find us, FAQ, closing card. The DX Factor logo and link open items are gone with it.
+
 ## 2.7.0 · 27 Nov 2026
 
 Contact page (`src/pages/contact.html`), on request:

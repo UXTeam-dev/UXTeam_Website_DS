@@ -167,8 +167,7 @@
     "PART D",
     "PART M",
     "PART R",
-    "PART U",
-    "PART W (new)"
+    "PART U"
    ],
    "scope": "global",
    "scopes": [],
@@ -743,7 +742,6 @@
    "scopes": [],
    "example": ".uxt-button-trigger:hover .uxt-button-arrow:nth-of-type(1)",
    "usedIn": [
-    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/industries.html",
@@ -1381,7 +1379,6 @@
    ],
    "example": ".uxt-home .uxt-story-grid",
    "usedIn": [
-    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/stories.html"
@@ -1392,18 +1389,15 @@
    "sources": [
     "PART C",
     "PART F",
-    "PART R",
-    "PART W (new)"
+    "PART R"
    ],
    "scope": ".uxt-home",
    "scopes": [
     ".uxt-home",
-    ".uxt-about",
-    ".uxt-contact"
+    ".uxt-about"
    ],
    "example": ".uxt-home .uxt-story-card",
    "usedIn": [
-    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/stories.html"
@@ -2658,7 +2652,6 @@
    ],
    "example": ".uxt-home a.uxt-story-link",
    "usedIn": [
-    "pages/contact.html",
     "pages/homepage.html",
     "pages/what-we-do.html",
     "partials/sections/stories.html"
@@ -5404,9 +5397,7 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-contact-center",
-   "usedIn": [
-    "pages/contact.html"
-   ]
+   "usedIn": []
   },
   "uxt-contact-hero": {
    "kind": "styled",
@@ -5782,76 +5773,6 @@
     ".uxt-contact"
    ],
    "example": ".uxt-contact .uxt-contact-logo img.uxt-contact-logo-voro",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-stories": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-stories",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-story-logo": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-story-logo",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-logo-dx": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-dx",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-logo-rbbi": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-rbbi",
-   "usedIn": [
-    "pages/contact.html"
-   ]
-  },
-  "uxt-contact-logo-e2m": {
-   "kind": "styled",
-   "sources": [
-    "PART W (new)"
-   ],
-   "scope": ".uxt-contact",
-   "scopes": [
-    ".uxt-contact"
-   ],
-   "example": ".uxt-contact .uxt-contact-story-logo img.uxt-contact-logo-e2m",
    "usedIn": [
     "pages/contact.html"
    ]
